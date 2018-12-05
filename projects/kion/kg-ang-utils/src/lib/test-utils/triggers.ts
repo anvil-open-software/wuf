@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 export class Trigger {
     constructor(public open: string, public close?: string) {
         if (!close) {

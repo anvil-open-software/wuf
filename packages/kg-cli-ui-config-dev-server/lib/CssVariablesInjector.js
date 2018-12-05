@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 const UiConfigDatabase = require("./uiconfig-runner/UiConfigDatabase");
 
 let uiDataBaseRunner = new UiConfigDatabase();
@@ -17,26 +22,26 @@ class CssVariablesInjector {
     /**
      * Parses a css or scss variables string and returns a map of variable to value.
      * This map can be passed into @link(CssVariablesInjector~addCssVariables).
-     * 
-     * @param {string} cssString - 
-     * 
+     *
+     * @param {string} cssString -
+     *
      * String that contains css and/or scss variables. It will ignore any styles and only pull out defined variables.
-     * 
+     *
      * <p>
      * Example, given String:
-     * 
+     *
      * $scssVar1:       black;
      * --css-var-1:     red;
-     * 
+     *
      * body {
      *      background:         $scssVar1;
      *      color:              var(--css-var-1);
      *      $nestedScssVar:     lighten($scssVar1, 10%);
      *      --nested-css-var:   green;
      * }
-     * 
+     *
      * Function will return:
-     * 
+     *
      * {
      *      '$scssVar1':            'black',
      *      '--css-var-1':          'red',
@@ -44,7 +49,7 @@ class CssVariablesInjector {
      *      '--nested-css-var':     'green'
      * }
      * </p>
-     * 
+     *
      * @returns {Object} - Map of variables to value.
      */
     parseCssVariablesFromCssString (cssString) {
@@ -63,14 +68,14 @@ class CssVariablesInjector {
 
     /**
      * Deletes all the common css variables out of the running dev ui config service.
-     * 
+     *
      * @returns {Promise} - Resolved when the table has been cleared. Rejected if there is an error.
      */
     clearCssVariables () {
         return new Promise((resolve, reject) => {
             this.attachPromise
                 .then(() => {
-                    let deleteStatement = 
+                    let deleteStatement =
                         "DELETE FROM " +
                             "UI_RESOURCE " +
                         "WHERE " +
@@ -91,11 +96,11 @@ class CssVariablesInjector {
 
     /**
      * Formats a value to be inserted into the database.
-     * 
+     *
      * Sets ' to '' for escaping.
-     * 
+     *
      * @param {string} value Value to format.
-     * 
+     *
      * @returns {string} formatted value.
      */
     static _formatValueForInsert(value) {
@@ -104,13 +109,13 @@ class CssVariablesInjector {
 
     /**
      * Inserts css or scss variables into the running dev ui config service.
-     * 
+     *
      * @param {Object} cssVariables - Css or scss variables to add.
-     * @param {Object.VARIABLE_NAME} cssVariables - 
-     * 
+     * @param {Object.VARIABLE_NAME} cssVariables -
+     *
      * The object key (VARIABLE_NAME) is the name of the css or scss variable to insert. <br />
      * THe value of (VARIABLE_NAME) is the value of the css or scss variable to insert.
-     * 
+     *
      * @returns {Promise} - Promise that is resolved when all variables are inserted. Rejected if there is an error.
      */
     addCssVariables (cssVariables) {
@@ -123,19 +128,19 @@ class CssVariablesInjector {
                     let statementCount = 0;
 
                     let batchInsertStatement = "";
-                    
+
                     for (let key in cssVariables) {
-                        let insertStatement = 
+                        let insertStatement =
                             "INSERT INTO " +
                                 "UI_RESOURCE " +
-                                "(ID, UI_RESOURCE_BUNDLE_ID, NAME, VALUE, CREATE_DATE, CREATE_USER) " + 
+                                "(ID, UI_RESOURCE_BUNDLE_ID, NAME, VALUE, CREATE_DATE, CREATE_USER) " +
                             "VALUES " +
-                                "(UUID(), ( " + 
+                                "(UUID(), ( " +
                                     "SELECT ID " +
                                     "FROM UI_RESOURCE_BUNDLE " +
                                     "WHERE NAME = 'common-css-variables' " +
-                                "), " + 
-                                "'" + CssVariablesInjector._formatValueForInsert(key) + "', " + 
+                                "), " +
+                                "'" + CssVariablesInjector._formatValueForInsert(key) + "', " +
                                 "'" + CssVariablesInjector._formatValueForInsert(cssVariables[key]) + "', NOW(), 'CssVariablesInjector');"
 
                         if ((batchInsertStatement.length + insertStatement.length + commitStatement.length) > maxStatementSize) {

@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { browser, by } from 'protractor';
 import { KgWebMessagesComponentView } from '../pages/kg-web-messages.component.view.po';
 import { WebElement } from 'selenium-webdriver';

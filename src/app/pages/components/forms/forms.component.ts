@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import {Component, OnInit, ViewEncapsulation, ViewChild, ElementRef} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {coerceNumberProperty} from '@angular/cdk/coercion';

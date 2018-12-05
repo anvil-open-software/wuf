@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { throwError as observableThrowError, of, Observable } from 'rxjs';
 import { mergeMap, materialize, delay, dematerialize } from 'rxjs/operators';
 // The following is used to simulate a backend in a static application without one.

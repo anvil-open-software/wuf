@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { Injectable } from '@angular/core';
 import { IAuth, IUser } from '@kion/kg-ang-app-core';
 import { HttpHeaders, HttpClient } from "@angular/common/http";
@@ -51,7 +56,7 @@ export class AuthorizationCache {
     public refreshDematicCloudAuthorizationValue(): Promise<string | null> {
         return this.refreshAuthorizationValue(DEMATIC_DATA_SOURCE_NAME);
     }
-    
+
     public refreshAuthorizationValue(auth: String): Promise<string | null> {
         let authorization: IAuth | null = this.getAuthorization(auth);
         if (!authorization || !authorization.hasAuthorizationValue()) {
@@ -72,7 +77,7 @@ export class AuthorizationCache {
             }).subscribe(
                 (data: any) => {
                     var token = data.token;
-                
+
                     if (authorization) {
                         //Clear current authorization value.
                         authorization.logout();
@@ -81,9 +86,9 @@ export class AuthorizationCache {
                         //Retrieve new authorization value.
                         authorization.getAuthorizationValue();
                     }
-    
+
                     resolve(token);
-                }, 
+                },
                 (error: any) => {
                     reject(error);
                 });

@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { IUser } from './IUser';
 
 export enum AUTH_LOCATION {
@@ -18,7 +23,7 @@ export interface IAuth {
      * Gets the value of the header without the type: Bearer/Basic/etc...
      */
     getAuthorizationValue():String;
-    
+
     /**
      * Returns whether the authorization is valid; has valid authorization value.
      */

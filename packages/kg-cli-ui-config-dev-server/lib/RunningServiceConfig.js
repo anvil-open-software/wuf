@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 const fs = require("fs");
 const makedirp = require("mkdirp");
 const rimraf = require("rimraf");
@@ -7,7 +12,7 @@ let devServerRunningConfig = devServerTempFolder + "/runningServer.json";
 
 /**
  * @class
- * 
+ *
  * Class for reading and manipluating the current running server's configuration.
  */
 class RunningServiceConfig {
@@ -69,7 +74,7 @@ class RunningServiceConfig {
 
     /**
      * Returns if there is a config file.
-     * 
+     *
      * @returns {boolean} True if running, false if not.
      */
     static isRunning () {
@@ -78,7 +83,7 @@ class RunningServiceConfig {
 
     /**
      * Gets the running configuration for the database or service.
-     * 
+     *
      * @param {string} section Section of the config to get: Service config or database config.
      * @returns {Promise} Promise that is resolved with the config file is loaded. The config data will be passed into the promise.
      * @throws Throws error if the service is not running.
@@ -86,9 +91,9 @@ class RunningServiceConfig {
     static getRunningConfig (section) {
         if (RunningServiceConfig.isRunning()) {
             return RunningServiceConfig._getConfigFileContents()
-                
-                .then((config) => { 
-                    return config[section]; 
+
+                .then((config) => {
+                    return config[section];
                 });
         } else {
             throw "Config service is not running, to start config service run 'startUiConfigServer'.";
@@ -97,7 +102,7 @@ class RunningServiceConfig {
 
     /**
      * Sets the running configuration for the database or service.
-     * 
+     *
      * @param {string} section The section of the config to set: Service config or database config.
      * @param {Object|NULL} data The data to set. If null the section is completely removed from the config.
      * @returns {Promise} Resolved when the data is written to the config file.
@@ -138,7 +143,7 @@ class RunningServiceConfig {
 
     /**
      * Deletes the config file.
-     * 
+     *
      * @returns {Promise} Resolved when the config file is removed.
      */
     static clearRunningConfig () {

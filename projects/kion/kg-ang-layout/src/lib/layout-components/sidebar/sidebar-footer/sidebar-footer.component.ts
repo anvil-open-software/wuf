@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { KgSidebarService } from '../sidebar.service';
 
@@ -6,7 +11,7 @@ import { KgSidebarService } from '../sidebar.service';
     selector: 'kg-sidebar-footer',
     templateUrl: './sidebar-footer.component.html',
     styleUrls: ['./sidebar-footer.component.scss'],
-    encapsulation: ViewEncapsulation.None // NOTE: There is no shadow DOM used for this component so that the 
+    encapsulation: ViewEncapsulation.None // NOTE: There is no shadow DOM used for this component so that the
     // following styles can be applied to content passed via content projection.
 })
 export class KgSidebarFooterComponent implements OnInit {

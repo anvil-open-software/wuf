@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { Component, OnInit, Input, ViewEncapsulation, OnDestroy } from '@angular/core';
 import { KgDashboardService } from '../_internal/kg-dashboard.service';
 

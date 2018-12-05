@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { GLOBAL_EVENT_BUS, Event, EventBus } from './lib/events/event.bus';
 import { EVENT_TYPES } from './lib/events/event.types';
 

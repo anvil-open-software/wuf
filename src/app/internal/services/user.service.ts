@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 // The user service contains a standard set of CRUD methods for managing users.
 
 import { Injectable } from '@angular/core';

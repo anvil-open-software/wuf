@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 @mixin reset-text {
     font-family: var(--kg-font-family-base);
     // We deliberately do NOT reset font-size or word-wrap.

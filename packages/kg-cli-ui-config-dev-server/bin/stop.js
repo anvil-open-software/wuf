@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 #!/usr/bin/env node
 
 const UiConfigRunner = require('../lib/uiconfig-runner/UiConfigRunner');
@@ -30,7 +35,7 @@ uiConfigRunner.attachUiConfig()
     })
 
     .then(() => {
-        return uiConfigDatabase.stopDatabase();        
+        return uiConfigDatabase.stopDatabase();
     })
 
     .catch((err) => {

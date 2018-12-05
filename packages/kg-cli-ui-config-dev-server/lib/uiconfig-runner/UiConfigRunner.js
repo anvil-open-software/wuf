@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 const UiConfigDatabase = require("./UiConfigDatabase");
 const DockerRunner = require("../docker-runner/DockerRunner");
 const RunningServiceConfig = require("../RunningServiceConfig");
@@ -6,11 +11,11 @@ const fs = require("fs");
 
 /**
  * @class
- * 
+ *
  * Creates a running instace of the ui config service.
  */
 class UiConfigRunner {
-   
+
     /**
      * @constructor
      */
@@ -19,7 +24,7 @@ class UiConfigRunner {
         options = options || {};
 
         this.dockerImage = options.dockerImage || "ui-config-service:1.0.0-SNAPSHOT";
-        
+
         this.uiConfigTempFolder = RunningServiceConfig.devServerTempFolder + "/ui-config";
 
         this.uiConfigDocker = new DockerRunner();
@@ -28,9 +33,9 @@ class UiConfigRunner {
 
     /**
      * Starts the service.
-     * 
+     *
      * @param {UiconfigDatabase} uiConfigDatabase Database instace to connect the service to.
-     * 
+     *
      * @returns {Promise} Resolved when the service is running and configured. Rejected if any errors occur.
      */
     startUiConfig (uiConfigDatabase) {
@@ -48,14 +53,14 @@ class UiConfigRunner {
 
     /**
      * Attaches to the running ui service.
-     * 
+     *
      * @returns {Promise} Resolved when successfully attached to the running service container. Rejected if we cannot attach.
      */
     attachUiConfig () {
         return new Promise((resolve, reject) => {
             if (RunningServiceConfig.isRunning()) {
                 RunningServiceConfig.getRunningConfig(RunningServiceConfig.SERVICE_CONFIG_SECTION_NAME)
-                    
+
                     .then(((uiServiceConfig) => {
                         this.dockerImage = uiServiceConfig.dockerImage;
                         this.uiConfigTempFolder = uiServiceConfig.configFolder;
@@ -65,7 +70,7 @@ class UiConfigRunner {
                             .then(resolve)
                             .catch(reject);
                     }).bind(this))
-                    
+
                     .catch(reject);
             } else {
                 reject("Cannot find service to attach to.");
@@ -83,20 +88,20 @@ class UiConfigRunner {
                 configFolder: this.uiConfigTempFolder,
                 port: this.uiConfigPort
             })
-            
-            .then((() => { 
-                resolve(this); 
+
+            .then((() => {
+                resolve(this);
             }).bind(this))
-            
+
             .catch(reject);
         });
     }
 
     /**
      * Runs the provisioning scripts in the ui config docker, against the database container.
-     * 
+     *
      * @param {UiconfigDatabase} uiConfigDatabase Database instace to provision.
-     * 
+     *
      * @returns {Promise} Returns a Promise that is resolved when the database is provisioned, and rejected if there is an error.
      */
     _provisionDatabase(uiConfigDatabase) {
@@ -140,9 +145,9 @@ class UiConfigRunner {
 
     _startConfigService (uiConfigDatabase) {
         this._createConfigPropertiesFiles(
-            uiConfigDatabase.getHost(), 
-            uiConfigDatabase.getName(), 
-            uiConfigDatabase.getUser(), 
+            uiConfigDatabase.getHost(),
+            uiConfigDatabase.getName(),
+            uiConfigDatabase.getUser(),
             uiConfigDatabase.getPassword()
         );
 
@@ -160,14 +165,14 @@ class UiConfigRunner {
 
     /**
      * Stops the running service.
-     * 
+     *
      * @returns {Promise} Resolved when the serivce is shutdown.
      */
     stopUiConfig () {
         return this.uiConfigDocker.stop()
-            
-            .then(() => { 
-                return RunningServiceConfig.setRunningConfig(RunningServiceConfig.SERVICE_CONFIG_SECTION_NAME, null); 
+
+            .then(() => {
+                return RunningServiceConfig.setRunningConfig(RunningServiceConfig.SERVICE_CONFIG_SECTION_NAME, null);
             });
     }
 
@@ -193,9 +198,9 @@ class UiConfigRunner {
         }
 
         fs.writeFileSync(
-            this.uiConfigTempFolder + "/config.properties", 
-            "spring.datasource.url=jdbc:hsqldb:hsql://" + dbHost + "/" + dbName + "\n" + 
-            "spring.datasource.username=" + dbUser + "\n" + 
+            this.uiConfigTempFolder + "/config.properties",
+            "spring.datasource.url=jdbc:hsqldb:hsql://" + dbHost + "/" + dbName + "\n" +
+            "spring.datasource.username=" + dbUser + "\n" +
             "spring.datasource.password=" + dbPassword + "\n" +
             "spring.datasource.driverClassName=org.hsqldb.jdbcDriver\n"
         );

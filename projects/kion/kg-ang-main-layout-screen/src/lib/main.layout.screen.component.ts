@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { Component, ViewEncapsulation, OnInit, InjectionToken, Inject, Optional } from '@angular/core';
 import { DefinedRoutes, IRoute } from '@kion/kg-ang-app-router';
 import { AuthorizationCache } from '@kion/kg-ang-app-auth';

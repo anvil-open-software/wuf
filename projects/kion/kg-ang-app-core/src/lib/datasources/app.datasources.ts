@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { Resource, ResourceLoadingManager } from '../resources/app.resource.loader';
 import { ConfigResourceBuilderPattern } from '../resources/app.config.resource.loader';
 
@@ -39,15 +44,15 @@ export interface DataSource {
     baseApiPath?: String;
     baseExternalUiPath?: String;
     authorizationScheme?: String;
-    
+
     getAuthorizationScheme(): String;
-    
+
     getBaseUrl(): String;
-    
+
     getBaseApiUrl(): String;
-    
+
     getExtendedUiUrl(): String;
-    
+
     populateUrlVariables(url: String): String;
 }
 
@@ -75,16 +80,16 @@ export class DataSources {
     public static onDatasourceResourceChanged() {
         let datasourcesWithTokenResource: DataSources[];
         const loadedTokenResourcePromises: JQueryDeferred<void>[] = [];
-        
+
         datasourcesWithTokenResource = this.getDatasourcesWithTokenResource();
-        
+
         datasourcesWithTokenResource.forEach(function (datasourceWithTokenResource) {
             const loadedTokenResourcePromise: JQueryDeferred<void> = $.Deferred();
             loadedTokenResourcePromises.push(loadedTokenResourcePromise);
-            
+
             // authentication.getToken(datasourceWithTokenResource.tokenResource, loadedTokenResourcePromise);
         }, this);
-        
+
         $.when(loadedTokenResourcePromises).always(function () {
             if (dataSourceTokenInitializer) {
                 dataSourceTokenInitializer.resolve();
@@ -92,7 +97,7 @@ export class DataSources {
             // eventBuses.GLOBAL_EVENT_BUS.publish(eventBuses.EVENTS.DATASOURCES.CHANGED);
         });
     }
-    
+
     public static getDatasource(name: string, recurseDatasources?: any): DataSource | null {
         const tmpDataSources = recurseDatasources || dataSources.resourceData || {};
         if (tmpDataSources.hasOwnProperty(name)) {
@@ -107,10 +112,10 @@ export class DataSources {
             return null;
         }
     }
-    
+
     public static getDatasourcesWithTokenResource(): DataSource[] {
         const datasourcesWithTokenResource: DataSource[] = [];
-        
+
         if (dataSources && dataSources.resourceData) {
             dataSources.resourceData.forEach(function (datasourceValue: DataSource, datasourceName) {
                 if (datasourceValue.hasOwnProperty('tokenResource')) {
@@ -118,7 +123,7 @@ export class DataSources {
                 }
             });
         }
-        
+
         return datasourcesWithTokenResource;
     }
 }

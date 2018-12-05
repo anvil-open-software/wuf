@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { IAuth, AUTH_LOCATION } from './IAuth';
 import { IUser } from './IUser';
 
@@ -18,14 +23,14 @@ export class NoAuthProvider implements IAuth {
     public isValid(): boolean {
         return true;
     }
-    
+
     public hasAuthorizationValue(): boolean {
         return true;
     }
     public isAuthorizationValueExpired(): boolean {
         return false;
     }
-    
+
     public getLoginPath(): String {
         throw new Error('No auth provider implementation has no login path.');
     }

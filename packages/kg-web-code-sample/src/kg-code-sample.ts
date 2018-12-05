@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 // Inspiration derived from: https://www.webcomponents.org/element/kcmr/code-sample
 
 import { html, render, TemplateResult, Template } from 'lit-html';

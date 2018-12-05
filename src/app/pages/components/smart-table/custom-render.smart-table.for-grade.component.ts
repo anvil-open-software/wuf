@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 
 import {KgSmartTableViewCell} from '@kion/kg-ang-smart-table';

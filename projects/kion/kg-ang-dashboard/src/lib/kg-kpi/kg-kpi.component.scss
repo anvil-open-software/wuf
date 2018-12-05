@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 :host {
     /*     local var                  ||         global override              ||                 default value        */
     --dashboard-content-padding:        var(--kg-dashboard-content-padding,                         20px);

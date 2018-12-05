@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 #!/usr/bin/env node
 
 const UiConfigRunner = require("../lib/uiconfig-runner/UiConfigRunner");
@@ -18,7 +23,7 @@ let stopContainers = function () {
             .then(() => {
                 return uiConfigDatabase.stopDatabase();
             })
-            
+
             .catch((err) => {
                 console.error("Error stopping config database: " + err);
             })
@@ -26,7 +31,7 @@ let stopContainers = function () {
             .then (() => {
                 return RunningServiceConfig.clearRunningConfig();
             })
-            
+
             .catch((err) => {
                 console.error("Error clearing running configuration: " + err);
             })
@@ -44,8 +49,8 @@ if (RunningServiceConfig.isRunning()) {
 
 try {
     uiConfigDatabase.startDatabase()
-        .then(() => { 
-            return uiConfigRunner.startUiConfig(uiConfigDatabase); 
+        .then(() => {
+            return uiConfigRunner.startUiConfig(uiConfigDatabase);
         })
         .then(() => {
             console.log("Ui Config started on port: " + uiConfigRunner.uiConfigPort);

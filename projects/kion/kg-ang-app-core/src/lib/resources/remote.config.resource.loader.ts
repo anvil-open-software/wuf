@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { ResourceLoadingManager } from './app.resource.loader';
 
 
@@ -22,5 +27,5 @@ export class RemoteConfigResource {
     public getTenantResourcePath(){
         return this.tenantResourcePath;
     }
-    
+
 }

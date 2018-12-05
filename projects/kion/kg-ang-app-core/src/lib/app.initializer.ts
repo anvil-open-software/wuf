@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { enableProdMode } from '@angular/core';
 import { IAuth } from './authorization/IAuth';
 import { IEnvironment } from './IEnvironment';
@@ -6,7 +11,7 @@ import { initializeDatasourceResource } from './datasources/app.datasources';
 
 
 export function Initialize(environment: IEnvironment,
-                           coreAuthProvider: IAuth, 
+                           coreAuthProvider: IAuth,
                            callback?: Function) {
 
     // Check if there is a token in the url. If there is save it as our token.

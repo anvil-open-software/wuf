@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { browser } from 'protractor';
 import { LayoutComponentView } from '../pages/layout.component.view.po';
 import { NavigationComponentView } from '../pages/navigation.component.view.po';

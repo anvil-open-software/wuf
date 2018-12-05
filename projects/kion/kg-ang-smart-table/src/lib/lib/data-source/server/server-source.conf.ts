@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 export class ServerSourceConf {
 
     protected static readonly SORT_FIELD_KEY = '_sort';

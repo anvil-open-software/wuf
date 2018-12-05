@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 // borrowed and modified from https://github.com/magenta-innova/ng2-gui-messages
 
 import { Injectable } from '@angular/core';

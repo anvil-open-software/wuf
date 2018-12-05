@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { IOAuthAuthority } from '../types/OAuth';
 import { decode } from 'jsonwebtoken';
 
@@ -63,7 +68,7 @@ export class KionCloudAuthority implements IOAuthAuthority {
     }
 
     /**
-     * Return true if has a token, and also has token "exp" property. 
+     * Return true if has a token, and also has token "exp" property.
      * Otherwise, return false.
      */
     public hasToken(): boolean {
@@ -99,7 +104,7 @@ export class KionCloudAuthority implements IOAuthAuthority {
 
         return false;
     }
-    
+
     public clearToken() {
         this.token = null;
         this.tokenPayload = null;

@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 // import { AppComponentView } from '../pages/app.po';
 import { MultiplePopoverComponentView } from '../pages/multiSelect.component.view.po';
 import { NavigationComponentView } from '../pages/navigation.component.view.po';

@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthorizationCache } from '@kion/kg-ang-app-auth';

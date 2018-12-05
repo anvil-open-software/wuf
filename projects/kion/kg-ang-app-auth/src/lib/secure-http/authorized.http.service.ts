@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CoreHttpService, IAuth, DataSources } from '@kion/kg-ang-app-core';
@@ -56,7 +61,7 @@ export class AuthorizedHttpService extends CoreHttpService {
 
     /**
      * Refresh authorization if value is expired.
-     * @param dataSourceName 
+     * @param dataSourceName
      */
     private refreshAuthorizationIfExpired<T>(dataSourceName: string) : Promise<string | null> | null {
         let authorization = this.getAuthorization(dataSourceName);
@@ -70,7 +75,7 @@ export class AuthorizedHttpService extends CoreHttpService {
 
     public executeGet<T>(dataSourceName: string, resourcePath: string, headers?: HttpHeaders) : Promise<T> {
         let refreshAuthorization = this.refreshAuthorizationIfExpired(dataSourceName);
-        
+
         if (refreshAuthorization == null) {
             return super.executeGet<T>(dataSourceName, resourcePath, this.getAuthorizationHeaders(dataSourceName, headers));
         } else {
@@ -91,7 +96,7 @@ export class AuthorizedHttpService extends CoreHttpService {
 
     public executePost<T>(dataSourceName: string, resourcePath: string, headers?: HttpHeaders, data?: any) : Promise<T> {
         let refreshAuthorization = this.refreshAuthorizationIfExpired(dataSourceName);
-        
+
         if (refreshAuthorization == null) {
             return super.executePost<T>(dataSourceName, resourcePath, this.getAuthorizationHeaders(dataSourceName, headers), data);
         } else {
@@ -112,7 +117,7 @@ export class AuthorizedHttpService extends CoreHttpService {
 
     public executePut<T>(dataSourceName: string, resourcePath: string, headers?: HttpHeaders, data?: any) : Promise<T> {
         let refreshAuthorization = this.refreshAuthorizationIfExpired(dataSourceName);
-        
+
         if (refreshAuthorization == null) {
             return super.executePut<T>(dataSourceName, resourcePath, this.getAuthorizationHeaders(dataSourceName, headers), data);
         } else {
@@ -133,7 +138,7 @@ export class AuthorizedHttpService extends CoreHttpService {
 
     public executeDelete<T>(dataSourceName: string, resourcePath: string, headers?: HttpHeaders, data?: any) : Promise<T> {
         let refreshAuthorization = this.refreshAuthorizationIfExpired(dataSourceName);
-        
+
         if (refreshAuthorization == null) {
             return super.executeDelete<T>(dataSourceName, resourcePath, this.getAuthorizationHeaders(dataSourceName, headers));
         } else {

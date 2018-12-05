@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { IAuth, AUTH_LOCATION } from '@kion/kg-ang-app-core';
 import { IUser } from '@kion/kg-ang-app-core';
 
@@ -48,7 +53,7 @@ export class OAuth implements IAuth {
     public hasAuthorizationValue(): boolean {
         return this.authority.hasToken();
     }
-    
+
     public isAuthorizationValueExpired(): boolean {
         return this.authority.isTokenExpired();
     }

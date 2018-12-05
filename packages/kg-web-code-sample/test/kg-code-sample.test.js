@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 // TODO: Move test file to TypeScript.
 // import 'mocha';
 // import { expect } from 'chai';

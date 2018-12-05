@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { KgNavigationService } from '@kion/kg-ang-navigation';
 import { ThemeListService } from '../../theme-list.service';

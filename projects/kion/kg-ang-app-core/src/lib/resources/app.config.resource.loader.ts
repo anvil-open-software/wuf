@@ -1,16 +1,21 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { Resource, ResourceLoadingManager } from './app.resource.loader';
 import { ObjectUtils } from '../utils/objectUtils';
 import { RemoteConfigResource } from './remote.config.resource.loader';
 
 export namespace ConfigResourceBuilderPattern{
-    
+
     export class ConfigResourceBuilder<T> {
         private configUri: string = "";
         private combineTenant: boolean = false;
         private remoteConfig: RemoteConfigResource = null;
-        
+
         public ConfigResourceBuilder(){}
-        
+
         public setConfigUri(configUri: string){
             this.configUri = configUri;
             return this;
@@ -40,21 +45,21 @@ export namespace ConfigResourceBuilderPattern{
             }
         }
     }
-    
-    
+
+
     export class ConfigResource<T> extends Resource {
-        
+
         private dematicResource: Resource;
         private tenantResource: Resource | null = null;
-        
+
         private combineTenant: Boolean;
-        
-        public resourceData: T | null; 
-        
+
+        public resourceData: T | null;
+
         public constructor(){
             super('');
         }
-        
+
         public createFromFlat(builder: ConfigResourceBuilder<T>){
             this.combineTenant = builder.getCombineTenant();
             let configUri = builder.getConfigUri();
@@ -70,7 +75,7 @@ export namespace ConfigResourceBuilderPattern{
             this.tenantResource  = new Resource(builder.getRemoteConfigResource().getTenantResourcePath());
             return this;
         }
-        
+
         public loadData(): Promise<String> {
             return Promise.all([this.dematicResource.loadData(),
                 (this.tenantResource == null ? new Promise<string>((resolve) => {
@@ -88,15 +93,14 @@ export namespace ConfigResourceBuilderPattern{
                         } else {
                             this.resourceData = null;
                         }
-                        
+
                         ObjectUtils.extend(this.resourceData, this.tenantResource.resourceData);
                     }
-                    
+
                     return '';
                 });
             }
         }
     }
-    
-    
-    
+
+

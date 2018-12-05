@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 const DockerRunner = require("../docker-runner/DockerRunner");
 const os = require("os");
 const RunningServiceConfig = require("../RunningServiceConfig");
@@ -13,7 +18,7 @@ const RunningServiceConfig = require("../RunningServiceConfig");
 
 /**
  * @class
- * 
+ *
  * Starts an HSQL database for the ui config to run against.
  */
 class UiConfigDatabase {
@@ -34,7 +39,7 @@ class UiConfigDatabase {
         let ifaces = os.networkInterfaces();
         let foundIpAddress = null;
         let dockerNatIpAddress = null;
-        
+
         Object.keys(ifaces).some(function (ifname) {
             let ifaceAddresses = ifaces[ifname];
             let foundIpAddresses = [];
@@ -48,7 +53,7 @@ class UiConfigDatabase {
                 if ('IPv4' !== ifaceAddress.family || ifaceAddress.internal !== false) {
                     return false;
                 }
-          
+
                 foundIpAddresses.push(ifaceAddress.address);
 
                 if (foundIpAddresses.length > 2) {
@@ -61,25 +66,25 @@ class UiConfigDatabase {
                 // We will prefer the docker if since we are networking between docker containers.
                 if (ifname.indexOf("Docker") != -1) {
                     dockerNatIpAddress = foundIpAddresses[0];
-                } else {             
+                } else {
                     foundIpAddress = foundIpAddresses[0];
                 }
             }
         });
-        
+
         if (!dockerNatIpAddress || !foundIpAddress) {
             throw "Unable to determine local ip address, so we don't know where to connect to the database.";
         }
 
         console.log("Found local ip address: " + dockerNatIpAddress || foundIpAddress);
-        
+
         return dockerNatIpAddress || foundIpAddress;
     }
 
     /**
      * Attaches to an already running database.
      * Uses the running config to get the container id.
-     * 
+     *
      * @returns {Promise} Promise that is resolved when the container is attached.
      */
     attachDatabase() {
@@ -110,7 +115,7 @@ class UiConfigDatabase {
 
     /**
      * Starts the database container.
-     * 
+     *
      * @param {string} uiConfigDockerImageName
      * @param {UiconfigDatabase~Options} options
      * @returns {Promise} Returns a promise that resolves when the database is spawned, and rejects if the database start errors.
@@ -123,15 +128,15 @@ class UiConfigDatabase {
         this.dbHost = this._getHostExternalIpv4Address() + ":" + this.exposePort;
         this.dbName = tmpOptions.databaseName || "ui-config";
         this.dbUser = tmpOptions.databaseUser || "uiConfigUser";
-        // If running sql queries against the database the password has to be blank. 
+        // If running sql queries against the database the password has to be blank.
         //  The SQLTool built into the container will not allow passwords to be provided through the command line.
-        this.dbPassword = ""; // tmpOptions.databasePassword || 
-        
+        this.dbPassword = ""; // tmpOptions.databasePassword ||
+
         this.dockerEnvironmentVariables = [{
             name: "HSQLDB_DATABASE_ALIAS",
             value: this.dbName
         }, {
-            name: "HSQLDB_USER", 
+            name: "HSQLDB_USER",
             value: this.dbUser
         }, {
             name: "HSQLDB_PASSWORD",
@@ -162,8 +167,8 @@ class UiConfigDatabase {
                     return containerId;
                 })
                 */
-                .then(((containerId) => { 
-                    return this._saveRunningConfig(containerId); 
+                .then(((containerId) => {
+                    return this._saveRunningConfig(containerId);
                 }).bind(this))
                 .then(resolve)
                 .catch(reject);
@@ -172,9 +177,9 @@ class UiConfigDatabase {
 
     /**
      * Executes an sql statement against the database. Must be INSERT/UPDATE/DELETE.
-     * 
+     *
      * @param {string} sqlStatement Sql statement(s) to execute. Split multiple statements with ';'.
-     * 
+     *
      * @return {Promise} Resolved when sql statement is run. Rejected on error.
      */
     runSqlStatement(sqlStatement) {
@@ -209,19 +214,19 @@ class UiConfigDatabase {
 
     /**
      * Stops the running database if it is running.
-     * 
+     *
      * @returns {Promise} Promise that is resolved when the database is stopped.
      */
     stopDatabase() {
         return this.databaseContainer.stop()
-            .then(() => { 
-                return RunningServiceConfig.setRunningConfig(RunningServiceConfig.DATABASE_CONFIG_SECTION_NAME, null); 
+            .then(() => {
+                return RunningServiceConfig.setRunningConfig(RunningServiceConfig.DATABASE_CONFIG_SECTION_NAME, null);
             });
     }
 
     /**
      * Returns if the database in the container is accepting connections.
-     * 
+     *
      * @returns {boolean} True is the database is running, false if it not running.
      */
     isDatabaseIsRunningInsideContainer() {
@@ -230,7 +235,7 @@ class UiConfigDatabase {
 
     /**
      * Get the host ip the database is listening on (Local machine ip).
-     * 
+     *
      * @returns {string} Returns the local ip the database is listening on.
      */
     getHost() {
@@ -239,7 +244,7 @@ class UiConfigDatabase {
 
     /**
      * Gets the name of the running database.
-     * 
+     *
      * @returns {string} The name of the database.
      */
     getName() {
@@ -248,7 +253,7 @@ class UiConfigDatabase {
 
     /**
      * Gets the username of the running database.
-     * 
+     *
      * @returns {string} The username of the database.
      */
     getUser() {
@@ -257,7 +262,7 @@ class UiConfigDatabase {
 
     /**
      * Gets the username's password of the running database.
-     * 
+     *
      * @returns {string} The username's password of the database.
      */
     getPassword() {

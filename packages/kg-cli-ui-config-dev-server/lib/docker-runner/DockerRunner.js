@@ -1,8 +1,13 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 let DockerHost = require("dockerode");
 
 /**
  * @class
- * 
+ *
  * Runs a docker image.
  */
 class DockerRunner {
@@ -16,7 +21,7 @@ class DockerRunner {
 
     /**
      * Attaches to an already started container.
-     * 
+     *
      * @param {string} containerId Id of conatiner to attach to.
      * @returns {Promise} Promise that is resolved after attached to a container. Rejected if the container doesn't exist.
      */
@@ -37,7 +42,7 @@ class DockerRunner {
 
     /**
      * Starts a docker container.
-     * 
+     *
      * @param {string} imageName Docker image to run.
      * @param {Object} options Options for starting the docker image.
      * @param {string} [options.host=Platform Specific] The docker socket or docker engine host to connect to.
@@ -76,7 +81,7 @@ class DockerRunner {
             AttachStdout: options && options.waitForEnd,
             AttachStderr: options && options.waitForEnd
         };
-        
+
         if (options) {
             if (options.ports && options.ports.forEach) {
                 this.dockerOptions.HostConfig = {
@@ -119,7 +124,7 @@ class DockerRunner {
                     self.container = container;
                     return container.start();
                 })
-                
+
                 .then((container) => {
                     // Handle container start and wait if option is set.
                     if (options && options.waitForEnd) {
@@ -173,7 +178,7 @@ class DockerRunner {
 
     /**
      * Executes a command against the running container.
-     * 
+     *
      * @param {string} command The command to run.
      * @param {string[]} args Arguments to the command.
      * @param {number} [timeoutMs = 60000] Amount of time to wait for the command to execute, 0 = never.
@@ -208,7 +213,7 @@ class DockerRunner {
 
             let testExecFinished = function (exec) {
                 exec.inspect()
-                
+
                     .then((data) => {
                         if (data.Running) {
                             if (timeoutMs && timeoutMs > 0) {
@@ -226,9 +231,9 @@ class DockerRunner {
                             } else {
                                 resolve();
                             }
-                        }       
+                        }
                     })
-                    
+
                     .catch(reject);
             };
 
@@ -257,7 +262,7 @@ class DockerRunner {
     /**
      * Returns if the container is still running or not as of the latest refreshed state.
      * Note: call refreshState() first if container has been running for a while.
-     * 
+     *
      * @returns {boolean} True if the container is running since the laste refresh. False if the container is not running.
      */
     isRunning() {
@@ -270,12 +275,12 @@ class DockerRunner {
 
     /**
      * Refresh the state of the container.
-     * 
+     *
      * @returns {Promise} Resolved when the state is updated.
      */
     refreshState() {
         return new Promise((resolve, reject) => {
-            this.container.inspect().then((containerData) => { 
+            this.container.inspect().then((containerData) => {
                 this.latestContainerState = containerData;
                 resolve();
             }).catch(reject);
@@ -284,7 +289,7 @@ class DockerRunner {
 
     /**
      * Stops the container.
-     * 
+     *
      * @returns {Promise} Resolved when the container is stopped and removed.
      */
     stop() {

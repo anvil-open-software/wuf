@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
 import { KgSmartTableCell, KgSmartTableDefaultEditor, KgSmartTableEditor } from '@kion/kg-ang-smart-table';
