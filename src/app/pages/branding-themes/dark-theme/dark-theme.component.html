@@ -1,0 +1,80 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/themes', label: 'Branding & Themes' }, { link: null, label: 'KION Theme System', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+
+    <h1>KION Dark Theme Mechanism</h1>
+
+    <p>While the <a routerLink="/themes/themes/">theme system</a> allows a developer to generate a collection of CSS
+        custom properties grouped together in a "theme", an additional "dark theme" mode can be applied <em>in addition
+            to</em> and <em>on top of</em> a given theme.</p>
+
+    <p>The <strong>@kion/kg-web-assets</strong> package includes a "dark theme" that provides some pre-set styles for
+        page content, table styles, and the like. Rather than replacing a theme, the dark theme styling properties <em>enhances</em>
+        the theme by leveraging a theme's <a routerLink="/themes/colors">color palette</a> such that the content area's
+        background uses a dark color value and the foreground colors uses a light color value. The end effect is an
+        "inverted" color scheme.</p>
+
+    <p>Apply the "dark theme" mode to an application, the root element (i.e., the &lt;html&gt; tag) should include the
+        attribute <code>kg-theme-dark="true"</code>:</p>
+
+    <kg-code-sample
+        type="html"
+        [code]="htmlCode">
+    </kg-code-sample>
+
+    <p>When this attribute is set on the &lt;html&gt; the dark theme is applied automatically to any application that
+        includes the <a routerLink="/setup/basestyles">WUF base styles</a>. There are a number of different ways to
+        apply the <code>kg-theme-dark</code> attribute to the &lt;html&gt; tag. In the Living Style Guide (this
+        application), the attribute is set via the following code in <code>app.component.ts</code>:</p>
+
+    <kg-code-sample
+        type="typescript"
+        [code]="appComponentCode">
+    </kg-code-sample>
+
+    <p>&hellip; where "renderer" is a reference to <code>Renderer2</code>, imported from <code>'@angular/core'</code>.
+    </p>
+
+    <p>This code is called when <code>app.component.ts</code> receives notice of a configuration update via the
+        KgConfigurationService's BehaviorSubject. In order to trigger a broadcast from KgConfigurationService, it is
+        recommended that you provide a control in the UI that, when triggered by user interaction, updates the
+        "themeDark" property on the configuraiton object from KgConfigurationService:</p>
+
+    <kg-code-sample
+        type="typescript"
+        [code]="configurationCode">
+    </kg-code-sample>
+
+    <p>The following is an example of how to trigger a dark theme update in the UI:</p>
+
+    <p>
+        <mat-slide-toggle color="primary" [(checked)]="configService.config.themeDark"
+                          (change)="onDarkThemeChange($event.checked)">Enable dark theme
+        </mat-slide-toggle>
+    </p>
+
+    <p>Because the dark theme mechanism can be applied on top another theme, you can allow users to self-select into a
+        standard or dark theme.</p>
+
+    <hr>
+
+    <h2>Creating Dark Theme Compatible Components</h2>
+
+    <p>Every component must be "dark theme compatible".  While every component </p>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>

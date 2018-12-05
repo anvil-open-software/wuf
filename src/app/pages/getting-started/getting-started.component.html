@@ -1,0 +1,55 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'Quick Start (Minimal)', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <h1>Quick Start Application (Minimal)</h1>
+
+    <p>There are two versions of the Quick Start application:</p>
+
+    <ul>
+        <li><a routerLink="/gettingstarted">Quick Start (minimal)</a> - This one</li>
+        <li><a routerLink="/framework">Quick Start (complete)</a></li>
+    </ul>
+
+    <p>The <a href="https://gitlab.dematic.com/cloud_visualization_services/angular-quickstart-app-minimal"
+              target="_blank">Quick Start (Minimal)</a> application, which is a part of the WUF repos at <a
+        href="https://gitlab.dematic.com/cloud_visualization_services" target="_blank">https://gitlab.dematic.com/cloud_visualization_services</a>,
+        is intended to be used as a baseline, plain-vanilla application for quickly creating a new web-based application
+        from scratch.</p>
+
+    <p>The minimal version of the Quick Start application is the most basic and makes no assumptions about any other
+        technology, including the backend. This version allows the developers to start with a bare-bones version of the
+        application that is compatible with any backend, datastore, or services.</p>
+
+    <p>To create a new application based on the Quick Start application:</p>
+
+    <ol>
+        <li>Follow the README.md instructions at <a
+            href="https://gitlab.dematic.com/cloud_visualization_services/angular-quickstart-app-minimal/blob/master/README.md"
+            target="_blank">https://gitlab.dematic.com/cloud_visualization_services/angular-quickstart-app-minimal/blob/master/README.md</a>.
+        </li>
+        <li>Once you have a new application installed locally, create a gitlab repo to host the source code for your new
+            application.
+        </li>
+        <li>You can now begin adding and using the components from the "<a routerLink="/components">Components</a>"
+            section of this Living Style Guide to build your applicationAngular Application Core Framework Module.
+        </li>
+    </ol>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    [page footer content here]
+</kg-content-footer>
+

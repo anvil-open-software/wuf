@@ -1,0 +1,10 @@
+<!-- begin settings side drawer -->
+<div class="drawer-wrap" [class.active]="active">
+    <div class="drawer-shield" (click)="onHideClick()"></div>
+    <div class="drawer d-flex flex-column mdc-elevation--z6">
+        <div class="drawer-header"><h4>{{header}}</h4></div>
+        <div class="drawer-body">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</div>

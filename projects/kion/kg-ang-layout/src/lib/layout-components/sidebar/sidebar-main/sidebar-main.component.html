@@ -1,0 +1,20 @@
+<div class="sidebar-wrap"
+     id="sidebar-wrap"
+     [class.collapsed]="kgSidebarService.sidebarIsExpanded !== undefined && kgSidebarService.sidebarIsExpanded === false"
+     [class.expanded]="kgSidebarService.sidebarIsExpanded"
+     [class.position-left]="configService.config.navigation.position === 'left'"
+     [class.position-top]="configService.config.navigation.position === 'top'"
+     #sidebarWrap
+>
+    <div class="sidebar d-flex flex-column" id="sidebar" #sidebar>
+        <div class="sidebar-content-wrap">
+            <ng-content select="[sidebarNavigation]"></ng-content>
+        </div>
+
+        <!-- only show the sidebar footer if using sidebar left position -->
+        <ng-container *ngIf="configService.config.navigation.position === 'left'">
+            <!--this element does not output a DOM element-->
+            <ng-content select="[sidebarFooter]"></ng-content>
+        </ng-container>
+    </div>
+</div>

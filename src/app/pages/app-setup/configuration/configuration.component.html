@@ -1,0 +1,358 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Configuration', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+
+    <app-component-tabs [tabLabel_1]="'Intro'" [tabLabel_2]="'API'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Application Configuration</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+
+            <p>The <strong>KgConfigurationService</strong>, from common components, is used to configure the application
+                in different ways. For example, configuration settings may include where to position the navigation
+                panel (e.g., left or top) or the default application theme to use (e.g., dark or light). The
+                configuration service is also used to keep track of some application state (e.g., the current size of
+                the resizable sidebar panel) while the user is interacting with the application.</p>
+
+            <p>The <strong>KgConfigurationService</strong> service is responsible for storing and retrieving application
+                configuration data in local storage, providing those setting to the rest of the application, and then
+                broadcasting any configuration updates. Components from common components, as well as the application
+                itself, can then use the <strong>KgConfigurationService</strong> service's data to configure themselves
+                in different ways. In this way, the <strong>KgConfigurationService</strong> service serves as a central
+                hub for updating and retrieving application configuration data.</p>
+
+            <p>The <strong>KgConfigurationService</strong> service provides certain defaults for a given application
+                while allowing the user to override those defaults while interacting with a given application. By
+                storing these settings on both the backend and in local storage, we can then persist these settings
+                across user sessions as well as across any device both with and without a network connection.</p>
+
+            <p>While the <strong>KgConfigurationService</strong> service is responsible for saving configuration to
+                local storage, it will <strong>NOT</strong> send your updated config information back to the server for
+                you. However, it's very easy to subscribe to configuration updates within your app and then, when your
+                app is notified of configuration changes, send those changes back to the server. The server can then do
+                whatever it wants with that configuration data (like save it in a database). See the <strong>Persisting
+                    Configuration</strong> section below.</p>
+            <hr>
+
+            <h2>Sources of Configuration Data</h2>
+
+            <p>The <strong>KgConfigurationService</strong> service should be used to manage configuration settings. The
+                values for these settings themselves can come from a number of different sources, including:</p>
+
+            <ul>
+                <li>Data from component defaults</li>
+                <li>Data from application defaults</li>
+                <li>Data from local storage</li>
+                <li>Data from the server</li>
+            </ul>
+
+            <h4>Component Defaults</h4>
+
+            <p>Any component that uses configuration data should be coded by the developer with some built-in defaults.
+                The navigation component, for example, uses "left" as the default orientation. This means that if the
+                navigation component receives <em>no values</em> from the <strong>KgConfigurationService</strong>
+                service, it will default to left. There is no need for an application developer to provide these values
+                since they are built in to the components themselves.</p>
+
+            <p>The <strong>KgConfigurationService</strong> service itself includes the following default values (which
+                are stored in JSON format):</p>
+
+            <kg-code-sample [code]="serviceDefaultExample" type="javascript"></kg-code-sample>
+
+            <h4>Application Defaults</h4>
+
+            <p>The application should include some default values. For the Living Style Guide, these values are stored
+                in a file at <code>/src/app/internal/configuration/configuration.ts</code>. This file has the following
+                values:</p>
+
+            <kg-code-sample [code]="appDefaultExample" type="javascript"></kg-code-sample>
+
+            <h4>Server Data</h4>
+
+            <p>When a user logs in, the backend should send some minimal configuration data to the application. This
+                data can be stored in the user's JWT payload or requested via a separate API call.</p>
+
+            <p>Any data sent from the server will take precedence over data from any other source. This allows the
+                server to override any local user settings should it need to.</p>
+
+            <p>Minimal data from the server should include:</p>
+
+            <ul>
+                <li>User ID</li>
+                <li>username</li>
+                <li>First Name</li>
+                <li>Last Name</li>
+            </ul>
+
+            <kg-code-sample [code]="serverDataExample" type="javascript"></kg-code-sample>
+
+            <p>Note that this JSON object only has one property: "user", which provides an object of its own. The user
+                ID from the user object is used to store application settings in local storage under a unique storage
+                key from application ID + user ID. Note that it is good practice for the the user object from the server
+                to <em>not</em> include password data.</p>
+
+            <p>As noted above, any setting data from the server will override setting data from any other sources. This
+                means that server data can also include application id, navigation, theme, and other properties, as
+                necessary.</p>
+
+            <h4>Local Storage</h4>
+
+            <p>Whenever configuration data is received from the server or generated locally through user interaction
+                (e.g., changing the theme from light to dark), the complete set of configuration data is stored locally
+                in the browser's local storage. This allows us to re-use this data should the network fail, for
+                example.</p>
+
+            <h4>Putting it All Together</h4>
+
+            <p>As described above, configuration data can come from a number of different sources. The <strong>KgConfigurationService</strong>
+                service will then smartly merge configuration data from these sources together into a single
+                configuration object using the following priority order:</p>
+
+            <ol>
+                <li>If user settings are received from the backend with new attributes or with modified values, use
+                    these new/modified values. Server settings overrule all other settings.
+                </li>
+                <li>If no new or modified setting values are received from server, use setting values stored in local
+                    storage. These stored values were saved there during a previous user session.
+                </li>
+                <li>If no local or stored settings values exist, use default application settings pulled from the
+                    application's configuration file <code>/src/app/internal/configuration/configuration.ts</code>.
+                </li>
+                <li>If no default application settings exist in
+                    <code>/src/app/internal/configuration/configuration.ts</code>, use the default settings baked into
+                    each components (which should always be coded with default values).
+                </li>
+            </ol>
+
+            <p>By <em>merging</em> data in this way, any of the data sources can send <em>partial configuration
+                data</em> (in JSON format) to the service. Property/value data that doesn't yet exist in the
+                configuration the configuration object managed by the <strong>KgConfigurationService</strong> are added
+                while the values for existing properties are replaced with the new values.</p>
+
+            <p>The above cascade order ensures that any configuration value sent from the server <strong>always</strong>
+                wins. Given that this is the case, it's important that the server only override local settings when
+                necessary.</p>
+
+            <hr>
+
+            <h2>Loading Application Configuration</h2>
+
+            <p>The Living Style Guide (this application) provides an example of the above configuration retrieval,
+                merging, and local storage behavior in <code>app.component.ts</code>:</p>
+
+            <kg-code-sample [code]="appComponentExample" type="typescript"></kg-code-sample>
+            <caption>/src/app/app.component.ts</caption>
+
+            <p>The <code>this.userService.authenticate(fakeLoginData).subscribe()</code> line is called from <code>ngOnInit()</code>.
+                This is done to simulate a user login and subscribe to the results. Note that since this application
+                doesn't have a backend, we are using a <code>HttpInterceptor</code> from <code>src/app/internal/fake-backend.service.ts</code>
+                to intercept URL requests to <code>'/api/*'</code> and return fake data. In a production environment,
+                this file should be removed so that all requests are passed through to an API service.</p>
+
+            <p>The login process returns an object with user data. This object is then passed to the
+                getMergedConfiguration() function where user data is merged with data (if any) from local storage and
+                application defaults. Once the merged configuration is returned, it is passed to the <code>KgConfigurationService</code>
+                with the line:</p>
+
+            <pre><code>this.configService.config = mergedConfiguration;</code></pre>
+
+            <p>The <strong>KgConfigurationService</strong> service then updates the config in memory and saves it to
+                local storage. The <code>KgConfigurationService</code> then broadcasts that the configuration object in
+                memory has been updated.</p>
+
+            <p>The following line shows the subscription to the onConfigChange() observable within <code>app.component.ts</code>:
+            </p>
+
+            <pre><code>this.configService.onConfigChange().subscribe()</code></pre>
+
+            <p>When the broadcast of an updated configuration is received, the <code>onConfigChange()</code> method is
+                called and passed the updated configuration object. The <code>onConfigChange()</code> function then
+                decides what, if anything, to do with the updated config. In this case, it looks for a new theme id and,
+                if found, applies that theme id to the root &lt;html&gt; tag. It also looks to see if a dark theme
+                should be applied and updates the &lt;html&gt; tag as necessary. The browser then renders the new
+                styling accordingly.</p>
+
+            <h2>Persisting Configuration</h2>
+
+            <p>It's also important to ensure that local settings created by the user during interaction (e.g., switching
+                from light to dark theme) be sent back to the server so that these settings can be persisted across user
+                sessions, browsers, and devices. In the code above the <code>onConfigChange()</code> function includes a
+                note about where/when you should send configuration data back to the server.</p>
+
+            <hr>
+        </div>
+
+        <div class="component_tabs_2">
+            <h2>Installation</h2>
+
+            <p>The <strong>KgConfigurationService</strong> service is included in the
+                <strong>@kion/kg-ang-configuration</strong> package, which is already included in an Quick Start-based
+                app.
+            </p>
+
+            <p>If not already installed, you can install it with the following command:</p>
+
+            <pre><code>npm install @kion/kg-ang-configuration --save</code></pre>
+
+            or
+
+            <pre><code>yarn add @kion/kg-ang-configuration</code></pre>
+
+            <p>Be sure this component is imported from your <code>app.module.ts</code>
+            page:</p>
+
+            <kg-code-sample type="typescript" [code]="setupCode1"></kg-code-sample>
+
+            <p>And then add it to the <code>providers</code> array of <code>app.module.ts</code>:</p>
+
+            <kg-code-sample type="typescript" [code]="setupCode2"></kg-code-sample>
+
+            <p>Every submodule in your application must also import the service and add it to the corresponding <code>*.module.ts</code>
+                page for the submodule.</p>
+
+            <p>When using the service inside of a component (in order to access configuration properties or to subscribe
+                to configuration updates) you must also add the service to the component page itself. See the examples
+                under the <strong>Intro</strong> section.</p>
+
+            <h2>Properties</h2>
+            <p>The configuration object is purposefully defined of type &lt;any&gt; so that it can take any shape an
+                application developer needs it to. However, in order for components, app layout, etc. to make use of
+                properties stored in the configuration object, certain properties/structures are expected, as
+                follows:</p>
+            <table class="table prop-table">
+                <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="prop-name">id</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'kg-application'</td>
+                    <td class="prop-description">The application ID. Combined with user ID to create a unique local
+                        storage key for the configuration object.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">name</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">none</td>
+                    <td class="prop-description">The application's display name. Used to display an application name in
+                        the header as well as in HTML meta data (e.g., title tag).
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">copyrightName</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'Dematic, Inc.'</td>
+                    <td class="prop-description">The name to display with date for copyright info. Copyright info
+                        typically displays in the sidebar footer. If navigation is set to display at the top, however,
+                        copyright data may not be displayed.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">navigation</td>
+                    <td class="prop-type"><code>object</code></td>
+                    <td class="prop-default">N/A</td>
+                    <td class="prop-description">The navigation property includes nested properties that control
+                        navigation layout, sizing, etc.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">navigation.position</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'left'</td>
+                    <td class="prop-description">Can be any of: 'left', 'top'. Controls the positioning of the
+                        navigation panel within the UI.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">navigation.alignment</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'left'</td>
+                    <td class="prop-description">Can be any of: 'left', 'center', or 'right'. Controls the alignment of
+                        navigation items within the header.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">navigation.iconPosition</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'left'</td>
+                    <td class="prop-description">Only applicable when the navigation.position is set to 'top'. Controls
+                        the position of the navigation element's icon relative to the text label.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">theme</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">none</td>
+                    <td class="prop-description">By default, the application's CSS uses Dematic's light theme. To use
+                        another theme (like the Dematic dark theme) set a theme name to correspond CSS overrides
+                        provided to generate a theme. See <a routerLink="/themes">themes</a> for more information on
+                        creating and using a theme.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">user</td>
+                    <td class="prop-type"><code>object</code></td>
+                    <td class="prop-default">N/A</td>
+                    <td class="prop-description">The user object contains properties specific to a user. The only
+                        required property is "id" (see below)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">user.id</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">none</td>
+                    <td class="prop-description">A user's unique ID. Combined with application ID to create a unique
+                        local storage key for the configuration object. If no user ID is provided, all users will share
+                        the same configuration object, stored under a storage key named application ID + "default".
+                        Settings like theme, sidebar panel width, etc. will persist across users when sharing the same
+                        machine/browser.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">user.username</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'defaultUser'</td>
+                    <td class="prop-description">A user's unique username, used for login.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">user.firstName</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">none</td>
+                    <td class="prop-description">A user's first name. Can be used in the UI, as necessary.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">user.lastName</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">none</td>
+                    <td class="prop-description">A user's last name. Can be used in the UI, as necessary.</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert page footer content here -->
+</kg-content-footer>

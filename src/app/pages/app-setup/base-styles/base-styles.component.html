@@ -1,0 +1,38 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Base Styles', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+
+    <markdown path="assets/documentation/packages/kg-web-assets/README.md"></markdown>
+
+    <hr>
+
+    <h2>Add Meta Tags</h2>
+
+    <p>We also need some key &lt;meta&gt; tags in the &lt;head&gt; of the <code>index.html</code> of our application in
+        order to enable responsive layouts. Be sure your <code>index.html</code> page includes the following tags in the
+        &lt;head&gt; section:</p>
+
+    <kg-code-sample type="html" [code]="headCode"></kg-code-sample>
+    <caption>meta tags for use in your <strong>index.html</strong> file</caption>
+
+    <hr>
+
+    <h2>Quick Start Application</h2>
+    <p>If you are using a Quick Start-based app, all of the above is already done for you.</p>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert page footer content here -->
+</kg-content-footer>

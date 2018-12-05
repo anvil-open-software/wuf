@@ -1,0 +1,22 @@
+.example {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background-color: rgba(#000, .05);
+    border-radius: 0.25rem;
+    display: flex;
+    padding: 10px;
+}
+
+code.block {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    background-color: rgba(#000, .5);
+    color: #ffffff;
+    border-radius: 0.25rem;
+    display: flex;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+h5 {
+    font-size: 1em;
+    font-weight: bold;
+}

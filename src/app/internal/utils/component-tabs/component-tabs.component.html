@@ -1,0 +1,55 @@
+<div class="app-component-tabs">
+    <div select=".component_tabs_name">
+        <h1 class="tab-group-title">
+            <ng-content select=".component_tabs_name"></ng-content>
+        </h1>
+    </div>
+    <mat-tab-group [selectedIndex]="selectedTabIndex" [@.disabled]="disableAnimation">
+        <div *ngIf="tabLabel_1">
+            <mat-tab label="{{tabLabel_1}}">
+                <div class="app-component-tabs-content">
+                    <ng-content select=".component_tabs_1"></ng-content>
+                </div>
+            </mat-tab>
+        </div>
+        <div *ngIf="tabLabel_2">
+            <mat-tab label="{{tabLabel_2}}">
+                <div class="app-component-tabs-content">
+                    <ng-content select=".component_tabs_2"></ng-content>
+                </div>
+            </mat-tab>
+        </div>
+        <div *ngIf="tabLabel_3">
+            <mat-tab label="{{tabLabel_3}}">
+                <div class="app-component-tabs-content">
+                    <ng-content select=".component_tabs_3"></ng-content>
+                </div>
+            </mat-tab>
+        </div>
+        <div *ngIf="tabLabel_4">
+            <mat-tab label="{{tabLabel_4}}">
+                <div class="app-component-tabs-content">
+                    <ng-content select=".component_tabs_4"></ng-content>
+                </div>
+            </mat-tab>
+        </div>
+        <div *ngIf="tabLabel_5">
+            <mat-tab label="{{tabLabel_5}}">
+                <div class="app-component-tabs-content">
+                    <ng-content select=".component_tabs_5"></ng-content>
+                </div>
+            </mat-tab>
+        </div>
+        <div *ngIf="tabLabel_6">
+            <mat-tab label="{{tabLabel_6}}">
+                <div class="app-component-tabs-content">
+                    <ng-content select=".component_tabs_6"></ng-content>
+                </div>
+            </mat-tab>
+        </div>
+    </mat-tab-group>
+</div>
+
+
+
+

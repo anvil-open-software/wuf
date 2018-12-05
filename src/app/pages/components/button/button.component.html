@@ -1,0 +1,181 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Buttons', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Buttons</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+
+            <h5>Material Buttons</h5>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Basic Buttons</th>
+                    <th>Raised Buttons</th>
+                    <th>Icon Buttons</th>
+                    <th>Fab Buttons</th>
+                    <th>Mini Fab Buttons</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <button mat-button>Basic</button>
+                    </td>
+                    <td>
+                        <button mat-raised-button>Basic</button>
+                    </td>
+                    <td>
+                        <button mat-icon-button>
+                            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button mat-fab>Basic</button>
+                    </td>
+                    <td>
+                        <button mat-mini-fab>Basic</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button mat-button color="primary">Primary</button>
+                    </td>
+                    <td>
+                        <button mat-raised-button color="primary">Primary</button>
+                    </td>
+                    <td>
+                        <button mat-icon-button color="primary">
+                            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button mat-fab color="primary">Primary</button>
+                    </td>
+                    <td>
+                        <button mat-mini-fab color="primary">Primary</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button mat-button color="accent">Accent</button>
+                    </td>
+                    <td>
+                        <button mat-raised-button color="accent">Accent</button>
+                    </td>
+                    <td>
+                        <button mat-icon-button color="accent">
+                            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button mat-fab color="accent">Accent</button>
+                    </td>
+                    <td>
+                        <button mat-mini-fab color="accent">Accent</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button mat-button color="warn">Warn</button>
+                    </td>
+                    <td>
+                        <button mat-raised-button color="warn">Warn</button>
+                    </td>
+                    <td>
+                        <button mat-icon-button color="warn">
+                            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button mat-fab color="warn">Warn</button>
+                    </td>
+                    <td>
+                        <button mat-mini-fab color="warn">Warn</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button mat-button disabled>Disabled</button>
+                    </td>
+                    <td>
+                        <button mat-raised-button disabled>Disabled</button>
+                    </td>
+                    <td>
+                        <button mat-icon-button disabled>
+                            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <button mat-fab disabled>Disabled</button>
+                    </td>
+                    <td>
+                        <button mat-mini-fab disabled>Disabled</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a mat-button routerLink=".">Link</a>
+                    </td>
+                    <td>
+                        <a mat-raised-button routerLink=".">Link</a>
+                    </td>
+                    <td>
+                        <a mat-icon-button routerLink=".">
+                            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                        </a>
+                    </td>
+                    <td>
+                        <button mat-fab>
+                            <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+                        </button>
+                    </td>
+                    <td>
+                        <a mat-mini-fab routerLink=".">Link</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p>
+                <a href="https://material.angular.io/components/button/examples" target="_blank">More Angular Material
+                    button examples</a>
+            </p>
+
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+            <p>Refer to the <a href="https://material.angular.io/components/button/api" target="_blank">API reference
+                for Angular Material button</a>.</p>
+        </div>
+
+        <!-- CAHNGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+    </app-component-tabs>
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>

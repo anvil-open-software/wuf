@@ -1,0 +1,58 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Calendar', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Calendar</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+
+            <h5>Angular Material datepicker</h5>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date" [formControl]="startDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="month" [startAt]="startDate"></mat-datepicker>
+            </mat-form-field>
+            <p>
+                <button mat-button color="primary" (click)="selectDate('today')">Select today</button>
+                <button mat-button color="primary" (click)="selectDate('nextMonth')">To Next Month</button>
+                <button mat-button color="primary" (click)="selectDate('feb23')">To Feb 2023</button>
+            </p>
+            <p><a href="https://material.angular.io/components/datepicker/examples" target="_blank">More
+                Angular Material datepicker examples</a></p>
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+            <p><a href="https://material.angular.io/components/datepicker/api" target="_blank">API reference
+                for Angular Material datepicker</a></p>
+        </div>
+
+        <!-- CAHNGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+    </app-component-tabs>
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    Home page footer
+</kg-content-footer>

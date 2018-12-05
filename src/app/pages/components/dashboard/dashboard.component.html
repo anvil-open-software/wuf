@@ -1,0 +1,327 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <kg-dashboard minKpiCount="0">
+        <kg-kpi label="Example" value="10" padding="0px">
+            <div class="splitPanel-wrap">
+                <div class="splitPanel-top">
+                    <h2>Dashboard Example</h2>
+
+                    <p>This is an example of Dashboard usage with clickable "KPIs" (Key Performance Indicators) on the
+                        left and content wrapped in a <a routerLink="/components/splitpanel">split panel</a> below. To
+                        view implementation details and other usage info, click the KPI items on the left.</p>
+
+                    <table class="exampleGraph">
+                        <tr *ngFor="let hero of heroes">
+                            <td>
+                                <div class="bar-wrap">
+                                    <div class="bar" [style.width]="hero.percentage + '%'"></div>
+                                </div>
+                                <div class="barLabel">{{hero.name}}</div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="splitPanel-bottom">
+                    <vaadin-grid
+                        theme="wrap-cell-content"
+                        [items]="heroes"
+                        column-reordering-allowed multi-sort
+                        #myGrid>
+
+                        <vaadin-grid-column resizable>
+                            <template class="header" ngNonBindable>
+                                <vaadin-grid-sorter path="name">
+                                    <vaadin-grid-filter aria-label="Name" path="name" value="[[_name]]">
+                                        <paper-input value="{{_name::input}}" focus-target
+                                                     label="Superhero"></paper-input>
+                                    </vaadin-grid-filter>
+                                    <iron-icon icon="icons:arrow-upward"
+                                               style="display: inline-flex; vertical-align:middle"></iron-icon>
+                                </vaadin-grid-sorter>
+                            </template>
+                            <template>[[item.name]]</template>
+                        </vaadin-grid-column>
+
+                        <vaadin-grid-column resizable>
+                            <template class="header">
+                                <vaadin-grid-sorter path="powers">
+                                    Super Powers
+                                    <iron-icon icon="icons:arrow-upward"></iron-icon>
+                                </vaadin-grid-sorter>
+                            </template>
+                            <template>[[item.powers]]</template>
+                        </vaadin-grid-column>
+
+                        <vaadin-grid-column resizable>
+                            <template class="header">
+                                <vaadin-grid-sorter path="identity">
+                                    Secret Identity
+                                    <iron-icon icon="icons:arrow-upward"></iron-icon>
+                                </vaadin-grid-sorter>
+                            </template>
+                            <template>[[item.identity]]</template>
+                        </vaadin-grid-column>
+
+                        <vaadin-grid-column resizable>
+                            <template class="header">
+                                <vaadin-grid-sorter path="vulnerability">
+                                    Vulnerability
+                                    <iron-icon icon="icons:arrow-upward"></iron-icon>
+                                </vaadin-grid-sorter>
+                            </template>
+                            <template>[[item.vulnerability]]</template>
+                        </vaadin-grid-column>
+
+                    </vaadin-grid>
+                </div>
+            </div>
+        </kg-kpi>
+
+        <kg-kpi label="Usage" value="84" color="success">
+            [Usage info]
+        </kg-kpi>
+
+        <kg-kpi label="API" value="1,234,567" color="warning">
+
+            <markdown path="assets/documentation/packages/kg-ang-dashboard/README.md"></markdown>
+
+            <hr>
+
+            <h2>API</h2>
+
+            <p>The <strong>KgDashboardModule</strong> is comprised of two different components working together:</p>
+
+            <ul>
+                <li>The <strong>&lt;kg-dashboard&gt;</strong> component, which handles the overall layout of the
+                    dashboard.
+                </li>
+                <li>Any number of <strong>&lt;kg-kpi&gt;</strong> components, which make up the contents of the
+                    dashboard and display corresponding Key Performance Indicators on the left side of the layout.
+                </li>
+            </ul>
+
+            <p>Both of these components are included as a part of the <strong>KgDashboardModule</strong> module from the
+                <strong>@kion/kg-ang-dashboard</strong> package in Artifactory.
+            </p>
+
+            <hr>
+
+            <h3>&lt;kg-dashboard&gt; Usage</h3>
+
+            <p>Once installed, using the dashboard component is relatively simple. The
+                <strong>&lt;kg-dashboard&gt;</strong> itself has no attributes. Simply add it inside your page's
+                <strong>&lt;kg-content-main&gt;</strong> tag:
+            </p>
+
+            <kg-code-sample type="html" [code]="usageCode1"></kg-code-sample>
+
+            <p>This will add the overall dashboard layout with a section on left to hold your KPIs and a section on the
+                right to show the content for each KPI when that KPI is clicked.
+            </p>
+
+            <p>However, you may notice a couple of things about the layout:</p>
+
+            <ul>
+                <li>The dropshadow from the page's toolbar (if any) does not overlap the KPI section as it should.</li>
+                <li>There is padding around the dashboard area which we don't want. This comes from the page content
+                    padding itself and must be removed.
+                </li>
+            </ul>
+
+            <p>To solve both of these issues, add the following SCSS code to your page's <code>*.component.scss</code>
+                file:
+            </p>
+
+            <kg-code-sample type="css" [code]="usageCode2"></kg-code-sample>
+
+            <p>The <code>:host</code> section removes the content padding, allowing the dashboard to fill the entire
+                page space without any spacing around it.
+            </p>
+
+            <p>The <code>kg-content-header</code> section causes the toolbar to float above the dashboard component,
+                allowing it to cast its dropshadow over the KPI section, which looks a little better and gives the sense
+                of depth that suggests the dashboard is a child of the toolbar (which it is).
+            </p>
+
+            <hr>
+
+            <h3>&lt;kg-kpi&gt; Usage</h3>
+
+            <p>Now that we have the dashboard framework in place, we can add some content to it. Dashboard content comes
+                in the form of <strong>&lt;kg-kpi&gt;</strong> components. To add content to a dashboard, place as many
+                <strong>&lt;kg-kpi&gt;</strong> tags inside the <strong>&lt;kg-dashboard&gt;</strong> tag as you'd like:
+            </p>
+
+            <kg-code-sample type="html" [code]="usageCode3"></kg-code-sample>
+
+            <p>The only required attributes for the &lt;kg-kpi&gt; component are <strong>label</strong> and <strong>value</strong>.
+                When added, a new KPI will appear in the KPI section on the left displaying the label and value
+                provided. Additionally, the content you provided within the <code>&lt;kg-kpi&gt;</code> tags will be
+                shown on the right.
+            </p>
+
+            <p>If you have added multiple <code>&lt;kg-kpi&gt;</code> tags to the parent
+                <code>&lt;kg-dashboard&gt;</code> tag, the <code>&lt;kg-dashboard&gt;</code> tag will ensure that only
+                one KPI will be active at a time and that only the contents of that active KPI will be displayed in the
+                content area. KPIs behave like tabs in this way and display their corresponding content only when
+                clicked and active. The first KPI added to the page is the initially active KPI on page load.
+            </p>
+
+            <h4>Dyname Value Sizing</h4>
+
+            <p>Notice that in the example to the left the "API" section displays a long string of 9 characters. In order
+                for the entire string to be visible, the <code>&lt;kg-kpi&gt;</code> tag is dynamically sizing the value
+                element based on string length. Additionally, the text size of the value will grow/shrink as the
+                available realestate within the browser grows/shrinks. It does this using a combination of SVG, CSS, and
+                some javascript. This mechanism ensures that KPI values can be displayed on as many different devices as
+                possible, including mobile devices where space is severely limited. The value can handle <strong>about
+                13 characters</strong> before it starts getting truncated.
+            </p>
+
+            <hr>
+
+            <h3>&lt;kg-dashboard&gt; Properties</h3>
+
+            <table class="table prop-table">
+                <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="prop-name">minKpiCount</td>
+                    <td class="prop-type"><code>number</code></td>
+                    <td class="prop-default">4</td>
+                    <td class="prop-description">Minimum number of KPIs to show. If the dashboard includes fewer than
+                        this number of &lt;kg-kpi&gt; elements, filler KPIs will be added to match this number of
+                        displayed KPIs. Set to 0 to allow any number of KPIs.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3>&lt;kg-kpi&gt; Properties</h3>
+
+            <table class="table prop-table">
+                <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="prop-name">color</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">If added, this optional value will change the color of the right
+                        border. Any color name from the <a routerLink="/themes/colors">color palette</a> (primary,
+                        secondary, accent, success, info, warning, danger) can be used here. This is a good way to
+                        indicate a KPI is in a state that requires user attention.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">label</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">The label to display in the KPI. Long strings will wrap.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">padding</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">20px</td>
+                    <td class="prop-description">The amount of padding to display around content in the content area.
+                        Sometimes you may want to remove all padding in order to insert a <a
+                            routerLink="/components/splitpanel">split panel</a> that doesn't need any padding. In this
+                        case you can pass any CSS size value here (e.g., px, em, rem, pt, etc.)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">value</td>
+                    <td class="prop-type"><code>string|number</code></td>
+                    <td class="prop-default">None (required)</td>
+                    <td class="prop-description">The value to display in the KPI. Values longer than about 13 characters
+                        in length will be cropped, depending upon available screen size and number of KPIs displayed.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3>CSS Custom Properties</h3>
+
+            <table class="table table-striped css-props-table">
+                <thead>
+                <tr>
+                    <th width="30%">CSS Custom property</th>
+                    <th>Description</th>
+                    <th style="min-width: 150px;">Value</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td class="propName">--kg-dashboard-content-padding</td>
+                    <td class="description">The CSS value for padding to use in the content area of the dashboard.</td>
+                    <td class="value">20px</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kpi-border-color</td>
+                    <td class="description">The color for the line vertically separating the KPIs.</td>
+                    <td class="value">var(--kg-kpi-border-color, var(--kg-color-gray-400))</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kpi-stripe-color</td>
+                    <td class="description">The color of the thick vertical line appearing on the right side of the KPI.</td>
+                    <td class="value">var(--kg-kpi-stripe-color, var(--kpi-border-color))</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kpi-label-color</td>
+                    <td class="description">The color of the label appearing above the KPI value.</td>
+                    <td class="value">var(--kg-kpi-label-color, var(--kg-color-gray-600))</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kpi-bg-color</td>
+                    <td class="description">The background color of the KPI element.</td>
+                    <td class="value">var(--kg-kpi-bg-color, var(--kg-color-gray-200))</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kpi-active-bg-color</td>
+                    <td class="description">The background color of the KPI element in an active state.</td>
+                    <td class="value">var(--kg-kpi-active-bg-color, var(--kg-color-primary-darker-5))</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kpi-active-stripe-color</td>
+                    <td class="description">The stripe color to use for the KPI element in an active state.  This color is overridden when the <code>color</code> property is used.</td>
+                    <td class="value">var(--kg-kpi-active-stripe-color, var(--kg-color-primary-lighter-10))</td>
+                </tr>
+            </table>
+        </kg-kpi>
+
+        <kg-kpi label="Change Log" value="1,234.5" color="danger">
+            <markdown path="assets/documentation/packages/kg-ang-dashboard/CHANGELOG.md"></markdown>
+        </kg-kpi>
+    </kg-dashboard>
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    [page footer content here]
+</kg-content-footer>
+

@@ -1,0 +1,81 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Utilities', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Utilities</div>
+
+        <!-- start EXAMPLE Content -->
+        <div class="component_tabs_1">
+
+            <h2>Utilities</h2>
+
+            <p>The <strong>@kion/kg-ang-library</strong> package provides a number of different utilities for use throughout
+                your application.</p>
+
+            <div id="capitalize-pipe">
+                <h2 id="capitalize-pipe-header" class="capitalize-pipe">Capitalize Pipe</h2>
+                <p>This utility will capitalize the first character of any string.</p>
+
+                <h5>Examples:</h5>
+                <div id="capitalize-pipe-examples">
+                    <p class="capitalize-pipe string-1">
+                        <span class="capitalize-pipe string-1">Capitalize <strong>{{string_1}}</strong> to <strong>{{string_1 | kgSentenceCase}}</strong></span>
+                    </p>
+                    <p class="capitalize-pipe string-2" class="capitalize.pipe.paragraph">
+                        <span class="capitalize-pipe string-2">Capitalize <strong>{{string_2}}</strong> to <strong>{{string_2 | kgSentenceCase}}</strong></span>
+                    </p>
+                    <p class="capitalize-pipe string-3">
+                        <span class="capitalize-pipe string-3">Capitalize <strong>{{string_3}}</strong> to <strong>{{string_3 | kgSentenceCase}}</strong></span>
+                    </p>
+                    <p class="capitalize-pipe string-4">
+                        <span class="capitalize-pipe string-4">Capitalize <strong>{{string_4}}</strong> to <strong>{{string_4 | kgSentenceCase}}</strong></span>
+                    </p>
+                    <p class="capitalize-pipe string-5">
+                        <span class="capitalize-pipe string-5">Capitalize <strong>{{string_5}}</strong> to <strong>{{string_5 | kgSentenceCase}}</strong></span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <!-- end EXAMPLE Content -->
+
+        <!--start WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+        <!--end WHEN/WHERE Content -->
+
+        <!--start API Content -->
+        <div class="component_tabs_3">
+
+            <markdown path="assets/documentation/packages/kg-ang-utils/README.md"></markdown>
+
+        </div>
+        <!--end API Content -->
+
+        <!--start CHANGELOG Content -->
+        <div class="component_tabs_4">
+             <markdown path="assets/documentation/packages/kg-ang-utils/CHANGELOG.md"></markdown>
+        </div>
+        <!--end CHANGELOG Content -->
+
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>

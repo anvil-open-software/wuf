@@ -1,0 +1,74 @@
+/*
+Add brand overrides here.
+
+Note that this file and associated partials are used for DEMO PURPOSES ONLY.
+The CSS here should be returned using a service whereby the value provided
+below are fetched from a database and written to the page via some kind of
+templating mechanism or by other means.  We are using scss syntax for
+convenience.
+
+Refer to available variables in ./partials/_variables.scss for a full list
+of component variables that can be overridden.
+*/
+
+/**********************************/
+/* EXAMPLE USE OF BRANDING (KION) */
+/**********************************/
+
+:root[kg-theme="kion"],
+*[kg-theme="kion"] {
+
+    /***** set color values to use in theme *****/
+    $kg-brand-primary: #ae0055;
+    $kg-brand-secondary: #424242;
+    $kg-brand-accent: #cc99b1;
+    $kg-brand-success: #5cb85c;
+    $kg-brand-info: #03A9F4;
+    $kg-brand-warning: #fdd835;
+    $kg-brand-danger: #dd2c00;
+
+    /***** create a theme *****/
+    @include kg-theme-colors((
+        "primary": $kg-brand-primary,
+        "secondary": $kg-brand-secondary,
+        "accent": $kg-brand-accent,
+        "success": $kg-brand-success,
+        "info": $kg-brand-info,
+        "warning": $kg-brand-warning,
+        "danger": $kg-brand-danger
+    ));
+
+    /***** logo *****/
+    @include kg-theme-logo("/assets/images/example_images/logos/kion_logo_white.svg", 105px, 45px);
+
+    /***** buttons *****/
+    @include kg-theme-button-radius(4px);
+
+    /***** dark theme overrides *****/
+    &[kg-theme-dark="true"] {
+
+        $kionThemeLightLinkColor: var(--kg-color-primary-lighter-20);
+
+        /***** links *****/
+        --kg-link-color: #{$kionThemeLightLinkColor};
+        --kg-link-hover-color: var(--kg-color-primary-lighter-10);
+
+        /***** Material form fields *****/
+        .mat-focused {
+            .mat-form-field-label {
+                color: #{$kionThemeLightLinkColor};
+            }
+            .mat-form-field-underline {
+                background-color: #{$kionThemeLightLinkColor};
+            }
+        }
+
+        /***** Material buttons *****/
+        .mat-button:not([disabled]),
+        .mat-icon-button:not([disabled]) {
+            &.mat-primary {
+                color: #{$kionThemeLightLinkColor};
+            }
+        }
+    }
+}

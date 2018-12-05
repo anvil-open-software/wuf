@@ -1,0 +1,22 @@
+
+<gridster [options]="options">
+    <gridster-item [item]="item" *ngFor="let item of gridsterService.items">
+
+        <div class="gridster-item-title">
+            {{item.title}}
+            <div class="gridster-menu-wrap">
+                <button mat-icon-button [matMenuTriggerFor]="menu" (mousedown)="onMenuMouseDown($event)"><mat-icon>more_vert</mat-icon></button>
+            </div>
+        </div>
+
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="onDeleteItemClick($event, item)" (touchstart)="onDeleteItemClick($event, item)">Delete</button>
+            <!-- add additional actions here -->
+        </mat-menu>
+
+        <div class="gridster-item-content">
+            <!-- content goes here -->
+        </div>
+
+    </gridster-item>
+</gridster>

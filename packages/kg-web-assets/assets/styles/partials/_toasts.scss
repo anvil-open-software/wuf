@@ -1,0 +1,18 @@
+/////////////////////////////////////////////////////////////////
+////// TOAST - SNACKBAR
+.toast.info {
+	color: var(--kg-color-info) !important;
+	border-bottom: 4px solid var(--kg-color-info);
+}
+.toast.success {
+	color: var(--kg-color-success) !important;
+	border-bottom: 4px solid var(--kg-color-success);
+}
+.toast.warning {
+	color: var(--kg-color-warning) !important;
+	border-bottom: 4px solid var(--kg-color-warning);
+}
+.toast.error {
+	color: var(--kg-color-danger) !important;
+	border-bottom: 4px solid var(--kg-color-danger);
+}

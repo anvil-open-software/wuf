@@ -1,0 +1,62 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Modals', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        [page-level utilities here]
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Modal Component</div>
+
+        <!-- start EXAMPLE Content -->
+        <div class="component_tabs_1">
+
+            <!-- material modal -->
+            <div>
+                <p>Angular Material Design modal:</p>
+                <button id="createMaterialModalBtn" mat-raised-button (click)="openMaterialDialog()">
+                    Open Material Design Dialog
+                </button>
+            </div>
+
+            <pre *ngIf="animal"><strong>favorite animal:</strong> <span id="modal-results">{{animal}}</span></pre>
+            <!-- end material modal -->
+        </div>
+        <!-- end EXAMPLE Content -->
+
+        <!--start WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+        <!--end WHEN/WHERE Content -->
+
+        <!--start API Content -->
+        <div class="component_tabs_3">
+            For usage documentation, refer to <a href="https://material.angular.io/components/dialog/overview" target="_blank">Angular Material Dialog</a>.
+        </div>
+        <!--end API Content -->
+
+        <!--start CHANGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+        <!--end CHANGELOG Content -->
+
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>
+
+<kg-modal (modalOutput)="onModalOutput($event)"></kg-modal>

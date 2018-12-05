@@ -1,0 +1,21 @@
+<div class="dashboard-wrap">
+    <div class="kpi-wrap">
+        <kpi-display *ngFor="let item of kpiList"
+                     [label]="item.label"
+                     [value]="item.value"
+                     [id]="item.id"
+                     [color]="item.color"
+                     [class.disabled]="!item.label.toString().length || !item.value.toString().length"
+        ></kpi-display>
+        <kpi-display *ngFor="let item of kpiFillerList"
+                     [label]="item.label"
+                     [value]="item.value"
+                     [id]="item.id"
+                     [disabled]="true"
+        ></kpi-display>
+
+    </div>
+    <div class="dashboard-main-wrap">
+        <ng-content></ng-content>
+    </div>
+</div>

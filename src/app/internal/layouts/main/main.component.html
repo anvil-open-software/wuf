@@ -1,0 +1,99 @@
+<!-- start fancy login screen (goes at top) -->
+<kg-login>
+    <ng-container title>
+        Sign in to <span>{{title}}</span>
+    </ng-container>
+</kg-login>
+<!-- end fancy login screen -->
+
+<kg-view-main [logoRoute]="logoRoute">
+    <ng-container sidebarNavigation>
+        <kg-navigation
+            [data]="navData"
+            [position]="configService.config.navigation.position"
+            [iconPosition]="configService.config.navigation.iconPosition"
+            [alignment]="configService.config.navigation.alignment"
+        ></kg-navigation>
+    </ng-container>
+
+    <ng-container sidebarFooter>
+        <!--<kg-sidebar-footer [dataUrl]="footerDataUrl"></kg-sidebar-footer>-->
+        <kg-sidebar-footer [copyrightName]="configService.config.copyrightName"></kg-sidebar-footer>
+    </ng-container>
+
+    <ng-container toolbarContent>
+        <!--Optionally add app-level title here-->
+        Living Style Guide
+    </ng-container>
+
+    <ng-container utilities>
+        <!--Add app-level utilities here-->
+
+        <div class="util-wrap">
+            <div *ngIf="configService.config.theme === 'still'" class="theme-still-wrap">
+                <i class="material-icons"
+                   matTooltip="Edit"
+                   matTooltipPosition="below"
+                >edit</i>
+            </div>
+
+            <i class="material-icons"
+               matTooltip="Account"
+               matTooltipPosition="below"
+            >account_circle</i>
+            <i class="material-icons"
+               matTooltip="Settings"
+               matTooltipPosition="below"
+               (click)="openDrawer()"
+            >settings</i>
+        </div>
+    </ng-container>
+
+    <ng-container main>
+        <router-outlet></router-outlet>
+    </ng-container>
+</kg-view-main>
+
+<!-- begin settings side drawer -->
+<kg-drawer header="Settings" id="settingsDrawer">
+    <mat-form-field>
+        <mat-select placeholder="Theme" [(value)]="theme" (selectionChange)="onThemeChange($event)">
+            <mat-option *ngFor="let theme of themes" [value]="theme">
+                {{ theme.label }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Nav Position" [(value)]="configService.config.navigation.position"
+                    (selectionChange)="onNavPositionChange($event)">
+            <mat-option value="top">Top</mat-option>
+            <mat-option value="left">Left</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div *ngIf="configService.config.navigation.position === 'top'">
+        <mat-form-field>
+            <mat-select placeholder="Nav Icon Position" [(value)]="configService.config.navigation.iconPosition"
+                        (selectionChange)="onNavIconPositionChange($event)">
+                <mat-option value="top">Top</mat-option>
+                <mat-option value="left">Left</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Nav Alignment" [(value)]="configService.config.navigation.alignment"
+                        (selectionChange)="onNavAlignmentChange($event)">
+                <mat-option value="left">Left</mat-option>
+                <mat-option value="center">Center</mat-option>
+                <mat-option value="right">Right</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <mat-slide-toggle color="primary" [(checked)]="configService.config.themeDark"
+                      (change)="onDarkThemeChange($event.checked)">Dark Theme
+    </mat-slide-toggle>
+</kg-drawer>
+<!-- end settings side drawer -->
+

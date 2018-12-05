@@ -1,0 +1,29 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/framework', label: 'Quick Start (Complete)' }, { link: null, label: 'Authorization', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <app-component-tabs [tabLabel_1]="'Readme'" [tabLabel_2]="'CHANGE LOG'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Angular Application Authorization Module</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <markdown path="assets/documentation/packages/kg-ang-app-auth/README.md"></markdown>
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            <markdown path="assets/documentation/packages/kg-ang-app-auth/CHANGELOG.md"></markdown>
+        </div>
+    </app-component-tabs>
+
+</kg-content-main>

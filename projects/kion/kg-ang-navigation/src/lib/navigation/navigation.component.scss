@@ -1,0 +1,26 @@
+.nav-wrap {
+    ul.nav {
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        display: flex;
+        &.link-align-left {
+            justify-content: flex-start;
+        }
+        &.link-align-center {
+            justify-content: center;
+        }
+        &.link-align-right {
+            justify-content: flex-end;
+        }
+    }
+    /***** left position (default) *****/
+    &.position-left {
+        ul.nav {
+        }
+    }
+    &.position-top {
+        ul.nav {
+        }
+    }
+}

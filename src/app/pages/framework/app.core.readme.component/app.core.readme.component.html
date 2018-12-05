@@ -1,0 +1,35 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/framework', label: 'Quick Start (Complete)' }, { link: null, label: 'Framework Core', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Readme'" [tabLabel_2]="'CHANGE LOG'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Angular Application Core Framework Module</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <markdown path="assets/documentation/packages/kg-ang-app-core/README.md"></markdown>
+        </div>
+
+        <!-- CAHNGELOG Content -->
+        <div class="component_tabs_2">
+            <markdown path="assets/documentation/packages/kg-ang-app-core/CHANGELOG.md"></markdown>
+        </div>
+    </app-component-tabs>
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    [page footer content here]
+</kg-content-footer>
+

@@ -1,0 +1,428 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Smart Table', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        [page-level utilities here]
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'EXAMPLE'" [tabLabel_2]="'WHERE / WHEN TO USE'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'CHANGE LOG'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Smart Table Component</div>
+
+        <!--start EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <div class="alert alert-danger">
+                <h3>DEPRECATION NOTICE!</h3>
+                <p>This component has been deprecated in favor of <a routerLink="/components/vaadingrid">Vaadin
+                    Grids</a>. There is currently some debate about whether Vaadin will be the officially supported grid
+                    of choice or whether we will return to updating the Smart Table component. While Smart Table is a
+                    native Angular component, Vaadin grid (a polymer component) has a more robust feature set. Consider
+                    this a fair warning if deciding to adopt Smart Tables.</p>
+            </div>
+            <h5>Smart Table</h5>
+            <kg-smart-table
+                id="userTable"
+                [settings]="smartTableSettings"
+                [source]="smartTableData"
+                (createConfirm)="addNewUser($event)"
+                (deleteConfirm)="deleteUser($event)"
+                (editConfirm)="updateUser($event)"
+                (userRowSelect)="selectRow($event)">
+            </kg-smart-table>
+
+            <h3>Standard Bootstrap-style Table</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>head 1</th>
+                    <th>head 2</th>
+                    <th>head 3</th>
+                    <th>head 4</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>content 1</td>
+                    <td>content 2</td>
+                    <td>content 3</td>
+                    <td>content 4</td>
+                </tr>
+                <tr>
+                    <td>content 1</td>
+                    <td>content 2</td>
+                    <td>content 3</td>
+                    <td>content 4</td>
+                </tr>
+                <tr>
+                    <td>content 1</td>
+                    <td>content 2</td>
+                    <td>content 3</td>
+                    <td>content 4</td>
+                </tr>
+                <tr>
+                    <td>content 1</td>
+                    <td>content 2</td>
+                    <td>content 3</td>
+                    <td>content 4</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <div class="smart-table-data-container">{{smartTableInfo}}</div>
+
+            <div class="smart-table-data-container">{{smartTableSelectedRow}}</div>
+
+            <div class="smart-table-data-container">{{smartTableSelectedRows}}</div>
+
+        </div>
+        <!--end EXAMPLE Content -->
+
+        <!--start WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [WHEN/WHERE to USE]
+        </div>
+        <!--end WHEN/WHERE Content -->
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+            <p>The Smart Table component is forked from <a href="https://akveo.github.io/ng2-smart-table/#/">ng2-smart-table</a>
+                and most of the ng2-smart-table documentation applies to this component. Refer to this documentation
+                first, then read the following for instructions on additions and changes from the source.</p>
+
+            <h2>Table Configuration Additions</h2>
+            <table class="table prop-table">
+                <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <th colspan="4">
+                        <small>Other Properties</small>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="prop-name">alternatingRowColors</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">true</td>
+                    <td class="prop-description">When set to true every other row shows a background color.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">add.addButtonContent</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">add</i></td>
+                    <td>By default, the add button will display the <i class="material-icons">add</i> icon. If a string
+                        is passed, a button with this string as its label will be displayed instead of the icon.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">add.addTip</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'Add New'</td>
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Add
+                        icon. Note that if <span
+                            class="code">add.addButtonContent</span> is overridden to include a string to display, an
+                        icon is not displayed and this property will do nothing.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">add.createButtonContent</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">add</i></td>
+                    <td>By default, the create button will display the <i class="material-icons">add</i> icon. If a
+                        string is passed, a button with this string as its label will be displayed instead of the icon.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">add.createTip</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'Create'</td>
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Create
+                        icon. Note that if <span
+                            class="code">add.createButtonContent</span> is overridden to include a string to display, an
+                        icon is not displayed and this property will do nothing.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">add.cancelButtonContent</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">clear</i></td>
+                    <td>By default, the add cancel button will display the <i class="material-icons">clear</i> icon. If
+                        a string is passed, a button with this string as its label will be displayed instead of the
+                        icon.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">add.createTip</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'Cancel'</td>
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Cancel
+                        icon. Note that if <span
+                            class="code">add.cancelButtonContent</span> is overridden to include a string to display, an
+                        icon is not displayed and this property will do nothing.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">delete.deleteButtonContent</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">delete</i></td>
+                    <td>By default, the delete button will display the <i class="material-icons">delete</i> icon. If a
+                        string is passed, a button with this string as its label will be displayed instead of the icon.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">delete.deleteTip</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'Delete'</td>
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Delete
+                        icon. Note that if <span class="code">delete.deleteButtonContent</span> is overridden to include
+                        a string to display, an icon is not displayed and this property will do nothing.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">edit.editButtonContent</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">edit</i></td>
+                    <td>By default, the edit button will display the <i class="material-icons">edit</i> icon. If a
+                        string is passed, a button with this string as its label will be displayed instead of the icon.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">edit.editTip</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'Edit'</td>
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Edit
+                        icon. Note that if <span class="code">edit.editButtonContent</span> is overridden to include a
+                        string to display, an icon is not displayed and this property will do nothing.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">edit.saveButtonContent</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">done</i></td>
+                    <td>By default, the save button will display the <i class="material-icons">done</i> icon. If a
+                        string is passed, a button with this string as its label will be displayed instead of the icon.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">edit.saveTip</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'Save Changes'</td>
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Save
+                        icon. Note that if <span class="code">edit.saveButtonContent</span> is overridden to include a
+                        string to display, an icon is not displayed and this property will do nothing.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">edit.cancelButtonContent</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">clear</i></td>
+                    <td>By default, the edit cancel button will display the <i class="material-icons">clear</i> icon. If
+                        a string is passed, a button with this string as its label will be displayed instead of the
+                        icon.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">edit.cancelTip</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'Cancel'</td>
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Cancel
+                        icon. Note that if <span class="code">edit.cancelButtonContent</span> is overridden to include a
+                        string to display, an icon is not displayed and this property will do nothing.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">filterByLabel</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'filter by'</td>
+                    <td class="prop-description">The text prefixed to the input name appearing in the filter input as
+                        placeholder text.
+                    </td>
+                </tr>
+                <!--<tr>-->
+                <!--<td>fixedHeader</td>-->
+                <!--<td>>boolean</span></code><td>-->
+                <!--<td>true</td>-->
+                <!--<td>Setting this value to true (the default) will cause the table to display a fixed-position header with scrolling content for the table's body.</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                <!--<td>height</td>-->
+                <!--<td>>string</span></code><td>-->
+                <!--<td>'800px'</td>-->
+                <!--<td>Takes any valid CSS values for the <a href="https://www.w3schools.com/cssref/pr_dim_height.asp" target="_blank">height</a> property.  This value is ignored when <span class="code">isFixedHeader</span> is set to false.  When <span class="code">isFixedHeader</span> is set to true (the default), this value is used to set table's max height.  Note that if the number of rows displayed results in a table that is <em>less</em> than this height, this value will have no effect.</td>-->
+                <!--</tr>-->
+                <tr>
+                    <td class="prop-name">hover</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">false</td>
+                    <td class="prop-description">Whether or not to display a highlight color on the row when the user's
+                        mouse passes over the row.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">noDataMessage</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'No data found'</td>
+                    <td class="prop-description">The text to display when no data is loaded into the table.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">valign</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'middle'</td>
+                    <td class="prop-description">Sets the vertical alignment of every cell in the table. Possible values
+                        are <span class="code">top</span>, <span class="code">middle</span>, <span
+                            class="code">bottom</span>.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">width</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'100%'</td>
+                    <td class="prop-description">Takes any valid CSS values for the <a
+                        href="https://www.w3schools.com/cssref/pr_dim_width.asp" target="_blank">width</a> property. By
+                        default the table will stetch to 100% width of its parent container. By setting the value to
+                        "auto" or an empty string ("") the table width will be determined by the contents. Note that if
+                        the contents of the table or the number of columns requires the table to stretch wider than 100%
+                        of available width of the containing element, the table will be as wide as it needs to be
+                        regardless of the value of this setting.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h2>CSS Variables (i.e., CSS Custom Properties) Reference</h2>
+
+            <p>The following theme-related CSS custom properties are available to use throughout your application's CSS
+                files should you decide to use them to further customize your brand's appearance. By default, the values
+                of these properties are set to use the Dematic brand theme. However, you can easily override all of the
+                following default value with your own theme values using the SCSS methods definded in the <a
+                    routerLink="/themes/themes">KION Theme System</a> documentation.</p>
+
+            <table class="table table-striped css-props-table">
+                <thead>
+                <tr>
+                    <th width="30%">CSS Custom property</th>
+                    <th>Description</th>
+                    <th style="min-width: 150px;">Value</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td class="propName">--kg-table-bg-color</td>
+                    <td class="description">Background color for entire table (has the affectd of setting row color).
+                    </td>
+                    <td class="value">var(--kg-color-white)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-border-width</td>
+                    <td class="description">Border that appears around table and between rows.</td>
+                    <td class="value">var(--kg-border-width)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-border-color</td>
+                    <td class="description">Color of border.</td>
+                    <td class="value">var(--kg-border-color)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-head-bg-color</td>
+                    <td class="description">Background color of table head.</td>
+                    <td class="value">var(--kg-color-white)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-head-color</td>
+                    <td class="description">Text color for table head.</td>
+                    <td class="value">var(--kg-body-color)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-filter-bg-color</td>
+                    <td class="description">Background color for the filter placeholder. Only applies to Smart Tables.
+                    </td>
+                    <td class="value">var(--kg-color-secondary-lighter-30)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-filter-color</td>
+                    <td class="description">Text color for the filter placeholder.</td>
+                    <td class="value">var(--kg-color-gray-400)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-cell-padding-vert</td>
+                    <td class="description">Vertical cell padding.</td>
+                    <td class="value">5px</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-cell-padding-horiz</td>
+                    <td class="description">Horizontal cell padding.</td>
+                    <td class="value">20px</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-action-padding</td>
+                    <td class="description">Padding for row action cell. Only applies to Smart Tables.</td>
+                    <td class="value">4px</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-font-size</td>
+                    <td class="description">Font size for table contents.</td>
+                    <td class="value">1rem</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-active-bg-color</td>
+                    <td class="description">Background color for active rows.</td>
+                    <td class="value">var(--kg-color-primary-lighter-30)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-accent-bg-color</td>
+                    <td class="description">Background color used for alternating rows. Requires &lt;table&gt; to use
+                        the "table-striped" class.
+                    </td>
+                    <td class="value">var(--kg-color-gray-100)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-hover-bg-color</td>
+                    <td class="description">Background color to use when hovering over clickable table rows.</td>
+                    <td class="value">var(--kg-color-gray-200)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-button-add-color</td>
+                    <td class="description">Add item button text color. Only applies to Smart Tables.</td>
+                    <td class="value">var(--kg-table-head-color)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-button-add-bg-color</td>
+                    <td class="description">Add item button background color. Only applies to Smart Tables.</td>
+                    <td class="value">var(--kg-table-head-bg-color)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-table-button-add-bg-hover-color</td>
+                    <td class="description">Add item button hover background color. Only applies to Smart Tables.</td>
+                    <td class="value">var(--kg-color-secondary-lighter-10)</td>
+                </tr>
+            </table>
+
+        </div>
+        <!--end API Content -->
+
+        <!--start CHANGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+        <!--end CHANGELOG Content -->
+
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>

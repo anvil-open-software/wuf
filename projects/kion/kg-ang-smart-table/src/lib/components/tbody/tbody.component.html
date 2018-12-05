@@ -1,0 +1,87 @@
+<tr *ngFor="let row of grid.getRows()"
+    (click)="userSelectRow.emit(row)"
+    (mouseover)="rowHover.emit(row)"
+    class="kg-smart-row"
+    [className]="rowClassFunction(row)"
+    [class.selected]="row.isSelected"
+    [class.kg-smart-form-row]="row.isInEditing"
+>
+    <td *ngIf="isMultiSelectVisible"
+        class="kg-smart-actions kg-smart-action-multiple-select"
+        (click)="multipleSelectRow.emit(row)"
+        [style.vertical-align]="valign">
+        <input type="checkbox" class="form-control" [ngModel]="row.isSelected">
+    </td>
+
+    <td *ngIf="!row.isInEditing && showActionColumnLeft"
+        class="kg-smart-actions"
+        [style.vertical-align]="valign">
+        <!--<kg-st-tbody-custom [grid]="grid" (custom)="custom.emit($event)" [row]="row" [source]="source"></kg-st-tbody-custom>-->
+        <kg-st-tbody-edit-delete [grid]="grid"
+                                 [deleteConfirm]="deleteConfirm"
+                                 [editConfirm]="editConfirm"
+                                 (edit)="edit.emit(row)"
+                                 (delete)="delete.emit(row)"
+                                 (editRowSelect)="editRowSelect.emit($event)"
+                                 [row]="row"
+                                 [source]="source">
+        </kg-st-tbody-edit-delete>
+    </td>
+
+    <td *ngIf="row.isInEditing && showActionColumnLeft"
+        class="kg-smart-actions"
+        [style.vertical-align]="valign">
+        <kg-st-tbody-create-cancel [grid]="grid" [row]="row" [editConfirm]="editConfirm"></kg-st-tbody-create-cancel>
+    </td>
+
+    <td *ngFor="let cell of row.cells"
+        [style.vertical-align]="valign">
+        <kg-smart-table-cell [cell]="cell"
+                             [grid]="grid"
+                             [row]="row"
+                             [isNew]="false"
+                             [mode]="mode"
+                             [editConfirm]="editConfirm"
+                             [inputClass]="editInputClass"
+                             [isInEditing]="row.isInEditing">
+        </kg-smart-table-cell>
+    </td>
+
+    <td *ngIf="row.isInEditing && showActionColumnRight"
+        class="kg-smart-actions"
+        [style.vertical-align]="valign">
+        <kg-st-tbody-create-cancel [grid]="grid" [row]="row" [editConfirm]="editConfirm"></kg-st-tbody-create-cancel>
+    </td>
+
+    <td *ngIf="!row.isInEditing && showActionColumnRight"
+        class="kg-smart-actions"
+        [style.vertical-align]="valign">
+        <!--<kg-st-tbody-custom [grid]="grid" (custom)="custom.emit($event)" [row]="row" [source]="source"></kg-st-tbody-custom>-->
+
+        <kg-st-tbody-edit-delete [grid]="grid"
+                                 [deleteConfirm]="deleteConfirm"
+                                 [editConfirm]="editConfirm"
+                                 [row]="row"
+                                 [source]="source"
+                                 (edit)="edit.emit(row)"
+                                 (delete)="delete.emit(row)"
+                                 (editRowSelect)="editRowSelect.emit($event)">
+        </kg-st-tbody-edit-delete>
+    </td>
+</tr>
+
+<tr *ngIf="grid.getRows().length == 0 && !grid.isLoading">
+    <td [attr.colspan]="grid.getColumns().length + ((isActionAdd || isActionEdit || isActionDelete) ? 1 : 0)"
+        [style.vertical-align]="valign" class="noData">
+        ({{ noDataMessage }})
+    </td>
+</tr>
+
+<tr *ngIf="grid.isLoading">
+    <td [attr.colspan]="grid.getColumns().length + ((isActionAdd || isActionEdit || isActionDelete) ? 1 : 0)"
+        [style.vertical-align]="valign" class="noData">
+        <div class="mat-progress-bar-wrap">
+            <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+        </div>
+    </td>
+</tr>

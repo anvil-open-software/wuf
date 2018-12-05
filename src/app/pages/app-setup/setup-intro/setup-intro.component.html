@@ -1,0 +1,53 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'Application Setup', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <h1>Application Setup</h1>
+
+    <p>The Common Components Library provides a number of components, styles, and application configuration options. By
+        assembling the components as we need, loading some base styles, and tweaking some configuration settings, we can
+        build pages with headers, sidebars, footers, and content areas easily and with a high degree of flexibility.
+        Additionally, the base styles provided by common-components give us all the styles we need for common HTML
+        elements in order to ensure that they match UX Board guidelines. Finally, by utilizing the pre-built layouts
+        included in the Quick Start app and a number of configuration options, we can easily set the orientation and
+        style of layout for each page. In a nutshell, by taking care of layouts and base styles for us, we can focus our
+        development efforts on page <strong>content</strong>, knowing that everything else is already handled for us.
+    </p>
+
+    <p>In order to better understand how layouts work within the WUF framework, we recommend reading each of the
+        following sections and following their instructions to ensure your application is correctly set up with the
+        layouts and base styles it needs.</p>
+
+    <ul>
+        <li><strong><a routerLink="/setup/basestyles">Base Styles</a></strong>. Describes how to add base styles to your
+            app.
+        </li>
+        <li><strong><a routerLink="/setup/layoutcomponents">Layout Components</a></strong>. Documents the various layout
+            components available for your app to use.
+        </li>
+        <li><strong><a routerLink="/setup/mainbasic">Main vs Basic</a></strong>. Documents the two layouts built-in to
+            the Quick Start application and how to switch between them.
+        </li>
+        <li><strong><a routerLink="/setup/configuration">Configuration</a></strong>. Documents the use of application
+            configuration/settings.
+        </li>
+        <li><strong><a routerLink="/setup/cssprops">CSS Variables</a></strong>. Documents the various layout-related and
+            base style CSS custom properties available.
+        </li>
+    </ul>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert page footer content here -->
+</kg-content-footer>

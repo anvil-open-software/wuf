@@ -1,0 +1,878 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "kion-components": {
+      "root": "",
+      "sourceRoot": "src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/kion-components",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "assets": [
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "packages/kg-web-assets/assets/images",
+                "output": "/assets/kion/kg-web-assets/images"
+              },
+              {
+                "glob": "*.md",
+                "input": "",
+                "output": "/assets/documentation"
+              },
+              {
+                "glob": "**/**.md",
+                "input": "packages",
+                "output": "/assets/documentation/packages"
+              },
+              {
+                "glob": "**/**.md",
+                "input": "projects/kion",
+                "output": "/assets/documentation/packages"
+              }
+            ],
+            "styles": [
+              "src/styles.scss",
+              "src/assets/dummydata/branding/branding.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules"
+              ]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "kion-components:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "kion-components:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "kion-components:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.spec.json",
+            "karmaConfig": "src/karma.conf.js",
+            "styles": [
+              "src/styles.scss",
+              "src/assets/dummydata/branding/branding.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "./node_modules"
+              ]
+            },
+            "scripts": [],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "src/tsconfig.app.json",
+              "src/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "kion-components-e2e": {
+      "root": "e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "kion-components:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "kion-components:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-app-auth": {
+      "root": "projects/kion/kg-ang-app-auth",
+      "sourceRoot": "projects/kion/kg-ang-app-auth/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-app-auth/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-app-auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-app-auth/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-app-auth/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-app-auth/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-app-auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-app-auth/tsconfig.lib.json",
+              "projects/kion/kg-ang-app-auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-app-core": {
+      "root": "projects/kion/kg-ang-app-core",
+      "sourceRoot": "projects/kion/kg-ang-app-core/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-app-core/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-app-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-app-core/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-app-core/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-app-core/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-app-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-app-core/tsconfig.lib.json",
+              "projects/kion/kg-ang-app-core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-app-router": {
+      "root": "projects/kion/kg-ang-app-router",
+      "sourceRoot": "projects/kion/kg-ang-app-router/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-app-router/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-app-router/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-app-router/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-app-router/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-app-router/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-app-router/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-app-router/tsconfig.lib.json",
+              "projects/kion/kg-ang-app-router/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-library": {
+      "root": "projects/kion/kg-ang-library",
+      "sourceRoot": "projects/kion/kg-ang-library/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-library/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-library/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-library/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-library/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-library/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-library/tsconfig.lib.json",
+              "projects/kion/kg-ang-library/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-message": {
+      "root": "projects/kion/kg-ang-message",
+      "sourceRoot": "projects/kion/kg-ang-message/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-message/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-message/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-message/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-message/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-message/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-message/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-message/tsconfig.lib.json",
+              "projects/kion/kg-ang-message/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-login-screen": {
+      "root": "projects/kion/kg-ang-login-screen",
+      "sourceRoot": "projects/kion/kg-ang-login-screen/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-login-screen/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-login-screen/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-login-screen/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-login-screen/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-login-screen/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-login-screen/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-login-screen/tsconfig.lib.json",
+              "projects/kion/kg-ang-login-screen/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-logout-screen": {
+      "root": "projects/kion/kg-ang-logout-screen",
+      "sourceRoot": "projects/kion/kg-ang-logout-screen/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-logout-screen/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-logout-screen/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-logout-screen/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-logout-screen/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-logout-screen/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-logout-screen/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-logout-screen/tsconfig.lib.json",
+              "projects/kion/kg-ang-logout-screen/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-configuration": {
+      "root": "projects/kion/kg-ang-configuration",
+      "sourceRoot": "projects/kion/kg-ang-configuration/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-configuration/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-configuration/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-configuration/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-configuration/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-configuration/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-configuration/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-configuration/tsconfig.lib.json",
+              "projects/kion/kg-ang-configuration/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-utils": {
+      "root": "projects/kion/kg-ang-utils",
+      "sourceRoot": "projects/kion/kg-ang-utils/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-utils/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-utils/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-utils/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-utils/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-utils/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-utils/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-utils/tsconfig.lib.json",
+              "projects/kion/kg-ang-utils/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-layout": {
+      "root": "projects/kion/kg-ang-layout",
+      "sourceRoot": "projects/kion/kg-ang-layout/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-layout/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-layout/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-layout/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-layout/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-layout/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-layout/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-layout/tsconfig.lib.json",
+              "projects/kion/kg-ang-layout/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-drawer": {
+      "root": "projects/kion/kg-ang-drawer",
+      "sourceRoot": "projects/kion/kg-ang-drawer/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-drawer/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-drawer/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-drawer/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-drawer/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-drawer/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-drawer/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-drawer/tsconfig.lib.json",
+              "projects/kion/kg-ang-drawer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-main-layout-screen": {
+      "root": "projects/kion/kg-ang-main-layout-screen",
+      "sourceRoot": "projects/kion/kg-ang-main-layout-screen/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-main-layout-screen/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-main-layout-screen/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-main-layout-screen/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-main-layout-screen/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-main-layout-screen/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-main-layout-screen/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-main-layout-screen/tsconfig.lib.json",
+              "projects/kion/kg-ang-main-layout-screen/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-dashboard": {
+      "root": "projects/kion/kg-ang-dashboard",
+      "sourceRoot": "projects/kion/kg-ang-dashboard/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-dashboard/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-dashboard/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-dashboard/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-dashboard/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-dashboard/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-dashboard/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-dashboard/tsconfig.lib.json",
+              "projects/kion/kg-ang-dashboard/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-login-animated": {
+      "root": "projects/kion/kg-ang-login-animated",
+      "sourceRoot": "projects/kion/kg-ang-login-animated/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-login-animated/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-login-animated/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-login-animated/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-login-animated/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-login-animated/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-login-animated/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-login-animated/tsconfig.lib.json",
+              "projects/kion/kg-ang-login-animated/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-navigation": {
+      "root": "projects/kion/kg-ang-navigation",
+      "sourceRoot": "projects/kion/kg-ang-navigation/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-navigation/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-navigation/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-navigation/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-navigation/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-navigation/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-navigation/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-navigation/tsconfig.lib.json",
+              "projects/kion/kg-ang-navigation/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-gridster": {
+      "root": "projects/kion/kg-ang-gridster",
+      "sourceRoot": "projects/kion/kg-ang-gridster/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-gridster/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-gridster/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-gridster/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-gridster/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-gridster/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-gridster/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-gridster/tsconfig.lib.json",
+              "projects/kion/kg-ang-gridster/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-smart-table": {
+      "root": "projects/kion/kg-ang-smart-table",
+      "sourceRoot": "projects/kion/kg-ang-smart-table/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-smart-table/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-smart-table/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-smart-table/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-smart-table/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-smart-table/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-smart-table/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-smart-table/tsconfig.lib.json",
+              "projects/kion/kg-ang-smart-table/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "@kion/kg-ang-toasts": {
+      "root": "projects/kion/kg-ang-toasts",
+      "sourceRoot": "projects/kion/kg-ang-toasts/src",
+      "projectType": "library",
+      "prefix": "kg",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kion/kg-ang-toasts/tsconfig.lib.json",
+            "project": "projects/kion/kg-ang-toasts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kion/kg-ang-toasts/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kion/kg-ang-toasts/src/test.ts",
+            "tsConfig": "projects/kion/kg-ang-toasts/tsconfig.spec.json",
+            "karmaConfig": "projects/kion/kg-ang-toasts/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kion/kg-ang-toasts/tsconfig.lib.json",
+              "projects/kion/kg-ang-toasts/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "kion-components"
+}

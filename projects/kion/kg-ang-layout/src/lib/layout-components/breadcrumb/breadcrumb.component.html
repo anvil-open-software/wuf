@@ -1,0 +1,22 @@
+<div class="breadcrumb-wrap">
+
+    <!-- show if contents are passed in via a list array -->
+    <ol class="breadcrumb" *ngIf="items.length">
+        <li class="breadcrumb-item" *ngFor="let item of items">
+            <a [routerLink]="item.link" [queryParams]="item.queryParams ? item.queryParams : {}" *ngIf="!item.active"
+                class="breadcrumb-link" [class.active]="item.active">{{item.label}}</a>
+            <span *ngIf="item.active">{{item.label}}</span>
+        </li>
+    </ol>
+
+    <!-- show if contents are passed in via content projection -->
+    <div #content>
+        <ng-content></ng-content>
+    </div>
+
+    <!-- show if no contents are passed in whatsoever -- a reminder to the developer to add something -->
+    <ol class="breadcrumb" *ngIf="!items.length && !content.innerHTML.length">
+        <li class="breadcrumb-item" *ngIf="!items || !items.length">[breadcrumb items here]</li>
+    </ol>
+
+</div>

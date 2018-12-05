@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/">
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WUF Style Guide</title>
+
+    <script>
+        // Solution: https://stackoverflow.com/questions/50356408/upgrading-to-angular-6-x-gives-uncaught-referenceerror-global-is-not-defined
+        // Resolves issue with Node scripts being used with Angular 6.  The proposed solution here does not work: https://github.com/angular/angular-cli/issues/9827
+        var global = global || window;
+        var Buffer = Buffer || [];
+        var process = process || {
+            env: {DEBUG: undefined},
+            version: []
+        };
+    </script>
+
+    <!-- start favicons -->
+    <link rel="shortcut icon" href="assets/kion/kg-web-assets/images/favicons/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="assets/kion/kg-web-assets/images/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="assets/kion/kg-web-assets/images/favicons/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="assets/kion/kg-web-assets/images/favicons/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/kion/kg-web-assets/images/favicons/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="assets/kion/kg-web-assets/images/favicons/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/kion/kg-web-assets/images/favicons/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/kion/kg-web-assets/images/favicons/favicon-16.png">
+    <link rel="apple-touch-icon" href="assets/kion/kg-web-assets/images/favicons/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/kion/kg-web-assets/images/favicons/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/kion/kg-web-assets/images/favicons/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/kion/kg-web-assets/images/favicons/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/kion/kg-web-assets/images/favicons/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/kion/kg-web-assets/images/favicons/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/kion/kg-web-assets/images/favicons/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/kion/kg-web-assets/images/favicons/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/kion/kg-web-assets/images/favicons/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="assets/kion/kg-web-assets/images/favicons/favicon-144.png">
+    <meta name="msapplication-config" content="assets/kion/kg-web-assets/images/favicons/browserconfig.xml">
+    <!-- end favicons -->
+
+    <!-- start loading styles -->
+    <style>
+        app-root:empty + .spinner-wrap {
+            opacity: 1;
+            z-index: 100;
+        }
+
+        .spinner-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #424242;
+            transition: opacity ease-out .8s;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            margin: 100px auto;
+            width: 50px;
+            height: 40px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .spinner > div {
+            background-color: #fff;
+            height: 100%;
+            width: 6px;
+            display: inline-block;
+
+            -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+            animation: sk-stretchdelay 1.2s infinite ease-in-out;
+        }
+
+        .spinner .rect2 {
+            -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+        }
+
+        .spinner .rect3 {
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        .spinner .rect4 {
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+
+        .spinner .rect5 {
+            -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+        }
+
+        @-webkit-keyframes sk-stretchdelay {
+            0%, 40%, 100% {
+                -webkit-transform: scaleY(0.4)
+            }
+            20% {
+                -webkit-transform: scaleY(1.0)
+            }
+        }
+
+        @keyframes sk-stretchdelay {
+            0%, 40%, 100% {
+                transform: scaleY(0.4);
+                -webkit-transform: scaleY(0.4);
+            }
+            20% {
+                transform: scaleY(1.0);
+                -webkit-transform: scaleY(1.0);
+            }
+        }
+    </style>
+    <!-- end loading styles -->
+
+</head>
+<body>
+
+<app-root></app-root>
+
+<!-- begin loading spinner -->
+<!-- Note that we are intentionally keeping this outside of the <app-root> so we can fade it out once the app is loaded -->
+<div class="spinner-wrap">
+    <div class="spinner">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<!-- end loading spinner -->
+
+</body>
+</html>

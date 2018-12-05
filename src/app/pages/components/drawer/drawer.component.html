@@ -1,0 +1,139 @@
+<kg-content-header xmlns="http://www.w3.org/1999/html">
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Side Drawer</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <button mat-raised-button (click)="openDrawer()">Show drawer</button>
+
+            <kg-drawer header="Hey There" id="helloDrawer">
+                Hi.  I'm a drawer.
+            </kg-drawer>
+
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+
+            <markdown path="assets/documentation/packages/kg-ang-drawer/README.md"></markdown>
+
+            <hr>
+
+            <h3>KgDrawerService Methods</h3>
+
+            <table class="table prop-table">
+                <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="prop-name">KgDrawerService.show(id: string)</td>
+                    <td class="prop-description">Shows the drawer.  Takes unique ID of drawer to show.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">KgDrawerService.hide(id: string)</td>
+                    <td class="prop-description">Hides the drawer.  Takes unique ID of drawer to hide.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3>&lt;kg-drawer&gt; Properties</h3>
+
+            <table class="table prop-table">
+                <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="prop-name">header</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">none</td>
+                    <td class="prop-description">The title to display in the header section of the drawer.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">id</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">none</td>
+                    <td class="prop-description">The unique identifier used to identify the drawer for show/hide methods.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3>CSS Custom Properties</h3>
+
+            <table class="table table-striped css-props-table">
+                <thead>
+                <tr>
+                    <th width="30%">CSS Custom property</th>
+                    <th>Description</th>
+                    <th style="min-width: 150px;">Value</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td class="propName">--kg-drawer-width</td>
+                    <td class="description">The width of the drawer when visible.  Takes any CSS value for width.</td>
+                    <td class="value">300px</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-drawer-header-bg-color</td>
+                    <td class="description">The background color for the titlebar of the drawer.  It's recommended to use an rgba value so that it is compatible with Dark Theme mode.</td>
+                    <td class="value">rgba(0,0,0, .05)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-drawer-body-bg-color</td>
+                    <td class="description">The background color for the body of the drawer.</td>
+                    <td class="value">var(--kg-body-bg, var(--kg-color-gray-100, #404040) )</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-drawer-shield-bg-color</td>
+                    <td class="description">The background color for the overlay "shield" appearing behind the drawer.</td>
+                    <td class="value">rgba(0,0,0, .2)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- CHANGELOG Content -->
+        <div class="component_tabs_4">
+            <markdown path="assets/documentation/packages/kg-ang-drawer/CHANGELOG.md"></markdown>
+        </div>
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    [page footer content here]
+</kg-content-footer>

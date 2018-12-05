@@ -1,0 +1,144 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Vaadin Grid', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        [page-level utilities here]
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Vaadin Grid</div>
+
+        <!-- start EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <p><a href="https://vaadin.com/components/vaadin-grid/" target="_blank">Vaadin Grids</a> are a power
+                grid/table component based on Polymer. Vaadin Grids have a very robust feature set and are, therefore,
+                the recommended grid component for use with WUF.</p>
+
+            <h2>Example Vaadin Grid</h2>
+
+            <vaadin-grid
+                theme="wrap-cell-content"
+                [items]="tableData"
+                column-reordering-allowed multi-sort
+                #myGrid>
+
+                <vaadin-grid-column resizable>
+                    <template class="header" ngNonBindable>
+                        <vaadin-grid-sorter path="name">
+                            <vaadin-grid-filter aria-label="Name" path="name" value="[[_name]]">
+                                <paper-input value="{{_name::input}}" focus-target label="Superhero"></paper-input>
+                            </vaadin-grid-filter>
+                            <iron-icon icon="icons:arrow-upward"></iron-icon>
+                        </vaadin-grid-sorter>
+                    </template>
+                    <template>[[item.name]]</template>
+                </vaadin-grid-column>
+
+                <vaadin-grid-column resizable>
+                    <template class="header">
+                        <vaadin-grid-sorter path="powers">
+                            Super Powers
+                            <iron-icon icon="icons:arrow-upward"></iron-icon>
+                        </vaadin-grid-sorter>
+                    </template>
+                    <template>[[item.powers]]</template>
+                </vaadin-grid-column>
+
+                <vaadin-grid-column resizable>
+                    <template class="header">
+                        <vaadin-grid-sorter path="identity">
+                            Secret Identity
+                            <iron-icon icon="icons:arrow-upward"></iron-icon>
+                        </vaadin-grid-sorter>
+                    </template>
+                    <template>[[item.identity]]</template>
+                </vaadin-grid-column>
+
+                <vaadin-grid-column resizable>
+                    <template class="header">
+                        <vaadin-grid-sorter path="vulnerability">
+                            Vulnerability
+                            <iron-icon icon="icons:arrow-upward"></iron-icon>
+                        </vaadin-grid-sorter>
+                    </template>
+                    <template>[[item.vulnerability]]</template>
+                </vaadin-grid-column>
+
+            </vaadin-grid>
+        </div>
+        <!-- end EXAMPLE Content -->
+
+        <!--start WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+        <!--end WHEN/WHERE Content -->
+
+        <!--start API Content -->
+        <div class="component_tabs_3">
+            <p>The <code>@kion/vaadin-elements</code> from Common Components doesn't provide any packages itself.
+                Instead, it installs various package dependencies required for Vaadin components, like the Vaadin Grid.
+                It also declares a dependency on the <code>@kion/kg-grid</code> component, which includes KION-specifc
+                styling for Vaadin Grids. By installing <code>@kion/vaadin-elements</code> instead of the Vaadin Grid
+                components (and required dependencies) directy, you are ensuring that your Vaadin component versions
+                have been tested for compatibility with WUF and that style dependencies will be available.</p>
+
+            <p>Similary, the <code>@kion/paper-elements</code> component from Common Components provides all of the
+                controls used within Vaadin Grid for column sort icon, column filters, etc.</p>
+            <h2>Installation</h2>
+
+            <pre>
+				<code>$ yarn add @kion/kg-poly-vaadin-elements @kion/kg-poly-paper-elements</code>
+			</pre>
+
+            <p>Then add the following lines to your application's <code>app.module.ts</code> file:</p>
+
+            <pre>
+				<code>
+// Import polymer controls that will be used by Vaadin Grid
+import '@polymer/polymer/lib/elements/dom-if.js';
+import '@polymer/paper-button/paper-button.js';
+import '@polymer/paper-input/paper-input.js';
+import '@polymer/paper-checkbox/paper-checkbox.js';
+import '@polymer/iron-ajax/iron-ajax.js';
+import '@polymer/iron-icons/iron-icons.js';
+import '@polymer/iron-icon/iron-icon.js';
+
+// Import Vaadin Grid components
+import '@vaadin/vaadin-grid/vaadin-grid.js';
+import '@vaadin/vaadin-grid/vaadin-grid-selection-column.js';
+import '@vaadin/vaadin-grid/vaadin-grid-column';
+import '@vaadin/vaadin-grid/vaadin-grid-sorter';
+import '@vaadin/vaadin-grid/vaadin-grid-filter';
+import '@kion/kg-poly-grid-styles'
+				</code>
+			</pre>
+
+            <h2>Example Code</h2>
+
+            <kg-code-sample type="html" [code]="exampleCode"></kg-code-sample>
+        </div>
+        <!--end API Content -->
+
+        <!--start CHANGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+        <!--end CHANGELOG Content -->
+
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>

@@ -1,0 +1,55 @@
+import { Component, Input, Output, EventEmitter, OnChanges, ViewEncapsulation, OnInit } from '@angular/core';
+
+import { Grid } from '../../../lib/grid';
+import { DataSource } from '../../../lib/data-source/data-source';
+
+
+@Component({
+    selector: '[kg-st-thead-filters-row]',
+    template: `
+        <th *ngIf="isMultiSelectVisible"></th>
+        <th kg-st-add-button *ngIf="showActionColumnLeft"
+            [grid]="grid"
+            (create)="create.emit($event)">
+        </th>
+        <th *ngFor="let column of grid.getColumns()" class="kg-smart-th {{ column.id }}">
+            <kg-smart-table-filter [source]="source"
+                                   [filterPlaceholder]="filterPlaceholder"
+                                   [column]="column"
+                                   [inputClass]="filterInputClass"
+                                   (filter)="filter.emit($event)">
+            </kg-smart-table-filter>
+        </th>
+        <th kg-st-add-button *ngIf="showActionColumnRight"
+            [grid]="grid"
+            [source]="source"
+            (create)="create.emit($event)">
+        </th>
+    `,
+    encapsulation: ViewEncapsulation.None
+})
+export class TheadFitlersRowComponent implements OnChanges, OnInit {
+
+    @Input() grid: Grid;
+    @Input() source: DataSource;
+
+    @Output() create = new EventEmitter<any>();
+    @Output() filter = new EventEmitter<any>();
+
+    isMultiSelectVisible: boolean;
+    showActionColumnLeft: boolean;
+    showActionColumnRight: boolean;
+    filterInputClass: string;
+    filterPlaceholder: string;
+
+    ngOnInit() {
+        this.filterPlaceholder = this.grid.getSetting('filter.placeholder');
+    }
+
+    ngOnChanges() {
+        this.isMultiSelectVisible = this.grid.isMultiSelectVisible();
+        this.showActionColumnLeft = this.grid.showActionColumn('left');
+        this.showActionColumnRight = this.grid.showActionColumn('right');
+        this.filterInputClass = this.grid.getSetting('filter.inputClass');
+    }
+}

@@ -1,0 +1,70 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Switch', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Angular Material Slide Toggle</div>
+
+        <!--start EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <div class="basic-container">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title><h3>Usage Illustration</h3></mat-card-title>
+                        <mat-card-subtitle>Illustrates leveraging its change event to control the square color
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <div id="square" [ngStyle]="{'background-color':squareColor}"></div>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <mat-slide-toggle (change)="onChange($event.checked)" color="primary">Slide to
+                            {{nextSquareColor}}
+                        </mat-slide-toggle>
+                        <a mat-button href="https://material.angular.io/components/slide-toggle/examples"
+                           target="_blank">More Angular Material slide toggle examples</a>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+
+        </div>
+        <!--end EXAMPLE Content -->
+
+        <!--start WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+        <!--end WHEN/WHERE Content -->
+
+        <!--start API Content -->
+        <div class="component_tabs_3">
+            <p><a href="https://material.angular.io/components/slide-toggle/api" target="_blank">API
+                reference for Angular Material slide-toggle</a></p>
+        </div>
+        <!--end API Content -->
+
+        <!--start CHANGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+        <!--start CHANGELOG Content -->
+
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>

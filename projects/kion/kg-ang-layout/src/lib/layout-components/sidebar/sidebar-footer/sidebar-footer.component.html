@@ -1,0 +1,25 @@
+<div class="sidebar-footer-wrap">
+    <ul class="d-flex flex-row justify-content-between sidebar-footer"
+        [ngClass]="{'minimized': kgSidebarService.sidebarIsMinimized}" *ngIf="hasData">
+        <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngFor="let item of footerData"
+            id="{{item.id}}">
+            <a [routerLink]="item.link" [matTooltip]="item.tooltip" matTooltipPosition="above"
+               routerLinkActive="active"><i *ngIf="item.icon" class="material-icons" [innerHTML]="item.icon"></i></a>
+        </li>
+    </ul>
+
+    <!-- content to display if not passing any data -->
+    <div class="sidebar-footer-content" *ngIf="!hasData" [ngClass]="{'minimized': kgSidebarService.sidebarIsMinimized}">
+
+        <!-- content to display if content is passed in -->
+        <div #container>
+            <ng-content></ng-content>
+        </div>
+
+        <!-- default content -->
+        <div *ngIf="!container.innerHTML.length">
+            &copy; {{year}} <span class="hideOnMinimized">{{copyrightName}}</span>
+        </div>
+
+    </div>
+</div>

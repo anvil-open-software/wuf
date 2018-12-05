@@ -1,0 +1,211 @@
+.modalOpenInfo {
+    margin-top: 20px;
+}
+
+/* *****************************************************************************
+ * input control markups
+ **************************************************************************** */
+.user-authentication {
+    box-sizing: border-box;
+    width: 325px;
+    padding: 20px;
+    border: 1px solid #DDD;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+.button-adjustment {
+    width: 100%;
+    position: relative;
+}
+
+/* input control has been rendered but not interacted with */
+input:not(:focus).ng-untouched {
+    border-style: solid;
+    border-width: thin;
+    border-color: darkgray;
+}
+
+/* input control has been touched and is valid */
+input:not(:focus).ng-touched.ng-valid {
+    border-style: solid;
+    border-width: thin;
+    border-color: darkgray;
+}
+
+/* input control has been touched and is valid */
+input:not(:focus).ng-valid.failedAuthentication {
+    border-style: solid;
+    border-width: medium;
+    border-color: red;
+    border-left: none
+}
+
+/* input control has been touched and is invalid */
+input:not(:focus).ng-touched.ng-invalid {
+    border-style: solid;
+    border-width: medium;
+    border-color: gold;
+}
+
+/* input control has been rendered but not interacted with */
+input:focus {
+    border-style: solid;
+    border-width: thin;
+    border-colorr: #4D90FE;
+}
+
+.fa-spin-custom, .glyphicon-spin {
+    -webkit-animation: spin 1000ms infinite linear;
+    animation: spin 1000ms infinite linear;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
+/* the form has been rendered, but not touched */
+form.ng-untouched button[type=submit] {
+    background-color: grey;
+    color: white;
+    border-color: black;
+}
+
+/* the form has been touched, all controls are valid */
+form.ng-touched.ng-valid button[type=submit] {
+    background-color: #458cc8;
+    color: white;
+    border-color: black;
+}
+
+form.ng-touched.ng-valid button[type=submit]:hover {
+    background-color: #3a99da;
+    color: white;
+    border-color: black;
+}
+
+form.ng-touched.ng-valid button[type=submit]:active {
+    background-color: #458cc8;
+    color: white;
+    border-color: black;
+}
+
+/* the form has been touched, at least one control is invalid */
+form.ng-touched.ng-invalid button[type=submit] {
+    background-color: grey;
+    color: white;
+    border-color: black;
+}
+
+form button.inactive {
+    background-color: #e5e5e5;
+}
+
+form button.inactive:hover {
+    background-color: #d3d3d3;
+}
+
+form button.inactive:active {
+    background-color: #c0c0c0;
+}
+
+form button.active {
+    background-color: #458cc8 !important;
+}
+
+form button.active:hover {
+    background-color: #3a99da;
+}
+
+form button.active:active {
+    background-color: #458cc8;
+}
+
+/* the button has been pressed and the form is waiting for authorization to proceed */
+form button img.authorizing {
+    height: 25px;
+    position: relative;
+    right: 40%;
+}
+
+.error-border {
+    margin-top: 15px;
+}
+
+.failedAuthentication {
+    border: 3px solid red;
+}
+
+.clientError {
+    border: 3px solid gold;
+}
+
+/* *****************************************************************************
+ * button control markups
+ **************************************************************************** */
+.authenticating {
+    position: relative;
+    float: left;
+}
+
+i {
+    width: 20px
+}
+
+.nav {
+    display: -webkit-box !important;
+}
+
+//Change the width of the sideNav according to the max item length
+.sideNav-wrap, .sideNav {
+    width: 270px !important;
+}
+
+//Container of token, flexible for different token name length
+.dlabs-ng2-token-container {
+    margin-top: 10px;
+    .dlabs-ng2-token-sub-container {
+        float: right;
+        .dlabs-ng2-token {
+            margin-right: 2px;
+        }
+    }
+}
+
+//Container of logout,
+.dlabs-ng2-logout-container {
+    margin-top: 10px;
+    padding-right: 0 !important;
+    .dlabs-ng2-logout {
+        margin-left: 2px;
+    }
+}
+
+.multiple-popover-wrap-div, .granted-roles-input {
+    width: 220px;
+}
+
+.modal-info {
+    height: 60px;
+    padding: 10px;
+}
+

@@ -1,0 +1,17 @@
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg"
+	 xmlns:xlink="http://www.w3.org/1999/xlink"
+	 viewBox="0 0 375 55"
+	 enable-background="new 0 0 375 55"
+	 xml:space="preserve"
+	 preserveAspectRatio="xMinYMin meet"
+	 [class.small]="small"
+	 [class.tiny]="tiny"
+	 [style.max-height]="maxHeight + 'px'"
+>
+	<text x="375" y="42" text-anchor="end">{{value}}</text>
+</svg>
+
+<div class="value" *ngIf="!value">
+    <ng-content></ng-content>
+</div>

@@ -1,0 +1,78 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb [items]="[{ link: null, label: 'Introduction', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Intro'" [tabLabel_2]="'Installation'" [tabLabel_3]="'CHANGE LOG'"
+                        [selectedTabIndex]="selectedTabIndex">
+        <!-- Component name -->
+        <div class="component_tabs_name">Welcome to the WUF Living Style Guide</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <p>The <strong>Web UI Framework</strong> (WUF) is a framework based on Angular designed to help developers
+                quickly and easily create applications built on a modern platform, web standards, and best practices.
+            </p>
+
+            <p>The WUF is comprised of the following 3 repos:</p>
+
+            <ol>
+                <li>The <a href="https://gitlab.dematic.com/cloud_visualization_services/web-ui-framework"
+                           target="_blank">web-ui-framework</a> repo.  This repo holds the Living Style Guide (this application) as well as the Library of Components.
+                </li>
+                <li>The <a href="https://gitlab.dematic.com/cloud_visualization_services/angular-quickstart-app-minimal"
+                           target="_blank">Quick Start Application (Minimal)</a> repo.</li>
+                <li>The <a href="https://gitlab.dematic.com/cloud_visualization_services/angular-quickstart-app-complete"
+                           target="_blank">Quick Start Application (Complete)</a> repo.</li>
+            </ol>
+
+            <p>This application, the <strong>Living Style Guide</strong>, will serve as a living, self-documenting
+                application that will introduce developers to WUF, demonstrate the use of various components available
+                within the Library of Components, and explain how to build applications based on WUF (i.e., the Quick
+                Start Application).</p>
+
+            <hr>
+
+            <h5>Here are some quick links to get you going:</h5>
+            <ul>
+                <li>To see examples of components in action, click a component name in the side panel under "<a
+                    routerLink="/components">Components</a>".
+                </li>
+                <li>For instructions on installing the Living Style Guide (this application) locally, click the <a
+                    [routerLink]="" (click)="setTab(1)">Installation tab</a> above.
+                </li>
+                <li>To learn how to develop & contribute to the WUF, visit the <a [routerLink]="'/development'">Development</a>
+                    section.
+                </li>
+                <li>For instructions on developing a <strong>NEW</strong> application based on WUF, view the <a
+                    routerLink="gettingstarted">Quick Start Application (Minimal)</a> page.
+                </li>
+            </ul>
+
+        </div>
+
+        <!-- Installation Content -->
+        <div class="component_tabs_2">
+            <markdown path="assets/documentation/README.md"></markdown>
+        </div>
+
+        <!-- CAHNGELOG Content -->
+        <div class="component_tabs_3">
+            <markdown path="assets/documentation/CHANGELOG.md"></markdown>
+        </div>
+    </app-component-tabs>
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    [page footer content here]
+</kg-content-footer>
+

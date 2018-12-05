@@ -1,0 +1,79 @@
+// These theme overrides are applied when the root element has a "kg-theme-dark" property set to true
+
+:root[kg-theme-dark="true"],
+*[kg-theme-dark="true"],
+:root[kg-theme-dark="true"][kg-theme],
+*[kg-theme-dark="true"][kg-theme] {
+    // Match any root element with kg-theme set, regardless of kg-theme value, if any
+
+    /***** content area *****/
+    --kg-body-bg:                               var(--kg-color-secondary);
+    --kg-body-color:                            var(--kg-color-gray-200);
+
+    /***** sidebar resizer *****/
+    --kg-sidebar-resizer-bg-color:              var(--kg-color-secondary-lighter-10);
+    --kg-sidebar-resizer-draghandle-color:      var(--kg-color-secondary-lighter-30);
+
+    /***** toolbar *****/
+    --kg-toolbar-bg-color:                      var(--kg-color-secondary-lighter-10);
+
+    /***** breadcrumb *****/
+    --kg-breadcrumb-color:                      var(--kg-color-secondary-lighter-40);
+
+    /***** tabs *****/
+    --kg-tabs-color:                            var(--kg-body-color);
+    --kg-tabs-wrap-bg-color:                    var(--kg-toolbar-bg-color);
+
+    /***** misc *****/
+    --kg-border-color:                          var(--kg-color-secondary-lighter-30);
+
+    /***** tables *****/
+    --kg-table-bg-color:                        var(--kg-body-bg);
+    --kg-table-border-color:                    var(--kg-border-color);
+    --kg-table-head-bg-color:                   var(--kg-body-bg);
+    --kg-table-head-color:                      var(--kg-body-color);
+    --kg-table-filter-bg-color:                 var(--kg-table-head-bg-color);
+    --kg-table-filter-color:                    var(--kg-color-gray-300);
+    --kg-table-accent-bg-color:                 var(--kg-color-secondary-darker-5);
+    --kg-table-hover-bg-color:                  var(--kg-color-secondary-lighter-10);
+    --kg-table-active-bg-color:                 var(--kg-color-primary);
+
+    /***** pagination links *****/
+    --kg-pagination-color:                      var(--kg-link-color);
+    --kg-pagination-bg-color:                   var(--kg-color-secondary-darker-5);
+    --kg-pagination-border-color:               var(--kg-border-color);
+    --kg-pagination-hover-color:                var(--kg-link-hover-color);
+    --kg-pagination-hover-bg-color:             var(--kg-color-secondary-darker-10);
+    --kg-pagination-hover-border-color:         var(--kg-pagination-border-color);
+    --kg-pagination-active-color:               var(--kg-color-primary);
+    --kg-pagination-active-bg-color:            var(--kg-color-gray-200);
+    --kg-pagination-active-border-color:        var(--kg-color-primary);
+    --kg-pagination-disabled-color:             var(--kg-color-gray-400);
+    --kg-pagination-disabled-bg-color:          var(--kg-body-bg);
+    --kg-pagination-disabled-border-color:      var(--kg-pagination-border-color);
+
+    /***** scrolling areas *****/
+    --kg-scroll-track-bg-color:                 var(--kg-color-secondary-darker-10);
+    --kg-scroll-thumb-bg-color:                 var(--kg-color-secondary-lighter-20);
+
+    /***** dashboard *****/
+    --kg-kpi-label-color:                       var(--kg-color-gray-300);
+    --kg-kpi-bg-color:                          var(--kg-body-bg);
+    --kg-kpi-border-color: #333;
+    --kg-kpi-stripe-color:                      var(--kg-color-gray-600);
+
+    /***** drawer *****/
+    --kg-drawer-header-bg-color:                rgba(0,0,0, .1);
+
+    /***** gridster *****/
+    --kg-gridster-grid-line-color:              rgba(0, 0, 0, 0.5);
+    --kg-gridster-title-border-color:           var(--kg-color-secondary);
+    --kg-gridster-resize-handle-color:          rgba(255,255,255,.3);
+
+    /***** inputs *****/
+    --kg-input-bg-color:                        var(--kg-color-secondary-darker-5);
+    --kg-input-underline-color:                 var(--kg-color-white);
+
+    /***** cards *****/
+    --kg-card-bg-color:                         var(--kg-color-secondary-darker-10);
+}

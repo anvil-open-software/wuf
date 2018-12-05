@@ -1,0 +1,230 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'I18N', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'">
+        <!-- Component name -->
+        <div class="component_tabs_name">I18N (Internationalization) and Localization</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <p>
+                The following are examples on usage of Angular's I18N functionality using the following language:
+                <span class="example" i18n="language used|An example of no DOM generation@@language" id="language">English</span>
+            </p>
+            <p>
+                We are using the following culture code:
+                <span class="example" i18n="culture code|Culture code used in examples@@culture"
+                      id="culture">en-us</span>
+            </p>
+
+            <h5>DOM or no DOM</h5>
+            <p>
+                <strong>With</strong> additional DOM element:<br>
+                <span class="example"
+                      i18n="intro message|An introduction message for this example using a DOM element@@introductionMessage">I output an element in the DOM.</span>
+            </p>
+            <p>
+                <strong>Without</strong> additional DOM element:<br>
+                <span class="example">
+            <ng-container i18n="no DOM message|An example of no DOM generation@@noDomMessage">I do NOT output an element in the DOM.</ng-container>
+        </span>
+            </p>
+
+            <h5>Cardinality</h5>
+            <p>Different languages have different pluralization rules. Here's how you could mark up the component
+                template to display the phrase appropriate to the number of wolves:</p>
+
+            <p>
+                Number of wolves:
+                <select [(ngModel)]="count">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </p>
+
+            <p class="example" i18n="use of cardinality|An example of cardinality in action@@cardinality"
+               id="example_cardinality">
+                { count, plural,
+                =0 {no wolves}
+                =1 {one wolf}
+                =2 {two wolves}
+                other {a wolf pack}
+                }
+            </p>
+
+            <h5>Select Among Alternative Texts</h5>
+            <p>The application displays different text depending upon whether the wolf pack's alpha is male or female.
+                These text alternatives require translation too.</p>
+            <p class="example"
+               i18n="use of alternative texts|An example of using alternative texts based on gender@@gender"
+               id="example_gender">
+                The alpha of our wolf pack is
+                { gender, select,
+                m {male}
+                f {female}
+                }.
+            </p>
+
+            <h5>Nesting pluralization and selection expressions</h5>
+            <p class="example"
+               i18n="use of nested pluralization|An example of using nested pluralization and selection@@pluralization"
+               id="example_pluralization">
+                Our wolf pack:
+                { count, plural,
+                =0 {has no wolves}
+                =1 {has one {gender, select, m {male wolf} f {female wolf}}}
+                =2 {has two {gender, select, m {male wolves} f {female wolves}}}
+                =3 {has a few {gender, select, m {male wolves} f {female wolves}}}
+                other {has many {gender, select, m {male wolves} f {female wolves}}}
+                }.
+            </p>
+
+            <hr>
+            <h2>Workflow</h2>
+            <p>Angular has a very specific way of dealing with internationalization (i18n). It is described in the
+                official documentation here: <a href="https://angular.io/docs/ts/latest/cookbook/i18n.html"
+                                                target="_blank">Angular Cookbook Internationalization (i18n)</a>.</p>
+            <p>In a nutshell:</p>
+
+            <ol>
+                <li><strong>Develop:</strong> Markup your strings to translate in your templates with the attribute
+                    <code>i18n</code></li>
+                <li><strong>Extract:</strong> Run the Amgular extraction tool (ng-xi18n) to extract the strings in an
+                    XML Format called <a href="http://docs.oasis-open.org/xliff/v1.2/os/xliff-core.html"
+                                         target="_blank">XLIFF-1.2</a></li>
+                <li><strong>Translate:</strong> Copy and then translate the extracted file for every language you plan
+                    to support
+                </li>
+                <li><strong>Serve:</strong> Run the ng compiler to generate a special version of your app for the
+                    different languages
+                </li>
+            </ol>
+
+            <p>There are some gaps in the I18N workflow, including the issue that changing anything in the app requires
+                regeneration of the xliff files, and there is no documented way to merge such files with the already
+                existing translated files. We use <a href="https://www.npmjs.com/package/ngx-i18nsupport"></a> to help
+                us with this problem.</p>
+
+            <hr>
+            <h4>Develop</h4>
+            <p>Mark every element whose contents will be translated by applying the attribute <code>i18n</code> to the
+                tag as described <a href="https://angular.io/guide/i18n#mark-text-with-the-i18n-attribute"
+                                    target="_blank">here</a>. Be sure to also include a <a
+                    href="https://angular.io/guide/i18n#help-the-translator-with-a-description-and-meaning"
+                    target="_blank">meaning|description</a> , and an <a
+                    href="https://angular.io/guide/i18n#set-a-custom-id-for-persistence-and-maintenance"
+                    target="_blank">ID</a> as a value for the <code>i18n</code> attribute. If only a portion of an
+                element with a lot of content needs to be translated, it's recommended to add additional, more atomic
+                tags to only the content you want translated.</p>
+
+            <p>The contents of your tag can use <a href="https://angular.io/guide/i18n#translate-singular-and-plural"
+                                                   target="_blank">ICU expressions</a> to handle singular and
+                pluralization rules.</p>
+
+            <p>Your final markup should look something like this:</p>
+
+            <kg-code-sample
+                showCopyButton
+                type="html"
+                copy-label="Copy"
+                copy-label-error="Error"
+                copy-label-done="Done"
+                [code]="exampleCode"
+            >
+            </kg-code-sample>
+
+            <p>Add <a href="https://www.w3schools.com/tags/ref_language_codes.asp" target="_blank">ISO Language
+                Codes</a> to "languages" property of <code>/xliffmerge.json</code> file.</p>
+
+            <h4>Extract</h4>
+            <p>When your app is ready, you can extract the strings to translate from this and other templates in the app
+                with the command:</p>
+            <code class="block">npm run extract-i18n</code>
+
+            <h4>Translate</h4>
+            <p>This command will generate a new xliff file for every language identified in
+                <code>./xliffmerge.json</code> and output those files to <code>./src/locale/messages.&lt;language&gt;.xlf</code>.
+                Existing xliff files will be merged with the newly generated files.</p>
+
+            <p>You can now translate the files located in <code>./src/locale</code>. New strings in each file will
+                appear in the default language (English) specified in <code>./xliffmerge.json</code>.
+
+            <p><strong>NOTE:</strong> Any time you change anything in the app you will have to regenerate the xliff
+                files for translation. New strings will appear in the default language (English).</p>
+
+            <h4>Serve</h4>
+            <p>Every localized app requires its own build and deployment. If you want to build and serve an app using
+                the <code>message.fr.xlf</code> (French) xliff file created above, for example, you would build using
+                the following command:</p>
+
+            <code class="block">ng serve --prod --locale fr --i18n-format xlf --i18n-file
+                src/locale/messages.fr.xlf</code>
+
+            <p>All the strings flagged for i18n have been replaced with their French translations. The application is
+                otherwise identical to the default language version.</p>
+
+            <p><strong>NOTE:</strong> Building translated applications <strong>only</strong> works in <a
+                href="https://angular.io/guide/aot-compiler">AOT mode</a>. If you want to use i18n in JIT you will have
+                to update your bootstrap file yourself.</p>
+
+            <h4>Build</h4>
+            <p>To build your application with a specific locale you can use the exact same commands that you used for
+                serve:</p>
+
+            <code class="block">ng build --prod --locale fr --i18n-format xlf --i18n-file
+                src/i18n/messages.fr.xlf</code>
+
+            <p>When you build your application for a specific locale, it is probably a good idea to change the output
+                path with the command <code>--output-path</code> in order to save the files to a different location.</p>
+
+            <code class="block">ng build --prod --output-path dist/fr --locale fr --i18n-format xlf --i18n-file
+                src/i18n/messages.fr.xlf</code>
+
+            <hr>
+            <h2>Testing</h2>
+            <p>As of this writing, there does not appear to be any way to run unit tests via Angular-CLI's <code>ng
+                test</code> using I18N. There is, however, a way to run integration tests (i.e., <code>ng e2e</code>)
+                with the following command using the <code>--serve</code> option, which then takes all of the same
+                options as <code>ng serve</code>. Therefore, we can execute e2e tests in a given language using the
+                following command:</p>
+            <code class="block">
+                ng e2e --serve --prod --aot --locale fr --i18n-format xlf --i18n-file src/locale/messages.fr.xlf
+            </code>
+            <hr>
+            <h2>More Info</h2>
+            <p>For more information on i18n and localization for Angular 2 visit: <a
+                href="https://angular.io/guide/i18n">Angular's I18N Guide</a>.</p>
+
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [WHEN/WHERE to USE]
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+            [API]
+        </div>
+
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    [footer content goes here]
+</kg-content-footer>

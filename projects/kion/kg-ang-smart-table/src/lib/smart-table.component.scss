@@ -1,0 +1,206 @@
+//Expose custom properties for overrides
+:host {
+    /*     local var                   ||            global override                    ||        default value        */
+    --table-bg-color:                       var( --kg-table-bg-color,                       var(--kg-color-white) );
+    --table-border-color:                   var( --kg-table-border-color,                   var(--kg-border-color) );
+    --table-head-bg-color:                  var( --kg-table-head-bg-color,                  var(--kg-color-white) );
+    --table-head-color:                     var( --kg-table-head-color,                     var(--kg-body-color) );
+    --table-filter-bg-color:                var( --kg-table-filter-bg-color,                var(--kg-color-white) );
+    --table-filter-color:                   var( --kg-table-filter-color,                   var(--kg-color-gray-400) );
+    --table-cell-padding-vert:              var( --kg-table-cell-padding-vert,              5px );
+    --table-cell-padding-horiz:             var( --kg-table-cell-padding-horiz,             20px );
+    --table-action-padding:                 var( --kg-table-action-padding,                 var(--table-cell-padding-vert, 4px) );
+    --table-font-size:                      var( --kg-table-font-size,                      1rem );
+    --table-active-bg-color:                var( --kg-table-active-bg-color,                var(--kg-color-primary-lighter-30) );
+    --table-accent-bg-color:                var( --kg-table-accent-bg-color,                var(--kg-color-secondary-lighter-60) );
+    --table-hover-bg-color:                 var( --kg-table-hover-bg-color,                 var(--kg-color-secondary-lighter-40) );
+
+    --table-button-add-color:               var( --kg-table-button-add-color,               var(--table-head-color) );
+    --table-button-add-bg-color:            var( --kg-table-button-add-bg-color,            var(--table-head-bg-color) );
+    --table-button-add-bg-hover-color:      var( --kg-table-button-add-bg-hover-color,      var(--kg-color-secondary-lighter-10) );
+}
+
+
+:host {
+    font-size: 1rem;
+
+    /deep/ {
+        * {
+            box-sizing: border-box;
+        }
+        button {
+            font: inherit;
+            margin: 0;
+        }
+
+        input,
+        optgroup,
+        select,
+        textarea {
+            color: inherit;
+            font: inherit;
+            margin: 0;
+        }
+
+        table {
+            line-height: 1.5em;
+            border-collapse: collapse;
+            border-spacing: 0;
+            display: table;
+            overflow: auto;
+            border: 1px solid var(--table-border-color);
+            position: relative;
+            outline: none;
+            background-color: var(--table-bg-color);
+            thead {
+                tr {
+                    th {
+                        background-color: var(--table-head-bg-color);
+                        color: var(--table-head-color);
+                        font-size: 1.1em;
+                        font-weight: bold;
+                        padding-top: 20px;
+                        padding-bottom: 10px;
+                        border-bottom: none;
+                        &[kg-st-actions-title] {
+                            text-align: center;
+                        }
+                    }
+                    &.kg-smart-filters {
+                        border-bottom: 2px solid var(--table-border-color);
+                        background-color: var(--table-filter-bg-color);
+                        th {
+                            border-top: none;
+                            color: var(--table-filter-color);
+                            font-weight: normal;
+                            font-size: .85em;
+                            padding-top: 0;
+                            padding-bottom: 0;
+                            vertical-align: middle;
+                            &.kg-smart-actions-title {
+                                width: 1px;
+                                white-space: nowrap;
+                                text-align: center;
+                                vertical-align: middle;
+                                &.kg-smart-actions-title-add {
+                                    padding: 4px;
+                                }
+                            }
+                            input {
+                                &::-webkit-input-placeholder, /* Chrome/Opera/Safari */
+                                &::-moz-placeholder, /* Firefox 19+ */
+                                &:-ms-input-placeholder, /* IE 10+ */
+                                &:-moz-placeholder /* Firefox 18- */ {
+                                    opacity: 1;
+                                    color: var(--kg-color-gray-500);
+                                }
+                                font-style: italic;
+                                opacity: 1;
+                                color: var(--kg-color-primary);
+                                padding: 0;
+                                margin: 0;
+                                border: 0;
+                                border-radius: 0;
+                                border-bottom: 2px solid transparent;
+                                transition: .25s ease border-bottom-color;
+                                background-color: transparent;
+                                width: 100%;
+                                &:focus {
+                                    outline:none;
+                                    box-shadow: none;
+                                    border-bottom-color: var(--kg-color-primary);
+                                }
+                            }
+                        }
+                    }
+                }
+                &.hasFilters {
+                    tr {
+                        th {
+                            padding-bottom: 0px;
+                        }
+                    }
+                }
+            }
+            tr {
+                section {
+                    font-weight: bold;
+                }
+                td, th {
+                    padding: var(--table-cell-padding-vert) calc(var(--table-cell-padding-horiz) / 2);
+                    &:first-child {
+                        padding-left: var(--table-cell-padding-horiz);
+                    }
+                    &:last-child {
+                        padding-right: var(--table-cell-padding-horiz);
+                    }
+                    &.kg-smart-actions {
+                        button.kg-smart-action {
+                            &:not(:hover) {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                    &.noData {
+                        text-align: center;
+                    }
+                }
+                td {
+                    font-size: var(--table-font-size);
+                }
+                &.selected {
+                    background-color: var(--table-active-bg-color);
+                }
+                &.kg-smart-form-row {
+                    th, td:not(.kg-smart-actions) {
+                        vertical-align: middle;
+                        padding: 2px 10px 0px 0;
+                        font-weight: normal;
+                        font-size: var(--table-font-size);
+                        position: relative;
+                        &:first-child {
+                            padding: 2px 10px 0px 10px;
+                        }
+                    }
+                }
+            }
+        }
+        .kg-smart-titles {
+            background-color: var(--table-head-bg-color);
+            color: var(--table-head-color);
+            .kg-smart-title {
+                position: relative;
+                a {
+                    color: var(--table-head-color);
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .kg-smart-actions {
+            width: 1px;
+            padding: var(--table-action-padding);
+            white-space: nowrap;
+            text-align: center;
+            &.kg-smart-action-multiple-select {
+                text-align: center;
+            }
+        }
+        .kg-smart-pagination-nav {
+            margin-top: 5px;
+        }
+        // Buttons
+        .kg-smart-action {
+            &.kg-smart-action-add-add {
+                width: 100%;
+                padding: 2px;
+                .material-icons {
+                    height: auto;
+                }
+            }
+        }
+    }
+
+}

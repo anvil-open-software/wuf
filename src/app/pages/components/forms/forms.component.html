@@ -1,0 +1,459 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+        <button mat-raised-button (click)="openDrawer()">Show form options</button>
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+
+    <kg-drawer header="Form Options" id="formOptions">
+
+
+        <div class="label">Form layout</div>
+        <mat-form-field>
+            <mat-select placeholder="Alignment" [(value)]="formSettingsService.settings.alignment">
+                <mat-option value="left">Left</mat-option>
+                <mat-option value="center">Center</mat-option>
+                <mat-option value="right">Right</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Width" [(value)]="formSettingsService.settings.width">
+                <mat-option value="25">25%</mat-option>
+                <mat-option value="50">50%</mat-option>
+                <mat-option value="100">100%</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <hr>
+
+        <div class="label">Text input layout</div>
+        <mat-radio-group name="inputBlock" class="radio-wrap" [(ngModel)]="formSettingsService.settings.inputBlock">
+            <mat-radio-button value="block" color="primary">1 item/row</mat-radio-button>
+            <mat-radio-button value="inline" color="primary">Multiple items/row</mat-radio-button>
+        </mat-radio-group>
+
+        <hr>
+
+        <div class="label">Radio/Checkbox/Switch layout</div>
+        <mat-radio-group name="radioBlock" class="radio-wrap" [(ngModel)]="formSettingsService.settings.radioBlock">
+            <mat-radio-button value="block" color="primary">1 item/row</mat-radio-button>
+            <mat-radio-button value="inline" color="primary">Multiple items/row</mat-radio-button>
+        </mat-radio-group>
+
+        <hr>
+
+        <div class="label">Textarea layout</div>
+        <mat-radio-group name="textareaBlock" class="radio-wrap" [(ngModel)]="formSettingsService.settings.textareaBlock">
+            <mat-radio-button value="inline" color="primary">Inline</mat-radio-button>
+            <mat-radio-button value="block" color="primary">Own line</mat-radio-button>
+        </mat-radio-group>
+
+        <hr>
+
+        <div class="label">Float labels</div>
+        <mat-radio-group name="floatLabel" class="radio-wrap" [(ngModel)]="formSettingsService.settings.floatLabel">
+            <mat-radio-button value="auto" color="primary">Auto</mat-radio-button>
+            <mat-radio-button value="always" color="primary">Always</mat-radio-button>
+            <mat-radio-button value="never" color="primary">Never</mat-radio-button>
+        </mat-radio-group>
+
+        <hr>
+
+        <div class="label">Error messages</div>
+        <mat-radio-group name="errorFill" class="radio-wrap" [(ngModel)]="formSettingsService.settings.errorFill">
+            <mat-radio-button value="input" color="primary">Fill input</mat-radio-button>
+            <mat-radio-button value="message" color="primary">Fill error message</mat-radio-button>
+            <mat-radio-button value="neither" color="primary">None</mat-radio-button>
+        </mat-radio-group>
+
+        <mat-slide-toggle labelPosition="before" color="primary" [checked]="formSettingsService.settings.errorIcon" (change)="onErrorIconChange($event.checked)">Show error icon</mat-slide-toggle>
+
+        <hr>
+
+        <div class="label">Error and hint messaging</div>
+
+        <mat-slide-toggle labelPosition="before" color="primary" [checked]="formSettingsService.settings.reserveSpace" (change)="onReserveSpaceChange($event.checked)">Reserve space</mat-slide-toggle>
+
+        <hr>
+
+        <p>Option sets:</p>
+
+        <div class="settings-button-wrap">
+            <button mat-raised-button (click)="onCurrentSettingsClick()">Show DiQ Options</button>
+            <button mat-raised-button (click)="onProposalClick()">Show Proposed Options</button>
+        </div>
+
+    </kg-drawer>
+
+    <app-component-tabs [tabLabel_1]="'Examples'"
+                        [tabLabel_2]="'Where / When to Use'"
+                        [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Forms</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1" [class.hideFormSpacing]="!formSettingsService.settings.reserveSpace">
+            <h2>Form Layout</h2>
+
+            <p>The following shows an example form.  To experiment with different layout and behaviors, click the "Show form options" button.</p>
+
+            <hr>
+
+            <div class="row"
+                 [class.justify-content-center]="formSettingsService.settings.alignment == 'center'"
+                 [class.justify-content-end]="formSettingsService.settings.alignment == 'right'"
+            >
+                <div class="col example-container"
+                     [class.col-md-3]="formSettingsService.settings.width == '25'"
+                     [class.col-md-6]="formSettingsService.settings.width == '50'"
+                     [class.col-md-12]="formSettingsService.settings.width == '100'"
+                     [class.inlineInputs]="formSettingsService.settings.inputBlock === 'inline'"
+                >
+
+                    <h3>Example Text Inputs</h3>
+
+                    <p>Text inputs should be 100% width of their container.</p>
+                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                        <input matInput placeholder="Text input">
+                    </mat-form-field>
+
+                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                        <input matInput placeholder="Text input with hint">
+                        <mat-hint align="start">Normal text input with a hint</mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel" hintLabel="Max 30 characters">
+                        <input matInput #input maxlength="30" placeholder="Max width input">
+                        <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel" [class.noFill]="formSettingsService.settings.errorFill !== 'input'">
+                        <input matInput placeholder="Required input" [formControl]="requiredInput" required [(ngModel)]="requiredInputValue">
+                        <mat-error *ngIf="requiredInput.invalid" [class.fill]="formSettingsService.settings.errorFill === 'message'">{{getErrorMessage()}}</mat-error>
+                        <span class="errorIcon" *ngIf="requiredInput.invalid && formSettingsService.settings.errorIcon && requiredInput.touched" matSuffix mat-icon-button>
+                            <mat-icon>error</mat-icon>
+                        </span>
+                        <mat-hint align="start">This input is required</mat-hint>
+                    </mat-form-field>
+
+                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                        <input matInput placeholder="Disabled input" disabled value="I'm a disabled input">
+                    </mat-form-field>
+
+                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel" class="readonly">
+                        <input matInput placeholder="Read-only input" disabled value="I'm a read-only input">
+                    </mat-form-field>
+
+                    <div class="textarea-wrap" [class.full-width]="formSettingsService.settings.textareaBlock !== 'inline'">
+                        <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                            <textarea matInput placeholder="Textarea"></textarea>
+                        </mat-form-field>
+                    </div>
+
+                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                        <mat-select placeholder="Select" [(value)]="selectValue">
+                            <mat-option>--</mat-option>
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-select placeholder="Multi-select" [formControl]="multiSelect" multiple>
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                            <mat-option value="option4" disabled>Option 4 (disabled)</mat-option>
+                            <mat-option value="option5">Option 5</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <hr>
+
+                    <h3>Chips Inputs</h3>
+
+                    <mat-form-field class="example-chip-list">
+                        <mat-chip-list #chipList1>
+                            <mat-chip
+                                *ngFor="let fruit of fruits1"
+                                [selectable]="selectable"
+                                [removable]="removable"
+                                (removed)="remove1(fruit)">
+                                {{fruit}}
+                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                            <input
+                                placeholder="Chips with Autocomplete"
+                                #fruitInput1
+                                [formControl]="fruitCtrl1"
+                                [matAutocomplete]="auto"
+                                [matChipInputFor]="chipList1"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                [matChipInputAddOnBlur]="addOnBlur"
+                                (matChipInputTokenEnd)="add1($event)">
+                        </mat-chip-list>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="chipSelected($event)">
+                            <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                                {{fruit}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-chip-list">
+                        <mat-chip-list #chipList2>
+                            <mat-chip *ngFor="let fruit of fruits2" [selectable]="selectable"
+                                      [removable]="removable" (removed)="remove2(fruit)">
+                                {{fruit.name}}
+                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                            </mat-chip>
+                            <input placeholder="Chips with no Autocomplete"
+                                   [matChipInputFor]="chipList2"
+                                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                   [matChipInputAddOnBlur]="addOnBlur"
+                                   (matChipInputTokenEnd)="add2($event)">
+                        </mat-chip-list>
+                    </mat-form-field>
+
+                    <hr>
+
+                    <h3>Example Text Inputs with Prefix/Suffixes</h3>
+
+                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker startView="year"></mat-datepicker>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <span matPrefix>+1</span>
+                        <input type="tel" matInput placeholder="Input with text prefix">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-icon matPrefix>phone</mat-icon>
+                        <input type="tel" matInput placeholder="Input with icon prefix">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-icon matSuffix>phone</mat-icon>
+                        <input type="tel" matInput placeholder="Input with icon suffix">
+                    </mat-form-field>
+
+                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                        <input matInput type="text" placeholder="Clearable input" [(ngModel)]="clearValue">
+                        <button mat-button *ngIf="clearValue" matSuffix mat-icon-button aria-label="Clear" (click)="clearValue=''">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input type="tel" matInput>
+                        <mat-placeholder>
+                            <mat-icon>phone</mat-icon> Custom placeholder
+                        </mat-placeholder>
+                    </mat-form-field>
+
+                    <hr>
+
+                    <h3>Slider</h3>
+
+                    <mat-slider
+                        class="example-margin"
+                        [disabled]="disabled"
+                        [invert]="invert"
+                        [max]="max"
+                        [min]="min"
+                        [step]="step"
+                        [thumbLabel]="thumbLabel"
+                        [tickInterval]="tickInterval"
+                        [(ngModel)]="value"
+                        [vertical]="vertical"
+                        color="primary"
+                    >
+                    </mat-slider>
+
+                    <hr>
+
+                    <h3>Example Radio Controls</h3>
+
+                    <div class="label">Choose an option</div>
+
+                    <mat-radio-group
+                        name="radioExample"
+                        id="radioExample"
+                        class="controls-wrap"
+                        [class.block]="formSettingsService.settings.radioBlock === 'block'"
+                    >
+                        <mat-radio-button value="1" color="primary">Option 1</mat-radio-button>
+                        <mat-radio-button value="2" color="primary">Option 2</mat-radio-button>
+                        <mat-radio-button value="3" color="primary">Option 3</mat-radio-button>
+                        <mat-radio-button value="4" color="primary">Option 4</mat-radio-button>
+                        <mat-radio-button value="5" color="primary">Option 5</mat-radio-button>
+                        <mat-radio-button value="6" color="primary" [disabled]="true">Option 6 (disabled)</mat-radio-button>
+                    </mat-radio-group>
+
+                    <hr>
+
+                    <h3>Example Checkbox Controls</h3>
+
+                    <div class="label">Choose several options</div>
+                    <div class="controls-wrap mat-checkbox-group" [class.block]="formSettingsService.settings.radioBlock === 'block'">
+                        <mat-checkbox color="primary">Option 1</mat-checkbox>
+                        <mat-checkbox color="primary">Option 2</mat-checkbox>
+                        <mat-checkbox color="primary">Option 3</mat-checkbox>
+                        <mat-checkbox color="primary">Option 4</mat-checkbox>
+                        <mat-checkbox color="primary">Option 5</mat-checkbox>
+                        <mat-checkbox color="primary" [disabled]="true">Option 6 (disabled)</mat-checkbox>
+                    </div>
+
+                    <hr>
+
+                    <h3>Switch Controls (aka, Slide Toggles)</h3>
+
+                    <div class="label">Enable different options</div>
+                    <div class="controls-wrap mat-slide-toggle-group" [class.block]="formSettingsService.settings.radioBlock === 'block'">
+                        <mat-slide-toggle labelPosition="before" color="primary">Option 1</mat-slide-toggle>
+                        <mat-slide-toggle labelPosition="before" color="primary">Option 2</mat-slide-toggle>
+                        <mat-slide-toggle labelPosition="before" color="primary">Option 3</mat-slide-toggle>
+                        <mat-slide-toggle labelPosition="before" color="primary">Option 4</mat-slide-toggle>
+                        <mat-slide-toggle labelPosition="before" color="primary">Option 5</mat-slide-toggle>
+                        <mat-slide-toggle labelPosition="before" color="primary" [disabled]="true">Option 6 (disabled)</mat-slide-toggle>
+                    </div>
+
+                    <hr>
+
+                    <h3>Example Form</h3>
+
+                    <form class="example-form">
+
+                        <table class="example-table full-width">
+                            <tr>
+                                <td>
+                                    <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                                        <input matInput placeholder="First name">
+                                    </mat-form-field></td>
+                                <td>
+                                    <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                                        <input matInput placeholder="Last name">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+                        </mat-form-field>
+
+                        <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                            <textarea matInput placeholder="Address 2"></textarea>
+                        </mat-form-field>
+
+                        <table class="example-table full-width">
+                            <tr>
+                                <td>
+                                    <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                                    <input matInput placeholder="City">
+                                    </mat-form-field>
+                                </td>
+                                <td style="max-width: 75px">
+                                    <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                                        <input matInput placeholder="State">
+                                    </mat-form-field>
+                                </td>
+                                <td style="max-width: 100px">
+                                    <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                                    <input matInput #postalCode maxlength="5" placeholder="Postal Code">
+                                        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+
+                    <hr>
+
+                    <h3>Example Form in Dialog</h3>
+
+                    <button id="createMaterialModalBtn" mat-raised-button (click)="openFormDialog()">
+                        Open Material Design Dialog
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+            For usage documentation, refer to <a href="https://material.angular.io/components/categories/forms" target="_blank">Angular Material forms</a>.
+
+            <h3>CSS Custom Properties</h3>
+
+            <table class="table table-striped css-props-table">
+                <thead>
+                <tr>
+                    <th width="30%">CSS Custom property</th>
+                    <th>Description</th>
+                    <th style="min-width: 150px;">Value</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td class="propName">--kg-input-bg-color</td>
+                    <td class="description">The background color used for all text inputs and select controls.</td>
+                    <td class="value">var(--kg-color-gray-200, #EEEEEE)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-input-readonly-bg-color</td>
+                    <td class="description">The background color used for all text inputs and select controls in a readonly state.</td>
+                    <td class="value">transparent</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-input-hover-bg-color</td>
+                    <td class="description">The background color used for all text inputs and select controls when hovering over the control.</td>
+                    <td class="value">var(--kg-input-bg-color)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-input-disabled-opacity</td>
+                    <td class="description">The opacity used for various elements when the form control is in a disabled state.</td>
+                    <td class="value">.5</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-input-hint-color</td>
+                    <td class="description">The text color used for hint text.  Note that this value will also have a non-overridable opacity level applied to it.</td>
+                    <td class="value">var(--kg-body-color, #616161)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-input-underline-color</td>
+                    <td class="description">The color used for the underline element applied to form inputs.</td>
+                    <td class="value">var(--kg-body-color, #616161)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- CAHNGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    [page footer content here]
+</kg-content-footer>

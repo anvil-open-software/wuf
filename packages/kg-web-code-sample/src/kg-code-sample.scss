@@ -1,0 +1,30 @@
+@import '~highlight.js/styles/hybrid.css';
+
+:host {
+
+}
+
+.code-container-wrap {
+    position: relative;
+    button#code-copy-button {
+        transition: opacity ease .25s;
+        opacity: 0;
+        padding: 1px 7px 2px;
+        pointer-events: none;
+        background-color: #cccccc;
+        color: #333;
+        border: 0;
+        font-size: .75rem;
+        font-weight: normal;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    &:hover {
+        button#code-copy-button {
+            opacity: .75;
+            pointer-events: all;
+            cursor: pointer;
+        }
+    }
+}

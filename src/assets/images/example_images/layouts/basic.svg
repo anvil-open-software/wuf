@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.63 545.64">
+    <defs>
+        <style>
+            .cls-1,.cls-3{fill:#fff;}.cls-1{stroke:#e5e5e5;stroke-width:5px;}.cls-1,.cls-2{stroke-miterlimit:10;}.cls-2{fill:none;stroke:#c2c1c0;}.cls-4{font-size:12px;fill:#bfbfbf;font-family:Roboto-Thin,
+            Roboto;}.cls-5{letter-spacing:-0.01em;}.cls-6{letter-spacing:-0.02em;}
+        </style>
+    </defs>
+    <title>basic</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <rect class="cls-1" x="-24.21" y="33.8" width="536.05" height="482.63"
+                  transform="translate(518.93 31.3) rotate(90)"/>
+            <rect class="cls-2" x="12.5" y="17.09" width="462.63" height="516.05"/>
+            <rect class="cls-2" x="-3.76" y="54.25" width="495.14" height="442.63"
+                  transform="translate(519.38 31.75) rotate(90)"/>
+            <polygon class="cls-3" points="263.59 23.5 224.03 23.5 224.22 12.49 263.78 12.49 263.59 23.5"/>
+            <polygon class="cls-3" points="96.33 14.41 10.48 14.24 10.48 4.28 96.33 4.45 96.33 14.41"/>
+            <text class="cls-4" transform="translate(10.61 10.27)">b
+                <tspan class="cls-5" x="6.57" y="0">r</tspan>
+                <tspan x="10.46" y="0">owser ch</tspan>
+                <tspan class="cls-5" x="57.71" y="0">r</tspan>
+                <tspan x="61.61" y="0">ome</tspan>
+            </text>
+            <rect class="cls-3" x="210.8" y="19.42" width="66.03" height="17.15"/>
+            <text class="cls-4" transform="translate(216.42 32.16)">main-w
+                <tspan class="cls-6" x="38.77" y="0">r</tspan>
+                <tspan x="42.55" y="0">ap</tspan>
+            </text>
+            <text class="cls-4" transform="translate(231.38 19.09)">page</text>
+        </g>
+    </g>
+</svg>

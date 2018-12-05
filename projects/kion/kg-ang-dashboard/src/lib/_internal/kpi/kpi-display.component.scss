@@ -1,0 +1,81 @@
+:host {
+    /*     local var         ||         global override              ||                 default value        */
+    --kpi-border-color:             var(--kg-kpi-border-color,                  var(--kg-color-gray-400));
+    --kpi-stripe-color:             var(--kg-kpi-stripe-color,                  var(--kpi-border-color));
+    --kpi-label-color:              var(--kg-kpi-label-color,                   var(--kg-color-gray-600));
+    --kpi-bg-color:                 var(--kg-kpi-bg-color,                      var(--kg-color-gray-200));
+
+    --kpi-active-bg-color:          var(--kg-kpi-active-bg-color,               var(--kg-color-primary-darker-5));
+    --kpi-active-stripe-color:      var(--kg-kpi-active-stripe-color,           var(--kg-color-primary-lighter-10));
+}
+
+:host {
+    flex: auto;
+    position: relative;
+    min-height: 55px;
+}
+
+.kpi {
+    border: 1px solid var(--kpi-border-color);
+    border-style: solid;
+    border-width: 1px 5px 0px 1px;
+    border-right-color: var(--kpi-stripe-color);
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--kpi-bg-color);
+
+    // make children items flex
+    flex-direction: column;
+    display: flex;
+
+    &:not(.active) {
+        cursor: pointer;
+    }
+
+    .label-wrap {
+        z-index: 1;
+        flex: none;
+        padding: 10px 0 0 10px;
+        line-height: 1em;
+        .label {
+            font-size: .85em;
+            opacity: .75;
+            color: var(--kpi-label-color);
+        }
+    }
+    .value-wrap {
+        flex: auto; // fill remaining space
+        font-size: 52px;
+        font-weight: bold;
+        line-height: 1em;
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: flex-end; // align contents to the bottom
+        padding: 0 10px;
+    }
+    &.active {
+        background-color: var(--kpi-active-bg-color);
+        border-right-color: var(--kpi-active-stripe-color);
+        background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%);
+        --kg-body-color: var(--kg-color-white);
+        .label-wrap {
+            .label {
+                color: #fff;
+                .material-icons {
+                    font-size: 1.85em;
+                }
+            }
+        }
+        .value-wrap {
+            color: #fff;
+        }
+    }
+    &.disabled {
+        cursor: default;
+    }
+}

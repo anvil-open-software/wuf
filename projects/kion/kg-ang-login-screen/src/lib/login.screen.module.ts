@@ -1,0 +1,18 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { LoginScreenComponent } from './login.screen.component';
+
+
+@NgModule({
+    imports: [CommonModule],
+    exports: [
+        LoginScreenComponent
+    ],
+    declarations: [
+        LoginScreenComponent
+    ],
+    entryComponents: [ LoginScreenComponent ]
+})
+export class LoginScreenModule {
+}

@@ -1,0 +1,88 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Cards</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+
+            <h5>Angular Material card</h5>
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>Shiba Inu</mat-card-title>
+                    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="/assets/images/example_images/card/shiba2.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <p>
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                    </p>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
+            <p><a href="https://material.angular.io/components/card/examples" target="_blank">More Angular
+                Material card examples</a></p>
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+            <p>For usage information refer to the <a href="https://material.angular.io/components/card/api" target="_blank">API reference for
+                Angular Material card</a>.</p>
+
+            <h3>CSS Custom Properties</h3>
+
+            <table class="table table-striped css-props-table">
+                <thead>
+                <tr>
+                    <th width="30%">CSS Custom property</th>
+                    <th>Description</th>
+                    <th style="min-width: 150px;">Value</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td class="propName">--kg-card-bg-color</td>
+                    <td class="description">The background color used for card elements.</td>
+                    <td class="value">var(--kg-color-white, #ffffff)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- CAHNGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    [page footer content here]
+</kg-content-footer>
+

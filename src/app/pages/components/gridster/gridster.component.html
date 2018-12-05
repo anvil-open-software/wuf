@@ -1,0 +1,121 @@
+<kg-content-header xmlns="http://www.w3.org/1999/html">
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+        <button mat-raised-button (click)="onAddItemClick()">Add new item</button>
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Gridster</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1" style="margin: -20px;">
+            <div class="gridster-wrap">
+                <kg-gridster
+                    [items]="gridsterItems"
+                ></kg-gridster>
+            </div>
+
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+
+            <markdown path="assets/documentation/packages/kg-ang-gridster/README.md"></markdown>
+
+            <hr>
+
+            <h3>Attributes</h3>
+
+            <p>The following attributes can be applied to the <code>&lt;kg-gridster&gt;</code> component:</p>
+
+            <table class="table prop-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="prop-name">items</td>
+                        <td class="prop-type"><code>array</code></td>
+                        <td class="prop-default">none</td>
+                        <td class="prop-description">An array of gridster items to show.</td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">outerMargin</td>
+                        <td class="prop-type"><code>boolean</code></td>
+                        <td class="prop-default">true</td>
+                        <td class="prop-description">Whether or not to display an outer margin around the grid.  It generally looks better to include a margin when dragging items.  However, there may be some circumstances under which an outer margin may cause too much padding in a certain context and it is not easy to otherwise remove the outermost padding/margin.</td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">draggable</td>
+                        <td class="prop-type"><code>boolean</code></td>
+                        <td class="prop-default">true</td>
+                        <td class="prop-description">Whether or not grid items are draggable by default.  This value can be overridden at the item level.  When set to false, neighboring items will not be pushed out of the way on resize.</td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">resizable</td>
+                        <td class="prop-type"><code>boolean</code></td>
+                        <td class="prop-default">true</td>
+                        <td class="prop-description">Whether or not grid items are resizable by default.  This value can be overridden at the item level.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>CSS Custom Properties</h3>
+
+            <table class="table table-striped css-props-table">
+                <thead>
+                <tr>
+                    <th width="30%">CSS Custom property</th>
+                    <th>Description</th>
+                    <th style="min-width: 150px;">Value</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td class="propName">--kg-card-bg-color</td>
+                    <td class="description">The background color used for card elements, including gridster items.</td>
+                    <td class="value">var(--kg-color-white, #ffffff)</td>
+                </tr>
+            </table>
+
+            <h3>KgGridsterService</h3>
+
+            <p>A <code>KgGridsterService</code> service is available for adding/deleting gridster items.  An RxJs subject is also provided, allowing your application to subscribe to update events.</p>
+
+            <kg-code-sample type="typescript" [code]="serviceCode"></kg-code-sample>
+
+        </div>
+
+        <!-- CHANGELOG Content -->
+        <div class="component_tabs_4">
+            [CHANGELOG]
+        </div>
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    [page footer content here]
+</kg-content-footer>

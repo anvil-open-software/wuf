@@ -1,0 +1,358 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Navigation', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'" [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Navigation</div>
+
+        <!--start EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <p>The following example loads <strong>&lt;kg-navigation&gt;</strong> inside of a container with a fixed
+                width and color background in order to simulate the appearance of the component inside a sidebar.</p>
+
+            <div style="width: 230px; background-color:var(--kg-color-secondary); color: var(--kg-color-secondary-lighter-50); margin-bottom: 20px;">
+                <kg-navigation [dataUrl]="dataUrl"></kg-navigation>
+            </div>
+
+            <p>By default <strong>&lt;kg-navigation&gt;</strong> assumes it is positioned on the left side of the
+                layout
+                and orients itself vertically. By changing the value of the "position" attribute, however, we can
+                instruct the <strong>&lt;kg-navigation&gt;</strong> to orient itself <em>horizontally</em> for
+                positioning at the top of the layout.</p>
+            <div style="width: 100%; background-color:var(--kg-color-secondary); color: var(--kg-color-secondary-lighter-50); margin-bottom: 20px; overflow-x: auto">
+                <kg-navigation [dataUrl]="dataUrl" position="top"></kg-navigation>
+            </div>
+
+            <p>By default navigation items place their icons to the left of the text label. To place the icons on top,
+                change the "iconPosition" attribute to "top".</p>
+            <div style="width: 100%; background-color:var(--kg-color-secondary); color: var(--kg-color-secondary-lighter-50); margin-bottom: 20px; overflow-x: auto">
+                <kg-navigation [dataUrl]="dataUrl" position="top" iconPosition="top" alignment="center"></kg-navigation>
+            </div>
+        </div>
+        <!--end EXAMPLE Content -->
+
+        <!--start WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+        <!--end WHEN/WHERE Content -->
+
+        <!--start API Content -->
+        <div class="component_tabs_3">
+            <markdown path="assets/documentation/packages/kg-ang-navigation/README.md"></markdown>
+
+            <hr>
+
+            <h3>Provide Content to <strong>kg-navigation</strong></h3>
+
+            <p>You can construct a <strong>kg-navigation</strong> component using one of two methods: using a JSON
+                object to describe the content, or manually inserting content through <strong>content
+                    projection</strong>.</p>
+
+            <h4>Using a JSON Object</h4>
+            <p>The <strong>kg-navigation</strong> can use a JSON object to build the list of <code>kg-nav-link</code>
+                components that make up the navigation pane.</p>
+
+            <p>You can use either one of two different methods for retrieving the JSON object:</p>
+
+            <ol>
+                <li>
+                    Pass a URL in the [dataUrl] argument:
+                    <kg-code-sample type="html" [code]="exampleHtml1">
+                    </kg-code-sample>
+                </li>
+                <li>
+                    Pass a JSON object in the [data] argument:
+                    <kg-code-sample type="html" [code]="exampleHtml2">
+                    </kg-code-sample>
+                </li>
+            </ol>
+
+            <p>component takes a dataUrl which is used to retrieve a json object used for building the navigation.</p>
+
+            <!--<pre><code class="html highlight">{{'&lt;kg-navigation [dataUrl]="dataUrl"&gt;&lt;/kg-navigation&gt;'}}</code></pre>-->
+
+            For demonstration purposes, the <strong>dataUrl</strong> in this app is bound to the local
+            '/assets/dummydata/navigation.json' asset which returns a JSON object. In your application
+            <strong>dataUrl</strong> should be bound to the URL of a micro-service that constructs the JSON object
+            based
+            on the structure of your application and the permissions of the user.
+
+            <p>The json object used for constructing the navigation should have the following structure:</p>
+
+            <kg-code-sample type="javascript" [code]="exampleJson">
+            </kg-code-sample>
+
+            <p>Every element in the routes array requires a <strong>link</strong>, <strong>label</strong> property
+                while
+                the <strong>icon</strong> and <strong>id</strong> properties are optional. The <strong>id</strong>
+                property is helpful for use in tests, for example. You can reference the character entities used for
+                icons and find additional icons used within Material Design here: <a href="https://material.io/icons"
+                    target="_blank">https://material.io/icons</a>.
+                NOTE: Only Material Design Icons are currently supported.</p>
+
+            <h4>Using Content Projection</h4>
+
+            <p>The <strong>kg-navigation</strong> component supports <strong>Content projection</strong> (aka,
+                "transclusion" in previous versions of Angular). To use content projection, don't include either a
+                [dataUrl] or [data] attribute when constructing your component. Instead, simply manually pass a list of
+                <strong>&lt;kg-navigation-link&gt;</strong>s as the content of the
+                <strong>&lt;kg-navigation&gt;</strong> tag:</p>
+
+            <kg-code-sample type="html" [code]="exampleHtml3">
+            </kg-code-sample>
+
+            <hr>
+
+            <h3>Orientation</h3>
+
+            <p>By default <strong>&lt;kg-navigation&gt;</strong> assumes it is positioned on the left side of the
+                layout
+                and orients itself vertically. By changing the value of the "position" attribute, however, we can
+                instruct the <strong>&lt;kg-navigation&gt;</strong> to orient itself <em>horizontally</em> for
+                positioning at the top of the layout. It is <strong>strongly</strong> recommended to use the <a
+                    routerLink="/setup/configuration">configuation service</a> (via KgConfigurationService) to supply
+                <strong>&lt;kg-navigation&gt;</strong> with the value for the position attribute.</p>
+
+            <p>The position attribute from <strong>&lt;kg-navigation&gt;</strong> will propagate down to the children
+                <strong>&lt;kg-navigation-link&gt;</strong> elements.</p>
+
+            <kg-code-sample type="html" [code]="exampleHtml4">
+            </kg-code-sample>
+
+            <hr>
+
+            <h3>Icon Position</h3>
+
+            <p>By default icons are positioned on the left side of a navigation item. To change this behavior, pass a
+                value to the "iconPosition" attribute. Possible values include "top", "left".</p>
+
+            <p>The iconPosition attribute from <strong>&lt;kg-navigation&gt;</strong> will propagate down to the
+                children <strong>&lt;kg-navigation-link&gt;</strong> elements.</p>
+
+            <kg-code-sample type="html" [code]="exampleHtml5">
+            </kg-code-sample>
+
+            <hr>
+
+            <h3>Properties</h3>
+
+            <table class="table prop-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="prop-name">dataUrl</td>
+                        <td class="prop-type"><code>string</code></td>
+                        <td class="prop-default">None</td>
+                        <td class="prop-description">The url of an API to use to retrieve navigation data. The service
+                            must
+                            return an object in the navigation object format.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">data</td>
+                        <td class="prop-type"><code>object</code></td>
+                        <td class="prop-default">None</td>
+                        <td class="prop-description">A navigation object with navigation data.</td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">activeOptions</td>
+                        <td class="prop-type"><code>string</code></td>
+                        <td class="prop-default">'{{'{'}}exact: true{{'}'}}'</td>
+                        <td class="prop-description">The position of the navigation element, either {{'{'}}exact: true{{'}'}} or
+                            {{'{'}}exact: false{{'}'}}.
+                            This will put the link active if needed when the path is exact or almost that.
+                            This property is related to routerLinkActiveOptions of a link.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">position</td>
+                        <td class="prop-type"><code>string</code></td>
+                        <td class="prop-default">'left'</td>
+                        <td class="prop-description">The position of the navigation element, either 'top' or 'left'. A
+                            value
+                            of 'top' orients the navigation component horizontally. A value of 'left' orients the
+                            navigation
+                            component vertically.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">iconPosition</td>
+                        <td class="prop-type"><code>string</code></td>
+                        <td class="prop-default">'left'</td>
+                        <td class="prop-description">The position of navigation items' icon relative to the text.</td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">alignment</td>
+                        <td class="prop-type"><code>string</code></td>
+                        <td class="prop-default">'left'</td>
+                        <td class="prop-description">The alignment of navigation items within the header. This only has
+                            an
+                            effect when position="top". Possible values are "left" (default), "center", and "right".
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
+            <h3>CSS Custom Properties</h3>
+
+            <p>The following theme-related CSS custom properties are available to use throughout your application's CSS
+                files should you decide to use them to further customize your brand's appearance. By default, the
+                values
+                of these properties are set to use the Dematic brand theme. However, you can easily override all of the
+                following default value with your own theme values using the SCSS methods definded in the <a routerLink="/themes/themes">KION
+                    Theme System</a> documentation.</p>
+
+            <table class="table table-striped css-props-table">
+                <thead>
+                    <tr>
+                        <th width="30%">CSS Custom property</th>
+                        <th>Description</th>
+                        <th style="min-width: 150px;">Value</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td class="propName">--kg-navigation-link-color</td>
+                    <td class="description">Navigation item link text color.</td>
+                    <td class="value">var(--kg-color-primary-lighter-50)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-bg-color</td>
+                    <td class="description">Background color for navigation items. By default, the background color is
+                        transparent and, therefore, takes on the color of <strong>--kg-sidebar-bg-color</strong>.
+                    </td>
+                    <td class="value">transparent</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-hover-color</td>
+                    <td class="description">Navigation item link hover text color.</td>
+                    <td class="value">var(--kg-color-primary-lighter-60)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-hover-bg-color</td>
+                    <td class="description">Navigation item link background color.</td>
+                    <td class="value">var(--kg-color-primary-lighter-10)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-active-color</td>
+                    <td class="description">Navigation item link hover background color.</td>
+                    <td class="value">var(--kg-color-white)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-active-bg-color</td>
+                    <td class="description">Navigation active item link background color.</td>
+                    <td class="value">var(--kg-color-primary-lighter-10)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-active-hover-color</td>
+                    <td class="description">Navigation active item link hover background color.</td>
+                    <td class="value">var(--kg-color-white)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-active-accent-color</td>
+                    <td class="description">The color accent to show on active navigation items.</td>
+                    <td class="value">var(--kg-color-accent)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-font-size</td>
+                    <td class="description">The navigation item text size. Only applies when configuration is set to
+                        navigation.position='top'. It is highly recommended to us "em" unit values here so the text can
+                        be resized responsively.
+                    </td>
+                    <td class="value">inherit</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-icon-size</td>
+                    <td class="description">The navigation item icon size. Only applies when configuration is set to
+                        navigation.position='top'. It is highly recommended to us "em" unit values here so the text can
+                        be resized responsively.
+                    </td>
+                    <td class="value">1.5em</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-margin</td>
+                    <td class="description">The margin around each top-level navigation item. Only applies when
+                        configuration is set to navigation.position='top'. It is highly recommended to us "em" unit
+                        values here so the text can be resized responsively.
+                    </td>
+                    <td class="value">1.5em</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-nested-color</td>
+                    <td class="description">Nested navigation item link text color.</td>
+                    <td class="value">var(--kg-color-primary-lighter-30)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-nested-hover-color</td>
+                    <td class="description">Nested navigation item link hover text color.</td>
+                    <td class="value">var(--kg-color-primary-lighter-40)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-nested-bg-color</td>
+                    <td class="description">Nested navigation item background color.</td>
+                    <td class="value">var(--kg-color-primary-darker-5)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-nested-hover-bg-color</td>
+                    <td class="description">Nested navigation item hover background color.</td>
+                    <td class="value">var(--kg-color-primary-darker-10)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-nested-active-color</td>
+                    <td class="description">Nested navigation active item background color.</td>
+                    <td class="value">var(--kg-color-white)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-nested-active-hover-color</td>
+                    <td class="description">Nested active navigation item hover text color.</td>
+                    <td class="value">var(--kg-color-white)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-nested-active-bg-color</td>
+                    <td class="description">Nested active navigation item hover background color.</td>
+                    <td class="value">var(--kg-color-primary-darker-10)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-navigation-link-nested-active-accent-color</td>
+                    <td class="description">The color accent to show on nested active navigation items.</td>
+                    <td class="value">var(--kg-navigation-link-active-accent-color)</td>
+                </tr>
+            </table>
+
+            <p>For additional sidebar-related CSS custom properties view documentation for <a routerLink="/setup/cssprops">Layout</a>
+                and <a routerLink="/components/navigationfooter">Navigation
+                    Footer</a>.</p>
+
+        </div>
+        <!--end API Content -->
+
+        <!--start CHANGELOG Content -->
+        <div class="component_tabs_4">
+            <markdown path="assets/documentation/packages/kg-ang-navigation/CHANGELOG.md"></markdown>
+        </div>
+        <!--end CHANGELOG Content -->
+    </app-component-tabs>
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>

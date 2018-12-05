@@ -1,0 +1,64 @@
+// Import styles from 3rd party modules
+
+/***** build *****/
+$kg-is-local: true; // Used to determine if this SCSS is being consumed from within an Angular 6 library workspace or not
+
+/***** @kion WUF *****/
+@import '../../../../../packages/kg-web-assets/assets/styles/library';
+
+@if $kg-is-local {
+    // If this partial is used inside an Angular 6 library workspace use a relative path instead
+    $kg-font-path: '../../../../packages/kg-web-assets/assets/fonts/roboto';
+} @else {
+    // Otherwise, assume this is being consumed from within an application's node_modules folder
+}
+
+/***** font-awesome *****/
+$fa-font-path: '~font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome';
+
+/***** Material Design *****/
+// Angular Material appears to include most (but not all) mdc styles.  "mdc-elevation--zX" styles, for example, are missing.
+@import "~material-components-web/material-components-web";
+
+/***** Material Design Icons *****/
+$material-design-icons-path: "~material-design-icons/iconfont";
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url('#{$material-design-icons-path}/MaterialIcons-Regular.eot'); /* For IE6-8 */
+    src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url('#{$material-design-icons-path}/MaterialIcons-Regular.woff2') format('woff2'),
+    url('#{$material-design-icons-path}/MaterialIcons-Regular.woff') format('woff'),
+    url('#{$material-design-icons-path}/MaterialIcons-Regular.ttf') format('truetype');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1rem;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    float: none;
+    clear: both;
+    position: relative;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}

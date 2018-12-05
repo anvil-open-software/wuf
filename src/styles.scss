@@ -1,0 +1,120 @@
+/* You can add global styles to this file, and also import other style files */
+/* Styles placed here will override those from any component */
+/* Leave these imports alone */
+@import "assets/styles/scss/base"; // Import base SCSS dependencies for the app
+
+/* Add any additional global app styles below this line */
+
+table.css-props-table {
+    margin-bottom: 20px;
+    tr {
+        vertical-align: middle;
+        td {
+            &.propName,
+            &.value {
+                font-family: var(--kg-font-family-monospace);
+                font-size: .85rem;
+                white-space: nowrap;
+            }
+            .swatch {
+                color: #ffffff;
+                font-size: 10px;
+                font-family: var(--kg-font-family-monospace);
+                padding: 10px;
+                display: block;
+                height: 100%;
+                width: 100%;
+                text-align: center;
+                &.dark-label {
+                    color: #000000;
+                }
+            }
+        }
+        &.section-title {
+            background-color: transparent;
+            td {
+                font-weight: bold;
+                border-top-width: 5px;
+            }
+        }
+    }
+    .description {
+        font-weight: normal;
+    }
+}
+
+caption {
+    margin-top: -20px;
+}
+
+// property tables
+table.prop-table {
+    td.prop-name,
+    td.prop-type,
+    td.prop-value {
+        white-space: nowrap;
+    }
+}
+
+
+// TODO: Delete this after form design work is complete
+@import '~@kion/kg-web-assets/assets/styles/partials/mixins';
+.mat-form-field-invalid.mat-form-field-appearance-legacy {
+    // Error message
+    .mat-error {
+        &.fill {
+            @include border-bottom-radius(var(--kg-border-radius));
+            @include alert-variant('danger');
+        }
+    }
+    &.noFill {
+        .mat-form-field-suffix,
+        .mat-form-field-prefix {
+            background: var(--kg-input-bg-color)!important;
+        }
+        .mat-form-field-infix {
+            border-color: var(--kg-input-bg-color)!important;
+            background: var(--kg-input-bg-color)!important;
+        }
+    }
+}
+
+:root[kg-theme-dark="true"],
+*[kg-theme-dark="true"],
+:root[kg-theme-dark="true"][kg-theme],
+*[kg-theme-dark="true"][kg-theme] {
+    .mat-form-field-invalid.mat-form-field-appearance-legacy {
+        // Error message
+        .mat-error {
+            &.fill {
+                background: var(--kg-color-danger);
+                color: var(--kg-color-white);
+            }
+        }
+        &.noFill {
+            .mat-form-field-infix {
+                border-color: var(--kg-input-bg-color);
+                background: var(--kg-input-bg-color);
+            }
+            .mat-form-field-suffix,
+            .mat-form-field-prefix {
+                background: var(--kg-input-bg-color);
+            }
+            // Error message
+            .errorIcon {
+                color: var(--kg-color-danger);
+            }
+            .mat-form-field-label {
+                color: var(--kg-color-danger);
+                .mat-form-field-required-marker {
+                    color: var(--kg-color-danger);
+                }
+            }
+            .mat-form-field-underline {
+                .mat-form-field-ripple {
+                    background-color: var(--kg-body-color);
+                }
+            }
+        }
+    }
+}

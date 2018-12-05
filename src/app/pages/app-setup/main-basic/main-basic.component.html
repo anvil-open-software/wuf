@@ -1,0 +1,170 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Main vs Basic Layout', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <h1>Layout</h1>
+
+    <p>There are two layouts included with the Quick Start Application:</p>
+
+    <ul>
+        <li><strong>Main</strong>. The main layout includes a header and navigation component. This is the primary
+            layout for most pages in an app.
+        </li>
+        <li><strong>Basic</strong>. The basic layout <strong>excludes</strong> header and navigation components and
+            shows <strong>only</strong> the page content. This layout can be helpful for pages like login, 404, or error
+            pages where showing header and navigation is not desirable.
+        </li>
+    </ul>
+
+    <div class="container-fluid">
+        <div class="row swatch-row">
+            <div class="col-md">
+                <h4 class="text-center">Main Layout</h4>
+                <img src="/assets/images/example_images/layouts/main.svg">
+            </div>
+
+            <div class="col-md">
+                <h4 class="text-center">Basic Layout</h4>
+                <img src="/assets/images/example_images/layouts/basic.svg">
+            </div>
+
+        </div>
+    </div>
+    <caption style="margin-top: 0">Main and Basic layouts with their associated DOM elements</caption>
+
+    <hr>
+
+    <p>We've already discussed the <a routerLink="/setup/layoutcomponents">scaffolding layout components for use on each
+        application page</a>. There are two additional layout components that are used at a higher level in your
+        application and that can be applied to any application page:</p>
+
+    <ul>
+        <li>&lt;kg-view-main&gt;</li>
+        <li>&lt;kg-view-basic&gt;</li>
+    </ul>
+
+    <p>Which of these two components a page uses will determine whether that page gets the <strong>Main</strong> layout
+        or the <strong>Basic</strong> layout. We will first describe how and where each of these components is used in
+        your application and then explain how to apply one or the other to a given page in your application.</p>
+
+    <hr>
+
+    <h2>Main Layout</h2>
+
+    <p>The &lt;kg-view-main&gt; and &lt;kg-view-basic&gt; components each live within their own parent component hosted
+        within the application. The Quick Start application, for example, places these components at <code>/src/app/internal/layouts/</code>.
+    </p>
+
+    <p>The file <code>/src/app/internal/layouts/main/<strong>main.component.html</strong></code> hosts the &lt;kg-view-main&gt;
+        component and looks like this:</p>
+
+    <kg-code-sample type="html" [code]="mainCodeHtml"></kg-code-sample>
+    <caption>Contents of /src/app/internal/layouts/main/main.component.html</caption>
+
+    <p>The &lt;kg-view-main&gt; takes one attribute: <strong><code>[logoRoute]</code></strong>. The logoRoute attribute
+        is optional. If used, it takes a value for a routerLink and it is applied to the logo that appears in the
+        application header. Gernerally you will want to use the application's root path (e.g. "/") so that when the user
+        clicks the logo they will return to the application root.</p>
+
+    <p>Inside the &lt;kg-view-main&gt;'s content, you'll see five &lt;ng-container&gt; slots, each with one of following
+        selectors:</p>
+
+    <ul>
+        <li><strong>sidebarNavigation</strong>. This slot hosts the <a routerLink="/components/navigation">&lt;kg-navigation&gt;</a>
+            component.
+        </li>
+        <li><strong>sidebarFooter</strong>. This slot hosts the <a routerLink="/components/navigation-footer">&lt;kg-sidebar-footer&gt;</a>
+            component.
+        </li>
+        <li><strong>toolbarContent</strong>. This slot hosts content to display in the header, including the application
+            title. Note that the hamburger icon for expanding/collapsing the sidebar is created for you and does not
+            need to be manually added here.
+        </li>
+        <li><strong>utilities</strong>. This slot hosts any application-level menus or utilities you want to include on
+            the right side of your application's header.
+        </li>
+        <li><strong>main</strong>. This slots hosts the &lt;router-outlet&gt; and is where each page gets inserted
+            during the Angular routing process.
+        </li>
+    </ul>
+
+    <p>Let's take a look at the contents of <code>/src/app/internal/layouts/main/main.component.ts</code>.</p>
+
+    <kg-code-sample type="typescript" [code]="mainCodeComponent"></kg-code-sample>
+    <caption>Contents of /src/app/internal/layouts/main/main.component.ts</caption>
+
+    <p>Note that this component is fetching nav data from a service
+        <code>this.navService.getNavData(this.navDataUrl)</code> and then passing the returned .json object to the &lt;kg-navigation&gt;
+        component.</p>
+
+    <hr>
+
+    <h2>Basic Layout</h2>
+
+    <p>The file <code>/src/app/internal/layouts/basic/<strong>basic.component.html</strong></code> hosts the &lt;kg-view-basic&gt;
+        component and looks like this:</p>
+
+    <kg-code-sample type="html" [code]="basicCodeHtml"></kg-code-sample>
+    <caption>Contents of /src/app/internal/layouts/basic/basic.component.html</caption>
+
+    <p>Unlike &lt;kg-view-main&gt;, the &lt;kg-view-basic&gt; component hosts only <strong>one</strong> slot: <strong>main</strong>.
+        As with the <strong>main</strong> slot in &lt;kg-view-main&gt;, this slot hosts &lt;router-outlet&gt;.</p>
+
+    <p>The component code for &lt;kg-view-basic&gt; is similarly very simple:</p>
+
+    <kg-code-sample type="typescript" [code]="basicCodeComponent"></kg-code-sample>
+    <caption>Contents of /src/app/internal/layouts/basic/basic.component.ts</caption>
+
+    <hr>
+
+    <h2>Layout Module</h2>
+
+    <p>Create a layout module to host the Main and Basic components created above. The Quick Start application places
+        its layout module at <code>/src/app/internal/layouts/layouts.module.ts</code>:</p>
+
+    <kg-code-sample type="typescript" [code]="layoutsModuleCode"></kg-code-sample>
+    <caption>Contents of /src/app/internal/layouts/layouts.module.ts</caption>
+
+    <hr>
+
+    <h2>Switching Between Main and Basic</h2>
+
+    <p>Now that we have our Main and Basic layout components and a layouts module ready to use, it's time to assign each
+        of our pages to one layout or the other. This is done in through the Angular routing process.</p>
+
+    <kg-code-sample type="typescript" [code]="routesCode"></kg-code-sample>
+    <caption>Contents of an example routes.ts file</caption>
+
+    <p>In our <code>routes.ts</code> file we're creating two different arrays to host our routes: <code>routes_layout_main</code>
+        and <code>routes_layout_basic</code>.</p>
+
+    <p>We then create a <code>routes</code> array and assign both the <code>routes_layout_main</code> and <code>routes_layout_basic</code>
+        array to a "component-less route's" (an empty path string) "children" property. The value for the "component"
+        property is "LayoutMainComponent" for the <code>routes_layout_main</code> collection and <code>routes_layout_basic</code>
+        for the <code>routes_layout_main</code> collection.</p>
+
+    <p>In the above example, the <code>MyPageComponent</code> route is assigned to the <code>routes_layout_main</code>
+        array. When the "mypage" route is loaded, my page content will appear wrapped in the Main layout.</p>
+
+    <p>If I want <code>MyPageComponent</code> to use the Basic layout, however, making the change is as simple as moving
+        the component from the <code>routes_layout_main</code> array to the <code>routes_layout_basic</code> array.
+        That's it!</p>
+
+    <kg-code-sample type="typescript" [code]="routesCode2"></kg-code-sample>
+    <caption>Example of moving a component from Main layout to Basic layout</caption>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert page footer content here -->
+</kg-content-footer>

@@ -1,0 +1,11 @@
+// This file provides direct access to the KION Group Material Design Theme ONLY without including any other SCSS.  Dark theming is not included.
+
+// Mixins & functions (must come first)
+@import 'partials/mixins';
+@import 'partials/functions';
+
+// Themes
+@import 'mixins/themes';
+
+// Create default material design theme
+@include kg-mat-theme($primary, $accent, $danger);

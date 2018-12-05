@@ -1,0 +1,12 @@
+// This file provides direct access to the KION theme methods without including any other SCSS
+
+// Mixins & functions (must come first)
+@import 'partials/mixins';
+@import 'partials/functions';
+
+// Themes
+@import 'mixins/themes';
+
+// Themes (add these last)
+@import 'partials/theme-dark';
+@import 'partials/theme-default';

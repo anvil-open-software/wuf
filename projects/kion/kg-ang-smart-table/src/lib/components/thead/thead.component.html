@@ -1,0 +1,22 @@
+<tr kg-st-thead-titles-row *ngIf="!isHideHeader"
+    class="kg-smart-titles"
+    [grid]="grid"
+    [isAllSelected]="isAllSelected"
+    [source]="source"
+    (sort)="sort.emit($event)"
+    (selectAllRows)="selectAllRows.emit($event)">
+</tr>
+
+<tr kg-st-thead-filters-row *ngIf="!isHideSubHeader"
+    class="kg-smart-filters"
+    [grid]="grid"
+    [source]="source"
+    (create)="create.emit($event)"
+    (filter)="filter.emit($event)">
+</tr>
+
+<tr kg-st-thead-form-row *ngIf="grid.createFormShown"
+    [grid]="grid"
+    [createConfirm]="createConfirm"
+    class="kg-smart-form-row">
+</tr>

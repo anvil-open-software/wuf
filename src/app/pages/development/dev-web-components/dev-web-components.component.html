@@ -1,0 +1,23 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'Developing Web Components', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+
+    <markdown path="assets/documentation/webcomponents-README.md"></markdown>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    Home page footer
+</kg-content-footer>

@@ -1,0 +1,29 @@
+import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
+
+import { KgContentFooterService } from '@kion/kg-ang-layout';
+
+
+@Component({
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    encapsulation: ViewEncapsulation.Emulated
+})
+export class HomeComponent implements OnInit, OnDestroy {
+    constructor(private kgContentFooterService: KgContentFooterService) {
+    }
+
+    selectedTabIndex: number = 0;
+
+    ngOnInit() {
+        // this.kgContentFooterService.showFooter();
+    }
+
+    ngOnDestroy() {
+        // this.kgContentFooterService.hideFooter();
+    }
+
+    setTab(tabIndex: number) {
+        this.selectedTabIndex = tabIndex;
+    }
+}

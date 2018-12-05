@@ -1,0 +1,69 @@
+:host {
+    --kg-content-padding: 0px;
+}
+
+$rowHeight: 40px;
+
+table.exampleGraph {
+    width: 100%;
+    tr {
+        height: $rowHeight;
+        vertical-align: middle;
+        &:not(last-child) {
+            border-bottom: 1px solid var(--kg-border-color);
+        }
+        td {
+            padding: 5px 0;
+            position: relative;
+            color: #ffffff;
+        }
+    }
+    .barLabel {
+        color: var(--kg-color-white);
+        z-index: 1;
+        height: 100%;
+        display: inline-flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding-left: 5px;
+        font-size: .75em;
+    }
+    .bar-wrap {
+        width: 100%;
+        background-color: var(--kg-color-gray-300);
+    }
+    .bar {
+        width: 100%;
+        height: ($rowHeight - 10px);
+        position: relative;
+        background-color: var(--kg-color-primary);
+    }
+}
+
+kg-content-header {
+    // Make the page toolbar's shadow overlap the dashboard
+    z-index: 4;
+}
+
+vaadin-grid {
+    //margin: 0 -1px -1px -1px;
+    height: auto;
+    min-height: 300px;
+}
+
+/***** split panel *****/
+.splitPanel-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .splitPanel-top {
+        flex: 1 1 100%;
+        overflow: auto;
+        width: 100%;
+        padding: 20px;
+    }
+    .splitPanel-bottom {
+    }
+}

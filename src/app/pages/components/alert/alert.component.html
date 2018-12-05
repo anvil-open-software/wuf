@@ -1,0 +1,79 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Alerts', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+
+
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Alerts</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <h5>Bootstrap alerts</h5>
+
+            <div class="alert alert-primary" role="alert">
+                This is a primary alert—check it out!
+            </div>
+            <div class="alert alert-secondary" role="alert">
+                This is a secondary alert—check it out!
+            </div>
+            <div class="alert alert-success" role="alert">
+                This is a success alert—check it out!
+            </div>
+            <div class="alert alert-danger" role="alert">
+                This is a danger alert—check it out!
+            </div>
+            <div class="alert alert-warning" role="alert">
+                This is a warning alert—check it out!
+            </div>
+            <div class="alert alert-info" role="alert">
+                This is a info alert—check it out!
+            </div>
+            <div class="alert alert-light" role="alert">
+                This is a light alert—check it out!
+            </div>
+            <div class="alert alert-dark" role="alert">
+                This is a dark alert—check it out!
+            </div>
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+            <kg-code-sample
+                showCopyButton
+                type="html"
+                copy-label="Copy"
+                copy-label-error="Error"
+                copy-label-done="Done"
+                [code]="sampleCode"
+            >
+            </kg-code-sample>
+        </div>
+
+        <!-- CAHNGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>

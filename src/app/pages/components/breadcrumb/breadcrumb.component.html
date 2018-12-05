@@ -1,0 +1,110 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Breadcrumb', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'" [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Breadcrumb Trail</div>
+
+        <!-- start EXAMPLE Content -->
+        <div class="component_tabs_1">
+
+            <p>Example breadcrumb trail inside a page-level toolbar:</p>
+
+            <kg-toolbar>
+                <ng-container toolbarContent>
+                    <kg-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Breadcrumb', active: true }]"></kg-breadcrumb>
+                </ng-container>
+                <ng-container utilities>
+                </ng-container>
+            </kg-toolbar>
+        </div>
+        <!-- end EXAMPLE Content -->
+
+        <!--start WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+        <!--end WHEN/WHERE Content -->
+
+        <!--start API Content -->
+        <div class="component_tabs_3">
+            <p>The <code>&lt;kg-breadcrumb&gt;</code> tag is used at the application page level and placed within the
+                ,<code>&lt;kg-content-header&gt;</code> tag, as follows:</p>
+
+            <kg-code-sample [code]="breadcrumbHtmlCode1" type="html"></kg-code-sample>
+
+            <p>Content can be passed into the component via content projection by manually adding ,<code>&lt;ol
+                class="breadcrumb"&gt;</code>, ,<code>&lt;li class="breadcrumb-item"&gt;</code>, and ,<code>&lt;a
+                class="breadcrumb-link"&gt;</code> tags, as follows. This approach can be helpful when using Angular's
+                <a routerLink="/i18n">i18n</a> mechanism. The dividers are create automatically via CSS.</p>
+            <kg-code-sample [code]="breadcrumbHtmlCode2" type="html"></kg-code-sample>
+
+            <p>The easier approach, however, is to pass in an array of breadcrumb items in the <code>items</code>
+                attribute and let the component itself generate the breadcrumb trail:</p>
+
+            <p>Code for <code>component.html</code>:</p>
+
+            <kg-code-sample [code]="breadcrumbHtmlCode3" type="html"></kg-code-sample>
+
+            <p>Note that the last item in the array (i.e., the node representing the current page) has the
+                <code>link</code> property set to null and the <code>active</code> property set to true.
+
+                <p>If you don't pass an items array or any content via content projection, the placeholder text <strong>[breadcrumb
+                        items here]</strong> will appear, reminding you to add some content.</p>
+
+                <p>When you want to pass querystring parameters you can set the property queryParams</p>
+
+                <h2>CSS Custom Properties</h2>
+
+                <p>The following theme-related CSS custom properties are available to use throughout your application's
+                    CSS
+                    files should you decide to use them to further customize your brand's appearance. By default, the
+                    values
+                    of these properties are set to use the Dematic brand theme. However, you can easily override all of
+                    the
+                    following default value with your own theme values using the SCSS methods definded in the <a
+                        routerLink="/themes/themes">KION Theme System</a> documentation.</p>
+
+                <table class="table table-striped css-props-table">
+                    <thead>
+                        <tr>
+                            <th width="30%">CSS Custom property</th>
+                            <th>Description</th>
+                            <th style="min-width: 150px;">Value</th>
+                        </tr>
+                    </thead>
+                    <tr>
+                        <td class="propName">-kg-breadcrumb-color</td>
+                        <td class="description">Text color for breadcrumb trails. This color is lightened via opacity
+                            for
+                            non-active breadrumb links.</td>
+                        <td class="value">var(--kg-color-gray-500)</td>
+                    </tr>
+                </table>
+
+        </div>
+        <!--end API Content -->
+
+        <!--start CHANGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+        <!--end CHANGELOG Content -->
+
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>

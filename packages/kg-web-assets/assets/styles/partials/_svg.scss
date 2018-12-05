@@ -1,0 +1,6 @@
+svg {
+    &, * {
+        // Apply font styles to svg elements
+        font-family: var(--kg-font-family-sans-serif);
+    }
+}

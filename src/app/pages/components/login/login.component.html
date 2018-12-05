@@ -1,0 +1,69 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Login Screen', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Login (Animated)</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <div class="alert alert-danger">
+                <h3>NOT READY</h3>
+
+                <p>This component is only for show. It is not yet ready for prime time. It is still missing the mechanism to
+                    validate data and/or connect to the backend. Stay tuned.
+                </p>
+            </div>
+
+            <p>Click this button to see a demo of the animated login screen. You can fill out the login form with any data or
+                not data. There is no validation.
+            </p>
+
+            <p>
+                <button mat-raised-button color="primary" (click)="onLogoutClick()">Sign Out</button>
+            </p>
+
+            <div *ngIf="loginData">
+                <p>Results from login form submit:</p>
+                <pre><code>{{loginData}}</code></pre>
+            </div>
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+
+            <markdown path="assets/documentation/packages/kg-ang-login-animated/README.md"></markdown>
+
+        </div>
+
+        <!-- CAHNGELOG Content -->
+        <div class="component_tabs_4">
+            <markdown path="assets/documentation/packages/kg-ang-login-animated/CHANGELOG.md"></markdown>
+        </div>
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    [page footer content here]
+</kg-content-footer>
+

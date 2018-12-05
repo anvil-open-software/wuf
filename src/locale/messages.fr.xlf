@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="ng2.template">
+        <body>
+            <trans-unit id="language" datatype="html">
+                <source>English</source>
+                <target>Français</target>
+
+                <note priority="1" from="description">An example of no DOM generation</note>
+                <note priority="1" from="meaning">language used</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/i18n/i18n.component.ts</context>
+                    <context context-type="linenumber">15</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="culture" datatype="html">
+                <source>en-us</source>
+                <target>fr</target>
+
+                <note priority="1" from="description">Culture code used in examples</note>
+                <note priority="1" from="meaning">culture code</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/i18n/i18n.component.ts</context>
+                    <context context-type="linenumber">19</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="introductionMessage" datatype="html">
+                <source>I output an element in the DOM.</source>
+                <target>Je produis un élément dans le DOM.</target>
+
+                <note priority="1" from="description">An introduction message for this example using a DOM element
+                </note>
+                <note priority="1" from="meaning">intro message</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/i18n/i18n.component.ts</context>
+                    <context context-type="linenumber">25</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="noDomMessage" datatype="html">
+                <source>I do NOT output an element in the DOM.</source>
+                <target>Je ne produis PAS d'élément dans le DOM.</target>
+
+                <note priority="1" from="description">An example of no DOM generation</note>
+                <note priority="1" from="meaning">no DOM message</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/i18n/i18n.component.ts</context>
+                    <context context-type="linenumber">30</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="cardinality" datatype="html">
+                <source>
+                    <x id="ICU"/>
+                </source>
+                <target>
+                    <x id="ICU"/>
+                </target>
+
+                <note priority="1" from="description">An example of cardinality in action</note>
+                <note priority="1" from="meaning">use of cardinality</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/i18n/i18n.component.ts</context>
+                    <context context-type="linenumber">37</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="7c9fdaa95052100378ce4c8eb2c7a9e730a366f4" datatype="html">
+                <source>{VAR_PLURAL, plural, =0 {no wolves} =1 {one wolf} =2 {two wolves} other {a wolf pack} }</source>
+                <target>{count, plural, =0 {pas de loups} =1 {un loup} =2 {deux loups} other {une meute de loups} }
+                </target>
+
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/i18n/i18n.component.ts</context>
+                    <context context-type="linenumber">38</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="gender" datatype="html">
+                <source>
+                    The alpha of our wolf pack is
+                    <x id="ICU"/>.
+                </source>
+                <target>L'alpha de notre loup est<x id="ICU"/>.
+                </target>
+
+                <note priority="1" from="description">An example of using alternative texts based on gender</note>
+                <note priority="1" from="meaning">use of alternative texts</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/i18n/i18n.component.ts</context>
+                    <context context-type="linenumber">48</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="ebc4843e02428220756c308693c9a8958b9fd18d" datatype="html">
+                <source>{VAR_SELECT, select, m {male} f {female} }</source>
+                <target>{gender, select, m {mâle} f {femelle} }</target>
+
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/i18n/i18n.component.ts</context>
+                    <context context-type="linenumber">50</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="pluralization" datatype="html">
+                <source>
+                    Our wolf pack:
+                    <x id="ICU"/>.
+                </source>
+                <target>Notre meute de loup:<x id="ICU"/>.
+                </target>
+
+                <note priority="1" from="description">An example of using nested pluralization and selection</note>
+                <note priority="1" from="meaning">use of nested pluralization</note>
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/i18n/i18n.component.ts</context>
+                    <context context-type="linenumber">57</context>
+                </context-group>
+            </trans-unit>
+            <trans-unit id="94aae7c46fa1265bbbbf0f78f5005fbd3105c496" datatype="html">
+                <source>{VAR_PLURAL, plural, =0 {has no wolves} =1 {has one {VAR_SELECT, select, m {male wolf} f {female
+                    wolf} }} =2 {has two {VAR_SELECT_1, select, m {male wolves} f {female wolves} }} =3 {has a few
+                    {VAR_SELECT_2, select, m {male wolves} f {female wolves} }} other {has many {VAR_SELECT_3, select, m
+                    {male wolves} f {female wolves} }} }
+                </source>
+                <target>{count, plural, =0 {n'a pas de loups} =1 {contient {VAR_SELECT, select, m {un loup} f {une
+                    louve} }} =2 {contient deux {VAR_SELECT_1, select, m {loups} f {louves} }} =3 {quelques
+                    {VAR_SELECT_2, select, m {loups} f {louves} }} other {de nombreux {VAR_SELECT_3, select, m {loups} f
+                    {louves} }} }
+                </target>
+
+                <context-group purpose="location">
+                    <context context-type="sourcefile">app/i18n/i18n.component.ts</context>
+                    <context context-type="linenumber">59</context>
+                </context-group>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

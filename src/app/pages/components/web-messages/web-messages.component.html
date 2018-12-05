@@ -1,0 +1,156 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Web Messages', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        [page-level utilities here]
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Messages</div>
+
+        <!--start EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <kg-web-message #kgm></kg-web-message>
+
+            <p>Click the following links to show messages in their various flavors:</p>
+            <ul>
+                <li><a href="javascript:void(0)" id="infoMessageLink" (click)="onShowInfoMessageClick()">info
+                    message</a></li>
+                <li><a href="javascript:void(0)" id="successMessageLink" (click)="onShowSuccessMessageClick()">success
+                    message</a></li>
+                <li><a href="javascript:void(0)" id="warningMessageLink" (click)="onShowWarningMessageClick()">warning
+                    message</a></li>
+                <li><a href="javascript:void(0)" id="errorMessageLink" (click)="onShowErrorMessageClick()">error
+                    message</a></li>
+            </ul>
+        </div>
+        <!--end EXAMPLE Content -->
+
+        <!--start WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [WHEN/WHERE to USE]
+        </div>
+        <!--end WHEN/WHERE Content -->
+
+        <!--start API Content -->
+        <div class="component_tabs_3">
+            <markdown path="assets/documentation/packages/kg-web-message/README.md"></markdown>
+
+            <h2>CSS Variables (i.e., CSS Custom Properties) Reference</h2>
+
+            <p>The following theme-related CSS custom properties are available to use throughout your application's CSS
+                files should you decide to use them to further customize your brand's appearance. By default, the values
+                of these properties are set to use the Dematic brand theme. However, you can easily override all of the
+                following default value with your own theme values using the SCSS methods definded in the <a
+                    routerLink="/themes/themes">KION Theme System</a> documentation.</p>
+
+            <table class="table table-striped css-props-table">
+                <thead>
+                <tr>
+                    <th width="30%">CSS Custom property</th>
+                    <th>Description</th>
+                    <th style="min-width: 150px;">Value</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td class="propName">--kg-message-success-bg-color</td>
+                    <td class="description">Color to use for info message background.</td>
+                    <td class="value">var(--kg-color-success)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-success-color</td>
+                    <td class="description">Color to use for success message text.</td>
+                    <td class="value">var(--kg-color-white)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-success-link-color</td>
+                    <td class="description">Color to use for success message links appearing in message body.</td>
+                    <td class="value">var(--kg-color-success-darker)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-info-bg-color</td>
+                    <td class="description">Color to use for info message background.</td>
+                    <td class="value">var(--kg-color-info)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-info-color</td>
+                    <td class="description">Color to use for info message text.</td>
+                    <td class="value">var(--kg-color-white)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-info-link-color</td>
+                    <td class="description">Color to use for info message links appearing in message body.</td>
+                    <td class="value">var(--kg-color-info-darker)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-warning-bg-color</td>
+                    <td class="description">Color to use for warning message background.</td>
+                    <td class="value">var(--kg-color-warning)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-warning-color</td>
+                    <td class="description">Color to use for warning message text.</td>
+                    <td class="value">var(--kg-color-warning-darkest)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-warning-link-color</td>
+                    <td class="description">Color to use for warning message links appearing in message body.</td>
+                    <td class="value">var(--kg-color-warning-darker)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-danger-bg-color</td>
+                    <td class="description">Color to use for danger/alert message background.</td>
+                    <td class="value">var(--kg-color-danger)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-danger-color</td>
+                    <td class="description">Color to use for danger/alert message text.</td>
+                    <td class="value">var(--kg-color-white)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-danger-link-color</td>
+                    <td class="description">Color to use for danger/alert message links appearing in message body.</td>
+                    <td class="value">var(--kg-color-danger-darker)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-close-color</td>
+                    <td class="description">Color to use for message color button.</td>
+                    <td class="value">var( --kg-color-gray-800, #424242 )</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-close-hover-color</td>
+                    <td class="description">Color to use for message color button on hover.</td>
+                    <td class="value">var( --kg-color-gray-800, #424242 )</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-message-close-shadow-color</td>
+                    <td class="description">Color to use for message close button shadow.</td>
+                    <td class="value">var( --kg-color-white, #ffffff )</td>
+                </tr>
+            </table>
+
+        </div>
+        <!--end API Content -->
+
+        <!--start CHANGELOG Content -->
+        <div class="component_tabs_4">
+            <markdown path="assets/documentation/packages/kg-web-message/CHANGELOG.md"></markdown>
+        </div>
+        <!--end CHANGELOG Content -->
+
+    </app-component-tabs>
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+    Home page footer
+</kg-content-footer>

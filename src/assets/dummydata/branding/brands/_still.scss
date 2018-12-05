@@ -1,0 +1,67 @@
+/*
+Add brand overrides here.
+
+Note that this file and associated partials are used for DEMO PURPOSES ONLY.
+The CSS here should be returned using a service whereby the value provided
+below are fetched from a database and written to the page via some kind of
+templating mechanism or by other means.  We are using scss syntax for
+convenience.
+
+Refer to available variables in ./partials/_variables.scss for a full list
+of component variables that can be overridden.
+*/
+
+/**********************************/
+/* EXAMPLE USE OF BRANDING (KION) */
+/**********************************/
+
+:root[kg-theme="still"],
+*[kg-theme="still"] {
+
+    /***** set color values to use in theme *****/
+    $kg-brand-primary: #f68b1f;
+    $kg-brand-secondary: #404040;
+    $kg-brand-accent: #f68b1f;
+    $kg-brand-success: #5cb85c;
+    $kg-brand-info: #03A9F4;
+    $kg-brand-warning: #fdd835;
+    $kg-brand-danger: #dd2c00;
+
+    /***** create a theme *****/
+    @include kg-theme-colors((
+        "primary": $kg-brand-primary,
+        "secondary": $kg-brand-secondary,
+        "accent": $kg-brand-accent,
+        "success": $kg-brand-success,
+        "info": $kg-brand-info,
+        "warning": $kg-brand-warning,
+        "danger": $kg-brand-danger
+    ));
+
+    /***** logo *****/
+    @include kg-theme-logo("/assets/images/example_images/logos/still_white.svg", 105px, 45px);
+
+    /***** buttons *****/
+    @include kg-theme-button-radius(4px);
+
+    /***** header *****/
+    --kg-header-bg-color: var(--kg-color-secondary);
+
+    /***** header navigation *****/
+    --kg-sidebar-bg-color: var(--kg-color-secondary-lighter-30);
+    --kg-navigation-link-bg-color: var(--kg-color-secondary);
+    --kg-navigation-link-hover-bg-color: var(--kg-color-secondary-lighter-10);
+    --kg-navigation-link-color: var(--kg-color-white);
+    --navigation-link-nested-bg-color: var(--kg-color-secondary-darker-5);
+    --navigation-link-nested-color: var(--kg-color-secondary-lighter-10);
+    --navigation-link-nested-hover-color: var(--kg-color-white);
+    --navigation-link-nested-hover-bg-color: var(--kg-color-secondary-darker-10);
+    --navigation-link-nested-active-color: var(--kg-color-white);
+    --navigation-link-nested-active-hover-color: var(--kg-color-white);
+    --navigation-link-nested-active-bg-color: var(--kg-color-secondary-darker-10);
+    --kg-navigation-link-font-size: .75em;
+    --kg-navigation-link-icon-size: 2.5em;
+    --kg-navigation-link-margin: 10px 5px;
+    --kg-header-color: var(--kg-color-white);
+
+}

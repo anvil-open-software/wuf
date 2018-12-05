@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.63 545.64">
+    <defs>
+        <style>
+            .cls-1,.cls-3,.cls-4{fill:none;}.cls-1{stroke:#231f20;}.cls-1,.cls-2,.cls-3,.cls-4{stroke-miterlimit:10;}.cls-2,.cls-5{fill:#fff;}.cls-2{stroke:#e5e5e5;stroke-width:5px;}.cls-3{stroke:#c2c1c0;}.cls-4{stroke:#000;}.cls-6,.cls-9{font-size:12px;}.cls-6{fill:#bfbfbf;font-family:Roboto-Thin,
+            Roboto;}.cls-7{letter-spacing:-0.01em;}.cls-8{letter-spacing:-0.02em;}.cls-9{fill:#231f20;font-family:Roboto-Bold,
+            Roboto;font-weight:700;}.cls-10{letter-spacing:-0.01em;}
+        </style>
+    </defs>
+    <title>main</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <rect class="cls-1" x="12.5" y="17.09" width="462.63" height="516.05"/>
+            <rect class="cls-2" x="-24.21" y="33.8" width="536.05" height="482.63"
+                  transform="translate(518.93 31.3) rotate(90)"/>
+            <rect class="cls-3" x="12.5" y="17.09" width="462.63" height="516.05"/>
+            <rect class="cls-3" x="13.32" y="71.33" width="460.98" height="442.63"
+                  transform="translate(536.46 48.83) rotate(90)"/>
+            <rect class="cls-4" x="-134.11" y="238.77" width="440.98" height="107.76"
+                  transform="translate(379.03 206.27) rotate(90)"/>
+            <rect class="cls-3" x="72.71" y="445.58" width="27.35" height="87.76"
+                  transform="translate(575.84 403.08) rotate(90)"/>
+            <polygon class="cls-5" points="263.59 23.5 224.03 23.5 224.22 12.49 263.78 12.49 263.59 23.5"/>
+            <polygon class="cls-5" points="96.33 14.41 10.48 14.24 10.48 4.28 96.33 4.45 96.33 14.41"/>
+            <text class="cls-6" transform="translate(231.38 19.09)">page</text>
+            <text class="cls-6" transform="translate(10.61 10.27)">b
+                <tspan class="cls-7" x="6.57" y="0">r</tspan>
+                <tspan x="10.46" y="0">owser ch</tspan>
+                <tspan class="cls-7" x="57.71" y="0">r</tspan>
+                <tspan x="61.61" y="0">ome</tspan>
+            </text>
+            <rect class="cls-5" x="210.8" y="53.58" width="66.03" height="17.15"/>
+            <text class="cls-6" transform="translate(216.42 66.32)">main-w
+                <tspan class="cls-8" x="38.77" y="0">r</tspan>
+                <tspan x="42.55" y="0">ap</tspan>
+            </text>
+            <rect class="cls-1" x="231.47" y="-181.82" width="24.68" height="442.63"
+                  transform="translate(283.31 -204.32) rotate(90)"/>
+            <rect class="cls-5" x="207.97" y="22.22" width="71.68" height="12.51"/>
+            <text class="cls-9" transform="translate(209.83 30.32)">main-header</text>
+            <rect class="cls-5" x="60.17" y="63.36" width="50.72" height="17.15"/>
+            <rect class="cls-5" x="45.6" y="467.21" width="79.86" height="17.15"/>
+            <text class="cls-6" transform="translate(47.91 478.85)">side-bar footer</text>
+            <rect class="cls-3" x="-105.79" y="230.08" width="384.35" height="87.76"
+                  transform="translate(360.34 187.58) rotate(90)"/>
+            <rect class="cls-5" x="54.74" y="73.21" width="61.59" height="17.15"/>
+            <text class="cls-6" transform="translate(58.84 84.85)">n
+                <tspan class="cls-10" x="6.57" y="0">a</tspan>
+                <tspan x="12.81" y="0">vigation</tspan>
+            </text>
+            <rect class="cls-1" x="82.2" y="140.21" width="440.98" height="304.87"
+                  transform="translate(595.34 -10.05) rotate(90)"/>
+            <rect class="cls-3" x="288.72" y="-46.3" width="27.95" height="284.87"
+                  transform="translate(398.83 -206.56) rotate(90)"/>
+            <rect class="cls-5" x="283.37" y="63.36" width="38.65" height="17.15"/>
+            <text class="cls-9" transform="translate(289.33 75)">main</text>
+            <rect class="cls-5" x="260.18" y="76.58" width="85.02" height="14.15"/>
+            <text class="cls-6" transform="translate(263.39 85.22)">content-header</text>
+            <rect class="cls-3" x="288.72" y="346.73" width="27.95" height="284.87"
+                  transform="translate(791.85 186.47) rotate(90)"/>
+            <rect class="cls-5" x="260.18" y="469.61" width="85.02" height="14.15"/>
+            <text class="cls-6" transform="translate(265.76 478.25)">content-footer</text>
+            <rect class="cls-3" x="130" y="150.06" width="345.38" height="284.87"
+                  transform="translate(595.19 -10.2) rotate(90)"/>
+            <rect class="cls-5" x="260.18" y="114.23" width="85.02" height="14.15"/>
+            <text class="cls-6" transform="translate(268.11 122.86)">content-main</text>
+            <text class="cls-9" transform="translate(63.12 75)">side-bar</text>
+        </g>
+    </g>
+</svg>

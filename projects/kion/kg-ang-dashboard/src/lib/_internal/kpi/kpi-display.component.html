@@ -1,0 +1,13 @@
+<div class="kpi"
+     #kpi
+     [class.active]="dashboardService.activeKpiId === id"
+     [class.disabled]="disabled"
+     (click)="onKpiClick($event)"
+>
+    <div class="label-wrap">
+        <span class="label">{{label}}</span>
+    </div>
+    <div class="value-wrap">
+        <kpi-value [value]="value"></kpi-value>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+{
+    "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+    "dest": "../../dist/kion/kg-ang-app-auth",
+    "lib": {
+        "entryFile": "src/public_api.ts"
+    }
+}

@@ -1,0 +1,323 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'CSS Custom Properties Reference', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+
+    <h1>CSS Variables (i.e., CSS Custom Properties) Reference</h1>
+
+    <p>The following theme-related CSS custom properties are available to use throughout your application's CSS files
+        should you decide to use them to further customize your brand's appearance. By default, the values of these
+        properties are set to use the Dematic brand theme. However, you can easily override all of the following default
+        value with your own theme values using the SCSS methods definded in the <a routerLink="/themes/themes">KION
+            Theme System</a> documentation.</p>
+
+    <p>The following CSS custom properties are global in nature. In other words, they are not bound to any specific
+        component, per se. Therefore, we are documenting these properties under the "Layout" section even though some of
+        these are not directly applicable to layouts.</p>
+
+    <hr>
+
+    <h2>Colors</h2>
+
+    <p>These values can be overwritten using the <code>kg-theme-colors()</code> method. See <a
+        routerLink="/themes/themes">KION Theme System</a> documentation for more information.</p>
+
+    <table class="table table-striped css-props-table">
+        <thead>
+        <tr>
+            <th width="30%">CSS Custom property</th>
+            <th>Description</th>
+            <th style="min-width: 150px;">Value</th>
+        </tr>
+        </thead>
+        <tr class="section-title">
+            <td colspan="3">body</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-body-bg</td>
+            <td class="description">The background color for a page's content area</td>
+            <td class="value">var(--kg-color-gray-100)</td>
+        </tr>
+        <tr class="section-title">
+            <td colspan="3">
+                border
+                <div _ngcontent-c9="" class="description">
+                    Border properties are used to apply border values to all elements with borders. &lt;hr&gt; and &lt;table&gt;
+                    tags, for example, all use these values for decorating their borders.
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-border-width</td>
+            <td class="description">The width used for borders</td>
+            <td class="value">1</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-border-color</td>
+            <td class="description">The color used for borders</td>
+            <td class="value">var(--kg-color-gray-300)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-border-radius</td>
+            <td class="description">The default corner radius value used for SCSS border-radius mixins.</td>
+            <td class="value">.25rem</td>
+        </tr>
+        <tr class="section-title">
+            <td colspan="3">page layout</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-page-width</td>
+            <td class="description">The "page" is the outmost container for all application pages, including the app's
+                chrome, navigation elements, header, footer, etc. It's recommended to keep this outmost wrapper at 100%
+                width of the browser's window.
+            </td>
+            <td class="value">100%</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-page-padding</td>
+            <td class="description">The padding, if any, to show between the browser window's chrome and the "page"
+                wrapper.
+            </td>
+            <td class="value">0</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-page-margin</td>
+            <td class="description">The margin, if any, to show between around the "page" wrapper. Setting this value to
+                "0 auto" will cause page content to be placed in the center of the page.
+            </td>
+            <td class="value">0</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-content-padding</td>
+            <td class="description">The padding to show inside the main content area.</td>
+            <td class="value">20px</td>
+        </tr>
+        <tr class="section-title">
+            <td colspan="3">footer</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-footer-height</td>
+            <td class="description">The height of footers (the default value for both content footer and sidebar
+                footer).
+            </td>
+            <td class="value">35px</td>
+        </tr>
+        <tr class="section-title">
+            <td colspan="3">content footer</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-content-footer-height</td>
+            <td class="description">The height of the content footer.</td>
+            <td class="value">var(--kg-footer-height)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-content-footer-bg-color</td>
+            <td class="description">The background color of the content footer.</td>
+            <td class="value">rgba(255,255,255,.9)</td>
+        </tr>
+        <tr class="section-title">
+            <td colspan="3">primary color</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-header-color</td>
+            <td class="description">The text color for header content.</td>
+            <td class="value">var(--kg-color-primary-lighter-50)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-header-bg-color</td>
+            <td class="description">The background color for the header.</td>
+            <td class="value">var(--kg-color-primary)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-header-height</td>
+            <td class="description">The header height.</td>
+            <td class="value">60px</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-header-link-color</td>
+            <td class="description">The color to use for links in the header.</td>
+            <td class="value">var(--kg-color-primary-lighter-50)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-header-link-hover-color</td>
+            <td class="description">The color to use for header link hover.</td>
+            <td class="value">var(--kg-color-primary-lighter-60)</td>
+        </tr>
+        <tr class="section-title">
+            <td colspan="3">
+                Sidebar
+                <div class="description">For additional sidebar-related CSS custom properties view documentation for <a
+                    routerLink="/components/navigation">Navigation</a> and <a routerLink="/components/navigationfooter">Navigation
+                    Footer</a>.
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-sidebar-width</td>
+            <td class="description">The initial width of the sidebar. Note that the user can override this value using
+                the sidebar resizer drag handle.
+            </td>
+            <td class="value">230px</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-sidebar-color</td>
+            <td class="description">The text color of content displayed in the sidebar.</td>
+            <td class="value">var(--kg-color-secondary-lighter-50)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-sidebar-bg-color</td>
+            <td class="description">The background color for the sidebar.</td>
+            <td class="value">var(--kg-color-secondary)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-sidebar-scroll-track-bg-color</td>
+            <td class="description">The sidebar scroll bar's track color (Note that Firefox does not support scrollbar
+                styling)
+            </td>
+            <td class="value">var(--kg-color-secondary-darker-5)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-sidebar-scroll-thumb-bg-color</td>
+            <td class="description">The sidebar scroll bar's thumb color (Note that Firefox does not support scrollbar
+                styling)
+            </td>
+            <td class="value">var(--kg-color-secondary-lighter-20)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-sidebar-resizer-width</td>
+            <td class="description">The width of the sidebar resizer bar</td>
+            <td class="value">6px</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-sidebar-resizer-bg-color</td>
+            <td class="description">The background color of the sidebar resizer bar.</td>
+            <td class="value">var(--kg-color-gray-300)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-sidebar-resizer-draghandle-color</td>
+            <td class="description">The draghandle color for the sidebar resizer bar.</td>
+            <td class="value">var(--kg-color-gray-100)</td>
+        </tr>
+        <tr class="section-title">
+            <td colspan="3">
+                Tabs
+                <div class="description">Tabs are a component local only to the Living Style Guide. The following values
+                    are provided in the case a developer would like to copy the local tab component from this app for
+                    use in other applications.
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-tabs-color</td>
+            <td class="description">Tab label text color.</td>
+            <td class="value">var(--kg-body-color)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-tabs-wrap-bg-color</td>
+            <td class="description">The background color against which the tabs appear. This is not the color of the
+                tabs themselves; rather it is the color of the parent container for the tabs. By default it matches the
+                color of the content toolbar.
+            </td>
+            <td class="value">var(--kg-color-gray-200)</td>
+        </tr>
+        <tr class="section-title">
+            <td colspan="3">
+                Pagination Links
+            </td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-color</td>
+            <td class="description">Text color for pagination links.</td>
+            <td class="value">var(--kg-link-color)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-bg-color</td>
+            <td class="description">Background color for normal pagination links.</td>
+            <td class="value">var(--kg-color-white)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-border-color</td>
+            <td class="description">Border color for normal pagination links.</td>
+            <td class="value">var(--kg-border-color)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-hover-color</td>
+            <td class="description">Text color for pagination links on hover.</td>
+            <td class="value">var(--kg-link-hover-color)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-hover-bg-color</td>
+            <td class="description">Background color for pagination links on hover.</td>
+            <td class="value">var(--kg-color-gray-200)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-hover-border-color</td>
+            <td class="description">Border color for pagination links on hover.</td>
+            <td class="value">var(--kg-color-gray-300)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-active-color</td>
+            <td class="description">Text color for active pagination links.</td>
+            <td class="value">var(--kg-color-primary)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-active-bg-color</td>
+            <td class="description">Background color for active pagination links.</td>
+            <td class="value">var(--kg-color-gray-200)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-active-border-color</td>
+            <td class="description">Border color for active pagination links.</td>
+            <td class="value">var(--kg-color-primary)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-disabled-color</td>
+            <td class="description">Text color for disabled pagination links.</td>
+            <td class="value">var(--kg-color-gray-600)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-disabled-bg-color</td>
+            <td class="description">Background color for disabled pagination links.</td>
+            <td class="value">var(--kg-color-white)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-pagination-disabled-border-color</td>
+            <td class="description">Border color for disabled pagination links.</td>
+            <td class="value">var(--kg-color-gray-300)</td>
+        </tr>
+        <tr class="section-title">
+            <td colspan="3">
+                Scrollbars
+            </td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-scroll-track-bg-color</td>
+            <td class="description">The scrollbar track color for scrollable areas. Only compatible with webkit-based
+                browsers (like Chrome and Safari).
+            </td>
+            <td class="value">var(--kg-color-gray-200)</td>
+        </tr>
+        <tr>
+            <td class="propName">--kg-scroll-thumb-bg-color</td>
+            <td class="description">The scrollbar thumb color for scrollable areas. Only compatible with webkit-based
+                browsers (like Chrome and Safari).
+            </td>
+            <td class="value">var(--kg-color-gray-400)</td>
+        </tr>
+    </table>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert page footer content here -->
+</kg-content-footer>

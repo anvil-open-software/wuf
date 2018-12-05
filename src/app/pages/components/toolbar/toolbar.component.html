@@ -1,0 +1,148 @@
+<kg-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarContent>
+        <kg-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Toolbar', active: true }]"></kg-breadcrumb>
+    </ng-container>
+
+    <ng-container utilities>
+        <!--page-level utilities here-->
+    </ng-container>
+</kg-content-header>
+
+<kg-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Toolbar</div>
+
+        <!-- start EXAMPLE Content -->
+        <div class="component_tabs_1">
+
+            <p>Example breadcrumb trail inside a toolbar:</p>
+
+            <kg-toolbar>
+                <ng-container toolbarContent>
+                    <kg-breadcrumb
+                        [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Breadcrumb', active: true }]"></kg-breadcrumb>
+                </ng-container>
+                <ng-container utilities>
+                    [utility links here]
+                </ng-container>
+            </kg-toolbar>
+
+        </div>
+        <!-- end EXAMPLE Content -->
+
+        <!--start WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [When/Why to Use]
+        </div>
+        <!--end WHEN/WHERE Content -->
+
+        <!--start API Content -->
+        <div class="component_tabs_3">
+
+            <h3>Installation</h3>
+
+            <p>The toolbar component is included inside <code>@kion/kg-ang-layout</code>, which is already included in every instance of a Quick Start-based application.</p>
+
+            <hr>
+
+            <h3>Usage</h3>
+            <p>The <code>&lt;kg-toolbar&gt;</code> tag is created for you and automatically added to the top of an
+                application page when you use the <a routerLink="/setup/layoutcomponents">&lt;kg-content-header&gt;</a>
+                component.</p>
+
+            <p>The <code>&lt;kg-toolbar&gt;</code> can be used elsewhere, including within page content, by applying the
+                following to your page:</p>
+
+            <kg-code-sample [code]="toolbarHtmlCode" type="html"></kg-code-sample>
+
+            <p>The toolbar supports two different content slots:</p>
+
+            <ul>
+                <li><strong>toolbarContent</strong>. Content placed in this slot appears on the left side of the
+                    toolbar, left-aligned. This slot is used for the breadcrumb trail, for example, when used at the
+                    page level.
+                </li>
+                <li><strong>utilities</strong>. Content placed in this slot appears on the right side of the toolbar,
+                    right-aligned. This slot is used for utility links, for example, when used at the page level.
+                </li>
+            </ul>
+
+            <h2>CSS Variables (i.e., CSS Custom Properties) Reference</h2>
+
+            <p>The following theme-related CSS custom properties are available to use throughout your application's CSS
+                files should you decide to use them to further customize your brand's appearance. By default, the values
+                of these properties are set to use the Dematic brand theme. However, you can easily override all of the
+                following default value with your own theme values using the SCSS methods definded in the <a
+                    routerLink="/themes/themes">KION Theme System</a> documentation.</p>
+
+            <table class="table table-striped css-props-table">
+                <thead>
+                <tr>
+                    <th width="30%">CSS Custom property</th>
+                    <th>Description</th>
+                    <th style="min-width: 150px;">Value</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td class="propName">--kg-toolbar-color</td>
+                    <td class="description">Toolbar text color.</td>
+                    <td class="value">var(--kg-body-color)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-toolbar-bg-color</td>
+                    <td class="description">Toolbar background color.</td>
+                    <td class="value">var(--kg-color-gray-200)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-toolbar-height</td>
+                    <td class="description">Toolbar height.</td>
+                    <td class="value">40px</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-toolbar-link-color</td>
+                    <td class="description">Toolbar link text color.</td>
+                    <td class="value">var(--kg-color-gray-600)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-toolbar-link-hover-color</td>
+                    <td class="description">Toolbar link text hover color.</td>
+                    <td class="value">var(--kg-color-gray-700)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-toolbar-button-color</td>
+                    <td class="description">Toolbar button text color.</td>
+                    <td class="value">var(--kg-color-gray-600)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-toolbar-button-bg-color</td>
+                    <td class="description">Toolbar button background color.</td>
+                    <td class="value">var(--kg-color-gray-200)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--kg-toolbar-button-bg-hover-color</td>
+                    <td class="description">Toolbar button hover background color.</td>
+                    <td class="value">var(--kg-color-gray-100)</td>
+                </tr>
+            </table>
+
+        </div>
+        <!--end API Content -->
+
+        <!--start CHANGELOG Content -->
+        <div class="component_tabs_4">
+            [Changelog]
+        </div>
+        <!--end CHANGELOG Content -->
+
+    </app-component-tabs>
+
+</kg-content-main>
+
+<kg-content-footer>
+    <!-- insert footer content here -->
+</kg-content-footer>

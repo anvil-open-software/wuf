@@ -1,0 +1,20 @@
+:host {
+    /*     local var           ||               global override           ||           default value      */
+    --content-padding:                      var(--kg-content-padding,                       20px);
+}
+
+:host {
+    flex: 1 1 100px;
+    display: flex;
+    position: relative;
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+}
+
+.content-wrap {
+    padding: var(--content-padding);
+    width: 100%;
+    min-width: 100%;
+    max-width: 1px; // This little hack allows the content to display a horizontal scroll, when necessary
+}
