@@ -30,6 +30,7 @@ https://docs.npmjs.com/orgs/managing-teams/index.html
 [x] search for KION
 [x] change skin/config names
 [ ] fix Roboto http://localhost:4200/roboto-regular.woff2?v=18
+[ ] pull in roboto via <link> ?
 [ ] update all readme files
 [ ] merge in latest code from HD
 [ ] init NPM (include this in documentation?): https://docs.npmjs.com/creating-and-publishing-scoped-public-packages
@@ -37,6 +38,7 @@ https://docs.npmjs.com/orgs/managing-teams/index.html
 [ ] provide documentation to Denis about the repo(s) to build, the order in which they ought to be build, etc.  Could be the Jenkins file.
 [ ] remove polymer and nutmeg? (would need to rewrite wuf-code-sample and wuf-messages as angular components)
 [ ] fix Jenkinsfile documentation
+[ ] forms page: It looks like you're using ngModel on the same form field as formControl. 
 
 FUTURE:
 [x] move page title to right of page

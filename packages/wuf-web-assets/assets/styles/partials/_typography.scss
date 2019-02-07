@@ -8,7 +8,7 @@ $kg-font-path: '' !default;
 
 @if $kg-is-local {
     // If this partial is used inside an Angular library workspace, use relative paths
-    $kg-font-path: '../packages/wuf-web-assets/src/assets/fonts/roboto' !default;
+    $kg-font-path: '../packages/wuf-web-assets/assets/fonts/roboto' !default;
 
 } @else {
     // Otherwise, assume this is being consumed from within an application's node_modules folder
