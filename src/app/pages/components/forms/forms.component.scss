@@ -27,7 +27,7 @@
     }
 }
 
-kg-drawer {
+wuf-drawer {
     .mat-form-field {
         width: 100%;
     }
@@ -47,7 +47,7 @@ kg-drawer {
             display: block;
         }
         .mat-slide-toggle {
-            margin-bottom: calc(var(--kg-spacer)/2);
+            margin-bottom: calc(var(--wuf-spacer)/2);
             ::ng-deep {
                 label.mat-slide-toggle-label {
                     display: flex;
@@ -116,7 +116,7 @@ hr {
 }
 
 
-@import "~@kion/kg-web-assets/assets/styles/breakpoints";
+@import "~@anviltech/wuf-web-assets/assets/styles/breakpoints";
 
 @include media-breakpoint-down(md) {
     .full-width {

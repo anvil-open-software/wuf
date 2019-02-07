@@ -22,9 +22,9 @@ export class NavigationFooterComponent implements OnInit {
 
     footerDataUrl: string = '/api/footer';
 
-    exampleHtml1 = `<kg-sidebar-footer>Hi<span class="hideOnMinimized">, I'm footer content</span></kg-sidebar-footer>`;
+    exampleHtml1 = `<wuf-sidebar-footer>Hi<span class="hideOnMinimized">, I'm footer content</span></wuf-sidebar-footer>`;
 
-    exampleHtml2 = `<kg-sidebar-footer [data]="footerData"></kg-sidebar-footer>`;
+    exampleHtml2 = `<wuf-sidebar-footer [data]="footerData"></wuf-sidebar-footer>`;
 
     exampleCode1 = `
 	footerData = {
@@ -51,8 +51,8 @@ export class NavigationFooterComponent implements OnInit {
 		]
 	}`;
 
-    exampleHtml3 = `<kg-sidebar-footer [dataUrl]="'http://my.footer.api'"></kg-sidebar-footer>`;
-    exampleHtml4 = `<kg-sidebar-footer [copyrightName]="'KION, Inc.'"></kg-sidebar-footer>`;
+    exampleHtml3 = `<wuf-sidebar-footer [dataUrl]="'http://my.footer.api'"></wuf-sidebar-footer>`;
+    exampleHtml4 = `<wuf-sidebar-footer [copyrightName]="'KION, Inc.'"></wuf-sidebar-footer>`;
 
     ngOnInit() {
 

@@ -6,11 +6,11 @@
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { Injectable } from '@angular/core';
 
-import { KgSmartTableValidatorService } from '@kion/kg-ang-smart-table';
+import { WufSmartTableValidatorService } from '@anviltech/wuf-ang-smart-table';
 
 
 @Injectable()
-export class SmartTableKgSmartTableValidatorService implements KgSmartTableValidatorService {
+export class SmartTableWufSmartTableValidatorService implements WufSmartTableValidatorService {
     getFormGroup(): FormGroup {
         // here define and return the FormGroup with the FormControl(s) loaded.
         return new FormGroup({

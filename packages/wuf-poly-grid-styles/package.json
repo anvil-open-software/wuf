@@ -1,0 +1,14 @@
+{
+    "name": "@anviltech/wuf-poly-grid-styles",
+    "version": "1.0.0",
+    "description": "Grid Style Guide applied to Vaadin Grid",
+    "main": "index.js",
+    "author": "Michael G. Fowler <michael.fowler@dematic.com>",
+    "license": "MIT",
+    "scripts": {
+        "pub": "npm publish"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

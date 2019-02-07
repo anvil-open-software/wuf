@@ -20,8 +20,8 @@ of component variables that can be overridden.
 /* EXAMPLE USE OF BRANDING (KION) */
 /**********************************/
 
-:root[kg-theme="still"],
-*[kg-theme="still"] {
+:root[wuf-theme="still"],
+*[wuf-theme="still"] {
 
     /***** set color values to use in theme *****/
     $kg-brand-primary: #f68b1f;
@@ -33,7 +33,7 @@ of component variables that can be overridden.
     $kg-brand-danger: #dd2c00;
 
     /***** create a theme *****/
-    @include kg-theme-colors((
+    @include wuf-theme-colors((
         "primary": $kg-brand-primary,
         "secondary": $kg-brand-secondary,
         "accent": $kg-brand-accent,
@@ -44,29 +44,29 @@ of component variables that can be overridden.
     ));
 
     /***** logo *****/
-    @include kg-theme-logo("/assets/images/example_images/logos/still_white.svg", 105px, 45px);
+    //@include wuf-theme-logo("/assets/images/example_images/logos/still_white.svg", 105px, 45px);
 
     /***** buttons *****/
-    @include kg-theme-button-radius(4px);
+    @include wuf-theme-button-radius(4px);
 
     /***** header *****/
-    --kg-header-bg-color: var(--kg-color-secondary);
+    --wuf-header-bg-color: var(--wuf-color-secondary);
 
     /***** header navigation *****/
-    --kg-sidebar-bg-color: var(--kg-color-secondary-lighter-30);
-    --kg-navigation-link-bg-color: var(--kg-color-secondary);
-    --kg-navigation-link-hover-bg-color: var(--kg-color-secondary-lighter-10);
-    --kg-navigation-link-color: var(--kg-color-white);
-    --navigation-link-nested-bg-color: var(--kg-color-secondary-darker-5);
-    --navigation-link-nested-color: var(--kg-color-secondary-lighter-10);
-    --navigation-link-nested-hover-color: var(--kg-color-white);
-    --navigation-link-nested-hover-bg-color: var(--kg-color-secondary-darker-10);
-    --navigation-link-nested-active-color: var(--kg-color-white);
-    --navigation-link-nested-active-hover-color: var(--kg-color-white);
-    --navigation-link-nested-active-bg-color: var(--kg-color-secondary-darker-10);
-    --kg-navigation-link-font-size: .75em;
-    --kg-navigation-link-icon-size: 2.5em;
-    --kg-navigation-link-margin: 10px 5px;
-    --kg-header-color: var(--kg-color-white);
+    --wuf-sidebar-bg-color: var(--wuf-color-secondary-lighter-30);
+    --wuf-navigation-link-bg-color: var(--wuf-color-secondary);
+    --wuf-navigation-link-hover-bg-color: var(--wuf-color-secondary-lighter-10);
+    --wuf-navigation-link-color: var(--wuf-color-white);
+    --navigation-link-nested-bg-color: var(--wuf-color-secondary-darker-5);
+    --navigation-link-nested-color: var(--wuf-color-secondary-lighter-10);
+    --navigation-link-nested-hover-color: var(--wuf-color-white);
+    --navigation-link-nested-hover-bg-color: var(--wuf-color-secondary-darker-10);
+    --navigation-link-nested-active-color: var(--wuf-color-white);
+    --navigation-link-nested-active-hover-color: var(--wuf-color-white);
+    --navigation-link-nested-active-bg-color: var(--wuf-color-secondary-darker-10);
+    --wuf-navigation-link-font-size: .75em;
+    --wuf-navigation-link-icon-size: 2.5em;
+    --wuf-navigation-link-margin: 10px 5px;
+    --wuf-header-color: var(--wuf-color-white);
 
 }

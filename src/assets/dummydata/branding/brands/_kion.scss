@@ -20,8 +20,8 @@ of component variables that can be overridden.
 /* EXAMPLE USE OF BRANDING (KION) */
 /**********************************/
 
-:root[kg-theme="kion"],
-*[kg-theme="kion"] {
+:root[wuf-theme="kion"],
+*[wuf-theme="kion"] {
 
     /***** set color values to use in theme *****/
     $kg-brand-primary: #ae0055;
@@ -33,7 +33,7 @@ of component variables that can be overridden.
     $kg-brand-danger: #dd2c00;
 
     /***** create a theme *****/
-    @include kg-theme-colors((
+    @include wuf-theme-colors((
         "primary": $kg-brand-primary,
         "secondary": $kg-brand-secondary,
         "accent": $kg-brand-accent,
@@ -44,19 +44,19 @@ of component variables that can be overridden.
     ));
 
     /***** logo *****/
-    @include kg-theme-logo("/assets/images/example_images/logos/kion_logo_white.svg", 105px, 45px);
+    //@include wuf-theme-logo("/assets/images/example_images/logos/kion_logo_white.svg", 105px, 45px);
 
     /***** buttons *****/
-    @include kg-theme-button-radius(4px);
+    @include wuf-theme-button-radius(4px);
 
     /***** dark theme overrides *****/
-    &[kg-theme-dark="true"] {
+    &[wuf-theme-dark="true"] {
 
-        $kionThemeLightLinkColor: var(--kg-color-primary-lighter-20);
+        $kionThemeLightLinkColor: var(--wuf-color-primary-lighter-20);
 
         /***** links *****/
-        --kg-link-color: #{$kionThemeLightLinkColor};
-        --kg-link-hover-color: var(--kg-color-primary-lighter-10);
+        --wuf-link-color: #{$kionThemeLightLinkColor};
+        --wuf-link-hover-color: var(--wuf-color-primary-lighter-10);
 
         /***** Material form fields *****/
         .mat-focused {

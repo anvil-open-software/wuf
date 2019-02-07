@@ -13,7 +13,7 @@ import { NgxMdModule } from 'ngx-md';
 import { WebMessagesComponent } from './web-messages.component';
 
 
-describe('KgWebMessagesComponent', () => {
+describe('WufWebMessagesComponent', () => {
     let component: WebMessagesComponent;
     let fixture: ComponentFixture<WebMessagesComponent>;
 

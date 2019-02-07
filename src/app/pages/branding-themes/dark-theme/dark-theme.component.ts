@@ -4,7 +4,7 @@
  */
 
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { KgConfigurationService } from '@kion/kg-ang-configuration';
+import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
 
 
 @Component({
@@ -14,17 +14,17 @@ import { KgConfigurationService } from '@kion/kg-ang-configuration';
 })
 export class DarkThemeComponent implements OnInit {
 
-    constructor(public configService: KgConfigurationService) {
+    constructor(public configService: WufConfigurationService) {
     }
 
     ngOnInit() {
     }
 
-    htmlCode = `<html lang="en" kg-theme-dark="true">`;
+    htmlCode = `<html lang="en" wuf-theme-dark="true">`;
 
     appComponentCode = `
 	ngOnInit() {
-		// Subscribe to configuration updates from KgConfigurationService
+		// Subscribe to configuration updates from WufConfigurationService
 		this.configSubscription = this.configService.onConfigChange().subscribe(
 			newConfig => {
 				this.onConfigChange(newConfig);
@@ -46,19 +46,19 @@ export class DarkThemeComponent implements OnInit {
 	
 	applyDarkTheme(applyDark: boolean) {
 		if (!applyDark) {
-			// Remove the 'kg-theme-dark' property, if no longer applicable
-			this.renderer.removeAttribute(document.documentElement, 'kg-theme-dark');
+			// Remove the 'wuf-theme-dark' property, if no longer applicable
+			this.renderer.removeAttribute(document.documentElement, 'wuf-theme-dark');
 		}
 		else if (applyDark) {
-			// Set the 'kg-theme-dark' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
-			this.renderer.setAttribute(document.documentElement, 'kg-theme-dark', "true");
+			// Set the 'wuf-theme-dark' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
+			this.renderer.setAttribute(document.documentElement, 'wuf-theme-dark', "true");
 		}
 	}
 `;
 
     configurationCode = `
 		setDarkTheme(applyDark: boolean) {
-		// Convert to config properties and send them to the KgConfigurationService
+		// Convert to config properties and send them to the WufConfigurationService
 		this.configService.config = {
 			themeDark: applyDark
 		}
@@ -66,7 +66,7 @@ export class DarkThemeComponent implements OnInit {
 `;
 
     setDarkTheme(applyDark: boolean) {
-        // Convert to config properties and send them to the KgConfigurationService
+        // Convert to config properties and send them to the WufConfigurationService
         this.configService.config = {
             themeDark: applyDark
         };

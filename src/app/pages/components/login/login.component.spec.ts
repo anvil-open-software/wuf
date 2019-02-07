@@ -7,8 +7,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { LoginComponent } from './login.component';
-import { KgLoginService } from '@kion/kg-ang-login-animated';
-import { KgLayoutService } from '@kion/kg-ang-layout';
+import { WufLoginService } from '@anviltech/wuf-ang-login-animated';
+import { WufLayoutService } from '@anviltech/wuf-ang-layout';
 
 
 describe('LoginComponent', () => {
@@ -22,8 +22,8 @@ describe('LoginComponent', () => {
             ],
             declarations: [LoginComponent],
             providers: [
-                KgLoginService,
-                KgLayoutService
+                WufLoginService,
+                WufLayoutService
             ]
         })
         .compileComponents();

@@ -16,6 +16,7 @@ Refer to available variables in ./partials/_variables.scss for a full list
 of component variables that can be overridden.
 */
 
-:root[kg-theme="dematic"],
-*[kg-theme="dematic"] {
+:root[wuf-theme="dematic"],
+*[wuf-theme="dematic"] {
+    @include wuf-theme-logo("/assets/images/logo.svg", 150px, 45px);
 }

@@ -1,0 +1,25 @@
+{
+    "name": "@anviltech/wuf-ang-toasts",
+    "version": "1.0.0",
+    "dependencies": {
+        "@anviltech/wuf-web-assets": "^1.0.0"
+    },
+    "scripts": {
+        "build": "ng build --prod @anviltech/wuf-ang-toasts",
+        "packagr": "npm run build",
+        "pub": "npm run packagr && npm publish dist"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "peerDependencies": {
+        "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/material": "6.4.7",
+        "@angular/cdk": "6.4.7"
+    },
+    "devDependencies": {
+        "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+    }
+}

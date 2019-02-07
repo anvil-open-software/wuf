@@ -1,0 +1,51 @@
+<!--
+  ~ Copyright (c) 2018 Dematic, Corp.
+  ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+  -->
+
+<div class="page"
+     [class.sidebarIsCollapsed]="sidebarService.sidebarIsExpanded !== undefined && sidebarService.sidebarIsExpanded === false"
+     [class.sidebarIsExpanded]="sidebarService.sidebarIsExpanded">
+    <div class="page-row">
+        <div class="main-header-placeholder"></div>
+        <div class="main-header" [class.hidden]="!layoutService.headerVisible">
+            <wuf-toolbar class="main-header-toolbar">
+                <ng-container toolbarLeft>
+                    <i class="sidebar-toggler material-icons" (click)="onSidebarTogglerClick($event)"
+                       *ngIf="configService.config.navigation.position!=='top'">menu</i>
+                    <a class="header-logo d-none d-sm-inline-block" [routerLink]="logoRoute" *ngIf="logoRoute"></a>
+                    <span class="header-logo" *ngIf="!logoRoute"></span>
+                </ng-container>
+                <ng-container toolbarRight>
+                    <div class="header-title-wrap">
+                        <ng-content select="[toolbarLeft]"></ng-content>
+                    </div>
+                    <ng-content select="[toolbarRight]"></ng-content>
+                </ng-container>
+            </wuf-toolbar>
+        </div>
+
+        <div class="main-wrap" [class.flex-row]="configService.config.navigation.position === 'left'"
+             [class.flex-column]="configService.config.navigation.position === 'top'">
+            <wuf-sidebar>
+                <ng-container sidebarNavigation>
+                    <ng-content select="[sidebarNavigation]"></ng-content>
+                </ng-container>
+                <ng-container sidebarFooter>
+                    <ng-content select="[sidebarFooter]"></ng-content>
+                </ng-container>
+            </wuf-sidebar>
+
+            <div class="main d-flex flex-row">
+                <div class="main-resizable-drag" #sidebarResizer
+                     [style.display]="configService.config.navigation.position === 'top' ? 'none' : 'block'"
+                     [class.d-md-flex]="configService.config.navigation.position === 'left'">
+                    <div class="main-resizable-drag-handle"></div>
+                </div>
+                <div class="main-resizable-content d-flex flex-column">
+                    <ng-content select="[main]"></ng-content>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

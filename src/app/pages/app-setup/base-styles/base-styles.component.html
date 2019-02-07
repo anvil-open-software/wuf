@@ -3,22 +3,22 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Base Styles', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Base Styles', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
 
-    <markdown path="assets/documentation/packages/kg-web-assets/README.md"></markdown>
+    <markdown path="assets/documentation/packages/wuf-web-assets/README.md"></markdown>
 
     <hr>
 
@@ -28,7 +28,7 @@
         order to enable responsive layouts. Be sure your <code>index.html</code> page includes the following tags in the
         &lt;head&gt; section:</p>
 
-    <kg-code-sample type="html" [code]="headCode"></kg-code-sample>
+    <wuf-code-sample type="html" [code]="headCode"></wuf-code-sample>
     <caption>meta tags for use in your <strong>index.html</strong> file</caption>
 
     <hr>
@@ -36,8 +36,8 @@
     <h2>Quick Start Application</h2>
     <p>If you are using a Quick Start-based app, all of the above is already done for you.</p>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert page footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

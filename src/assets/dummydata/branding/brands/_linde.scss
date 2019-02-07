@@ -20,8 +20,8 @@ of component variables that can be overridden.
 /* EXAMPLE USE OF BRANDING (LINDE) */
 /*************************************/
 
-:root[kg-theme="linde"],
-*[kg-theme="linde"] {
+:root[wuf-theme="linde"],
+*[wuf-theme="linde"] {
 
     /***** set color values to use in theme *****/
     $kg-brand-primary: #a90019;
@@ -33,7 +33,7 @@ of component variables that can be overridden.
     $kg-brand-danger: #dd2c00;
 
     /***** create a theme *****/
-    @include kg-theme-colors((
+    @include wuf-theme-colors((
         "primary": $kg-brand-primary,
         "secondary": $kg-brand-secondary,
         "accent": $kg-brand-accent,
@@ -44,14 +44,14 @@ of component variables that can be overridden.
     ));
 
     /***** logo *****/
-    @include kg-theme-logo("/assets/images/example_images/logos/linde.svg", 120px, 30px);
+    //@include wuf-theme-logo("/assets/images/example_images/logos/linde.svg", 120px, 30px);
 
     /***** buttons *****/
-    @include kg-theme-button-radius(20px);
+    @include wuf-theme-button-radius(20px);
 
     /***** typography *****/
     @import url('https://fonts.googleapis.com/css?family=Bitter');
-    $kg-brand-body-color: var(--kg-color-gray-700);
+    $kg-brand-body-color: var(--wuf-color-gray-700);
     $kg-brand-font-family-sans-serif: Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     $kg-brand-font-family-serif: 'Bitter', Times, serif;
     $kg-brand-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -59,7 +59,7 @@ of component variables that can be overridden.
     $kg-brand-font-size-base: 1rem;
     $kg-brand-headings-font-family: $kg-brand-font-family-serif;
     $kg-brand-headings-font-weight: 700;
-    $kg-brand-headings-color: var(--kg-color-secondary);
+    $kg-brand-headings-color: var(--wuf-color-secondary);
     $kg-brand-h1-font-size: 2.5rem;
     $kg-brand-h2-font-size: 2rem;
     $kg-brand-h3-font-size: 1.75rem;
@@ -67,7 +67,7 @@ of component variables that can be overridden.
     $kg-brand-h5-font-size: 1.25rem;
     $kg-brand-h6-font-size: 1rem;
 
-    @include kg-theme-typography(
+    @include wuf-theme-typography(
             $kg-brand-body-color,
             $kg-brand-font-family-sans-serif,
             $kg-brand-font-family-serif,
@@ -86,55 +86,55 @@ of component variables that can be overridden.
     );
 
     /***** toolbar *****/
-    --kg-toolbar-bg-color: var(--kg-color-secondary-lighter-40);
+    --wuf-toolbar-bg-color: var(--wuf-color-secondary-lighter-40);
 
     /***** breadcrumb *****/
-    --kg-breadcrumb-color: var(--kg-color-secondary-lighter-10);
+    --wuf-breadcrumb-color: var(--wuf-color-secondary-lighter-10);
 
     /***** tabs *****/
-    --kg-tabs-color: var(--kg-body-color);
-    --kg-tabs-wrap-bg-color: var(--kg-toolbar-bg-color);
+    --wuf-tabs-color: var(--wuf-body-color);
+    --wuf-tabs-wrap-bg-color: var(--wuf-toolbar-bg-color);
 
     /***** links *****/
-    --kg-link-color: #2f97c3;
-    --kg-link-hover-color: #277b9f;
+    --wuf-link-color: #2f97c3;
+    --wuf-link-hover-color: #277b9f;
 
     /***** header *****/
-    --kg-header-bg-color: var(--kg-color-primary);
+    --wuf-header-bg-color: var(--wuf-color-primary);
 
     /***** sidebar *****/
-    --kg-navigation-link-active-accent-color: var(--kg-color-secondary-darker-20);
+    --wuf-navigation-link-active-accent-color: var(--wuf-color-secondary-darker-20);
 
     /***** tables *****/
-    --kg-table-filter-bg-color: var(--kg-color-secondary-lighter-20);
-    --kg-table-filter-color: var(--kg-body-color);
+    --wuf-table-filter-bg-color: var(--wuf-color-secondary-lighter-20);
+    --wuf-table-filter-color: var(--wuf-body-color);
 
     /***** dashboard *****/
-    --kg-kpi-alert-bg-color: #c76776;
-    --kg-kpi-alert-stripe-color: #a7061f;
+    --wuf-kpi-alert-bg-color: #c76776;
+    --wuf-kpi-alert-stripe-color: #a7061f;
 
     /***** dark theme overrides *****/
-    &[kg-theme-dark="true"] {
+    &[wuf-theme-dark="true"] {
 
         /***** body *****/
-        --kg-body-color: var(--kg-color-gray-100);
+        --wuf-body-color: var(--wuf-color-gray-100);
 
         /***** toolbar *****/
-        --kg-toolbar-bg-color: var(--kg-color-secondary-lighter-10);
+        --wuf-toolbar-bg-color: var(--wuf-color-secondary-lighter-10);
 
         /***** breadcrumb *****/
-        --kg-breadcrumb-color: var(--kg-color-secondary-lighter-40);
+        --wuf-breadcrumb-color: var(--wuf-color-secondary-lighter-40);
 
         /***** tabs *****/
-        --kg-tabs-color: var(--kg-body-color);
-        --kg-tabs-wrap-bg-color: var(--kg-toolbar-bg-color);
+        --wuf-tabs-color: var(--wuf-body-color);
+        --wuf-tabs-wrap-bg-color: var(--wuf-toolbar-bg-color);
 
         /***** links *****/
-        --kg-link-color: #76c8eb;
-        --kg-link-hover-color: #5ac0eb;
+        --wuf-link-color: #76c8eb;
+        --wuf-link-hover-color: #5ac0eb;
 
         /***** headings *****/
-        --kg-headings-color: var(--kg-color-white);
+        --wuf-headings-color: var(--wuf-color-white);
     }
 
 }

@@ -10,7 +10,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 
-import { KgContentFooterService } from '@kion/kg-ang-layout';
+import { WufContentFooterService } from '@anviltech/wuf-ang-layout';
 
 import { LayoutComponentsComponent } from './layout-components.component';
 
@@ -30,7 +30,7 @@ describe('LayoutComponentsComponent', () => {
                 LayoutComponentsComponent
             ],
             providers: [
-                KgContentFooterService
+                WufContentFooterService
             ],
             imports: [
                 RouterTestingModule,

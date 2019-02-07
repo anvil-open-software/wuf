@@ -1,0 +1,27 @@
+<!--
+  ~ Copyright (c) 2018 Dematic, Corp.
+  ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+  -->
+
+<tr wuf-st-thead-titles-row *ngIf="!isHideHeader"
+    class="wuf-smart-titles"
+    [grid]="grid"
+    [isAllSelected]="isAllSelected"
+    [source]="source"
+    (sort)="sort.emit($event)"
+    (selectAllRows)="selectAllRows.emit($event)">
+</tr>
+
+<tr wuf-st-thead-filters-row *ngIf="!isHideSubHeader"
+    class="wuf-smart-filters"
+    [grid]="grid"
+    [source]="source"
+    (create)="create.emit($event)"
+    (filter)="filter.emit($event)">
+</tr>
+
+<tr wuf-st-thead-form-row *ngIf="grid.createFormShown"
+    [grid]="grid"
+    [createConfirm]="createConfirm"
+    class="wuf-smart-form-row">
+</tr>

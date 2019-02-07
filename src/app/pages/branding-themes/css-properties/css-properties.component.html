@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/themes', label: 'Branding & Themes' }, { link: null, label: 'CSS Custom Properties Reference', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/themes', label: 'Branding & Themes' }, { link: null, label: 'CSS Custom Properties Reference', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
 
     <h1>CSS Variables (i.e., CSS Custom Properties) Reference</h1>
@@ -30,7 +30,7 @@
 
     <h2>Colors</h2>
 
-    <p>These values can be overwritten using the <code>kg-theme-colors()</code> method. See <a
+    <p>These values can be overwritten using the <code>wuf-theme-colors()</code> method. See <a
         routerLink="/themes/themes">KION Theme System</a> documentation for more information.</p>
 
     <table class="table table-striped css-props-table">
@@ -45,7 +45,7 @@
             <td colspan="3">primary color</td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary</td>
+            <td class="propName">--wuf-color-primary</td>
             <td class="description">The primary color is typically the brightest and most easily identifiable color
                 within a brand's identity. If only one color must be selected to represent a brand's entire identity, it
                 is the primary color. This color is used to denote an active or selected state and is applied to primary
@@ -56,120 +56,120 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-darker-5</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-darker-5</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch" style="background-color:#009CE7">#009CE7</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-darker-10</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-darker-10</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch" style="background-color:#0090DB">#0090DB</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-darker-15</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-darker-15</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch" style="background-color:#0083CE">#0083CE</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-darker-20</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-darker-20</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch" style="background-color:#0076C1">#0076C1</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-darker-25</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-darker-25</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch" style="background-color:#0069B4">#0069B4</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-darker-30</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-darker-30</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch" style="background-color:#005DA8">#005DA8</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-darker-35</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-darker-35</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch" style="background-color:#00509B">#00509B</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-darker-40</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-darker-40</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch" style="background-color:#00438E">#00438E</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-darker-45</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-darker-45</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch" style="background-color:#003681">#003681</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-darker-50</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-darker-50</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch" style="background-color:#002A75">#002A75</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-lighter-10</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-lighter-10</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#1DC3FF">#1DC3FF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-lighter-20</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-lighter-20</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#36DCFF">#36DCFF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-lighter-30</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-lighter-30</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#50F6FF">#50F6FF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-lighter-40</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-lighter-40</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#69FFFF">#69FFFF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-lighter-50</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-lighter-50</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#82FFFF">#82FFFF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-lighter-60</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-lighter-60</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#9CFFFF">#9CFFFF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-primary-lighter-70</td>
-            <td class="description">color variant of --kg-color-primary</td>
+            <td class="propName">--wuf-color-primary-lighter-70</td>
+            <td class="description">color variant of --wuf-color-primary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#B6FFFF">#B6FFFF</div>
             </td>
@@ -179,7 +179,7 @@
             <td colspan="3">secondary color</td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary</td>
             <td class="description">The secondary color plays a support role and is typically the more subdued color of
                 a brand's identity. While it may be more subdued, it is often/usually the color that constitutes the
                 greatest area of a UI in terms of pixel count. Application framing and background colors often use the
@@ -190,120 +190,120 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-darker-5</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-darker-5</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch" style="background-color:#353535">#353535</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-darker-10</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-darker-10</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch" style="background-color:#292929">#292929</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-darker-15</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-darker-15</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch" style="background-color:#1C1C1C">#1C1C1C</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-darker-20</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-darker-20</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch" style="background-color:#0F0F0F">#0F0F0F</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-darker-25</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-darker-25</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch" style="background-color:#020202">#020202</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-darker-30</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-darker-30</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch" style="background-color:#000000">#000000</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-darker-35</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-darker-35</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch" style="background-color:#000000">#000000</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-darker-40</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-darker-40</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch" style="background-color:#000000">#000000</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-darker-45</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-darker-45</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch" style="background-color:#000000">#000000</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-darker-50</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-darker-50</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch" style="background-color:#000000">#000000</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-lighter-10</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-lighter-10</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#5C5C5C">#5C5C5C</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-lighter-20</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-lighter-20</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#757575">#757575</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-lighter-30</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-lighter-30</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#8F8F8F">#8F8F8F</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-lighter-40</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-lighter-40</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#A8A8A8">#A8A8A8</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-lighter-50</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-lighter-50</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#A8A8A8">#A8A8A8</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-lighter-60</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-lighter-60</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#DBDBDB">#DBDBDB</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-secondary-lighter-70</td>
-            <td class="description">color variant of --kg-color-secondary</td>
+            <td class="propName">--wuf-color-secondary-lighter-70</td>
+            <td class="description">color variant of --wuf-color-secondary</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#F5F5F5">#F5F5F5</div>
             </td>
@@ -313,7 +313,7 @@
             <td colspan="3">accent color</td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent</td>
+            <td class="propName">--wuf-color-accent</td>
             <td class="description">The accent color is used for floating action buttons and other interactive elements,
                 serving as visual contrast to the primary. UI elements that must present a selected state, active items,
                 and enabled states use the accent color for this purpose.
@@ -323,120 +323,120 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-darker-5</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-darker-5</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch" style="background-color:#EF9A00">#EF9A00</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-darker-10</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-darker-10</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch" style="background-color:#E38E00">#E38E00</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-darker-15</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-darker-15</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch" style="background-color:#D68100">#D68100</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-darker-20</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-darker-20</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch" style="background-color:#C97400">#C97400</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-darker-25</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-darker-25</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch" style="background-color:#BC6700">#BC6700</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-darker-30</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-darker-30</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch" style="background-color:#B05B00">#B05B00</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-darker-35</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-darker-35</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch" style="background-color:#A34E00">#A34E00</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-darker-40</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-darker-40</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch" style="background-color:#964100">#964100</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-darker-45</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-darker-45</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch" style="background-color:#893400">#893400</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-darker-50</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-darker-50</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch" style="background-color:#7D2800">#7D2800</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-lighter-10</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-lighter-10</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#FFC11A">#FFC11A</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-lighter-20</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-lighter-20</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#FFDA33">#FFDA33</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-lighter-30</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-lighter-30</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#FFF44D">#FFF44D</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-lighter-40</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-lighter-40</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#FFFF66">#FFFF66</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-lighter-50</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-lighter-50</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#FFFF7F">#FFFF7F</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-lighter-60</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-lighter-60</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#FFFF99">#FFFF99</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-accent-lighter-70</td>
-            <td class="description">color variant of --kg-color-accent</td>
+            <td class="propName">--wuf-color-accent-lighter-70</td>
+            <td class="description">color variant of --wuf-color-accent</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#FFFFB3">#FFFFB3</div>
             </td>
@@ -447,7 +447,7 @@
             <td colspan="3">success color</td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success</td>
+            <td class="propName">--wuf-color-success</td>
             <td class="description">The success color is used to convey successful completion of an user activity to
                 call attention to a positive metric or condition. Given that positive metrics or conditions (hopefully
                 the default state), it's generally not necessary to call attention to UI elements using success coloring
@@ -458,120 +458,120 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-darker-5</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-darker-5</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch" style="background-color:#4cae4c">#4cae4c</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-darker-10</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-darker-10</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch" style="background-color:#449d44">#449d44</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-darker-15</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-darker-15</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch" style="background-color:#3d8b3d">#3d8b3d</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-darker-20</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-darker-20</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch" style="background-color:#357935">#357935</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-darker-25</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-darker-25</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch" style="background-color:#2d672d">#2d672d</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-darker-30</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-darker-30</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch" style="background-color:#255625">#255625</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-darker-35</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-darker-35</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch" style="background-color:#1e441e">#1e441e</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-darker-40</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-darker-40</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch" style="background-color:#163216">#163216</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-darker-45</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-darker-45</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch" style="background-color:#0e200e">#0e200e</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-darker-50</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-darker-50</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch" style="background-color:#060f06">#060f06</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-lighter-10</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-lighter-10</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#80c780">#80c780</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-lighter-20</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-lighter-20</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#a3d7a3">#a3d7a3</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-lighter-30</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-lighter-30</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#c7e6c7">#c7e6c7</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-lighter-40</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-lighter-40</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#eaf6ea">#eaf6ea</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-lighter-50</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-lighter-50</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ffffff">#ffffff</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-lighter-60</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-lighter-60</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ffffff">#ffffff</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-success-lighter-70</td>
-            <td class="description">color variant of --kg-color-success</td>
+            <td class="propName">--wuf-color-success-lighter-70</td>
+            <td class="description">color variant of --wuf-color-success</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ffffff">#ffffff</div>
             </td>
@@ -581,7 +581,7 @@
             <td colspan="3">info color</td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info</td>
+            <td class="propName">--wuf-color-info</td>
             <td class="description">The info color is used to convey information of an informative, non-urgent nature.
                 Users are not required to take action when informational data is displayed.
             </td>
@@ -590,120 +590,120 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-darker-5</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-darker-5</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch" style="background-color:#009CE7">#009CE7</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-darker-10</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-darker-10</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch" style="background-color:#0090DB">#0090DB</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-darker-15</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-darker-15</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch" style="background-color:#0083CE">#0083CE</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-darker-20</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-darker-20</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch" style="background-color:#0076C1">#0076C1</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-darker-25</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-darker-25</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch" style="background-color:#0069B4">#0069B4</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-darker-30</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-darker-30</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch" style="background-color:#005DA8">#005DA8</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-darker-35</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-darker-35</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch" style="background-color:#00509B">#00509B</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-darker-40</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-darker-40</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch" style="background-color:#00438E">#00438E</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-darker-45</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-darker-45</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch" style="background-color:#003681">#003681</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-darker-50</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-darker-50</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch" style="background-color:#002A75">#002A75</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-lighter-10</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-lighter-10</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#1DC3FF">#1DC3FF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-lighter-20</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-lighter-20</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#36DCFF">#36DCFF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-lighter-30</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-lighter-30</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#50F6FF">#50F6FF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-lighter-40</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-lighter-40</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#69FFFF">#69FFFF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-lighter-50</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-lighter-50</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#82FFFF">#82FFFF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-lighter-60</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-lighter-60</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#9CFFFF">#9CFFFF</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-info-lighter-70</td>
-            <td class="description">color variant of --kg-color-info</td>
+            <td class="propName">--wuf-color-info-lighter-70</td>
+            <td class="description">color variant of --wuf-color-info</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#B6FFFF">#B6FFFF</div>
             </td>
@@ -713,7 +713,7 @@
             <td colspan="3">warning color</td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning</td>
+            <td class="propName">--wuf-color-warning</td>
             <td class="description">The warning color is used to convey information of a potentially serious nature that
                 the user may need to act on. The state is not yet non-blocking but may become so unless the user acts.
             </td>
@@ -722,120 +722,120 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-darker-5</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-darker-5</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch" style="background-color:#fdd31c">#fdd31c</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-darker-10</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-darker-10</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch" style="background-color:#fdce03">#fdce03</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-darker-15</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-darker-15</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch" style="background-color:#e3ba02">#e3ba02</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-darker-20</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-darker-20</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch" style="background-color:#caa502">#caa502</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-darker-25</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-darker-25</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch" style="background-color:#b19002">#b19002</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-darker-30</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-darker-30</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch" style="background-color:#987c02">#987c02</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-darker-35</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-darker-35</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch" style="background-color:#7e6701">#7e6701</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-darker-40</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-darker-40</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch" style="background-color:#655301">#655301</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-darker-45</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-darker-45</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch" style="background-color:#4c3e01">#4c3e01</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-darker-50</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-darker-50</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch" style="background-color:#332901">#332901</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-lighter-10</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-lighter-10</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#fee268">#fee268</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-lighter-20</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-lighter-20</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#feec9a">#feec9a</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-lighter-30</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-lighter-30</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#fff5cd">#fff5cd</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-lighter-40</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-lighter-40</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ffffff">#ffffff</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-lighter-50</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-lighter-50</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ffffff">#ffffff</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-lighter-60</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-lighter-60</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ffffff">#ffffff</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-warning-lighter-70</td>
-            <td class="description">color variant of --kg-color-warning</td>
+            <td class="propName">--wuf-color-warning-lighter-70</td>
+            <td class="description">color variant of --wuf-color-warning</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ffffff">#ffffff</div>
             </td>
@@ -845,7 +845,7 @@
             <td colspan="3">danger color</td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger</td>
+            <td class="propName">--wuf-color-danger</td>
             <td class="description">The danger color is used to indicate a blocking or error condition that the user
                 must act on before they can proceed. A system in this state is blocking in nature and requires immediate
                 attention and action.
@@ -855,120 +855,120 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-darker-5</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-darker-5</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch" style="background-color:#c42700">#c42700</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-darker-10</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-darker-10</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch" style="background-color:#a20000">#a20000</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-darker-15</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-darker-15</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch" style="background-color:#911d00">#911d00</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-darker-20</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-darker-20</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch" style="background-color:#771800">#771800</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-darker-25</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-darker-25</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch" style="background-color:#5e1300">#5e1300</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-darker-30</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-darker-30</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch" style="background-color:#440e00">#440e00</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-darker-35</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-darker-35</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch" style="background-color:#2b0800">#2b0800</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-darker-40</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-darker-40</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch" style="background-color:#110300">#110300</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-darker-45</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-darker-45</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch" style="background-color:#000000">#000000</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-darker-50</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-darker-50</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch" style="background-color:#000000">#000000</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-lighter-10</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-lighter-10</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
-                <div class="swatch dark-label" style="background-color:var(--kg-color-danger-lighter-10)">#FFC11A</div>
+                <div class="swatch dark-label" style="background-color:var(--wuf-color-danger-lighter-10)">#FFC11A</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-lighter-20</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-lighter-20</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#dd2c00">#dd2c00</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-lighter-30</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-lighter-30</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ff4011">#ff4011</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-lighter-40</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-lighter-40</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ff6944">#ff6944</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-lighter-50</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-lighter-50</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ff9277">#ff9277</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-lighter-60</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-lighter-60</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#fbaaaa">#fbaaaa</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-danger-lighter-70</td>
-            <td class="description">color variant of --kg-color-danger</td>
+            <td class="propName">--wuf-color-danger-lighter-70</td>
+            <td class="description">color variant of --wuf-color-danger</td>
             <td>
                 <div class="swatch dark-label" style="background-color:#ffe4dd">#ffe4dd</div>
             </td>
@@ -979,13 +979,13 @@
                 RGB variants
                 <div class="description">
                     RGB variants of Main colors - Convert SCSS variables to rgb values that can be used in CSS rgb/rgba
-                    functions. It is recommended to use the kg-theme-colors() mixin from
-                    "~@kion/kg-web-assets/src/assets/styles/partials/themes" to generate these
+                    functions. It is recommended to use the wuf-theme-colors() mixin from
+                    "~@anviltech/wuf-web-assets/src/assets/styles/partials/themes" to generate these
                 </div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-rgb-primary</td>
+            <td class="propName">--wuf-color-rgb-primary</td>
             <td class="description">A string of space-separated RGB values that can be used in CSS rgb/rgba functions
             </td>
             <td>
@@ -993,7 +993,7 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-rgb-secondary</td>
+            <td class="propName">--wuf-color-rgb-secondary</td>
             <td class="description">A string of space-separated RGB values that can be used in CSS rgb/rgba functions
             </td>
             <td>
@@ -1001,7 +1001,7 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-rgb-accent</td>
+            <td class="propName">--wuf-color-rgb-accent</td>
             <td class="description">A string of space-separated RGB values that can be used in CSS rgb/rgba functions
             </td>
             <td>
@@ -1009,7 +1009,7 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-rgb-success</td>
+            <td class="propName">--wuf-color-rgb-success</td>
             <td class="description">A string of space-separated RGB values that can be used in CSS rgb/rgba functions
             </td>
             <td>
@@ -1017,7 +1017,7 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-rgb-info</td>
+            <td class="propName">--wuf-color-rgb-info</td>
             <td class="description">A string of space-separated RGB values that can be used in CSS rgb/rgba functions
             </td>
             <td>
@@ -1025,7 +1025,7 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-rgb-warning</td>
+            <td class="propName">--wuf-color-rgb-warning</td>
             <td class="description">A string of space-separated RGB values that can be used in CSS rgb/rgba functions
             </td>
             <td>
@@ -1033,7 +1033,7 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-rgb-danger</td>
+            <td class="propName">--wuf-color-rgb-danger</td>
             <td class="description">A string of space-separated RGB values that can be used in CSS rgb/rgba functions
             </td>
             <td>
@@ -1050,80 +1050,80 @@
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-white</td>
+            <td class="propName">--wuf-color-white</td>
             <td class="description">White</td>
             <td>
-                <div class="swatch dark-label" style="background-color:var(--kg-color-white)">#ffffff</div>
+                <div class="swatch dark-label" style="background-color:var(--wuf-color-white)">#ffffff</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-gray-100</td>
+            <td class="propName">--wuf-color-gray-100</td>
             <td class="description">Gray variant</td>
             <td>
-                <div class="swatch dark-label" style="background-color:var(--kg-color-gray-100)">#F5F5F5</div>
+                <div class="swatch dark-label" style="background-color:var(--wuf-color-gray-100)">#F5F5F5</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-gray-200</td>
+            <td class="propName">--wuf-color-gray-200</td>
             <td class="description">Gray variant</td>
             <td>
-                <div class="swatch dark-label" style="background-color:var(--kg-color-gray-200)">#EEEEEE</div>
+                <div class="swatch dark-label" style="background-color:var(--wuf-color-gray-200)">#EEEEEE</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-gray-300</td>
+            <td class="propName">--wuf-color-gray-300</td>
             <td class="description">Gray variant</td>
             <td>
-                <div class="swatch dark-label" style="background-color:var(--kg-color-gray-300)">#E0E0E0</div>
+                <div class="swatch dark-label" style="background-color:var(--wuf-color-gray-300)">#E0E0E0</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-gray-400</td>
+            <td class="propName">--wuf-color-gray-400</td>
             <td class="description">Gray variant</td>
             <td>
-                <div class="swatch" style="background-color:var(--kg-color-gray-400)">#BDBDBD</div>
+                <div class="swatch" style="background-color:var(--wuf-color-gray-400)">#BDBDBD</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-gray-500</td>
+            <td class="propName">--wuf-color-gray-500</td>
             <td class="description">Gray variant</td>
             <td>
-                <div class="swatch" style="background-color:var(--kg-color-gray-500)">#9E9E9E</div>
+                <div class="swatch" style="background-color:var(--wuf-color-gray-500)">#9E9E9E</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-gray-600</td>
+            <td class="propName">--wuf-color-gray-600</td>
             <td class="description">Gray variant</td>
             <td>
-                <div class="swatch" style="background-color:var(--kg-color-gray-600)">#757575</div>
+                <div class="swatch" style="background-color:var(--wuf-color-gray-600)">#757575</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-gray-700</td>
+            <td class="propName">--wuf-color-gray-700</td>
             <td class="description">Gray variant</td>
             <td>
-                <div class="swatch" style="background-color:var(--kg-color-gray-700)">#616161</div>
+                <div class="swatch" style="background-color:var(--wuf-color-gray-700)">#616161</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-gray-800</td>
+            <td class="propName">--wuf-color-gray-800</td>
             <td class="description">Gray variant</td>
             <td>
-                <div class="swatch" style="background-color:var(--kg-color-gray-800)">#424242</div>
+                <div class="swatch" style="background-color:var(--wuf-color-gray-800)">#424242</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-gray-900</td>
+            <td class="propName">--wuf-color-gray-900</td>
             <td class="description">Gray variant</td>
             <td>
-                <div class="swatch" style="background-color:var(--kg-color-gray-900)">#212121</div>
+                <div class="swatch" style="background-color:var(--wuf-color-gray-900)">#212121</div>
             </td>
         </tr>
         <tr>
-            <td class="propName">--kg-color-black</td>
+            <td class="propName">--wuf-color-black</td>
             <td class="description">Black</td>
             <td>
-                <div class="swatch" style="background-color:var(--kg-color-black)">#00000</div>
+                <div class="swatch" style="background-color:var(--wuf-color-black)">#00000</div>
             </td>
         </tr>
 
@@ -1134,7 +1134,7 @@
 
     <h2>Logo</h2>
 
-    <p>These values can be overwritten using the <code>kg-theme-logo()</code> method. See <a
+    <p>These values can be overwritten using the <code>wuf-theme-logo()</code> method. See <a
         routerLink="/themes/themes">KION Theme System</a> documentation for more information.</p>
 
     <table class="table table-striped css-props-table">
@@ -1146,22 +1146,22 @@
         </tr>
         </thead>
         <tr>
-            <td class="propName">--kg-header-logo-width</td>
+            <td class="propName">--wuf-header-logo-width</td>
             <td class="description">The width of the logo image. This value should not exceed 130px.</td>
             <td class="value">120px</td>
         </tr>
         <tr>
-            <td class="propName">--kg-header-logo-height</td>
+            <td class="propName">--wuf-header-logo-height</td>
             <td class="description">The height of the logo image. This value should not exceed 40px.</td>
             <td class="value">25px</td>
         </tr>
         <tr>
-            <td class="propName">--kg-logo-url</td>
+            <td class="propName">--wuf-logo-url</td>
             <td class="description">The URL for the logo. Using an svg image format is highly recommended. Note the use
                 of base-href on the <a routerLink="/themes/themes">KION Theme System</a> page under the <strong>Define
                     Brand Logo</strong> section.
             </td>
-            <td class="value">url('~@kion/kg-web-assets/assets/images/logo.svg')</td>
+            <td class="value">url('~@anviltech/wuf-web-assets/assets/images/logo.svg')</td>
         </tr>
     </table>
 
@@ -1169,7 +1169,7 @@
 
     <h2>Typography</h2>
 
-    <p>These values can be overwritten using the <code>kg-theme-typography()</code> method. See <a
+    <p>These values can be overwritten using the <code>wuf-theme-typography()</code> method. See <a
         routerLink="/themes/themes">KION Theme System</a> documentation for more information.</p>
 
     <table class="table table-striped css-props-table">
@@ -1184,121 +1184,121 @@
             <td colspan="3">Base Font Styles</td>
         </tr>
         <tr>
-            <td class="propName">--kg-body-color</td>
+            <td class="propName">--wuf-body-color</td>
             <td class="description">The base font color.</td>
-            <td class="value">var(--kg-color-gray-700)</td>
+            <td class="value">var(--wuf-color-gray-700)</td>
         </tr>
         <tr>
-            <td class="propName">--kg-font-family-sans-serif</td>
+            <td class="propName">--wuf-font-family-sans-serif</td>
             <td class="description">The font to use where a san-serif font is required.</td>
             <td class="value">Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif</td>
         </tr>
         <tr>
-            <td class="propName">--kg-font-family-serif</td>
+            <td class="propName">--wuf-font-family-serif</td>
             <td class="description">The font to use where a serif font is required.</td>
             <td class="value">"Times New Roman", Times, serif</td>
         </tr>
         <tr>
-            <td class="propName">--kg-font-family-monospace</td>
+            <td class="propName">--wuf-font-family-monospace</td>
             <td class="description">The font to use where a monospace font is required.</td>
             <td class="value">SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace</td>
         </tr>
         <tr>
-            <td class="propName">--kg-font-family-base</td>
+            <td class="propName">--wuf-font-family-base</td>
             <td class="description">The base font family.</td>
-            <td class="value">var(--kg-font-family-sans-serif)</td>
+            <td class="value">var(--wuf-font-family-sans-serif)</td>
         </tr>
         <tr>
-            <td class="propName">--kg-font-size-base</td>
+            <td class="propName">--wuf-font-size-base</td>
             <td class="description">The base font size.</td>
             <td class="value">1rem</td>
         </tr>
         <tr>
-            <td class="propName">--kg-headings-font-family</td>
+            <td class="propName">--wuf-headings-font-family</td>
             <td class="description">The font family to user for headings.</td>
             <td class="value">inherit</td>
         </tr>
         <tr>
-            <td class="propName">--kg-headings-font-weight</td>
+            <td class="propName">--wuf-headings-font-weight</td>
             <td class="description">The font weight for headings.</td>
             <td class="value">500</td>
         </tr>
         <tr>
-            <td class="propName">--kg-headings-color</td>
+            <td class="propName">--wuf-headings-color</td>
             <td class="description">The color to use for headings.</td>
             <td class="value">inherit</td>
         </tr>
         <tr>
-            <td class="propName">--kg-h1-font-size</td>
+            <td class="propName">--wuf-h1-font-size</td>
             <td class="description">The font size for h1 headings.</td>
             <td class="value">2.5rem</td>
         </tr>
         <tr>
-            <td class="propName">--kg-h2-font-size</td>
+            <td class="propName">--wuf-h2-font-size</td>
             <td class="description">The font size for h2 headings.</td>
             <td class="value">2rem</td>
         </tr>
         <tr>
-            <td class="propName">--kg-h3-font-size</td>
+            <td class="propName">--wuf-h3-font-size</td>
             <td class="description">The font size for h3 headings.</td>
             <td class="value">1.75rem</td>
         </tr>
         <tr>
-            <td class="propName">--kg-h4-font-size</td>
+            <td class="propName">--wuf-h4-font-size</td>
             <td class="description">The font size for h4 headings.</td>
             <td class="value">1.5rem</td>
         </tr>
         <tr>
-            <td class="propName">--kg-h5-font-size</td>
+            <td class="propName">--wuf-h5-font-size</td>
             <td class="description">The font size for h5 headings.</td>
             <td class="value">1.25rem</td>
         </tr>
         <tr>
-            <td class="propName">--kg-h6-font-size</td>
+            <td class="propName">--wuf-h6-font-size</td>
             <td class="description">The font size for h6 headings.</td>
             <td class="value">1rem</td>
         </tr>
         <tr>
-            <td class="propName">--kg-font-weight-light</td>
+            <td class="propName">--wuf-font-weight-light</td>
             <td class="description">The font weight to use where light-weight font is required.</td>
             <td class="value">300</td>
         </tr>
         <tr>
-            <td class="propName">--kg-font-weight-normal</td>
+            <td class="propName">--wuf-font-weight-normal</td>
             <td class="description">The font weight to use where normal-weight font is required.</td>
             <td class="value">400</td>
         </tr>
         <tr>
-            <td class="propName">--kg-font-weight-bold</td>
+            <td class="propName">--wuf-font-weight-bold</td>
             <td class="description">The font weight to use where heavy-weight font is required.</td>
             <td class="value">700</td>
         </tr>
         <tr>
-            <td class="propName">--kg-font-muted-color</td>
+            <td class="propName">--wuf-font-muted-color</td>
             <td class="description">The color to use for muted type.</td>
-            <td class="value">var(--kg-color-gray-600)</td>
+            <td class="value">var(--wuf-color-gray-600)</td>
         </tr>
 
         <tr class="section-title">
             <td colspan="3">Base Font Styles</td>
         </tr>
         <tr>
-            <td class="propName">--kg-link-color</td>
+            <td class="propName">--wuf-link-color</td>
             <td class="description">Link color.</td>
-            <td class="value">var(--kg-color-primary)</td>
+            <td class="value">var(--wuf-color-primary)</td>
         </tr>
         <tr>
-            <td class="propName">--kg-link-decoration</td>
+            <td class="propName">--wuf-link-decoration</td>
             <td class="description">Link decoration.</td>
             <td class="value">none</td>
         </tr>
         <tr>
-            <td class="propName">--kg-link-hover-color</td>
+            <td class="propName">--wuf-link-hover-color</td>
             <td class="description">Link hover color.</td>
-            <td class="value">var(--kg-color-primary-darker-5)</td>
+            <td class="value">var(--wuf-color-primary-darker-5)</td>
         </tr>
         <tr>
-            <td class="propName">--kg-link-hover-decoration</td>
+            <td class="propName">--wuf-link-hover-decoration</td>
             <td class="description">Link hover decoration.</td>
             <td class="value">underline</td>
         </tr>
@@ -1307,17 +1307,17 @@
             <td colspan="3">Base Font Styles</td>
         </tr>
         <tr>
-            <td class="propName">--kg-code-color</td>
+            <td class="propName">--wuf-code-color</td>
             <td class="description">Color for text in &lt;code&gt; blocks.</td>
-            <td class="value">var(--kg-color-gray-600)</td>
+            <td class="value">var(--wuf-color-gray-600)</td>
         </tr>
         <tr>
-            <td class="propName">--kg-code-bg-color</td>
+            <td class="propName">--wuf-code-bg-color</td>
             <td class="description">Background color for &lt;code&gt; blocks.</td>
-            <td class="value">var(--kg-color-gray-300)</td>
+            <td class="value">var(--wuf-color-gray-300)</td>
         </tr>
         <tr>
-            <td class="propName">--kg-code-size</td>
+            <td class="propName">--wuf-code-size</td>
             <td class="description">Font size for &lt;code&gt; blocks.</td>
             <td class="value">87.5%</td>
         </tr>
@@ -1332,8 +1332,8 @@
         </tr>
     </table>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

@@ -1,0 +1,25 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+.wuf-smart-pagination {
+    display: inline-flex;
+    font-size: .875em;
+    padding: 0;
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    .wuf-smart-page-item {
+        display: inline;
+    }
+}

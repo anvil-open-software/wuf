@@ -8,11 +8,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 /***** Import WUF *****/
-import { KgConfigurationService } from '@kion/kg-ang-configuration';
-import { KgLayoutModule } from '@kion/kg-ang-layout';
-import { KgDrawerModule } from '@kion/kg-ang-drawer';
-import { KgNavigationModule } from '@kion/kg-ang-navigation';
-import { KgLoginModule } from '@kion/kg-ang-login-animated';
+import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
+import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
+import { WufDrawerModule } from '@anviltech/wuf-ang-drawer';
+import { WufNavigationModule } from '@anviltech/wuf-ang-navigation';
+import { WufLoginModule } from '@anviltech/wuf-ang-login-animated';
 
 /***** 3rd Party *****/
 import { MatTooltipModule } from '@angular/material';
@@ -37,10 +37,10 @@ export { LayoutBasicComponent } from './basic/basic.component';
         MatTooltipModule,
 
         // WUF
-        KgLayoutModule,
-        KgDrawerModule,
-        KgNavigationModule,
-        KgLoginModule
+        WufLayoutModule,
+        WufDrawerModule,
+        WufNavigationModule,
+        WufLoginModule
     ],
     declarations: [
         LayoutMainComponent,
@@ -53,7 +53,7 @@ export class LayoutsModule {
             ngModule: LayoutsModule,
             providers: [
                 // Add any services used by this module to the providers collection
-                KgConfigurationService
+                WufConfigurationService
             ]
         };
     }

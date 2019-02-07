@@ -20,8 +20,8 @@ of component variables that can be overridden.
 /* EXAMPLE USE OF BRANDING (WALMART) */
 /*************************************/
 
-:root[kg-theme="walmart"],
-*[kg-theme="walmart"] {
+:root[wuf-theme="walmart"],
+*[wuf-theme="walmart"] {
 
     /***** set color values to use in theme *****/
     $kg-brand-primary: #fdbb30;
@@ -33,7 +33,7 @@ of component variables that can be overridden.
     $kg-brand-danger: #dd2c00;
 
     /***** create a theme *****/
-    @include kg-theme-colors((
+    @include wuf-theme-colors((
         "primary": $kg-brand-primary,
         "secondary": $kg-brand-secondary,
         "accent": $kg-brand-accent,
@@ -44,14 +44,14 @@ of component variables that can be overridden.
     ));
 
     /***** logo *****/
-    @include kg-theme-logo("/assets/images/example_images/logos/walmart.svg", 140px, 45px);
+    //@include wuf-theme-logo("/assets/images/example_images/logos/walmart.svg", 140px, 45px);
 
     /***** buttons *****/
-    @include kg-theme-button-radius(4px);
+    @include wuf-theme-button-radius(4px);
 
     /***** typography *****/
     @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab');
-    $kg-brand-body-color: var(--kg-color-gray-700);
+    $kg-brand-body-color: var(--wuf-color-gray-700);
     $kg-brand-font-family-sans-serif: 'Oswald', Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     $kg-brand-font-family-serif: 'Roboto Slab', Times, serif;
     $kg-brand-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -59,7 +59,7 @@ of component variables that can be overridden.
     $kg-brand-font-size-base: 1rem;
     $kg-brand-headings-font-family: $kg-brand-font-family-serif;
     $kg-brand-headings-font-weight: 700;
-    $kg-brand-headings-color: var(--kg-color-primary-darker-10);
+    $kg-brand-headings-color: var(--wuf-color-primary-darker-10);
     $kg-brand-h1-font-size: 2.5rem;
     $kg-brand-h2-font-size: 2rem;
     $kg-brand-h3-font-size: 1.75rem;
@@ -67,7 +67,7 @@ of component variables that can be overridden.
     $kg-brand-h5-font-size: 1.25rem;
     $kg-brand-h6-font-size: 1rem;
 
-    @include kg-theme-typography(
+    @include wuf-theme-typography(
             $kg-brand-body-color,
             $kg-brand-font-family-sans-serif,
             $kg-brand-font-family-serif,
@@ -86,29 +86,29 @@ of component variables that can be overridden.
     );
 
     /***** toolbar *****/
-    --kg-toolbar-bg-color: var(--kg-color-secondary-lighter-50);
+    --wuf-toolbar-bg-color: var(--wuf-color-secondary-lighter-50);
 
     /***** breadcrumb *****/
-    --kg-breadcrumb-color: var(--kg-color-secondary-lighter-30);
+    --wuf-breadcrumb-color: var(--wuf-color-secondary-lighter-30);
 
     /***** tabs *****/
-    --kg-tabs-color: var(--kg-body-color);
-    --kg-tabs-wrap-bg-color: var(--kg-toolbar-bg-color);
+    --wuf-tabs-color: var(--wuf-body-color);
+    --wuf-tabs-wrap-bg-color: var(--wuf-toolbar-bg-color);
 
     /***** dark theme overrides *****/
-    &[kg-theme-dark="true"] {
+    &[wuf-theme-dark="true"] {
 
         /***** body *****/
-        --kg-body-color: var(--kg-color-gray-100);
+        --wuf-body-color: var(--wuf-color-gray-100);
 
         /***** toolbar *****/
-        --kg-toolbar-bg-color: var(--kg-color-secondary-lighter-10);
+        --wuf-toolbar-bg-color: var(--wuf-color-secondary-lighter-10);
 
         /***** breadcrumb *****/
-        --kg-breadcrumb-color: var(--kg-color-secondary-lighter-40);
+        --wuf-breadcrumb-color: var(--wuf-color-secondary-lighter-40);
 
         /***** tabs *****/
-        --kg-tabs-color: var(--kg-body-color);
-        --kg-tabs-wrap-bg-color: var(--kg-toolbar-bg-color);
+        --wuf-tabs-color: var(--wuf-body-color);
+        --wuf-tabs-wrap-bg-color: var(--wuf-toolbar-bg-color);
     }
 }

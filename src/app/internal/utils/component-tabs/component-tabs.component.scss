@@ -9,23 +9,23 @@
         h1.tab-group-title {
             margin-bottom: 0;
             padding-left: 20px;
-            background-color: var(--kg-tabs-wrap-bg-color);
+            background-color: var(--wuf-tabs-wrap-bg-color);
         }
         .app-component-tabs-content {
-            padding: var(--kg-content-padding);
+            padding: var(--wuf-content-padding);
         }
         mat-tab-header, .mat-tab-header, .mat-tab-label-container {
-            background-color: var(--kg-tabs-wrap-bg-color);
+            background-color: var(--wuf-tabs-wrap-bg-color);
         }
     }
     .app-component-tabs {
         // ng-deep allows us to penetrate the shadow-dom so that we can style the inner tab components.  Yes, this technique is kosher and fully supported by Angular.
         ::ng-deep {
             > mat-tab-header, .mat-tab-header, .mat-tab-label-container {
-                background-color: var(--kg-tabs-wrap-bg-color);
+                background-color: var(--wuf-tabs-wrap-bg-color);
             }
             > .mat-tab-label, .mat-tab-link, .mat-tab-label-content {
-                color: var(--kg-tabs-color);
+                color: var(--wuf-tabs-color);
                 text-transform: uppercase;
             }
         }

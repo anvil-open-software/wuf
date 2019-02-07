@@ -20,8 +20,8 @@ of component variables that can be overridden.
 /* EXAMPLE USE OF BRANDING (BMW) */
 /*************************************/
 
-:root[kg-theme="bmw"],
-*[kg-theme="bmw"] {
+:root[wuf-theme="bmw"],
+*[wuf-theme="bmw"] {
 
     /***** set color values to use in theme *****/
     $kg-brand-primary: #0099d8;
@@ -33,7 +33,7 @@ of component variables that can be overridden.
     $kg-brand-danger: #dd2c00;
 
     /***** create a theme *****/
-    @include kg-theme-colors((
+    @include wuf-theme-colors((
         "primary": $kg-brand-primary,
         "secondary": $kg-brand-secondary,
         "accent": $kg-brand-accent,
@@ -44,33 +44,33 @@ of component variables that can be overridden.
     ));
 
     /***** logo *****/
-    @include kg-theme-logo("/assets/images/example_images/logos/bmw.svg", 175px, 50px);
+    //@include wuf-theme-logo("/assets/images/example_images/logos/bmw.svg", 175px, 50px);
 
     /***** buttons *****/
-    @include kg-theme-button-radius(20px);
+    @include wuf-theme-button-radius(20px);
 
     /***** links *****/
-    --kg-link-color: var(--kg-color-primary);
-    --kg-link-hover-color: #0084ba;
+    --wuf-link-color: var(--wuf-color-primary);
+    --wuf-link-hover-color: #0084ba;
 
     /***** header *****/
-    --kg-header-bg-color: var(--kg-color-primary);
-    --kg-header-color: var(--kg-color-white);
+    --wuf-header-bg-color: var(--wuf-color-primary);
+    --wuf-header-color: var(--wuf-color-white);
 
     /***** sidebar *****/
-    --kg-navigation-link-active-accent-color: var(--kg-color-primary);
+    --wuf-navigation-link-active-accent-color: var(--wuf-color-primary);
 
     /***** tables *****/
-    --kg-table-filter-bg-color: var(--kg-color-secondary-lighter-20);
-    --kg-table-filter-color: var(--kg-body-color);
+    --wuf-table-filter-bg-color: var(--wuf-color-secondary-lighter-20);
+    --wuf-table-filter-color: var(--wuf-body-color);
 
     /***** dashboard *****/
-    --kg-kpi-alert-bg-color: var(--kg-color-primary);
-    --kg-kpi-alert-stripe-color: var(--kg-color-primary-darker-10);
+    --wuf-kpi-alert-bg-color: var(--wuf-color-primary);
+    --wuf-kpi-alert-stripe-color: var(--wuf-color-primary-darker-10);
 
     /***** typography *****/
     @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab');
-    $kg-brand-body-color: var(--kg-color-gray-700);
+    $kg-brand-body-color: var(--wuf-color-gray-700);
     $kg-brand-font-family-sans-serif: 'Oswald', Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     $kg-brand-font-family-serif: 'Roboto Slab', Times, serif;
     $kg-brand-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -78,7 +78,7 @@ of component variables that can be overridden.
     $kg-brand-font-size-base: 1rem;
     $kg-brand-headings-font-family: $kg-brand-font-family-serif;
     $kg-brand-headings-font-weight: 700;
-    $kg-brand-headings-color: var(--kg-color-primary-darker-10);
+    $kg-brand-headings-color: var(--wuf-color-primary-darker-10);
     $kg-brand-h1-font-size: 2.5rem;
     $kg-brand-h2-font-size: 2rem;
     $kg-brand-h3-font-size: 1.75rem;

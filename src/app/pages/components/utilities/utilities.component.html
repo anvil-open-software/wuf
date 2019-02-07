@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Utilities', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Utilities', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
 
     <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
                         [tabLabel_4]="'Change Log'">
@@ -27,7 +27,7 @@
 
             <h2>Utilities</h2>
 
-            <p>The <strong>@kion/kg-ang-library</strong> package provides a number of different utilities for use throughout
+            <p>The <strong>@anviltech/wuf-ang-library</strong> package provides a number of different utilities for use throughout
                 your application.</p>
 
             <div id="capitalize-pipe">
@@ -66,21 +66,21 @@
         <!--start API Content -->
         <div class="component_tabs_3">
 
-            <markdown path="assets/documentation/packages/kg-ang-utils/README.md"></markdown>
+            <markdown path="assets/documentation/packages/wuf-ang-utils/README.md"></markdown>
 
         </div>
         <!--end API Content -->
 
         <!--start CHANGELOG Content -->
         <div class="component_tabs_4">
-             <markdown path="assets/documentation/packages/kg-ang-utils/CHANGELOG.md"></markdown>
+             <markdown path="assets/documentation/packages/wuf-ang-utils/CHANGELOG.md"></markdown>
         </div>
         <!--end CHANGELOG Content -->
 
     </app-component-tabs>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

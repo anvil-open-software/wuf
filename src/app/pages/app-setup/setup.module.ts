@@ -14,7 +14,7 @@ import { RoutesModule } from './routes';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 /***** Import WUF *****/
-import { KgLayoutModule } from '@kion/kg-ang-layout';
+import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
@@ -45,7 +45,7 @@ import { SetupConfigurationComponent } from './configuration/configuration.compo
         UtilsModule,
 
         // WUF
-        KgLayoutModule,
+        WufLayoutModule,
 
         // 3rd Party Imports
         NgxMdModule, // Markdown

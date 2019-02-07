@@ -1,0 +1,42 @@
+<!doctype html>
+<!--
+  ~ Copyright (c) 2018 Dematic, Corp.
+  ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+  -->
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>wuf-web-message demos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script nomodule src="./node_modules/browser-es-module-loader/dist/babel-browser-build.js"></script>
+    <script nomodule src="./node_modules/browser-es-module-loader/dist/browser-es-module-loader.js"></script>
+
+    <script src="./dist/wuf-web-message.js" type="module"></script>
+    <style>
+        body {
+            background-color: #eee;
+            padding: 24px;
+        }
+
+        wuf-web-message {
+            margin: 8px;
+        }
+
+        wuf-web-message.blue {
+            --wuf-web-message-background-color: #03A9F4;
+        }
+    </style>
+</head>
+<body>
+<wuf-web-message></wuf-web-message>
+
+<wuf-web-message type="Pickle" text="Pickle"></wuf-web-message>
+
+<wuf-web-message>Slot content</wuf-web-message>
+
+<wuf-web-message class="blue"></wuf-web-message>
+</body>
+</html>

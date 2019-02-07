@@ -1,0 +1,14 @@
+<!--
+  ~ Copyright (c) 2018 Dematic, Corp.
+  ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+  -->
+
+<div class="main-footer-wrap" [ngClass]="{ 'active' : WufContentFooterService.isVisible }">
+    <div class="contentFooter">
+        <div class="row align-items-center">
+            <div class="col contentFooter-content">
+                <ng-content></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

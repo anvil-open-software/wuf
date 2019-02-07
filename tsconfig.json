@@ -18,101 +18,65 @@
       "dom"
     ],
     "paths": {
-      "@kion/kg-ang-app-core": [
-        "./projects/kion/kg-ang-app-core/dist"
+      "@anviltech/wuf-ang-configuration": [
+        "./projects/anviltech/wuf-ang-configuration/dist"
       ],
-      "@kion/kg-ang-app-core/*": [
-        "./projects/kion/kg-ang-app-core/dist/*"
+      "@anviltech/wuf-ang-configuration/*": [
+        "./projects/anviltech/wuf-ang-configuration/dist/*"
       ],
-      "@kion/kg-ang-app-auth": [
-        "./projects/kion/kg-ang-app-auth/dist"
+      "@anviltech/wuf-ang-utils": [
+        "./projects/anviltech/wuf-ang-utils/dist"
       ],
-      "@kion/kg-ang-app-auth/*": [
-        "./projects/kion/kg-ang-app-auth/dist/*"
+      "@anviltech/wuf-ang-utils/*": [
+        "./projects/anviltech/wuf-ang-utils/dist/*"
       ],
-      "@kion/kg-ang-app-router": [
-        "./projects/kion/kg-ang-app-router/dist"
+      "@anviltech/wuf-ang-layout": [
+        "./projects/anviltech/wuf-ang-layout/dist"
       ],
-      "@kion/kg-ang-app-router/*": [
-        "./projects/kion/kg-ang-app-router/dist/*"
+      "@anviltech/wuf-ang-layout/*": [
+        "./projects/anviltech/wuf-ang-layout/dist/*"
       ],
-      "@kion/kg-ang-login-screen": [
-        "./projects/kion/kg-ang-login-screen/dist"
+      "@anviltech/wuf-ang-drawer": [
+        "./projects/anviltech/wuf-ang-drawer/dist"
       ],
-      "@kion/kg-ang-login-screen/*": [
-        "./projects/kion/kg-ang-login-screen/dist/*"
+      "@anviltech/wuf-ang-drawer/*": [
+        "./projects/anviltech/wuf-ang-drawer/dist/*"
       ],
-      "@kion/kg-ang-logout-screen": [
-        "./projects/kion/kg-ang-logout-screen/dist"
+      "@anviltech/wuf-ang-dashboard": [
+        "./projects/anviltech/wuf-ang-dashboard/dist"
       ],
-      "@kion/kg-ang-logout-screen/*": [
-        "./projects/kion/kg-ang-logout-screen/dist/*"
+      "@anviltech/wuf-ang-dashboard/*": [
+        "./projects/anviltech/wuf-ang-dashboard/dist/*"
       ],
-      "@kion/kg-ang-configuration": [
-        "./projects/kion/kg-ang-configuration/dist"
+      "@anviltech/wuf-ang-login-animated": [
+        "./projects/anviltech/wuf-ang-login-animated/dist"
       ],
-      "@kion/kg-ang-configuration/*": [
-        "./projects/kion/kg-ang-configuration/dist/*"
+      "@anviltech/wuf-ang-login-animated/*": [
+        "./projects/anviltech/wuf-ang-login-animated/dist/*"
       ],
-      "@kion/kg-ang-utils": [
-        "./projects/kion/kg-ang-utils/dist"
+      "@anviltech/wuf-ang-navigation": [
+        "./projects/anviltech/wuf-ang-navigation/dist"
       ],
-      "@kion/kg-ang-utils/*": [
-        "./projects/kion/kg-ang-utils/dist/*"
+      "@anviltech/wuf-ang-navigation/*": [
+        "./projects/anviltech/wuf-ang-navigation/dist/*"
       ],
-      "@kion/kg-ang-layout": [
-        "./projects/kion/kg-ang-layout/dist"
+      "@anviltech/wuf-ang-gridster": [
+        "./projects/anviltech/wuf-ang-gridster/dist"
       ],
-      "@kion/kg-ang-layout/*": [
-        "./projects/kion/kg-ang-layout/dist/*"
+      "@anviltech/wuf-ang-gridster/*": [
+        "./projects/anviltech/wuf-ang-gridster/dist/*"
       ],
-      "@kion/kg-ang-drawer": [
-        "./projects/kion/kg-ang-drawer/dist"
+      "@anviltech/wuf-ang-smart-table": [
+        "./projects/anviltech/wuf-ang-smart-table/dist"
       ],
-      "@kion/kg-ang-drawer/*": [
-        "./projects/kion/kg-ang-drawer/dist/*"
+      "@anviltech/wuf-ang-smart-table/*": [
+        "./projects/anviltech/wuf-ang-smart-table/dist/*"
       ],
-      "@kion/kg-ang-main-layout-screen": [
-        "./project/kion/kg-ang-main-layout-screen/dist"
+      "@anviltech/wuf-ang-toasts": [
+        "./projects/anviltech/wuf-ang-toasts/dist"
       ],
-      "@kion/kg-ang-main-layout-screen/*": [
-        "./project/kion/kg-ang-main-layout-screen/dist/*"
-      ],
-      "@kion/kg-ang-dashboard": [
-        "./projects/kion/kg-ang-dashboard/dist"
-      ],
-      "@kion/kg-ang-dashboard/*": [
-        "./projects/kion/kg-ang-dashboard/dist/*"
-      ],
-      "@kion/kg-ang-login-animated": [
-        "./projects/kion/kg-ang-login-animated/dist"
-      ],
-      "@kion/kg-ang-login-animated/*": [
-        "./projects/kion/kg-ang-login-animated/dist/*"
-      ],
-      "@kion/kg-ang-navigation": [
-        "./projects/kion/kg-ang-navigation/dist"
-      ],
-      "@kion/kg-ang-navigation/*": [
-        "./projects/kion/kg-ang-navigation/dist/*"
-      ],
-      "@kion/kg-ang-gridster": [
-        "./projects/kion/kg-ang-gridster/dist"
-      ],
-      "@kion/kg-ang-gridster/*": [
-        "./projects/kion/kg-ang-gridster/dist/*"
-      ],
-      "@kion/kg-ang-smart-table": [
-        "./projects/kion/kg-ang-smart-table/dist"
-      ],
-      "@kion/kg-ang-smart-table/*": [
-        "./projects/kion/kg-ang-smart-table/dist/*"
-      ],
-      "@kion/kg-ang-toasts": [
-        "./projects/kion/kg-ang-toasts/dist"
-      ],
-      "@kion/kg-ang-toasts/*": [
-        "./projects/kion/kg-ang-toasts/dist/*"
+      "@anviltech/wuf-ang-toasts/*": [
+        "./projects/anviltech/wuf-ang-toasts/dist/*"
       ]
     }
   }

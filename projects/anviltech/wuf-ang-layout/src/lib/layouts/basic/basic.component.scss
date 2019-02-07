@@ -1,0 +1,61 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+//Expose custom properties for overrides
+:host {
+    /*     local var        ||                          global override           ||               default value        */
+    // sidebar
+    --sidebar-resizer-width:                    var(--wuf-sidebar-resizer-width,                     6px);
+    --sidebar-resizer-bg-color:                 var(--wuf-sidebar-resizer-bg-color,                  var(--wuf-color-gray-300));
+    --sidebar-resizer-draghandle-color:         var(--wuf-sidebar-resizer-draghandle-color,          var(--wuf-color-gray-100));
+
+    // layout
+    --page-width:                               var(--wuf-page-width,                                100%);
+    --page-margin:                              var(--wuf-page-margin,                               0);
+    --page-padding:                             var(--wuf-page-padding,                              0);
+}
+
+// INTERNAL: Access all <app-*> tags that are an immediate child of .main, appearing just after the <router-outlet> to apply some necessary flex box properties these tags need for proper content area scrolling.
+:host {
+    .main-resizable-content {
+        // ng-deep allows us to access the contents passed via <ng-content>.  The alternative would be to add the following to a global CSS at application level (which would make this component less portable).
+        ::ng-deep {
+            > *:not(router-outlet) {
+                display: flex;
+                flex-direction: column;
+                --page-width: var(--wuf-page-width, 100%);
+                min-height: 100%;
+            }
+        }
+    }
+}
+
+.page {
+    margin: var(--page-margin);
+    padding: var(--page-padding);
+    width: var(--page-width);
+    min-height: 100vh;
+    .page-row {
+        padding: 0;
+        margin: 0;
+        min-height: 100vh;
+        .main-wrap {
+            width: 100%;
+            position: relative;
+            padding: 0;
+            margin: 0;
+            transform: translateX(0);
+            //height: 100%;
+            flex: 1 1 100px;
+            .main {
+                width: 100%;
+                .main-resizable-content {
+                    position: relative;
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

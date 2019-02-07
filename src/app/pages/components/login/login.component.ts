@@ -5,7 +5,7 @@
 
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { KgLoginService } from '@kion/kg-ang-login-animated';
+import { WufLoginService } from '@anviltech/wuf-ang-login-animated';
 
 
 @Component({
@@ -19,13 +19,13 @@ export class LoginComponent implements OnInit {
     loginSubscription: any;
     loginData: string;
 
-    constructor(private loginService: KgLoginService) {
+    constructor(private loginService: WufLoginService) {
     }
 
     ngOnInit() {
         this.loginSubscription = this.loginService.onLogin().subscribe(
             loginData => {
-                // We have collected username/password information from the form in the <kg-login> component.  Now we need to do something with it, like send it to the server for authentication.
+                // We have collected username/password information from the form in the <wuf-login> component.  Now we need to do something with it, like send it to the server for authentication.
                 this.loginData = JSON.stringify(loginData);
             },
             err => {

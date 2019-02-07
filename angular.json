@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kion-components": {
+    "wuf": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/kion-components",
+            "outputPath": "dist/anviltech-components",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -22,8 +22,8 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "packages/kg-web-assets/assets/images",
-                "output": "/assets/kion/kg-web-assets/images"
+                "input": "packages/wuf-web-assets/assets/images",
+                "output": "/assets/anviltech/wuf-web-assets/images"
               },
               {
                 "glob": "*.md",
@@ -37,7 +37,7 @@
               },
               {
                 "glob": "**/**.md",
-                "input": "projects/kion",
+                "input": "projects/anviltech",
                 "output": "/assets/documentation/packages"
               }
             ],
@@ -75,18 +75,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "kion-components:build"
+            "browserTarget": "wuf:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "kion-components:build:production"
+              "browserTarget": "wuf:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kion-components:build"
+            "browserTarget": "wuf:build"
           }
         },
         "test": {
@@ -126,7 +126,7 @@
         }
       }
     },
-    "kion-components-e2e": {
+    "wuf-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -134,11 +134,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "kion-components:serve"
+            "devServerTarget": "wuf:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "kion-components:serve:production"
+              "devServerTarget": "wuf:serve:production"
             }
           }
         },
@@ -153,38 +153,38 @@
         }
       }
     },
-    "@kion/kg-ang-app-auth": {
-      "root": "projects/kion/kg-ang-app-auth",
-      "sourceRoot": "projects/kion/kg-ang-app-auth/src",
+    "@anviltech/wuf-ang-message": {
+      "root": "projects/anviltech/wuf-ang-message",
+      "sourceRoot": "projects/anviltech/wuf-ang-message/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-app-auth/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-app-auth/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-message/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-message/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-app-auth/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-message/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-app-auth/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-app-auth/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-app-auth/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-message/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-message/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-message/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-app-auth/tsconfig.lib.json",
-              "projects/kion/kg-ang-app-auth/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-message/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-message/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -193,38 +193,38 @@
         }
       }
     },
-    "@kion/kg-ang-app-core": {
-      "root": "projects/kion/kg-ang-app-core",
-      "sourceRoot": "projects/kion/kg-ang-app-core/src",
+    "@anviltech/wuf-ang-configuration": {
+      "root": "projects/anviltech/wuf-ang-configuration",
+      "sourceRoot": "projects/anviltech/wuf-ang-configuration/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-app-core/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-app-core/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-configuration/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-configuration/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-app-core/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-configuration/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-app-core/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-app-core/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-app-core/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-configuration/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-configuration/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-configuration/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-app-core/tsconfig.lib.json",
-              "projects/kion/kg-ang-app-core/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-configuration/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-configuration/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -233,38 +233,38 @@
         }
       }
     },
-    "@kion/kg-ang-app-router": {
-      "root": "projects/kion/kg-ang-app-router",
-      "sourceRoot": "projects/kion/kg-ang-app-router/src",
+    "@anviltech/wuf-ang-utils": {
+      "root": "projects/anviltech/wuf-ang-utils",
+      "sourceRoot": "projects/anviltech/wuf-ang-utils/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-app-router/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-app-router/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-utils/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-utils/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-app-router/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-utils/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-app-router/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-app-router/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-app-router/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-utils/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-utils/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-utils/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-app-router/tsconfig.lib.json",
-              "projects/kion/kg-ang-app-router/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-utils/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-utils/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -273,38 +273,38 @@
         }
       }
     },
-    "@kion/kg-ang-library": {
-      "root": "projects/kion/kg-ang-library",
-      "sourceRoot": "projects/kion/kg-ang-library/src",
+    "@anviltech/wuf-ang-layout": {
+      "root": "projects/anviltech/wuf-ang-layout",
+      "sourceRoot": "projects/anviltech/wuf-ang-layout/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-library/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-library/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-layout/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-layout/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-library/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-layout/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-library/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-library/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-library/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-layout/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-layout/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-layout/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-library/tsconfig.lib.json",
-              "projects/kion/kg-ang-library/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-layout/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-layout/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -313,38 +313,38 @@
         }
       }
     },
-    "@kion/kg-ang-message": {
-      "root": "projects/kion/kg-ang-message",
-      "sourceRoot": "projects/kion/kg-ang-message/src",
+    "@anviltech/wuf-ang-drawer": {
+      "root": "projects/anviltech/wuf-ang-drawer",
+      "sourceRoot": "projects/anviltech/wuf-ang-drawer/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-message/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-message/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-drawer/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-drawer/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-message/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-drawer/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-message/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-message/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-message/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-drawer/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-drawer/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-drawer/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-message/tsconfig.lib.json",
-              "projects/kion/kg-ang-message/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-drawer/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-drawer/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -353,38 +353,38 @@
         }
       }
     },
-    "@kion/kg-ang-login-screen": {
-      "root": "projects/kion/kg-ang-login-screen",
-      "sourceRoot": "projects/kion/kg-ang-login-screen/src",
+    "@anviltech/wuf-ang-dashboard": {
+      "root": "projects/anviltech/wuf-ang-dashboard",
+      "sourceRoot": "projects/anviltech/wuf-ang-dashboard/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-login-screen/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-login-screen/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-dashboard/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-dashboard/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-login-screen/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-dashboard/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-login-screen/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-login-screen/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-login-screen/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-dashboard/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-dashboard/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-dashboard/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-login-screen/tsconfig.lib.json",
-              "projects/kion/kg-ang-login-screen/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-dashboard/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-dashboard/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -393,38 +393,38 @@
         }
       }
     },
-    "@kion/kg-ang-logout-screen": {
-      "root": "projects/kion/kg-ang-logout-screen",
-      "sourceRoot": "projects/kion/kg-ang-logout-screen/src",
+    "@anviltech/wuf-ang-login-animated": {
+      "root": "projects/anviltech/wuf-ang-login-animated",
+      "sourceRoot": "projects/anviltech/wuf-ang-login-animated/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-logout-screen/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-logout-screen/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-login-animated/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-login-animated/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-logout-screen/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-login-animated/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-logout-screen/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-logout-screen/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-logout-screen/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-login-animated/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-login-animated/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-login-animated/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-logout-screen/tsconfig.lib.json",
-              "projects/kion/kg-ang-logout-screen/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-login-animated/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-login-animated/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -433,38 +433,38 @@
         }
       }
     },
-    "@kion/kg-ang-configuration": {
-      "root": "projects/kion/kg-ang-configuration",
-      "sourceRoot": "projects/kion/kg-ang-configuration/src",
+    "@anviltech/wuf-ang-navigation": {
+      "root": "projects/anviltech/wuf-ang-navigation",
+      "sourceRoot": "projects/anviltech/wuf-ang-navigation/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-configuration/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-configuration/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-navigation/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-navigation/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-configuration/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-navigation/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-configuration/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-configuration/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-configuration/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-navigation/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-navigation/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-navigation/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-configuration/tsconfig.lib.json",
-              "projects/kion/kg-ang-configuration/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-navigation/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-navigation/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -473,38 +473,38 @@
         }
       }
     },
-    "@kion/kg-ang-utils": {
-      "root": "projects/kion/kg-ang-utils",
-      "sourceRoot": "projects/kion/kg-ang-utils/src",
+    "@anviltech/wuf-ang-gridster": {
+      "root": "projects/anviltech/wuf-ang-gridster",
+      "sourceRoot": "projects/anviltech/wuf-ang-gridster/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-utils/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-utils/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-gridster/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-gridster/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-utils/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-gridster/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-utils/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-utils/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-utils/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-gridster/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-gridster/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-gridster/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-utils/tsconfig.lib.json",
-              "projects/kion/kg-ang-utils/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-gridster/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-gridster/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -513,38 +513,38 @@
         }
       }
     },
-    "@kion/kg-ang-layout": {
-      "root": "projects/kion/kg-ang-layout",
-      "sourceRoot": "projects/kion/kg-ang-layout/src",
+    "@anviltech/wuf-ang-smart-table": {
+      "root": "projects/anviltech/wuf-ang-smart-table",
+      "sourceRoot": "projects/anviltech/wuf-ang-smart-table/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-layout/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-layout/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-smart-table/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-smart-table/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-layout/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-smart-table/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-layout/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-layout/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-layout/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-smart-table/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-smart-table/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-smart-table/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-layout/tsconfig.lib.json",
-              "projects/kion/kg-ang-layout/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-smart-table/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-smart-table/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -553,318 +553,38 @@
         }
       }
     },
-    "@kion/kg-ang-drawer": {
-      "root": "projects/kion/kg-ang-drawer",
-      "sourceRoot": "projects/kion/kg-ang-drawer/src",
+    "@anviltech/wuf-ang-toasts": {
+      "root": "projects/anviltech/wuf-ang-toasts",
+      "sourceRoot": "projects/anviltech/wuf-ang-toasts/src",
       "projectType": "library",
-      "prefix": "kg",
+      "prefix": "wuf",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/kion/kg-ang-drawer/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-drawer/ng-package.json"
+            "tsConfig": "projects/anviltech/wuf-ang-toasts/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-toasts/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/kion/kg-ang-drawer/ng-package.json"
+              "project": "projects/anviltech/wuf-ang-toasts/ng-package.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/kion/kg-ang-drawer/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-drawer/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-drawer/karma.conf.js"
+            "main": "projects/anviltech/wuf-ang-toasts/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-toasts/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-toasts/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/kion/kg-ang-drawer/tsconfig.lib.json",
-              "projects/kion/kg-ang-drawer/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "@kion/kg-ang-main-layout-screen": {
-      "root": "projects/kion/kg-ang-main-layout-screen",
-      "sourceRoot": "projects/kion/kg-ang-main-layout-screen/src",
-      "projectType": "library",
-      "prefix": "kg",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/kion/kg-ang-main-layout-screen/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-main-layout-screen/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/kion/kg-ang-main-layout-screen/ng-package.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/kion/kg-ang-main-layout-screen/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-main-layout-screen/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-main-layout-screen/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/kion/kg-ang-main-layout-screen/tsconfig.lib.json",
-              "projects/kion/kg-ang-main-layout-screen/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "@kion/kg-ang-dashboard": {
-      "root": "projects/kion/kg-ang-dashboard",
-      "sourceRoot": "projects/kion/kg-ang-dashboard/src",
-      "projectType": "library",
-      "prefix": "kg",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/kion/kg-ang-dashboard/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-dashboard/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/kion/kg-ang-dashboard/ng-package.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/kion/kg-ang-dashboard/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-dashboard/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-dashboard/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/kion/kg-ang-dashboard/tsconfig.lib.json",
-              "projects/kion/kg-ang-dashboard/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "@kion/kg-ang-login-animated": {
-      "root": "projects/kion/kg-ang-login-animated",
-      "sourceRoot": "projects/kion/kg-ang-login-animated/src",
-      "projectType": "library",
-      "prefix": "kg",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/kion/kg-ang-login-animated/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-login-animated/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/kion/kg-ang-login-animated/ng-package.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/kion/kg-ang-login-animated/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-login-animated/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-login-animated/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/kion/kg-ang-login-animated/tsconfig.lib.json",
-              "projects/kion/kg-ang-login-animated/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "@kion/kg-ang-navigation": {
-      "root": "projects/kion/kg-ang-navigation",
-      "sourceRoot": "projects/kion/kg-ang-navigation/src",
-      "projectType": "library",
-      "prefix": "kg",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/kion/kg-ang-navigation/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-navigation/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/kion/kg-ang-navigation/ng-package.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/kion/kg-ang-navigation/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-navigation/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-navigation/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/kion/kg-ang-navigation/tsconfig.lib.json",
-              "projects/kion/kg-ang-navigation/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "@kion/kg-ang-gridster": {
-      "root": "projects/kion/kg-ang-gridster",
-      "sourceRoot": "projects/kion/kg-ang-gridster/src",
-      "projectType": "library",
-      "prefix": "kg",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/kion/kg-ang-gridster/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-gridster/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/kion/kg-ang-gridster/ng-package.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/kion/kg-ang-gridster/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-gridster/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-gridster/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/kion/kg-ang-gridster/tsconfig.lib.json",
-              "projects/kion/kg-ang-gridster/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "@kion/kg-ang-smart-table": {
-      "root": "projects/kion/kg-ang-smart-table",
-      "sourceRoot": "projects/kion/kg-ang-smart-table/src",
-      "projectType": "library",
-      "prefix": "kg",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/kion/kg-ang-smart-table/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-smart-table/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/kion/kg-ang-smart-table/ng-package.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/kion/kg-ang-smart-table/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-smart-table/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-smart-table/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/kion/kg-ang-smart-table/tsconfig.lib.json",
-              "projects/kion/kg-ang-smart-table/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "@kion/kg-ang-toasts": {
-      "root": "projects/kion/kg-ang-toasts",
-      "sourceRoot": "projects/kion/kg-ang-toasts/src",
-      "projectType": "library",
-      "prefix": "kg",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/kion/kg-ang-toasts/tsconfig.lib.json",
-            "project": "projects/kion/kg-ang-toasts/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/kion/kg-ang-toasts/ng-package.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/kion/kg-ang-toasts/src/test.ts",
-            "tsConfig": "projects/kion/kg-ang-toasts/tsconfig.spec.json",
-            "karmaConfig": "projects/kion/kg-ang-toasts/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/kion/kg-ang-toasts/tsconfig.lib.json",
-              "projects/kion/kg-ang-toasts/tsconfig.spec.json"
+              "projects/anviltech/wuf-ang-toasts/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-toasts/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -874,5 +594,5 @@
       }
     }
   },
-  "defaultProject": "kion-components"
+  "defaultProject": "wuf"
 }

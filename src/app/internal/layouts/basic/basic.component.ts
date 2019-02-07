@@ -5,7 +5,7 @@
 
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
-import { KgConfigurationService } from '@kion/kg-ang-configuration';
+import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class LayoutBasicComponent implements OnInit {
     configSubscription: any;
 
     constructor(
-        public configService: KgConfigurationService) {
+        public configService: WufConfigurationService) {
     }
 
     ngOnInit() {

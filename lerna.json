@@ -2,7 +2,7 @@
     "lerna": "3.4.0",
     "packages": [
         "packages/*",
-        "projects/kion/*"
+        "projects/anviltech/*"
     ],
     "version": "independent",
     "npmClient": "yarn",

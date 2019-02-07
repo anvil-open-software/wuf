@@ -23,21 +23,21 @@ export class ThemeListService {
         {label: 'KION',
             config: {
                 theme: 'kion',
-                copyrightName: 'KION, Inc.',
+                copyrightName: 'KION Group',
                 navigation: {position: 'left', alignment: 'left', iconPosition: 'left'}
             }
         },
         {label: 'BMW',
             config: {
                 theme: 'bmw',
-                copyrightName: 'Dematic, Inc.',
+                copyrightName: 'BMW Group',
                 navigation: {position: 'left', alignment: 'left', iconPosition: 'left'}
             }
         },
         {label: 'Walmart',
             config: {
                 theme: 'walmart',
-                copyrightName: 'Dematic, Inc.',
+                copyrightName: 'Walmart, Inc.',
                 navigation: {position: 'left', alignment: 'left', iconPosition: 'left'}
             }
         },

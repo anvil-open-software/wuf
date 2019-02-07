@@ -5,8 +5,8 @@
 
 import { Component, ViewEncapsulation, OnInit, Renderer2, OnDestroy } from '@angular/core';
 
-import { KgConfigurationService } from '@kion/kg-ang-configuration';
-import { deepMerge } from '@kion/kg-ang-utils';
+import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
+import { deepMerge } from '@anviltech/wuf-ang-utils';
 
 import { UserService } from './internal/services/user.service';
 
@@ -15,14 +15,14 @@ import { configuration } from './internal/configuration/configuration';
 
 // The following imports are only used for demo purposes
 import { FakeUser } from './internal/fake-backend/data/user';
-import { KgLoginService } from '@kion/kg-ang-login-animated';
+import { WufLoginService } from '@anviltech/wuf-ang-login-animated';
 
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
-    providers: [KgConfigurationService, UserService],
+    providers: [WufConfigurationService, UserService],
     encapsulation: ViewEncapsulation.Emulated
 })
 export class AppComponent implements OnInit, OnDestroy {
@@ -32,10 +32,10 @@ export class AppComponent implements OnInit, OnDestroy {
     loginSubscription: any;
     currentThemeId: string;
 
-    constructor(private configService: KgConfigurationService,
+    constructor(private configService: WufConfigurationService,
                 private renderer: Renderer2,
                 private userService: UserService,
-                private loginService: KgLoginService) {
+                private loginService: WufLoginService) {
     }
 
     ngOnInit() {
@@ -98,10 +98,10 @@ export class AppComponent implements OnInit, OnDestroy {
             }
         );
 
-        // Subscribe to login subject (this only applies when using <kg-login> component
+        // Subscribe to login subject (this only applies when using <wuf-login> component
         this.loginSubscription = this.loginService.onLogin().subscribe(
             loginData => {
-                // We have collected username/password information from the form in the <kg-login> component.
+                // We have collected username/password information from the form in the <wuf-login> component.
                 // Now we need to do something with it, like send it to the server for authentication.
             },
             err => {
@@ -156,20 +156,20 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     applyTheme(themeId: string) {
-        // Set the 'kg-theme' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
+        // Set the 'wuf-theme' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
         this.currentThemeId = themeId;
-        this.renderer.setAttribute(document.documentElement, 'kg-theme', themeId);
+        this.renderer.setAttribute(document.documentElement, 'wuf-theme', themeId);
     }
 
     applyDarkTheme(applyDark: boolean) {
         if (!applyDark) {
-            // Remove the 'kg-theme-dark' property, if no longer applicable
-            this.renderer.removeAttribute(document.documentElement, 'kg-theme-dark');
+            // Remove the 'wuf-theme-dark' property, if no longer applicable
+            this.renderer.removeAttribute(document.documentElement, 'wuf-theme-dark');
         }
         else if (applyDark) {
-            // Set the 'kg-theme-dark' property on the <html> element.
+            // Set the 'wuf-theme-dark' property on the <html> element.
             // This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
-            this.renderer.setAttribute(document.documentElement, 'kg-theme-dark', 'true');
+            this.renderer.setAttribute(document.documentElement, 'wuf-theme-dark', 'true');
         }
     }
 

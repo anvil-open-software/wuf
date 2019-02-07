@@ -1,0 +1,16 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+/***** form labels *****/
+.label {
+    color: var(--wuf-body-color);
+    opacity: .8;
+    font-size: .75rem;
+    font-style: normal;
+    font-weight: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    margin-bottom: var(--wuf-spacer);
+}

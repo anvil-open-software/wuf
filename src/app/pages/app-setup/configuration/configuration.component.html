@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Configuration', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Configuration', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
 
     <app-component-tabs [tabLabel_1]="'Intro'" [tabLabel_2]="'API'">
@@ -25,25 +25,25 @@
         <!-- EXAMPLE Content -->
         <div class="component_tabs_1">
 
-            <p>The <strong>KgConfigurationService</strong>, from common components, is used to configure the application
+            <p>The <strong>WufConfigurationService</strong>, from common components, is used to configure the application
                 in different ways. For example, configuration settings may include where to position the navigation
                 panel (e.g., left or top) or the default application theme to use (e.g., dark or light). The
                 configuration service is also used to keep track of some application state (e.g., the current size of
                 the resizable sidebar panel) while the user is interacting with the application.</p>
 
-            <p>The <strong>KgConfigurationService</strong> service is responsible for storing and retrieving application
+            <p>The <strong>WufConfigurationService</strong> service is responsible for storing and retrieving application
                 configuration data in local storage, providing those setting to the rest of the application, and then
                 broadcasting any configuration updates. Components from common components, as well as the application
-                itself, can then use the <strong>KgConfigurationService</strong> service's data to configure themselves
-                in different ways. In this way, the <strong>KgConfigurationService</strong> service serves as a central
+                itself, can then use the <strong>WufConfigurationService</strong> service's data to configure themselves
+                in different ways. In this way, the <strong>WufConfigurationService</strong> service serves as a central
                 hub for updating and retrieving application configuration data.</p>
 
-            <p>The <strong>KgConfigurationService</strong> service provides certain defaults for a given application
+            <p>The <strong>WufConfigurationService</strong> service provides certain defaults for a given application
                 while allowing the user to override those defaults while interacting with a given application. By
                 storing these settings on both the backend and in local storage, we can then persist these settings
                 across user sessions as well as across any device both with and without a network connection.</p>
 
-            <p>While the <strong>KgConfigurationService</strong> service is responsible for saving configuration to
+            <p>While the <strong>WufConfigurationService</strong> service is responsible for saving configuration to
                 local storage, it will <strong>NOT</strong> send your updated config information back to the server for
                 you. However, it's very easy to subscribe to configuration updates within your app and then, when your
                 app is notified of configuration changes, send those changes back to the server. The server can then do
@@ -53,7 +53,7 @@
 
             <h2>Sources of Configuration Data</h2>
 
-            <p>The <strong>KgConfigurationService</strong> service should be used to manage configuration settings. The
+            <p>The <strong>WufConfigurationService</strong> service should be used to manage configuration settings. The
                 values for these settings themselves can come from a number of different sources, including:</p>
 
             <ul>
@@ -67,14 +67,14 @@
 
             <p>Any component that uses configuration data should be coded by the developer with some built-in defaults.
                 The navigation component, for example, uses "left" as the default orientation. This means that if the
-                navigation component receives <em>no values</em> from the <strong>KgConfigurationService</strong>
+                navigation component receives <em>no values</em> from the <strong>WufConfigurationService</strong>
                 service, it will default to left. There is no need for an application developer to provide these values
                 since they are built in to the components themselves.</p>
 
-            <p>The <strong>KgConfigurationService</strong> service itself includes the following default values (which
+            <p>The <strong>WufConfigurationService</strong> service itself includes the following default values (which
                 are stored in JSON format):</p>
 
-            <kg-code-sample [code]="serviceDefaultExample" type="javascript"></kg-code-sample>
+            <wuf-code-sample [code]="serviceDefaultExample" type="javascript"></wuf-code-sample>
 
             <h4>Application Defaults</h4>
 
@@ -82,7 +82,7 @@
                 in a file at <code>/src/app/internal/configuration/configuration.ts</code>. This file has the following
                 values:</p>
 
-            <kg-code-sample [code]="appDefaultExample" type="javascript"></kg-code-sample>
+            <wuf-code-sample [code]="appDefaultExample" type="javascript"></wuf-code-sample>
 
             <h4>Server Data</h4>
 
@@ -101,7 +101,7 @@
                 <li>Last Name</li>
             </ul>
 
-            <kg-code-sample [code]="serverDataExample" type="javascript"></kg-code-sample>
+            <wuf-code-sample [code]="serverDataExample" type="javascript"></wuf-code-sample>
 
             <p>Note that this JSON object only has one property: "user", which provides an object of its own. The user
                 ID from the user object is used to store application settings in local storage under a unique storage
@@ -121,7 +121,7 @@
 
             <h4>Putting it All Together</h4>
 
-            <p>As described above, configuration data can come from a number of different sources. The <strong>KgConfigurationService</strong>
+            <p>As described above, configuration data can come from a number of different sources. The <strong>WufConfigurationService</strong>
                 service will then smartly merge configuration data from these sources together into a single
                 configuration object using the following priority order:</p>
 
@@ -143,7 +143,7 @@
 
             <p>By <em>merging</em> data in this way, any of the data sources can send <em>partial configuration
                 data</em> (in JSON format) to the service. Property/value data that doesn't yet exist in the
-                configuration the configuration object managed by the <strong>KgConfigurationService</strong> are added
+                configuration the configuration object managed by the <strong>WufConfigurationService</strong> are added
                 while the values for existing properties are replaced with the new values.</p>
 
             <p>The above cascade order ensures that any configuration value sent from the server <strong>always</strong>
@@ -157,7 +157,7 @@
             <p>The Living Style Guide (this application) provides an example of the above configuration retrieval,
                 merging, and local storage behavior in <code>app.component.ts</code>:</p>
 
-            <kg-code-sample [code]="appComponentExample" type="typescript"></kg-code-sample>
+            <wuf-code-sample [code]="appComponentExample" type="typescript"></wuf-code-sample>
             <caption>/src/app/app.component.ts</caption>
 
             <p>The <code>this.userService.authenticate(fakeLoginData).subscribe()</code> line is called from <code>ngOnInit()</code>.
@@ -168,13 +168,13 @@
 
             <p>The login process returns an object with user data. This object is then passed to the
                 getMergedConfiguration() function where user data is merged with data (if any) from local storage and
-                application defaults. Once the merged configuration is returned, it is passed to the <code>KgConfigurationService</code>
+                application defaults. Once the merged configuration is returned, it is passed to the <code>WufConfigurationService</code>
                 with the line:</p>
 
             <pre><code>this.configService.config = mergedConfiguration;</code></pre>
 
-            <p>The <strong>KgConfigurationService</strong> service then updates the config in memory and saves it to
-                local storage. The <code>KgConfigurationService</code> then broadcasts that the configuration object in
+            <p>The <strong>WufConfigurationService</strong> service then updates the config in memory and saves it to
+                local storage. The <code>WufConfigurationService</code> then broadcasts that the configuration object in
                 memory has been updated.</p>
 
             <p>The following line shows the subscription to the onConfigChange() observable within <code>app.component.ts</code>:
@@ -202,27 +202,27 @@
         <div class="component_tabs_2">
             <h2>Installation</h2>
 
-            <p>The <strong>KgConfigurationService</strong> service is included in the
-                <strong>@kion/kg-ang-configuration</strong> package, which is already included in an Quick Start-based
+            <p>The <strong>WufConfigurationService</strong> service is included in the
+                <strong>@anviltech/wuf-ang-configuration</strong> package, which is already included in an Quick Start-based
                 app.
             </p>
 
             <p>If not already installed, you can install it with the following command:</p>
 
-            <pre><code>npm install @kion/kg-ang-configuration --save</code></pre>
+            <pre><code>npm install @anviltech/wuf-ang-configuration --save</code></pre>
 
             or
 
-            <pre><code>yarn add @kion/kg-ang-configuration</code></pre>
+            <pre><code>yarn add @anviltech/wuf-ang-configuration</code></pre>
 
             <p>Be sure this component is imported from your <code>app.module.ts</code>
             page:</p>
 
-            <kg-code-sample type="typescript" [code]="setupCode1"></kg-code-sample>
+            <wuf-code-sample type="typescript" [code]="setupCode1"></wuf-code-sample>
 
             <p>And then add it to the <code>providers</code> array of <code>app.module.ts</code>:</p>
 
-            <kg-code-sample type="typescript" [code]="setupCode2"></kg-code-sample>
+            <wuf-code-sample type="typescript" [code]="setupCode2"></wuf-code-sample>
 
             <p>Every submodule in your application must also import the service and add it to the corresponding <code>*.module.ts</code>
                 page for the submodule.</p>
@@ -249,7 +249,7 @@
                 <tr>
                     <td class="prop-name">id</td>
                     <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default">'kg-application'</td>
+                    <td class="prop-default">'wuf-application'</td>
                     <td class="prop-description">The application ID. Combined with user ID to create a unique local
                         storage key for the configuration object.
                     </td>
@@ -265,7 +265,7 @@
                 <tr>
                     <td class="prop-name">copyrightName</td>
                     <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default">'Dematic, Inc.'</td>
+                    <td class="prop-default">empty string</td>
                     <td class="prop-description">The name to display with date for copyright info. Copyright info
                         typically displays in the sidebar footer. If navigation is set to display at the top, however,
                         copyright data may not be displayed.
@@ -356,8 +356,8 @@
         </div>
     </app-component-tabs>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert page footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

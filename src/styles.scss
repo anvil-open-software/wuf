@@ -17,14 +17,14 @@ table.css-props-table {
         td {
             &.propName,
             &.value {
-                font-family: var(--kg-font-family-monospace);
+                font-family: var(--wuf-font-family-monospace);
                 font-size: .85rem;
                 white-space: nowrap;
             }
             .swatch {
                 color: #ffffff;
                 font-size: 10px;
-                font-family: var(--kg-font-family-monospace);
+                font-family: var(--wuf-font-family-monospace);
                 padding: 10px;
                 display: block;
                 height: 100%;
@@ -63,61 +63,61 @@ table.prop-table {
 
 
 // TODO: Delete this after form design work is complete
-@import '~@kion/kg-web-assets/assets/styles/partials/mixins';
+@import '~@anviltech/wuf-web-assets/assets/styles/partials/mixins';
 .mat-form-field-invalid.mat-form-field-appearance-legacy {
     // Error message
     .mat-error {
         &.fill {
-            @include border-bottom-radius(var(--kg-border-radius));
+            @include border-bottom-radius(var(--wuf-border-radius));
             @include alert-variant('danger');
         }
     }
     &.noFill {
         .mat-form-field-suffix,
         .mat-form-field-prefix {
-            background: var(--kg-input-bg-color)!important;
+            background: var(--wuf-input-bg-color)!important;
         }
         .mat-form-field-infix {
-            border-color: var(--kg-input-bg-color)!important;
-            background: var(--kg-input-bg-color)!important;
+            border-color: var(--wuf-input-bg-color)!important;
+            background: var(--wuf-input-bg-color)!important;
         }
     }
 }
 
-:root[kg-theme-dark="true"],
-*[kg-theme-dark="true"],
-:root[kg-theme-dark="true"][kg-theme],
-*[kg-theme-dark="true"][kg-theme] {
+:root[wuf-theme-dark="true"],
+*[wuf-theme-dark="true"],
+:root[wuf-theme-dark="true"][wuf-theme],
+*[wuf-theme-dark="true"][wuf-theme] {
     .mat-form-field-invalid.mat-form-field-appearance-legacy {
         // Error message
         .mat-error {
             &.fill {
-                background: var(--kg-color-danger);
-                color: var(--kg-color-white);
+                background: var(--wuf-color-danger);
+                color: var(--wuf-color-white);
             }
         }
         &.noFill {
             .mat-form-field-infix {
-                border-color: var(--kg-input-bg-color);
-                background: var(--kg-input-bg-color);
+                border-color: var(--wuf-input-bg-color);
+                background: var(--wuf-input-bg-color);
             }
             .mat-form-field-suffix,
             .mat-form-field-prefix {
-                background: var(--kg-input-bg-color);
+                background: var(--wuf-input-bg-color);
             }
             // Error message
             .errorIcon {
-                color: var(--kg-color-danger);
+                color: var(--wuf-color-danger);
             }
             .mat-form-field-label {
-                color: var(--kg-color-danger);
+                color: var(--wuf-color-danger);
                 .mat-form-field-required-marker {
-                    color: var(--kg-color-danger);
+                    color: var(--wuf-color-danger);
                 }
             }
             .mat-form-field-underline {
                 .mat-form-field-ripple {
-                    background-color: var(--kg-body-color);
+                    background-color: var(--wuf-body-color);
                 }
             }
         }

@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'Quick Start (Complete)', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'Quick Start (Complete)', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <h1>Quick Start Application (Complete)</h1>
 
     <p>There are two versions of the Quick Start application:</p>
@@ -26,4 +26,4 @@
     </ul>
 
     <p>The Quick Start Complete includes additional components on top of the base vanilla application of Quick Start (Minimal) and is more opinionated about the implementation and structure of your application, including the backend.</p>
-</kg-content-main>
+</wuf-content-main>

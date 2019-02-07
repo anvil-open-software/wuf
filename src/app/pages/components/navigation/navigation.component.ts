@@ -36,35 +36,35 @@ export class NavigationComponent implements OnInit {
 	    }
 	`;
 
-    exampleHtml1 = `<kg-navigation [dataUrl]="dataUrl"></kg-navigation>`;
-    exampleHtml2 = `<kg-navigation [data]="JSONobject"></kg-navigation>`;
-    exampleHtml3 = `<kg-navigation>
+    exampleHtml1 = `<wuf-navigation [dataUrl]="dataUrl"></wuf-navigation>`;
+    exampleHtml2 = `<wuf-navigation [data]="JSONobject"></wuf-navigation>`;
+    exampleHtml3 = `<wuf-navigation>
   <div class="nav-wrap">
     <ul class="nav d-flex flex-column">
-      <kg-navigation-link
+      <wuf-navigation-link
         [link]="'/'"
         [label]="'Introduction'"
         [icon]="'&#xE88A;'"
         [id]="'nav-intro'"
         [position]="configService.config.navigation.position"
         [iconPosition]="left"
-      ></kg-navigation-link>
-      <kg-navigation-link
+      ></wuf-navigation-link>
+      <wuf-navigation-link
         [link]="'/layout'"
         [label]="'Layout'"
         [icon]="'&#xE88A;'"
         [id]="'nav-layout'"
         [position]="configService.config.navigation.position"
         [iconPosition]="left"
-      ></kg-navigation-link>
+      ></wuf-navigation-link>
       ...
     </ul>
   </div>
-  </kg-navigation>
+  </wuf-navigation>
 `;
-    exampleHtml4 = `<kg-navigation [data]="navData" [position]="configService.config.navigation.position"></kg-navigation>`;
+    exampleHtml4 = `<wuf-navigation [data]="navData" [position]="configService.config.navigation.position"></wuf-navigation>`;
 
-    exampleHtml5 = `<kg-navigation [data]="navData" [iconPosition]="configService.config.navigation.iconPosition"></kg-navigation>`;
+    exampleHtml5 = `<wuf-navigation [data]="navData" [iconPosition]="configService.config.navigation.iconPosition"></wuf-navigation>`;
 
     constructor() {
     }

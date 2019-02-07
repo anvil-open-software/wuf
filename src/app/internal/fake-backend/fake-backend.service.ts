@@ -18,7 +18,7 @@ import {
     HTTP_INTERCEPTORS
 } from '@angular/common/http';
 
-import { deepMerge } from '@kion/kg-ang-utils';
+import { deepMerge } from '@anviltech/wuf-ang-utils';
 
 // Get fake data
 import { configuration } from '../configuration/configuration';

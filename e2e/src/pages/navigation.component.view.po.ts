@@ -13,7 +13,7 @@ export class NavigationComponentView {
      * @returns Navigation component
      */
     get_navComponent() {
-        return element(by.css('app-root app-layout-main kg-view-main kg-sidebar .sidebar-wrap .sidebar-content-wrap kg-navigation'));
+        return element(by.css('app-root app-layout-main wuf-view-main wuf-sidebar .sidebar-wrap .sidebar-content-wrap wuf-navigation'));
     }
 
     /**
@@ -21,7 +21,7 @@ export class NavigationComponentView {
      * @returns Array of nav-items
      */
     get_navItems() {
-        return element.all(by.css('kg-sidebar kg-navigation .nav-wrap ul.nav kg-navigation-link'));
+        return element.all(by.css('wuf-sidebar wuf-navigation .nav-wrap ul.nav wuf-navigation-link'));
     }
 
     /**
@@ -30,7 +30,7 @@ export class NavigationComponentView {
      * @returns Nav item
      */
     get_navItemById(id) {
-        return element(by.css(`kg-sidebar kg-navigation .nav-wrap ul.nav kg-navigation-link li.nav-item#${id} a`));
+        return element(by.css(`wuf-sidebar wuf-navigation .nav-wrap ul.nav wuf-navigation-link li.nav-item#${id} a`));
     }
 
     /**
@@ -39,7 +39,7 @@ export class NavigationComponentView {
      * @returns Nav item
      */
     get_activeNavItems() {
-        return element.all(by.css(`kg-sidebar kg-navigation .nav-wrap ul.nav kg-navigation-link li.nav-item a.active`));
+        return element.all(by.css(`wuf-sidebar wuf-navigation .nav-wrap ul.nav wuf-navigation-link li.nav-item a.active`));
     }
 
     /**
@@ -48,7 +48,7 @@ export class NavigationComponentView {
      * @returns Nav item
      */
     get_navItemAnchorById(id) {
-        return element(by.css(`kg-sidebar kg-navigation .nav-wrap ul.nav kg-navigation-link li.nav-item#${id} a`));
+        return element(by.css(`wuf-sidebar wuf-navigation .nav-wrap ul.nav wuf-navigation-link li.nav-item#${id} a`));
     }
 
     /**
@@ -57,7 +57,7 @@ export class NavigationComponentView {
      * @returns Nav item text
      */
     get_navItemText(id) {
-        let navItem = element(by.css(`kg-sidebar kg-navigation .nav-wrap ul.nav kg-navigation-link li.nav-item#${id} a span.nav-item-label`));
+        let navItem = element(by.css(`wuf-sidebar wuf-navigation .nav-wrap ul.nav wuf-navigation-link li.nav-item#${id} a span.nav-item-label`));
         return navItem.getText();
     }
 

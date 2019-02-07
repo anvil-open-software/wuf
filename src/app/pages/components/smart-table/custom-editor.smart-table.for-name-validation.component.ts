@@ -5,9 +5,9 @@
 
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
-import { KgSmartTableCell, KgSmartTableDefaultEditor, KgSmartTableEditor } from '@kion/kg-ang-smart-table';
+import { WufSmartTableCell, WufSmartTableDefaultEditor, WufSmartTableEditor } from '@anviltech/wuf-ang-smart-table';
 
-import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
+// import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -24,7 +24,7 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
         }
 
         .error {
-            border-color: var(--kg-color-danger)
+            border-color: var(--wuf-color-danger)
         }
     `],
     template: `
@@ -54,7 +54,7 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
         </mat-form-field>
     `
 })
-export class CustomEditorForNameValidationSmartTable extends KgSmartTableDefaultEditor implements AfterViewInit {
+export class CustomEditorForNameValidationSmartTable extends WufSmartTableDefaultEditor implements AfterViewInit {
     // editor definition
 
     ngAfterViewInit() {

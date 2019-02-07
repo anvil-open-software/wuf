@@ -1,0 +1,28 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+:host {
+    /*     local var                  ||         global override              ||                 default value        */
+    --dashboard-content-padding:        var(--wuf-dashboard-content-padding,                         20px);
+}
+
+.kpi-content {
+    overflow: auto;
+    opacity: 0;
+    padding: var(--dashboard-content-padding);
+    flex: auto;
+    transition: ease opacity .25s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    display: block;
+    &.active {
+        opacity: 1;
+        pointer-events: inherit;
+    }
+}

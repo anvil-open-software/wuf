@@ -5,7 +5,7 @@
 
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 
-import {KgSmartTableViewCell} from '@kion/kg-ang-smart-table';
+import {WufSmartTableViewCell} from '@anviltech/wuf-ang-smart-table';
 
 
 // import {NgbPopover} from '@ng-bootstrap/ng-bootstrap';
@@ -19,7 +19,7 @@ import {KgSmartTableViewCell} from '@kion/kg-ang-smart-table';
 </div>
   `,
 })
-export class CustomRenderForGradeSmartTable implements KgSmartTableViewCell, OnInit {
+export class CustomRenderForGradeSmartTable implements WufSmartTableViewCell, OnInit {
 
     public progressBarWidth: string;
     @Input() value: string | number;

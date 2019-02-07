@@ -13,8 +13,8 @@ fs.readdir(projectDirectory, (err, projects) => {
     projects.forEach(project => {
         // stderr is sent to stdout of parent process
         // you can set options.stdio if you want it to go elsewhere
-        exec(`ng build @kion/${project}`, (error, stdout, stderr) => {
-            console.log(`ng build for @kion/${project}`);
+        exec(`ng build @anviltech/${project}`, (error, stdout, stderr) => {
+            console.log(`ng build for @anviltech/${project}`);
             if (error) {
                 console.error(`exec error: ${error}`);
                 return;

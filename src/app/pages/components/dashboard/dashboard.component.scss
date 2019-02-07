@@ -4,7 +4,7 @@
  */
 
 :host {
-    --kg-content-padding: 0px;
+    --wuf-content-padding: 0px;
 }
 
 $rowHeight: 40px;
@@ -15,7 +15,7 @@ table.exampleGraph {
         height: $rowHeight;
         vertical-align: middle;
         &:not(last-child) {
-            border-bottom: 1px solid var(--kg-border-color);
+            border-bottom: 1px solid var(--wuf-border-color);
         }
         td {
             padding: 5px 0;
@@ -24,7 +24,7 @@ table.exampleGraph {
         }
     }
     .barLabel {
-        color: var(--kg-color-white);
+        color: var(--wuf-color-white);
         z-index: 1;
         height: 100%;
         display: inline-flex;
@@ -37,17 +37,17 @@ table.exampleGraph {
     }
     .bar-wrap {
         width: 100%;
-        background-color: var(--kg-color-gray-300);
+        background-color: var(--wuf-color-gray-300);
     }
     .bar {
         width: 100%;
         height: ($rowHeight - 10px);
         position: relative;
-        background-color: var(--kg-color-primary);
+        background-color: var(--wuf-color-primary);
     }
 }
 
-kg-content-header {
+wuf-content-header {
     // Make the page toolbar's shadow overlap the dashboard
     z-index: 4;
 }
