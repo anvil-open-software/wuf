@@ -7,7 +7,7 @@
     <!-- insert page header content here -->
     <ng-container toolbarLeft>
         <wuf-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/themes', label: 'Branding & Themes' }, { link: null, label: 'KION Theme System', active: true }]"></wuf-breadcrumb>
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/themes', label: 'Branding & Themes' }, { link: null, label: 'Theme System', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
     <ng-container toolbarRight>
@@ -18,7 +18,7 @@
 <wuf-content-main>
     <!-- insert page content here -->
 
-    <h1>KION Theme System</h1>
+    <h1>Theme System</h1>
 
     <p>The collection of visual design styles, <a routerLink="/themes/colors">color palette</a>, typography, button
         shapes, and the like, are referred to as a "theme". By carefully selecting the decorative styles that constitute
@@ -26,10 +26,10 @@
 
     <p>The mechanism by which WUF has implemented theming allows easy switching between design aesthetics by providing
         specific values for all of the customizable attributes that constitute a theme. The end result of such
-        customization creates a <strong>KION Theme</strong> for each application based on WUF or any similar
+        customization creates a <strong>Custom Theme</strong> for each application based on WUF or any similar
         implementation mechanism.</p>
 
-    <p>It is highly recommended that, once a theme has been identified and implemented, it be applied to all
+    <p>Once a theme has been identified and implemented, we recommend it be applied to all
         applications available under the same brand. Doing so will help ensure a consistent user experience across
         applications and that design aesthetics for each are not allowed to deviate significantly from one another.</p>
 
@@ -72,12 +72,9 @@
 
     <h2>Creating a Theme</h2>
 
-    <p>Every application based on the Quickstart App (including the Living Style Guide) uses a <strong>Dematic</strong>
-        branding theme out-of-the-box &#151; because we need some default, fallback values for our theming mechanism.
-        This is fine if your application falls under the umbrella of the Dematic product suite. Fortunately, for those
-        applications that must be branded to match a customer's brand (e.g., Amazon or Walmart) or that must be branded
-        to match another brand under the KION umbrella (Linde or Still), it is extremely easy to override the default
-        Dematic theme.</p>
+    <p>Every application based on the Quick Start application includes theme out-of-the-box &#151; because we need
+        a default, fallback values for our theming mechanism. Fortunately, it is extremely easy to override the default
+        theme in order to create a completely custom aesthetic to match your own brand.</p>
 
     <p>The <strong>wuf-web-assets</strong> package includes all of the CSS, SCSS, and SCSS convenience functions
         necessary to create and use another theme within a given application.</p>
@@ -119,17 +116,17 @@
     <p>When <a routerLink="/thems/colors">colors</a> are applied to a theme, all components within an application will
         pick up those colors automatically. As demonstrated by the example branding files at <code>/src/assets/dummydata/branding/brands</code>,
         we first declare SCSS variables in our <code>.scss</code> file for each of the colors in the <a
-            routerLink="/themes/colors">KION Color System</a> and then pass them into the <code>wuf-theme-colors()</code>
+            routerLink="/themes/colors">Color System</a> and then pass them into the <code>wuf-theme-colors()</code>
         method as a SCSS map. Note that in order for CSS custom properties to work they must be bound to some object in
         the DOM. In the following, we're binding to the &lt;body&gt; tag because it more specific than the :root (i.e.,
-        HTML element) tag that the default KION theme binds to, but generic enough to be easily overridden.</p>
+        HTML element) tag that the default theme binds to, but generic enough to be easily overridden.</p>
 
     <wuf-code-sample
         type="scss"
         [code]="exampleColorCode">
     </wuf-code-sample>
 
-    <p>This process defines all of the colors used in a KION Theme and binds their CSS custom properties to some
+    <p>This process defines all of the colors used in a Custom Theme and binds their CSS custom properties to some
         high-level element (in this example it's the &lt;body&gt; tag). Components from the component library along with
         Material Design Components should now start showing the colors you defined in your theme.</p>
 
@@ -218,7 +215,7 @@
     <p>The <strong>Living Style Guide</strong> (this application) includes a number of example files that demonstrate
         the mechanism for creating new themes in order to override the default Dematic theme. You can view these files
         within the <a
-            href="https://gitlab.dematic.com/cloud_visualization_services/living-style-guide/tree/master/src/assets/dummydata/branding"
+            href="https://github.com/anvil-open-software/wuf/tree/master/src/assets/dummydata/branding"
             target="_blank">repository</a> itself or within your local version of the Living Style guide at <code>/src/assets/dummydata/branding</code>.
     </p>
 

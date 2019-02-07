@@ -20,8 +20,8 @@ of component variables that can be overridden.
 /* EXAMPLE USE OF BRANDING (KION) */
 /**********************************/
 
-:root[wuf-theme="kion"],
-*[wuf-theme="kion"] {
+:root[wuf-theme="theme1"],
+*[wuf-theme="theme1"] {
 
     /***** set color values to use in theme *****/
     $kg-brand-primary: #ae0055;

@@ -1,13 +1,26 @@
 Installation & Development of the Web UI Framework (WUF)
 ====================================================
-The WUF is comprised of the following 2 repos:
+The Web UI Framework (WUF) is an open source web application framework based on the following technologies:
+* Node.js
+* Angular 2+
+* Typescript
+* Material Design
+* SCSS
+* HTML/CSS for Front-end layouts that are fully responsive
+* It also includes support for: 
+    * Web components
+    * Polymer components
+
+WUF was initially developed as an internal project by Dematic, Inc. for building its own applications but it has since been released to the open source community under the MIT license.  Please feel free to use WUF as you see fit.  We also welcome code contributions!
+
+WUF is comprised of the following 2 repos:
 1. [Web UI Framework (WUF)](https://github.com/anvil-open-software/wuf) (this repo)
 2. [Quick Start App](https://github.com/anvil-open-software/wuf-quick-start)
 
 ### WUF
 The [WUF](https://github.com/anvil-open-software/wuf) repo (this repo) includes two important collections:
 1. **Library of Components**. A library of home-built Polymer, Web Component, and Angular packages, each published to the NPM registry using the @anviltech scope.
-2. **Living Style Guide**. All documentation related to the usage, design patterns, setup, and development of the Quick Start Applications (Minimal and Complete), the Library of Components, and WUF in general.  The Living Style Guide is intended to be developed alongside the Library of Components and is included in the same repo with the Library to reinforce this relationship.  The Living Style Guide is "living" in that it remains up to date at all times because it is updated as the components themselves are updated.
+2. **Living Style Guide**. All documentation related to the usage, design patterns, setup, and development of the Quick Start Application, the Library of Components, and WUF in general.  The Living Style Guide is intended to be developed alongside the Library of Components and is included in the same repo with the Library to reinforce this relationship.  The Living Style Guide is "living" in that it remains up to date at all times because it is updated as the components themselves are updated.
 
 ### Quick Start
 The Quick Start app is intended to be used as a baseline, plain-vanilla application for quickly creating a new web-based application from scratch.
@@ -34,34 +47,6 @@ The following are dependencies for WUF development:
 * [Angular](https://angular.io/guide/quickstart) version 6.1.0 or greater, installed globally - This is installation includes Angular-CLI.
 * [Typescript](https://www.typescriptlang.org/) version 2.9.2 or greater, installed globally - Typescript is a typed superset of JavaScript that compiles to plain JavaScript and it is the language in which all of our Angular application development is done.
 
-#### Configure NPM to Access the Dematic Artifactory NPM Registry
-In order for your NPM command line client to work with Artifactory you will first need to set up your `.npmrc` file with the necessary credentials. For getting authentication details run the following command:
-
-```bash
-$ curl -u "your KION username:your KION password" "https://artifactory.dematic.com/artifactory/api/npm/npm-local/auth/kion"
-```
-
-or you can use this powershell script on windows:
-
-```bash
-Invoke-WebRequest -Credential (Get-Credential) "https://artifactory.dematic.com/artifactory/api/npm/npm-local/auth/kion" | Select-Object -ExpandProperty Content
-```
-
-The response should be pasted in the `~/.npmrc` (in Windows `%USERPROFILE%/.npmrc`) file, as follows:
-```text
-ca=
-strict-ssl=false
-@anviltech:registry=https://artifactory.dematic.com/artifactory/api/npm/npm-local/
-//artifactory.dematic.com/artifactory/api/npm/npm-local/:_password=<your encoded password>
-//artifactory.dematic.com/artifactory/api/npm/npm-local/:username=luvaas
-//artifactory.dematic.com/artifactory/api/npm/npm-local/:email=Darren.Luvaas@dematic.com
-//artifactory.dematic.com/artifactory/api/npm/npm-local/:always-auth=true
-```
-
-***NOTE:*** If the port number (:443) appears in the output, be sure to remove the port numbers or you will get authentication errors.
-
-***NOTE:*** Because the values for the password property will change when your corporate password changes (i.e., every 90 days), you will need to run the above command whenever your corporate password changes and update your .npmrc file accordingly.
-
 ### 2. Clone WUF
 1. Clone [WUF](https://github.com/anvil-open-software/wuf).
 2. After cloning WUF `cd` to the repo root folder (`~/wuf`)
@@ -71,6 +56,7 @@ strict-ssl=false
 Run the following commands to boostrap WUF:
 
 ```bash
+yarn
 yarn bootstrap
 ```
 
@@ -143,7 +129,7 @@ Issue a Merge Request for Master
 --------------------------------
 After all of your changes are complete and local tests have passed, issue a merge request to master within this gitlab repo at [https://github.com/anvil-open-software/wuf](https://github.com/anvil-open-software/wuf).  
 
-Once your merge has been reviewed and accepted, the Jenkins pipeline will automatically run integration tests and publish all of the projects and packages to the (Artifactory registry)[https://artifactory.dematic.com/artifactory/webapp/#/artifacts/browse/tree/General/npm-local/@anviltech/].
+Once your merge has been reviewed and accepted, the Jenkins pipeline will automatically run integration tests and publish all of the projects and packages to the public NPM registry.
 
 Continuous Deployment
 ======================

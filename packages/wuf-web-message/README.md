@@ -6,7 +6,7 @@ Description
 A Web Component designed to be functionality equivalent to its Angular cousing, now removed from the library. Its purpose is to showcase the migration of an Angular component to be a Web component.
 
 ### Usage
-Note that the examples below are derived from a web application written with Angular framework, in this case the [Living Style Guide](https://gitlab.dematic.com/cloud_visualization_services/living-style-guide).
+Note that the examples below are derived from a web application written with Angular framework, in this case the [Living Style Guide](https://github.com/anvil-open-software/wuf).
 
 #### Declare the components 
 The software engineer updates the host application's _packages.json_ to include _kg-web-message_:

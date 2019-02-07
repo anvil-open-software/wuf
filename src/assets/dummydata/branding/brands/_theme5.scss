@@ -17,16 +17,16 @@ of component variables that can be overridden.
 */
 
 /**********************************/
-/* EXAMPLE USE OF BRANDING (KION) */
+/* EXAMPLE USE OF BRANDING (Still) */
 /**********************************/
 
-:root[wuf-theme="still"],
-*[wuf-theme="still"] {
+:root[wuf-theme="theme5"],
+*[wuf-theme="theme5"] {
 
     /***** set color values to use in theme *****/
-    $kg-brand-primary: #f68b1f;
+    $kg-brand-primary: #3fd11f;
     $kg-brand-secondary: #404040;
-    $kg-brand-accent: #f68b1f;
+    $kg-brand-accent: #3fd11f;
     $kg-brand-success: #5cb85c;
     $kg-brand-info: #03A9F4;
     $kg-brand-warning: #fdd835;

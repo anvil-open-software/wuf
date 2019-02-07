@@ -1,0 +1,89 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+/*
+Add brand overrides here.
+
+Note that this file and associated partials are used for DEMO PURPOSES ONLY.
+The CSS here should be returned using a service whereby the value provided
+below are fetched from a database and written to the page via some kind of
+templating mechanism or by other means.  We are using scss syntax for
+convenience.
+
+Refer to available variables in ./partials/_variables.scss for a full list
+of component variables that can be overridden.
+*/
+
+/*************************************/
+/* EXAMPLE USE OF BRANDING (BMW) */
+/*************************************/
+
+:root[wuf-theme="theme2"],
+*[wuf-theme="theme2"] {
+
+    /***** set color values to use in theme *****/
+    $kg-brand-primary: #0099d8;
+    $kg-brand-secondary: #313131;
+    $kg-brand-accent: #c89081;
+    $kg-brand-success: #5cb85c;
+    $kg-brand-info: #03A9F4;
+    $kg-brand-warning: #fdd835;
+    $kg-brand-danger: #dd2c00;
+
+    /***** create a theme *****/
+    @include wuf-theme-colors((
+        "primary": $kg-brand-primary,
+        "secondary": $kg-brand-secondary,
+        "accent": $kg-brand-accent,
+        "success": $kg-brand-success,
+        "info": $kg-brand-info,
+        "warning": $kg-brand-warning,
+        "danger": $kg-brand-danger
+    ));
+
+    /***** logo *****/
+    //@include wuf-theme-logo("/assets/images/example_images/logos/bmw.svg", 175px, 50px);
+
+    /***** buttons *****/
+    @include wuf-theme-button-radius(20px);
+
+    /***** links *****/
+    --wuf-link-color: var(--wuf-color-primary);
+    --wuf-link-hover-color: #0084ba;
+
+    /***** header *****/
+    --wuf-header-bg-color: var(--wuf-color-primary);
+    --wuf-header-color: var(--wuf-color-white);
+
+    /***** sidebar *****/
+    --wuf-navigation-link-active-accent-color: var(--wuf-color-primary);
+
+    /***** tables *****/
+    --wuf-table-filter-bg-color: var(--wuf-color-secondary-lighter-20);
+    --wuf-table-filter-color: var(--wuf-body-color);
+
+    /***** dashboard *****/
+    --wuf-kpi-alert-bg-color: var(--wuf-color-primary);
+    --wuf-kpi-alert-stripe-color: var(--wuf-color-primary-darker-10);
+
+    /***** typography *****/
+    @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab');
+    $kg-brand-body-color: var(--wuf-color-gray-700);
+    $kg-brand-font-family-sans-serif: 'Oswald', Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    $kg-brand-font-family-serif: 'Roboto Slab', Times, serif;
+    $kg-brand-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    $kg-brand-font-family-base: $kg-brand-font-family-sans-serif;
+    $kg-brand-font-size-base: 1rem;
+    $kg-brand-headings-font-family: $kg-brand-font-family-serif;
+    $kg-brand-headings-font-weight: 700;
+    $kg-brand-headings-color: var(--wuf-color-primary-darker-10);
+    $kg-brand-h1-font-size: 2.5rem;
+    $kg-brand-h2-font-size: 2rem;
+    $kg-brand-h3-font-size: 1.75rem;
+    $kg-brand-h4-font-size: 1.5rem;
+    $kg-brand-h5-font-size: 1.25rem;
+    $kg-brand-h6-font-size: 1rem;
+
+}

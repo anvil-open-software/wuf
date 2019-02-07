@@ -13,45 +13,45 @@ export class ThemeListService {
     }
 
     themes: any = [
-        {label: 'Dematic (default)',
+        {label: 'Default',
             config: {
-                theme: 'dematic',
-                copyrightName: 'Dematic, Inc.',
+                theme: 'default',
+                copyrightName: 'Default Company',
                 navigation: {position: 'left', alignment: 'left', iconPosition: 'left'}
             }
         },
-        {label: 'KION',
+        {label: 'Theme 1',
             config: {
-                theme: 'kion',
-                copyrightName: 'KION Group',
+                theme: 'theme1',
+                copyrightName: 'Company 1',
                 navigation: {position: 'left', alignment: 'left', iconPosition: 'left'}
             }
         },
-        {label: 'BMW',
+        {label: 'Theme 2',
             config: {
-                theme: 'bmw',
-                copyrightName: 'BMW Group',
+                theme: 'theme2',
+                copyrightName: 'Company 2',
                 navigation: {position: 'left', alignment: 'left', iconPosition: 'left'}
             }
         },
-        {label: 'Walmart',
+        {label: 'Theme 3',
             config: {
-                theme: 'walmart',
-                copyrightName: 'Walmart, Inc.',
+                theme: 'theme3',
+                copyrightName: 'Company 3',
                 navigation: {position: 'left', alignment: 'left', iconPosition: 'left'}
             }
         },
-        {label: 'Linde',
+        {label: 'Theme 4',
             config: {
-                theme: 'linde',
-                copyrightName: 'Linde, Inc.',
+                theme: 'theme4',
+                copyrightName: 'Company 4',
                 navigation: {position: 'top', alignment: 'left', iconPosition: 'left'}
             }
         },
-        {label: 'STILL',
+        {label: 'Theme 5',
             config: {
-                theme: 'still',
-                copyrightName: 'STILL, Inc.',
+                theme: 'theme5',
+                copyrightName: 'Company 5',
                 navigation: {position: 'top', alignment: 'center', iconPosition: 'top'}
             }
         }

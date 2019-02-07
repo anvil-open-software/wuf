@@ -14,35 +14,9 @@ export const NavigationItems =
         },
         {
             link: '/gettingstarted',
-            label: 'Quick Start (Minimal)',
+            label: 'Quick Start Application',
             icon: '&#xE871;',
             id: 'nav-gettingStarted'
-        },
-        {
-            link: '/framework',
-            label: 'Quick Start (Complete)',
-            icon: '&#xE871;',
-            id: 'nav-framework',
-            links: [
-                {
-                    link: '/framework/core',
-                    label: 'Framework Core',
-                    icon: '&#xE162;',
-                    id: 'nav-frameworkCore'
-                },
-                {
-                    link: '/framework/auth',
-                    label: 'Authorization',
-                    icon: '&#xE897;',
-                    id: 'nav-frameworkCore'
-                },
-                {
-                    link: '/framework/router',
-                    label: 'Router',
-                    icon: '&#xE335;',
-                    id: 'nav-frameworkCore'
-                }
-            ]
         },
         {
             link: '/setup',

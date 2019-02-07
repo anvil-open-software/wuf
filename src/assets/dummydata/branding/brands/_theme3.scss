@@ -17,16 +17,16 @@ of component variables that can be overridden.
 */
 
 /*************************************/
-/* EXAMPLE USE OF BRANDING (WALMART) */
+/* EXAMPLE USE OF BRANDING (LINDE) */
 /*************************************/
 
-:root[wuf-theme="walmart"],
-*[wuf-theme="walmart"] {
+:root[wuf-theme="theme3"],
+*[wuf-theme="theme3"] {
 
     /***** set color values to use in theme *****/
-    $kg-brand-primary: #fdbb30;
-    $kg-brand-secondary: #0879c9;
-    $kg-brand-accent: #fa6400;
+    $kg-brand-primary: #a90019;
+    $kg-brand-secondary: #648994;
+    $kg-brand-accent: #c89081;
     $kg-brand-success: #5cb85c;
     $kg-brand-info: #03A9F4;
     $kg-brand-warning: #fdd835;
@@ -44,22 +44,22 @@ of component variables that can be overridden.
     ));
 
     /***** logo *****/
-    //@include wuf-theme-logo("/assets/images/example_images/logos/walmart.svg", 140px, 45px);
+    //@include wuf-theme-logo("/assets/images/example_images/logos/linde.svg", 120px, 30px);
 
     /***** buttons *****/
-    @include wuf-theme-button-radius(4px);
+    @include wuf-theme-button-radius(20px);
 
     /***** typography *****/
-    @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab');
+    @import url('https://fonts.googleapis.com/css?family=Bitter');
     $kg-brand-body-color: var(--wuf-color-gray-700);
-    $kg-brand-font-family-sans-serif: 'Oswald', Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-    $kg-brand-font-family-serif: 'Roboto Slab', Times, serif;
+    $kg-brand-font-family-sans-serif: Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    $kg-brand-font-family-serif: 'Bitter', Times, serif;
     $kg-brand-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     $kg-brand-font-family-base: $kg-brand-font-family-sans-serif;
     $kg-brand-font-size-base: 1rem;
     $kg-brand-headings-font-family: $kg-brand-font-family-serif;
     $kg-brand-headings-font-weight: 700;
-    $kg-brand-headings-color: var(--wuf-color-primary-darker-10);
+    $kg-brand-headings-color: var(--wuf-color-secondary);
     $kg-brand-h1-font-size: 2.5rem;
     $kg-brand-h2-font-size: 2rem;
     $kg-brand-h3-font-size: 1.75rem;
@@ -86,14 +86,32 @@ of component variables that can be overridden.
     );
 
     /***** toolbar *****/
-    --wuf-toolbar-bg-color: var(--wuf-color-secondary-lighter-50);
+    --wuf-toolbar-bg-color: var(--wuf-color-secondary-lighter-40);
 
     /***** breadcrumb *****/
-    --wuf-breadcrumb-color: var(--wuf-color-secondary-lighter-30);
+    --wuf-breadcrumb-color: var(--wuf-color-secondary-lighter-10);
 
     /***** tabs *****/
     --wuf-tabs-color: var(--wuf-body-color);
     --wuf-tabs-wrap-bg-color: var(--wuf-toolbar-bg-color);
+
+    /***** links *****/
+    --wuf-link-color: #2f97c3;
+    --wuf-link-hover-color: #277b9f;
+
+    /***** header *****/
+    --wuf-header-bg-color: var(--wuf-color-primary);
+
+    /***** sidebar *****/
+    --wuf-navigation-link-active-accent-color: var(--wuf-color-secondary-darker-20);
+
+    /***** tables *****/
+    --wuf-table-filter-bg-color: var(--wuf-color-secondary-lighter-20);
+    --wuf-table-filter-color: var(--wuf-body-color);
+
+    /***** dashboard *****/
+    --wuf-kpi-alert-bg-color: #c76776;
+    --wuf-kpi-alert-stripe-color: #a7061f;
 
     /***** dark theme overrides *****/
     &[wuf-theme-dark="true"] {
@@ -110,5 +128,13 @@ of component variables that can be overridden.
         /***** tabs *****/
         --wuf-tabs-color: var(--wuf-body-color);
         --wuf-tabs-wrap-bg-color: var(--wuf-toolbar-bg-color);
+
+        /***** links *****/
+        --wuf-link-color: #76c8eb;
+        --wuf-link-hover-color: #5ac0eb;
+
+        /***** headings *****/
+        --wuf-headings-color: var(--wuf-color-white);
     }
+
 }

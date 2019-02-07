@@ -145,7 +145,7 @@ Your component can only be used in external applications AFTER your work has bee
 * Declare the component in the web application's package.json dependencies:  `"@anviltech/wuf-web-hello-world": "0.0.1",` and run `yarn install`.
 * Alternatively, you can install from the command line: *$* `yarn add @anviltech/wuf-web-hello-world`
 * Import your web component into the app by adding `import "@anviltech/wuf-web-hello-world";` to `~/web-ui-framework/scr/main.ts`.
-* Not all web browsers (like Firefox) support web components natively.  Refer to the Quick Start (Minimal)'s application for examples of how to structure your `polyfill.ts`, `main.ts`, and `index.html` files to implement the proper polyfills.
+* Not all web browsers (like Firefox) support web components natively.  Refer to the Quick Start application for examples of how to structure your `polyfill.ts`, `main.ts`, and `index.html` files to implement the proper polyfills.
 * Make sure your `app.module.ts` files is using CUSTOM_ELEMENTS_SCHEMA:
   * Add `import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';` to the top of your `app.module.ts` file
   * Add the following to your @NgModule declaration:

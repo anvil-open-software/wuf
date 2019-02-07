@@ -8,7 +8,7 @@
 $kg-default-logo-path: '~@anviltech/wuf-web-assets/assets/images' !default;
 
 @if $kg-is-local {
-    // If this partial is used inside an Angular 6 library workspace use a relative path instead
+    // If this partial is used inside an Angular library workspace, use a relative path instead
     $kg-default-logo-path: '../packages/wuf-web-assets/assets/images' !default;
 }
 

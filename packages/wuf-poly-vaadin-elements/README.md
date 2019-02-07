@@ -1,6 +1,6 @@
 Vaadin Elements
 ------------------
-This package doesn't provide any packages itself.  Instead, it installs various package dependencies for Vaadin components, including KION-specifc styling overrides.  By installing this package instead of the Vaadin components directy, you are ensuring that your Vaadin component versions have been tested for compatibility with WUF and that style dependencies will be available.  
+This package doesn't provide any packages itself.  Instead, it installs various package dependencies for Vaadin components, including styling overrides.  By installing this package instead of the Vaadin components directy, you are ensuring that your Vaadin component versions have been tested for compatibility with WUF and that style dependencies will be available.  
 
 ## Installation
 

@@ -52,7 +52,7 @@ export class NavigationFooterComponent implements OnInit {
 	}`;
 
     exampleHtml3 = `<wuf-sidebar-footer [dataUrl]="'http://my.footer.api'"></wuf-sidebar-footer>`;
-    exampleHtml4 = `<wuf-sidebar-footer [copyrightName]="'KION, Inc.'"></wuf-sidebar-footer>`;
+    exampleHtml4 = `<wuf-sidebar-footer [copyrightName]="'ACME, Inc.'"></wuf-sidebar-footer>`;
 
     ngOnInit() {
 

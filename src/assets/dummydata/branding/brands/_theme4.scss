@@ -17,16 +17,16 @@ of component variables that can be overridden.
 */
 
 /*************************************/
-/* EXAMPLE USE OF BRANDING (BMW) */
+/* EXAMPLE USE OF BRANDING (WALMART) */
 /*************************************/
 
-:root[wuf-theme="bmw"],
-*[wuf-theme="bmw"] {
+:root[wuf-theme="theme4"],
+*[wuf-theme="theme4"] {
 
     /***** set color values to use in theme *****/
-    $kg-brand-primary: #0099d8;
-    $kg-brand-secondary: #313131;
-    $kg-brand-accent: #c89081;
+    $kg-brand-primary: #fdbb30;
+    $kg-brand-secondary: #0879c9;
+    $kg-brand-accent: #fa6400;
     $kg-brand-success: #5cb85c;
     $kg-brand-info: #03A9F4;
     $kg-brand-warning: #fdd835;
@@ -44,29 +44,10 @@ of component variables that can be overridden.
     ));
 
     /***** logo *****/
-    //@include wuf-theme-logo("/assets/images/example_images/logos/bmw.svg", 175px, 50px);
+    //@include wuf-theme-logo("/assets/images/example_images/logos/walmart.svg", 140px, 45px);
 
     /***** buttons *****/
-    @include wuf-theme-button-radius(20px);
-
-    /***** links *****/
-    --wuf-link-color: var(--wuf-color-primary);
-    --wuf-link-hover-color: #0084ba;
-
-    /***** header *****/
-    --wuf-header-bg-color: var(--wuf-color-primary);
-    --wuf-header-color: var(--wuf-color-white);
-
-    /***** sidebar *****/
-    --wuf-navigation-link-active-accent-color: var(--wuf-color-primary);
-
-    /***** tables *****/
-    --wuf-table-filter-bg-color: var(--wuf-color-secondary-lighter-20);
-    --wuf-table-filter-color: var(--wuf-body-color);
-
-    /***** dashboard *****/
-    --wuf-kpi-alert-bg-color: var(--wuf-color-primary);
-    --wuf-kpi-alert-stripe-color: var(--wuf-color-primary-darker-10);
+    @include wuf-theme-button-radius(4px);
 
     /***** typography *****/
     @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab');
@@ -86,4 +67,48 @@ of component variables that can be overridden.
     $kg-brand-h5-font-size: 1.25rem;
     $kg-brand-h6-font-size: 1rem;
 
+    @include wuf-theme-typography(
+            $kg-brand-body-color,
+            $kg-brand-font-family-sans-serif,
+            $kg-brand-font-family-serif,
+            $kg-brand-font-family-monospace,
+            $kg-brand-font-family-base,
+            $kg-brand-font-size-base,
+            $kg-brand-headings-font-family,
+            $kg-brand-headings-font-weight,
+            $kg-brand-headings-color,
+            $kg-brand-h1-font-size,
+            $kg-brand-h2-font-size,
+            $kg-brand-h3-font-size,
+            $kg-brand-h4-font-size,
+            $kg-brand-h5-font-size,
+            $kg-brand-h6-font-size
+    );
+
+    /***** toolbar *****/
+    --wuf-toolbar-bg-color: var(--wuf-color-secondary-lighter-50);
+
+    /***** breadcrumb *****/
+    --wuf-breadcrumb-color: var(--wuf-color-secondary-lighter-30);
+
+    /***** tabs *****/
+    --wuf-tabs-color: var(--wuf-body-color);
+    --wuf-tabs-wrap-bg-color: var(--wuf-toolbar-bg-color);
+
+    /***** dark theme overrides *****/
+    &[wuf-theme-dark="true"] {
+
+        /***** body *****/
+        --wuf-body-color: var(--wuf-color-gray-100);
+
+        /***** toolbar *****/
+        --wuf-toolbar-bg-color: var(--wuf-color-secondary-lighter-10);
+
+        /***** breadcrumb *****/
+        --wuf-breadcrumb-color: var(--wuf-color-secondary-lighter-40);
+
+        /***** tabs *****/
+        --wuf-tabs-color: var(--wuf-body-color);
+        --wuf-tabs-wrap-bg-color: var(--wuf-toolbar-bg-color);
+    }
 }

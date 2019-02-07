@@ -23,11 +23,13 @@ https://docs.npmjs.com/orgs/managing-teams/index.html
 [x] change repository entries for all package.json
 [x] package.json add publishConfig entry
 [x] Set package.json from private to public.  If you set "private": true in your package.json, then npm will refuse to publish it.
-[ ] search for gitlab.dematic.com
-[ ] search for artifactory.dematic.com
-[ ] remove references to Quick Start Application (Minimal) and Quick Start Application (Complete)
-[ ] search for Dematic
-[ ] change skin/config names
+[x] search for gitlab.dematic.com
+[x] search for artifactory.dematic.com
+[x] remove references to Quick Start Application (Minimal) and Quick Start Application (Complete)
+[x] search for Dematic
+[x] search for KION
+[x] change skin/config names
+[ ] fix Roboto http://localhost:4200/roboto-regular.woff2?v=18
 [ ] update all readme files
 [ ] merge in latest code from HD
 [ ] init NPM (include this in documentation?): https://docs.npmjs.com/creating-and-publishing-scoped-public-packages

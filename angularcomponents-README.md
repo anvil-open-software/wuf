@@ -101,7 +101,7 @@ Add the following properties to the project's `./projects/anviltech/[name-of-lib
     "publishConfig": {
         "access": "public"
     },
-    "main": "dist/bundles/kion-[name-of-library-without-scope].umd.js",
+    "main": "dist/bundles/anviltech-[name-of-library-without-scope].umd.js",
     "typings": "dist/anviltech-[name-of-library-without-scope].d.ts",
 ```
 
@@ -303,6 +303,6 @@ Publishing Your Component
 -----------------------------
 Once a component has been created, built, and documented, issue a merge request for this entire repo.
 
-Once your merge request is accepted, our continuous integration (CI) pipeline via Jenkins will automatically publish a new version of your component to the [Artifactory registry](https://artifactory.dematic.com/artifactory/webapp/#/artifacts/browse/tree/General/npm-local/@anviltech/).
+Once your merge request is accepted, our continuous integration (CI) pipeline via Jenkins will automatically publish a new version of your component to the public NPM registry.
 
 Your changes will now be available for use in external applications via the standard NPM include process.

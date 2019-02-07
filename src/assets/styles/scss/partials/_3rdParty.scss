@@ -12,7 +12,7 @@ $kg-is-local: true; // Used to determine if this SCSS is being consumed from wit
 @import '../../../../../packages/wuf-web-assets/assets/styles/library';
 
 @if $kg-is-local {
-    // If this partial is used inside an Angular 6 library workspace use a relative path instead
+    // If this partial is used inside an Angular library workspace use a relative path instead
     $kg-font-path: '../../../../packages/wuf-web-assets/assets/fonts/roboto';
 } @else {
     // Otherwise, assume this is being consumed from within an application's node_modules folder
