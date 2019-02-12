@@ -36,21 +36,3 @@ This @import will bring all of the base styles from the Common Components Librar
 * Provide a number of SCSS utility functions and mixins, including some for responsive breakpoints.</li>
 * Provide a number of convenience classnames, including some for handling flex-box layouts.</li>
 * Create a default theme and brand style.  Read more about theming and brand overrides in the <a routerLink="/themes">Branding &amp; Themes</a> section.</li>
-
-There are some assets from `@anviltech/wuf-web-assets` that must be copied from the `node_modules` folder into your local application's asset folder so that your application can use them.  Add the following line to your application's `angular.json` file:
-```typescript
-    "assets": [
-          "src/assets",
-          {
-            "glob": "**/*",
-            "input": "node_modules/@anviltech/wuf-web-assets/assets/images",
-            "output": "/assets/anviltech/wuf-web-assets/images"
-          }
-      ]
-```
-
-This will create a `assets/anviltech` folder inside your application's bundle.  You wont see it in your app's file tree, but this folder will be included in your bundle by the Angular compiler at application build time.  Assets inside `assets/anviltech` will now be available for use throughout your application using a file path like:
-
-```html
-<link rel="shortcut icon" href="assets/anviltech/wuf-web-assets/images/favicons/favicon.ico">
-```

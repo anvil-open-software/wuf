@@ -21,11 +21,6 @@
             "assets": [
               "src/assets",
               {
-                "glob": "**/*",
-                "input": "packages/wuf-web-assets/assets/images",
-                "output": "/assets/anviltech/wuf-web-assets/images"
-              },
-              {
                 "glob": "*.md",
                 "input": "",
                 "output": "/assets/documentation"
