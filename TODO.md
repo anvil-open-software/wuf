@@ -44,8 +44,8 @@ https://docs.npmjs.com/orgs/managing-teams/index.html
 [x] ensure theme fonts are correctly applied to buttons and other material objects
 [x] fix accent color for theme 5
 [x] document how to load a font in theme files
-[ ] update theme file creation docs.  The default theme includes colors.  The build-in theme no longer includes logo.
-[ ] update all readme files
+[x] update theme file creation docs.  The default theme includes colors.  The build-in theme no longer includes logo.
+[x] update all readme files
 [ ] merge in latest code from HD (navigation and gridster improvements)
 [ ] clean up form page.  Remove drawer
 [ ] init NPM (include this in documentation?): https://docs.npmjs.com/creating-and-publishing-scoped-public-packages

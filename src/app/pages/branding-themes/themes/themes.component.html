@@ -72,21 +72,21 @@
 
     <h2>Creating a Theme</h2>
 
-    <p>Every application based on the Quick Start application includes theme out-of-the-box &#151; because we need
-        a default, fallback values for our theming mechanism. Fortunately, it is extremely easy to override the default
-        theme in order to create a completely custom aesthetic to match your own brand.</p>
+    <p>We need default, fallback values for our theming mechanism, so every application based on the Quick Start
+        application includes a theme out-of-the-box.  These theme includes some basic colors. Fortunately, it is
+        extremely easy to override the default theme in order to create a completely custom aesthetic to match your
+        own brand.</p>
 
     <p>The <strong>wuf-web-assets</strong> package includes all of the CSS, SCSS, and SCSS convenience functions
         necessary to create and use another theme within a given application.</p>
 
-    <p>Creating a theme that can be applied a given application is a 4 step process. All steps are optional, except for
-        the color definition step:</p>
+    <p>Creating a theme that can be applied a given application is a 4 step process.</p>
 
     <ol>
-        <li>Define theme colors (required)</li>
+        <li>Define theme colors</li>
         <li>Define brand logo</li>
-        <li>Define button radius</li>
-        <li>Define font styles</li>
+        <li>Define button radius (optional)</li>
+        <li>Define font styles (optional)</li>
     </ol>
 
     <p>Once your theme has been created you can apply it to your application. There are two ways of applying a theme to
@@ -107,7 +107,7 @@
 
     <hr>
 
-    <h2>Define Theme Colors (Required)</h2>
+    <h2>Define Theme Colors</h2>
 
     <p>The first step in creating a theme requires the creation of a <code>.scss</code> file. The process described
         below assumes you already understand how to create a <code>.scss</code> file and are familiar with associated
@@ -153,7 +153,7 @@
 
     <hr>
 
-    <h2>Define Button Radius</h2>
+    <h2>Define Button Radius (Optional)</h2>
 
     <p>The <code>wuf-theme-logo()</code> method allows you to optionally override the default corner radius for
         application buttons. View the <a routerLink="/themes/cssprops">Theme CSS Custom Properties page</a> for a list
@@ -169,7 +169,7 @@
 
     <hr>
 
-    <h2>Define Font Styles (Typography)</h2>
+    <h2>Define Font Styles (Optional)</h2>
 
     <p>The <code>wuf-theme-typography()</code> method allows you to optionally override the default font styling. View
         the <a routerLink="/themes/cssprops">Theme CSS Custom Properties page</a> for a list of generated CSS custom
