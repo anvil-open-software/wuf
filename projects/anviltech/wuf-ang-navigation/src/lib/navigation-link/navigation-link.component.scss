@@ -119,7 +119,7 @@ li {
         }
         li {
             font-size: var(--navigation-link-nested-font-size);
-            a {
+            a.nav-link {
                 color: var(--navigation-link-nested-color);
                 background-color: var(--navigation-link-nested-bg-color);
                 background-image: none;
@@ -243,6 +243,8 @@ li {
     }
 
     // sidebar position = top
+    // NOTE: Because sub-nav items use mat-menu and mat-menus appear OUTSIDE of the DOM for navigation-link, we need
+    // to style the sub-nav elements themselves in the _navigation.scss partial of the wuf-web-assets package.
     &.position-top {
         background: none;
         padding: var(--navigation-link-margin);

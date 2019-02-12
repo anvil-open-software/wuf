@@ -3,7 +3,7 @@
  * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
  */
 
-import { Component, OnInit, Input, ViewEncapsulation, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ViewChild } from '@angular/core';
 
 import { WufSidebarService } from '@anviltech/wuf-ang-layout';
 
@@ -14,7 +14,7 @@ import { WufSidebarService } from '@anviltech/wuf-ang-layout';
     templateUrl: 'navigation-link.component.html',
     encapsulation: ViewEncapsulation.Emulated
 })
-export class WufNavigationLinkComponent implements OnInit, AfterViewInit {
+export class WufNavigationLinkComponent implements OnInit {
     @Input() link: string;
     @Input() label: string;
     @Input() icon: string;
@@ -32,9 +32,6 @@ export class WufNavigationLinkComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-    }
-
-    ngAfterViewInit() {
     }
 
     private getIsExpanded() {
