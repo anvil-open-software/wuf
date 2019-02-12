@@ -35,15 +35,15 @@
 }
 
 /*
-	Attempt to retrieve a color by key from the map passed in.  Default to the corresponding key value from $kg-mat-app-theme-colors.
+	Attempt to retrieve a color by key from the map passed in.  Default to the corresponding key value from $wuf-mat-app-theme-colors.
  */
 @function getMapColor($map, $key) {
     @if map-has-key($map, $key) {
         // If the passed map has the color, use it
         @return map-get($map, $key);
-    } @else if (map-has-key($kg-mat-app-theme-colors, $key)) {
-        // Otherwise, get the corresponding color from the default $kg-mat-app-theme-colors map
-        @return map-get($kg-mat-app-theme-colors, $key);
+    } @else if (map-has-key($wuf-mat-app-theme-colors, $key)) {
+        // Otherwise, get the corresponding color from the default $wuf-mat-app-theme-colors map
+        @return map-get($wuf-mat-app-theme-colors, $key);
     } @else {
         @warn "Unknown `#{$key}` in $map.";
         @return null;
@@ -58,7 +58,7 @@
 }
 
 @function wuf-mat-make-palette($color) {
-    $kg-mat-app-theme: (
+    $wuf-mat-app-theme: (
         50: lighten($color, 50),
         100: lighten($color, 40),
         200: lighten($color, 30),
@@ -91,7 +91,7 @@
         )
     );
 
-    @return mat-palette($kg-mat-app-theme);
+    @return mat-palette($wuf-mat-app-theme);
 }
 
 /** Create a Material Design theme for components
@@ -101,19 +101,19 @@
     // Define the palettes for your theme using the Material Design palettes available in palette.scss
     // (imported above). For each palette, you can optionally specify a default, lighter, and darker
     // hue. Available color palettes: https://www.google.com/design/spec/style/color.html
-    $kg-mat-palette-primary: wuf-mat-make-palette($primary);
-    $kg-mat-palette-accent: wuf-mat-make-palette($accent);
+    $wuf-mat-palette-primary: wuf-mat-make-palette($primary);
+    $wuf-mat-palette-accent: wuf-mat-make-palette($accent);
 
     // The warn palette is optional (defaults to red).
-    $kg-mat-palette-warn: wuf-mat-make-palette($warn); //mat-palette($mat-red);
+    $wuf-mat-palette-warn: wuf-mat-make-palette($warn); //mat-palette($mat-red);
 
     // Create the theme object (a Sass map containing all of the palettes).
-    $kg-mat-app-theme: mat-light-theme($kg-mat-palette-primary, $kg-mat-palette-accent, $kg-mat-palette-warn);
+    $wuf-mat-app-theme: mat-light-theme($wuf-mat-palette-primary, $wuf-mat-palette-accent, $wuf-mat-palette-warn);
 
     // Include theme styles for core and each Angular Material component used in your app.
     // Alternatively, you can import and @include the theme mixins for each component
     // that you are using.
-    @include angular-material-theme($kg-mat-app-theme);
+    @include angular-material-theme($wuf-mat-app-theme);
 
     /***** Material Design (MDC) *****/
     // Create CSS custom properties for Material Design Web
@@ -196,7 +196,7 @@
 /** Create a theme for general layout and base styles
  */
 @mixin wuf-theme-colors($map) {
-    // Create local SCSS variables for colors, defaulting to a matching color key in $kg-mat-app-theme-colors
+    // Create local SCSS variables for colors, defaulting to a matching color key in $wuf-mat-app-theme-colors
     $brand-primary: getMapColor($map, "primary");
     $brand-secondary: getMapColor($map, "secondary");
     $brand-accent: getMapColor($map, "accent");

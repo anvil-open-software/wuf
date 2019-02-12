@@ -7,11 +7,11 @@
 // Include overrides for Material Design.  These are included in every theme.
 // These styles are NOT applied without a theme.
 
-$kg-label-offset: .75em;
-$kg-input-vert-padding: .75em;
-$kg-input-horiz-padding: .75em;
-$kg-input-hint-horiz-padding: .95em;
-$kg-input-hint-vert-padding: .3em;
+$wuf-label-offset: .75em;
+$wuf-input-vert-padding: .75em;
+$wuf-input-horiz-padding: .75em;
+$wuf-input-hint-horiz-padding: .95em;
+$wuf-input-hint-vert-padding: .3em;
 
 :root {
     /*     local var           ||            global override            ||        default value        */
@@ -45,7 +45,7 @@ $kg-input-hint-vert-padding: .3em;
     /***** inputs *****/
     .mat-form-field-appearance-legacy {
         .mat-hint {
-            padding: $kg-input-hint-vert-padding $kg-input-hint-horiz-padding 0 $kg-input-hint-horiz-padding;
+            padding: $wuf-input-hint-vert-padding $wuf-input-hint-horiz-padding 0 $wuf-input-hint-horiz-padding;
             color: var(--wuf-input-hint-color);
             opacity: .38;
         }
@@ -53,10 +53,10 @@ $kg-input-hint-vert-padding: .3em;
             margin-bottom: .35em;
         }
         .mat-form-field-infix {
-            padding: $kg-input-vert-padding $kg-input-horiz-padding;
+            padding: $wuf-input-vert-padding $wuf-input-horiz-padding;
             @include border-top-radius(var(--wuf-border-radius));
             background-color: var(--wuf-input-bg-color);
-            border-top-width: $kg-input-vert-padding;
+            border-top-width: $wuf-input-vert-padding;
         }
         .mat-form-field-subscript-wrapper {
             overflow: visible !important;
@@ -64,11 +64,11 @@ $kg-input-hint-vert-padding: .3em;
         }
         .mat-form-field-label-wrapper {
             .mat-form-field-label {
-                padding: 0 $kg-input-horiz-padding;
+                padding: 0 $wuf-input-horiz-padding;
             }
         }
         .mat-form-field-label-wrapper {
-            top: -($kg-label-offset);
+            top: -($wuf-label-offset);
         }
         .mat-form-field-underline {
             background-color: var(--wuf-input-underline-color);
@@ -87,7 +87,7 @@ $kg-input-hint-vert-padding: .3em;
                 top: -.25em;
                 .mat-form-field-label {
                     opacity: .7;
-                    padding: 0 $kg-input-hint-horiz-padding;
+                    padding: 0 $wuf-input-hint-horiz-padding;
                 }
             }
         }
@@ -153,7 +153,7 @@ $kg-input-hint-vert-padding: .3em;
             }
             // Error message
             .mat-error {
-                padding: $kg-input-hint-vert-padding $kg-input-hint-horiz-padding;
+                padding: $wuf-input-hint-vert-padding $wuf-input-hint-horiz-padding;
             }
         }
     }
