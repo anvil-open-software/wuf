@@ -19,6 +19,7 @@ https://docs.npmjs.com/orgs/managing-teams/index.html
 [x] update all package version numbers to v1
 [x] make sure Dematic copyright is preserved
 [x] delete wuf-ang-library package
+[x] delete unused packages/projects
 [x] fullTemplateTypeCheck in projects/anviltech/wuf-ang-navigation/tsconfig.lib.json should be set to true (https://github.com/angular/angular/issues/20523)
 [x] change repository entries for all package.json
 [x] package.json add publishConfig entry
@@ -29,16 +30,26 @@ https://docs.npmjs.com/orgs/managing-teams/index.html
 [x] search for Dematic
 [x] search for KION
 [x] change skin/config names
-[ ] fix Roboto http://localhost:4200/roboto-regular.woff2?v=18
-[ ] pull in roboto via <link> ?
+[x] fix Roboto loading
+[x] mention use of @anviltech scope in readme
+[x] move roboto usage to default theme
+[x] fix mat-tab-body so it will use font from theme
+[x] change default font in wuf-theme-typography to system font.  Must update $font-family-sans-serif and $font-family-serif;
+[ ] move material design from 3rd party into web-assets.  Remove dependency from package.json
+[ ] delete font-awesome from 3rd party.  Remove from package.json
+[ ] document how to load a font in theme files
+[ ] update theme file creation docs.  The default theme includes colors.  The build-in theme no longer includes logo.
 [ ] update all readme files
 [ ] merge in latest code from HD
+[ ] clean up form page.  Remove drawer
+[x] delete form stuff from styles.scss
 [ ] init NPM (include this in documentation?): https://docs.npmjs.com/creating-and-publishing-scoped-public-packages
 [ ] publish all v1 packages using  `npm publish --access public`
 [ ] provide documentation to Denis about the repo(s) to build, the order in which they ought to be build, etc.  Could be the Jenkins file.
 [ ] remove polymer and nutmeg? (would need to rewrite wuf-code-sample and wuf-messages as angular components)
 [ ] fix Jenkinsfile documentation
 [ ] forms page: It looks like you're using ngModel on the same form field as formControl. 
+[ ] load one of the theme files dynamically
 
 FUTURE:
 [x] move page title to right of page

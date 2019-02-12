@@ -16,7 +16,11 @@ Refer to available variables in ./partials/_variables.scss for a full list
 of component variables that can be overridden.
 */
 
-:root[wuf-theme="dematic"],
-*[wuf-theme="dematic"] {
-    @include wuf-theme-logo("/assets/images/logo.svg", 150px, 45px);
+:root[wuf-theme="default"],
+*[wuf-theme="default"] {
+    // These overrides ONLY apply to the default theme
+
+    /***** logo *****/
+    @include wuf-theme-logo('../../images/logo.svg', 200px, 35px);
 }
+

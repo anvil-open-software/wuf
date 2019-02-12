@@ -3,26 +3,6 @@
  * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
  */
 
-$kg-font-version: '18';
-$kg-font-path: '' !default;
-
-@if $kg-is-local {
-    // If this partial is used inside an Angular library workspace, use relative paths
-    $kg-font-path: '../packages/wuf-web-assets/assets/fonts/roboto' !default;
-
-} @else {
-    // Otherwise, assume this is being consumed from within an application's node_modules folder
-    $kg-font-path: '~@anviltech/wuf-web-assets/src/lib/assets/fonts/roboto' !default;
-}
-
-/***** CSS custom properties *****/
-:root {
-    @include wuf-theme-typography(); // Create font theme
-    --wuf-font-weight-light: 300;
-    --wuf-font-weight-normal: 400;
-    --wuf-font-weight-bold: 700;
-    --wuf-font-muted-color: var(--wuf-color-gray-600);
-}
 
 /***** default styles *****/
 body {
@@ -100,36 +80,6 @@ a {
     html {
         font-size: 16px;
     }
-}
-
-/***** Roboto *****/
-
-/* roboto-regular - latin */
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    src: url('#{$kg-font-path}/roboto-regular.eot?v=#{$kg-font-version}'); /* IE9 Compat Modes */
-    src: local('Roboto'), local('Roboto-Regular'),
-    url('#{$kg-font-path}/roboto-regular.eot?#iefix&v=#{$kg-font-version}') format('embedded-opentype'), /* IE6-IE8 */
-    url('#{$kg-font-path}/roboto-regular.woff2?v=#{$kg-font-version}') format('woff2'), /* Super Modern Browsers */
-    url('#{$kg-font-path}/roboto-regular.woff?v=#{$kg-font-version}') format('woff'), /* Modern Browsers */
-    url('#{$kg-font-path}/roboto-regular.ttf?v=#{$kg-font-version}') format('truetype'), /* Safari, Android, iOS */
-    url('#{$kg-font-path}/roboto-regular.svg#Roboto?v=#{$kg-font-version}') format('svg'); /* Legacy iOS */
-}
-
-/* roboto-700 - latin */
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    src: url('#{$kg-font-path}/roboto-700.eot?v=#{$kg-font-version}'); /* IE9 Compat Modes */
-    src: local('Roboto Bold'), local('Roboto-Bold'),
-    url('#{$kg-font-path}/roboto-700.eot?#iefix&v=#{$kg-font-version}') format('embedded-opentype'), /* IE6-IE8 */
-    url('#{$kg-font-path}/roboto-700.woff2?v=#{$kg-font-version}') format('woff2'), /* Super Modern Browsers */
-    url('#{$kg-font-path}/roboto-700.woff?v=#{$kg-font-version}') format('woff'), /* Modern Browsers */
-    url('#{$kg-font-path}/roboto-700.ttf?v=#{$kg-font-version}') format('truetype'), /* Safari, Android, iOS */
-    url('#{$kg-font-path}/roboto-700.svg#Roboto?v=#{$kg-font-version}') format('svg'); /* Legacy iOS */
 }
 
 /***** alignment *****/

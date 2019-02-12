@@ -22,7 +22,7 @@
     // Application-level header toolbar
 
     // logo
-    --logo-url:                             var(--wuf-logo-url,                              url('~@anviltech/wuf-web-assets/assets/images/logo.svg')); // Point to the local instance.  Angular compiler will figure out what the path should be in the consuming app.
+    --logo-url:                             var(--wuf-logo-url,                              '');
     --header-logo-width:                    var(--wuf-header-logo-width,                     150px);
     --header-logo-height:                   var(--wuf-header-logo-height,                    45px);
 

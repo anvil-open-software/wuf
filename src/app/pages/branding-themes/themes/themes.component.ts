@@ -29,7 +29,7 @@ export class ThemesComponent implements OnInit {
     exampleTextDecoration: string;
     exampleFontFace: string;
     exampleBorderRadius: string;
-    buttonTheme: any = {id: 'dematic'};
+    buttonTheme: any = {id: 'default'};
     themes: any;
 
     ngOnInit() {
@@ -59,23 +59,23 @@ export class ThemesComponent implements OnInit {
     exampleColorCode = `
 	body {
 		/***** set color values to use in theme *****/
-		$kg-brand-primary:      #fdbb30;
-		$kg-brand-secondary:    #0879c9;
-		$kg-brand-accent:       #fa6400;
-		$kg-brand-success:      #5cb85c;
-		$kg-brand-info:         #03A9F4;
-		$kg-brand-warning:      #fdd835;
-		$kg-brand-danger:       #dd2c00;
+		$wuf-brand-primary:      #fdbb30;
+		$wuf-brand-secondary:    #0879c9;
+		$wuf-brand-accent:       #fa6400;
+		$wuf-brand-success:      #5cb85c;
+		$wuf-brand-info:         #03A9F4;
+		$wuf-brand-warning:      #fdd835;
+		$wuf-brand-danger:       #dd2c00;
 	
 		/***** create a theme *****/
 		@include wuf-theme-colors((
-			"primary":      $kg-brand-primary,
-			"secondary":    $kg-brand-secondary,
-			"accent":       $kg-brand-accent,
-			"success":      $kg-brand-success,
-			"info":         $kg-brand-info,
-			"warning":      $kg-brand-warning,
-			"danger":       $kg-brand-danger
+			"primary":      $wuf-brand-primary,
+			"secondary":    $wuf-brand-secondary,
+			"accent":       $wuf-brand-accent,
+			"success":      $wuf-brand-success,
+			"info":         $wuf-brand-info,
+			"warning":      $wuf-brand-warning,
+			"danger":       $wuf-brand-danger
 		));
 		}
 	`;
@@ -97,38 +97,38 @@ export class ThemesComponent implements OnInit {
     exampleFontCode = `
 	body {
 		/***** typography *****/
-		$kg-brand-body-color:                  var(--wuf-color-gray-700);
-		$kg-brand-font-family-sans-serif:      Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-		$kg-brand-font-family-serif:           "Times New Roman", Times, serif;
-		$kg-brand-font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-		$kg-brand-font-family-base:            $kg-brand-font-family-serif;
-		$kg-brand-font-size-base:              1rem;
-		$kg-brand-headings-font-family:        inherit;
-		$kg-brand-headings-font-weight:        700;
-		$kg-brand-headings-color:              var(--wuf-color-primary-darker-10);
-		$kg-brand-h1-font-size:                2.5rem;
-		$kg-brand-h2-font-size:                2rem;
-		$kg-brand-h3-font-size:                1.75rem;
-		$kg-brand-h4-font-size:                1.5rem;
-		$kg-brand-h5-font-size:                1.25rem;
-		$kg-brand-h6-font-size:                1rem;
+		$wuf-brand-body-color:                  var(--wuf-color-gray-700);
+		$wuf-brand-font-family-sans-serif:      Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+		$wuf-brand-font-family-serif:           "Times New Roman", Times, serif;
+		$wuf-brand-font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+		$wuf-brand-font-family-base:            $wuf-brand-font-family-serif;
+		$wuf-brand-font-size-base:              1rem;
+		$wuf-brand-headings-font-family:        inherit;
+		$wuf-brand-headings-font-weight:        700;
+		$wuf-brand-headings-color:              var(--wuf-color-primary-darker-10);
+		$wuf-brand-h1-font-size:                2.5rem;
+		$wuf-brand-h2-font-size:                2rem;
+		$wuf-brand-h3-font-size:                1.75rem;
+		$wuf-brand-h4-font-size:                1.5rem;
+		$wuf-brand-h5-font-size:                1.25rem;
+		$wuf-brand-h6-font-size:                1rem;
 	
 		@include wuf-theme-typography(
-			$kg-brand-body-color,
-			$kg-brand-font-family-sans-serif,
-			$kg-brand-font-family-serif,
-			$kg-brand-font-family-monospace,
-			$kg-brand-font-family-base,
-			$kg-brand-font-size-base,
-			$kg-brand-headings-font-family,
-			$kg-brand-headings-font-weight,
-			$kg-brand-headings-color,
-			$kg-brand-h1-font-size,
-			$kg-brand-h2-font-size,
-			$kg-brand-h3-font-size,
-			$kg-brand-h4-font-size,
-			$kg-brand-h5-font-size,
-			$kg-brand-h6-font-size
+			$wuf-brand-body-color,
+			$wuf-brand-font-family-sans-serif,
+			$wuf-brand-font-family-serif,
+			$wuf-brand-font-family-monospace,
+			$wuf-brand-font-family-base,
+			$wuf-brand-font-size-base,
+			$wuf-brand-headings-font-family,
+			$wuf-brand-headings-font-weight,
+			$wuf-brand-headings-color,
+			$wuf-brand-h1-font-size,
+			$wuf-brand-h2-font-size,
+			$wuf-brand-h3-font-size,
+			$wuf-brand-h4-font-size,
+			$wuf-brand-h5-font-size,
+			$wuf-brand-h6-font-size
 		);
 	}
 	`;
@@ -136,23 +136,23 @@ export class ThemesComponent implements OnInit {
     exampleCodeComplete = `
 	body {
 		/***** set color values to use in theme *****/
-		$kg-brand-primary:      #fdbb30;
-		$kg-brand-secondary:    #0879c9;
-		$kg-brand-accent:       #fa6400;
-		$kg-brand-success:      #5cb85c;
-		$kg-brand-info:         #03A9F4;
-		$kg-brand-warning:      #fdd835;
-		$kg-brand-danger:       #dd2c00;
+		$wuf-brand-primary:      #fdbb30;
+		$wuf-brand-secondary:    #0879c9;
+		$wuf-brand-accent:       #fa6400;
+		$wuf-brand-success:      #5cb85c;
+		$wuf-brand-info:         #03A9F4;
+		$wuf-brand-warning:      #fdd835;
+		$wuf-brand-danger:       #dd2c00;
 	
 		/***** create a theme *****/
 		@include wuf-theme-colors((
-			"primary":      $kg-brand-primary,
-			"secondary":    $kg-brand-secondary,
-			"accent":       $kg-brand-accent,
-			"success":      $kg-brand-success,
-			"info":         $kg-brand-info,
-			"warning":      $kg-brand-warning,
-			"danger":       $kg-brand-danger
+			"primary":      $wuf-brand-primary,
+			"secondary":    $wuf-brand-secondary,
+			"accent":       $wuf-brand-accent,
+			"success":      $wuf-brand-success,
+			"info":         $wuf-brand-info,
+			"warning":      $wuf-brand-warning,
+			"danger":       $wuf-brand-danger
 		));
 			
 		/***** logo *****/
@@ -162,38 +162,38 @@ export class ThemesComponent implements OnInit {
 		@include wuf-theme-button-radius(20px);
 		
 		/***** typography *****/
-		$kg-brand-body-color:                  var(--wuf-color-gray-700);
-		$kg-brand-font-family-sans-serif:      Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-		$kg-brand-font-family-serif:           "Times New Roman", Times, serif;
-		$kg-brand-font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-		$kg-brand-font-family-base:            $kg-brand-font-family-serif;
-		$kg-brand-font-size-base:              1rem;
-		$kg-brand-headings-font-family:        inherit;
-		$kg-brand-headings-font-weight:        700;
-		$kg-brand-headings-color:              var(--wuf-color-primary-darker-10);
-		$kg-brand-h1-font-size:                2.5rem;
-		$kg-brand-h2-font-size:                2rem;
-		$kg-brand-h3-font-size:                1.75rem;
-		$kg-brand-h4-font-size:                1.5rem;
-		$kg-brand-h5-font-size:                1.25rem;
-		$kg-brand-h6-font-size:                1rem;
+		$wuf-brand-body-color:                  var(--wuf-color-gray-700);
+		$wuf-brand-font-family-sans-serif:      Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+		$wuf-brand-font-family-serif:           "Times New Roman", Times, serif;
+		$wuf-brand-font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+		$wuf-brand-font-family-base:            $wuf-brand-font-family-serif;
+		$wuf-brand-font-size-base:              1rem;
+		$wuf-brand-headings-font-family:        inherit;
+		$wuf-brand-headings-font-weight:        700;
+		$wuf-brand-headings-color:              var(--wuf-color-primary-darker-10);
+		$wuf-brand-h1-font-size:                2.5rem;
+		$wuf-brand-h2-font-size:                2rem;
+		$wuf-brand-h3-font-size:                1.75rem;
+		$wuf-brand-h4-font-size:                1.5rem;
+		$wuf-brand-h5-font-size:                1.25rem;
+		$wuf-brand-h6-font-size:                1rem;
 	
 		@include wuf-theme-typography(
-			$kg-brand-body-color,
-			$kg-brand-font-family-sans-serif,
-			$kg-brand-font-family-serif,
-			$kg-brand-font-family-monospace,
-			$kg-brand-font-family-base,
-			$kg-brand-font-size-base,
-			$kg-brand-headings-font-family,
-			$kg-brand-headings-font-weight,
-			$kg-brand-headings-color,
-			$kg-brand-h1-font-size,
-			$kg-brand-h2-font-size,
-			$kg-brand-h3-font-size,
-			$kg-brand-h4-font-size,
-			$kg-brand-h5-font-size,
-			$kg-brand-h6-font-size
+			$wuf-brand-body-color,
+			$wuf-brand-font-family-sans-serif,
+			$wuf-brand-font-family-serif,
+			$wuf-brand-font-family-monospace,
+			$wuf-brand-font-family-base,
+			$wuf-brand-font-size-base,
+			$wuf-brand-headings-font-family,
+			$wuf-brand-headings-font-weight,
+			$wuf-brand-headings-color,
+			$wuf-brand-h1-font-size,
+			$wuf-brand-h2-font-size,
+			$wuf-brand-h3-font-size,
+			$wuf-brand-h4-font-size,
+			$wuf-brand-h5-font-size,
+			$wuf-brand-h6-font-size
 		);
 	}
 	`;

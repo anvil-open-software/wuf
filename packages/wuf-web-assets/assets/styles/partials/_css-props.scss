@@ -16,7 +16,7 @@ The general rules of SCSS vs CSS custom properties are:
 :root {
 
     /***** colors *****/
-    // Note that most color-related CSS Custom propeties are created in the _theme-default.scss file
+    // Note that most color-related CSS Custom propeties are created in theme files
     --wuf-color-white: #{$white};
     --wuf-color-gray-100: #{$gray-100};
     --wuf-color-gray-200: #{$gray-200};

@@ -21,7 +21,7 @@ export class SetupConfigurationComponent implements OnInit {
             iconPosition:   'left',
             alignment:      'left'
         },
-        theme:                  'dematic',
+        theme:                  'default',
         user: {
             id:             'default'
         }
@@ -49,7 +49,7 @@ export class SetupConfigurationComponent implements OnInit {
             iconPosition:   'left',
             alignment:      'left'
         },
-        theme:                  'dematic',
+        theme:                  'default',
     }
     `;
 

@@ -287,4 +287,10 @@
     --wuf-h4-font-size: #{$h4-size};
     --wuf-h5-font-size: #{$h5-size};
     --wuf-h6-font-size: #{$h6-size};
+
+    /***** misc, hard-coded typography *****/
+    --wuf-font-weight-light: 300;
+    --wuf-font-weight-normal: 400;
+    --wuf-font-weight-bold: 700;
+    --wuf-font-muted-color: var(--wuf-color-gray-600);
 }

@@ -28,6 +28,9 @@
                 color: var(--wuf-tabs-color);
                 text-transform: uppercase;
             }
+            > .mat-tab-group, .mat-tab-label, .mat-tab-link {
+                font-family: var(--wuf-font-family-base);
+            }
         }
     }
 }

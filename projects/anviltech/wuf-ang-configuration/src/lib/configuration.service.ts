@@ -40,7 +40,7 @@ export class WufConfigurationService implements OnInit {
             iconPosition: 'left',
             alignment: 'left'
         },
-        theme: 'dematic',
+        theme: 'default',
         themeDark: false,
         sidebarSize: 230,
         user: {

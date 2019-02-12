@@ -3,34 +3,16 @@
  * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
  */
 
-// Create a default theme that applies to all applications
+// Create a default, baseline theme using default colors
+:root {
 
-$kg-default-logo-path: '~@anviltech/wuf-web-assets/assets/images' !default;
-
-@if $kg-is-local {
-    // If this partial is used inside an Angular library workspace, use a relative path instead
-    $kg-default-logo-path: '../packages/wuf-web-assets/assets/images' !default;
-}
-
-:root,
-:root[wuf-theme="dematic"],
-*[wuf-theme="dematic"] {
     /***** colors *****/
-    // create default theme (Dematic)
+    // create default theme using default colors
     @include wuf-theme-colors($theme-colors);
 
-    /***** logo *****/
-    @include wuf-theme-logo('#{$kg-default-logo-path}/logo.svg', 200px, 35px);
+    /***** typography *****/
+    @include wuf-theme-typography();
 
     /***** buttons *****/
     @include wuf-theme-button-radius(4px);
 }
-
-:root[wuf-theme="dematic"],
-*[wuf-theme="dematic"] {
-    // These overrides ONLY apply to the Dematic theme
-
-    /***** fancy login screen *****/
-    --wuf-login-bg-accent-color: var(--wuf-color-accent); // Usually we use primary color here.  In the Dematic theme we want to use Dematic gold instead.
-}
-
