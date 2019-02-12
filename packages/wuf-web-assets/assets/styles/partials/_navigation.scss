@@ -19,7 +19,6 @@ div.wuf-nav-menu-panel.mat-menu-panel {
             background-image: none;
             text-decoration: none;
             color: var(--wuf-navigation-link-nested-color, var(--wuf-color-secondary-lighter-40));
-            font-family: var(--wuf-font-family-base);
             &:hover {
                 color: var(--wuf-navigation-link-nested-hover-color, var(--wuf-color-secondary-lighter-50));
                 background-color: var(--wuf-navigation-link-nested-hover-bg-color, var(--wuf-color-secondary-darker-10));
