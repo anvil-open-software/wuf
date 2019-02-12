@@ -35,14 +35,16 @@ https://docs.npmjs.com/orgs/managing-teams/index.html
 [x] move roboto usage to default theme
 [x] fix mat-tab-body so it will use font from theme
 [x] change default font in wuf-theme-typography to system font.  Must update $font-family-sans-serif and $font-family-serif;
-[ ] move material design from 3rd party into web-assets.  Remove dependency from package.json
-[ ] delete font-awesome from 3rd party.  Remove from package.json
+[x] delete font-awesome from 3rd party.  Remove from package.json
+[x] delete form stuff from styles.scss
+[x] document peer dependencies for material packages for navigation, web-assets, and layout
+[x] do not import any images from wuf via angular.json
+[x] replace favicons with generic favicon
 [ ] document how to load a font in theme files
 [ ] update theme file creation docs.  The default theme includes colors.  The build-in theme no longer includes logo.
 [ ] update all readme files
-[ ] merge in latest code from HD
+[ ] merge in latest code from HD (navigation and gridster improvements)
 [ ] clean up form page.  Remove drawer
-[x] delete form stuff from styles.scss
 [ ] init NPM (include this in documentation?): https://docs.npmjs.com/creating-and-publishing-scoped-public-packages
 [ ] publish all v1 packages using  `npm publish --access public`
 [ ] provide documentation to Denis about the repo(s) to build, the order in which they ought to be build, etc.  Could be the Jenkins file.
@@ -65,6 +67,7 @@ FUTURE:
     [ ] browser.js:4408 [Deprecation] /deep/ combinator is no longer supported in CSS dynamic profile.It is now effectively no-op, acting as if it were a descendant combinator. /deep/ combinator will be removed, and will be invalid at M65. You should remove it. See https://www.chromestatus.com/features/4964279606312960 for more details.
 [ ] when refreshing on mobile size then increasing width to desktop, sidebar icons stay minimized
 [ ] the example button section no longer updates styles when theme is changed via droplist
+[ ] create dynamic favicon that can be set via a config file: https://www.bennadel.com/blog/3408-creating-a-dynamic-favicon-service-in-angular-5-2-4.htm
 [ ] sidebar transition CSS styling on sidebar-wrap does not account for position top
 [ ] no smooth close animation on sidebar toggle under some circumstances
 [ ] wuf-code-sample not displaying copy button under some circumstances

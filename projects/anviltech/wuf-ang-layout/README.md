@@ -3,6 +3,20 @@ Layout
 
 Layout components and services used for application layout.
 
+Dependencies
+------------
+This package has some peer dependencies.  To install these dependencies, run the following commands from your application root:
+
+```bash
+npm install material-design-icons@3.0.1 --save
+```
+
+or
+
+```bash
+yarn add material-design-icons@3.0.1
+```
+
 Installation
 ------------
 Install this package with the following command:

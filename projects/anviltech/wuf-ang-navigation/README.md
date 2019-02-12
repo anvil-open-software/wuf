@@ -3,6 +3,20 @@ Navigation
 
 A collection of components used for application navigation.
 
+Dependencies
+------------
+This package has some peer dependencies.  To install these dependencies, run the following commands from your application root:
+
+```bash
+npm install @angular/material@6.4.7 material-design-icons@3.0.1 --save
+```
+
+or
+
+```bash
+yarn add @angular/material@6.4.7 material-design-icons@3.0.1
+```
+
 Installation
 ------------
 Install this package with the following command:

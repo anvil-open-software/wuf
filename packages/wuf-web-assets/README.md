@@ -1,11 +1,25 @@
 Base Styles
 ===============
 
-While most of the page layout for each application page is handled by layout-related components, the <body> and <html> tags are outside of the scope of any component (including those components used for layout).  These high-level elements need certain styling in order for our layouts to work as expected.  Similarly, there are some common, global styles that we want/need to apply to our application in order handle everything from base font size, line height, paragraph spacing, list decoration, etc. in a manner consistent with our UX Board guidelines.</p>
+While most of the page layout for each application page is handled by layout-related components, the <body> and <html> tags are outside of the scope of any component (including those components used for layout).  These high-level elements need certain styling in order for our layouts to work as expected.  Similarly, there are some common, global styles that we want/need to apply to our application in order handle everything from base font size, line height, paragraph spacing, list decoration, etc. in a manner consistent with our style guide.</p>
 
-Add Styles from @anviltech/wuf-web-assets
+Dependencies
+------------
+This package has some peer dependencies.  To install these dependencies, run the following commands from your application root:
+
+```bash
+npm install @angular/material@6.4.7 material-components-web@0.39.3 --save
+```
+
+or
+
+```bash
+yarn add @angular/material@6.4.7 material-components-web@0.39.3
+```
+
+Installation
 -------------------------------------
-In order to easily apply these high-level, global styles we have created a collection of such styles and provided them for use from the Common Components Library via a single SCSS file import.  To use it, add the `@anviltech/wuf-web-assets` package to your application by running the following command from your command line:
+In order to easily apply these high-level, global styles we have created a collection of such styles and provided them for use from the library of components via a single SCSS file import.  To use it, add the `@anviltech/wuf-web-assets` package to your application by running the following command from your command line:
 
 ```bash
 $ npm install @anviltech/wuf-web-assets

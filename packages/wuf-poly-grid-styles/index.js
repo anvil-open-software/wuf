@@ -42,7 +42,7 @@ $_documentContainer1.innerHTML = `
 					top: -14px;
 				};
 				
-				/***** make the filter's floating label use the primary color both on focus and when there is a value in the input.  As per UX Board guidelines, a filter with a value should always show its label using the primary color. *****/
+				/***** make the filter's floating label use the primary color both on focus and when there is a value in the input.  As per style guide, a filter with a value should always show its label using the primary color. *****/
 				--paper-input-container-label-floating: {
 					color: var(--wuf-color-primary, var(--primary-color));
 				};
