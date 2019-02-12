@@ -11,15 +11,15 @@ Therefore, the only way to style these navigation menus is with global CSS.
 */
 
 :root {
-    /*     local var                   ||            global override                    ||              default value        */
-    --navigation-link-nested-color: var(--wuf-navigation-link-nested-color, var(--wuf-color-secondary-lighter-30));
-    --navigation-link-nested-bg-color: var(--wuf-navigation-link-nested-bg-color, var(--wuf-color-secondary-darker-5));
-    --navigation-link-nested-hover-color: var(--wuf-navigation-link-nested-hover-color, var(--wuf-color-secondary-lighter-40));
-    --navigation-link-nested-hover-bg-color: var(--wuf-navigation-link-nested-hover-bg-color, var(--wuf-color-secondary-darker-10));
-    --navigation-link-nested-active-color: var(--wuf-navigation-link-nested-active-color, var(--wuf-color-white));
-    --navigation-link-nested-active-hover-color: var(--wuf-navigation-link-nested-active-hover-color, var(--wuf-color-white));
-    --navigation-link-nested-active-bg-color: var(--wuf-navigation-link-nested-active-bg-color, var(--wuf-color-secondary-darker-10));
-    --navigation-link-nested-active-accent-color: var(--wuf-navigation-link-nested-active-accent-color, var(--wuf-color-primary));
+    /*     local var                   ||                    global override                    ||                  default value        */
+    --navigation-link-nested-color:                 var(--wuf-navigation-link-nested-color,                 var(--wuf-color-secondary-lighter-30));
+    --navigation-link-nested-bg-color:              var(--wuf-navigation-link-nested-bg-color,              var(--wuf-color-secondary-darker-5));
+    --navigation-link-nested-hover-color:           var(--wuf-navigation-link-nested-hover-color,           var(--wuf-color-secondary-lighter-40));
+    --navigation-link-nested-hover-bg-color:        var(--wuf-navigation-link-nested-hover-bg-color,        var(--wuf-color-secondary-darker-10));
+    --navigation-link-nested-active-color:          var(--wuf-navigation-link-nested-active-color,          var(--wuf-color-white));
+    --navigation-link-nested-active-hover-color:    var(--wuf-navigation-link-nested-active-hover-color,    var(--wuf-color-white));
+    --navigation-link-nested-active-bg-color:       var(--wuf-navigation-link-nested-active-bg-color,       var(--wuf-color-secondary-darker-10));
+    --navigation-link-nested-active-accent-color:   var(--wuf-navigation-link-nested-active-accent-color,   var(--wuf-color-primary));
 
     // Internal
     --sidebar-bg-color: var(--wuf-sidebar-bg-color, var(--wuf-color-secondary));
