@@ -77,13 +77,13 @@ export class ThemesComponent implements OnInit {
 			"warning":      $wuf-brand-warning,
 			"danger":       $wuf-brand-danger
 		));
-		}
+    }
 	`;
 
     exampleLogoCode = `
 	body {
 		/***** logo *****/
-		@include wuf-theme-logo("/assets/images/example_images/logos/walmart.svg", 140px, 45px);
+		@include wuf-theme-logo('/assets/images/logo.svg', 200px, 35px);
 	}
 	`;
 
@@ -95,7 +95,11 @@ export class ThemesComponent implements OnInit {
 	`;
 
     exampleFontCode = `
+    
 	body {
+	    /***** import font *****/
+        @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+        
 		/***** typography *****/
 		$wuf-brand-body-color:                  var(--wuf-color-gray-700);
 		$wuf-brand-font-family-sans-serif:      Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;

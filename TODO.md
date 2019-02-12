@@ -41,10 +41,9 @@ https://docs.npmjs.com/orgs/managing-teams/index.html
 [x] do not import any images from wuf via angular.json
 [x] replace favicons with generic favicon
 [x] lighten subnav elements in theme 5
-[ ] fix accent color for theme 5
-[ ] ensure navigation with horizontal orientation highlights parent element when child element is active
 [x] ensure theme fonts are correctly applied to buttons and other material objects
-[ ] document how to load a font in theme files
+[x] fix accent color for theme 5
+[x] document how to load a font in theme files
 [ ] update theme file creation docs.  The default theme includes colors.  The build-in theme no longer includes logo.
 [ ] update all readme files
 [ ] merge in latest code from HD (navigation and gridster improvements)
@@ -59,6 +58,7 @@ https://docs.npmjs.com/orgs/managing-teams/index.html
 
 FUTURE:
 [x] move page title to right of page
+[ ] ensure navigation with horizontal orientation highlights top-level navigation element when child element is active
 [ ] Smart Table fixes:
     [ ] forms.js:1181 
         It looks like you're using ngModel on the same form field as formControl. 
