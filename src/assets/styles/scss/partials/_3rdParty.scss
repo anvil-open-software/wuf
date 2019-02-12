@@ -8,10 +8,6 @@
 /***** @anviltech WUF *****/
 @import '../../../../../packages/wuf-web-assets/assets/styles/library';
 
-/***** font-awesome *****/
-$fa-font-path: '~font-awesome/fonts';
-@import '~font-awesome/scss/font-awesome';
-
 /***** Material Design *****/
 // Angular Material appears to include most (but not all) mdc styles.  "mdc-elevation--zX" styles, for example, are missing.
 @import "~material-components-web/material-components-web";
