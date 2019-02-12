@@ -4,7 +4,10 @@
  */
 
 // Create a default, baseline theme using default colors
-:root {
+:root,
+:root[wuf-theme="default"],
+:root[wuf-theme] *[wuf-theme="default"],
+:root *[wuf-theme="default"] {
 
     /***** colors *****/
     // create default theme using default colors

@@ -21,7 +21,7 @@ of component variables that can be overridden.
 /*************************************/
 
 :root[wuf-theme="theme2"],
-*[wuf-theme="theme2"] {
+:root[wuf-theme] *[wuf-theme="theme2"] {
 
     /***** set color values to use in theme *****/
     $wuf-brand-primary:     #0099d8;

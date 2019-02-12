@@ -17,7 +17,7 @@ of component variables that can be overridden.
 */
 
 :root[wuf-theme="default"],
-*[wuf-theme="default"] {
+:root[wuf-theme] *[wuf-theme="default"] {
     // These overrides ONLY apply to the default theme
 
     /***** logo *****/
