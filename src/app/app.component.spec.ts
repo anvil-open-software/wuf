@@ -9,10 +9,10 @@ import { DebugElement } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { KgConfigurationModule, KgConfigurationService } from '@kion/kg-ang-configuration';
-import { KgLayoutModule, KgLayoutService } from '@kion/kg-ang-layout';
-import { KgUtilsModule } from '@kion/kg-ang-utils';
-import { KgLoginService } from '@kion/kg-ang-login-animated';
+import { WufConfigurationModule, WufConfigurationService } from '@anviltech/wuf-ang-configuration';
+import { WufLayoutModule, WufLayoutService } from '@anviltech/wuf-ang-layout';
+import { WufUtilsModule } from '@anviltech/wuf-ang-utils';
+import { WufLoginService } from '@anviltech/wuf-ang-login-animated';
 
 import { Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -52,16 +52,16 @@ describe('AppComponent', () => {
                 HttpClientModule,
                 NgxMdModule,
                 BrowserAnimationsModule,
-                KgConfigurationModule.forRoot(),
-                KgLayoutModule.forRoot(),
-                KgUtilsModule
+                WufConfigurationModule.forRoot(),
+                WufLayoutModule.forRoot(),
+                WufUtilsModule
             ],
             providers: [
                 RoutesModule,
-                KgConfigurationService,
+                WufConfigurationService,
                 UserService,
-                KgLoginService,
-                KgLayoutService
+                WufLoginService,
+                WufLayoutService
             ]
         });
         // WebPack developers need not call compileComponents because it inlines templates and css as part of the

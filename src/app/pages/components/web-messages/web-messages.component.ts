@@ -21,22 +21,22 @@ export class WebMessagesComponent implements OnInit {
     }
 
     onShowErrorMessageClick() {
-        // console.log('KgWebMessagesComponent::onShowErrorMessageClick');
+        // console.log('WufWebMessagesComponent::onShowErrorMessageClick');
         this.kgm.nativeElement.errorMessage = `Danger, Will Robinson!`;
     }
 
     onShowInfoMessageClick() {
-        // console.log('KgWebMessagesComponent::onShowInfoMessageClick');
+        // console.log('WufWebMessagesComponent::onShowInfoMessageClick');
         this.kgm.nativeElement.infoMessage = `Did you know that astronauts never snore? Sleep apnea can't happen without gravity!`;
     }
 
     onShowSuccessMessageClick() {
-        // console.log('KgWebMessagesComponent::onShowSuccessMessageClick');
+        // console.log('WufWebMessagesComponent::onShowSuccessMessageClick');
         this.kgm.nativeElement.successMessage = `I'm ok!`;
     }
 
     onShowWarningMessageClick() {
-        // console.log('KgWebMessagesComponent::onShowWarningMessageClick');
+        // console.log('WufWebMessagesComponent::onShowWarningMessageClick');
         this.kgm.nativeElement.warningMessage = `The "check engine" light is on.`;
     }
 }

@@ -7,7 +7,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { KgContentFooterService, KgLayoutModule } from '@kion/kg-ang-layout';
+import { WufContentFooterService, WufLayoutModule } from '@anviltech/wuf-ang-layout';
 
 import { BreadcrumbComponent } from './breadcrumb.component';
 
@@ -26,10 +26,10 @@ describe('BreadcrumbComponent', () => {
             ],
             imports: [
                 RouterTestingModule,
-                KgLayoutModule
+                WufLayoutModule
             ],
             providers: [
-                KgContentFooterService
+                WufContentFooterService
             ]
         })
         .compileComponents();

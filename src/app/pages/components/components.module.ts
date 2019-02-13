@@ -15,15 +15,15 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RoutesModule } from './routes';
 
 /***** Import WUF *****/
-import { KgToastsModule } from '@kion/kg-ang-toasts';
-import { KgUtilsModule } from '@kion/kg-ang-utils';
-import { KgLayoutModule } from '@kion/kg-ang-layout';
-import { KgDrawerModule } from '@kion/kg-ang-drawer';
-import { KgDashboardModule } from '@kion/kg-ang-dashboard';
-import { KgLoginModule } from '@kion/kg-ang-login-animated';
-import { KgNavigationModule } from '@kion/kg-ang-navigation';
-import { KgGridsterModule } from '@kion/kg-ang-gridster';
-import { KgSmartTableModule } from '@kion/kg-ang-smart-table';
+import { WufToastsModule } from '@anviltech/wuf-ang-toasts';
+import { WufUtilsModule } from '@anviltech/wuf-ang-utils';
+import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
+import { WufDrawerModule } from '@anviltech/wuf-ang-drawer';
+import { WufDashboardModule } from '@anviltech/wuf-ang-dashboard';
+import { WufLoginModule } from '@anviltech/wuf-ang-login-animated';
+import { WufNavigationModule } from '@anviltech/wuf-ang-navigation';
+import { WufGridsterModule } from '@anviltech/wuf-ang-gridster';
+import { WufSmartTableModule } from '@anviltech/wuf-ang-smart-table';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
@@ -31,7 +31,7 @@ import { CustomMaterialModule } from '../../internal/material.module';
 import { UtilsModule } from '../../internal/utils/utils.module';
 
 /***** TODO *****/
-import { KgSplitPanelComponent } from './dashboard/kg-split-panel/kg-split-panel.component'; // TODO: move this to common-components once component is built
+import { WufSplitPanelComponent } from './dashboard/wuf-split-panel/wuf-split-panel.component'; // TODO: move this to common-components once component is built
 
 /***** Smart Table extras *****/
 import { CustomEditorForFoodsSmartTable } from './smart-table/custom-editor.smart-table.for-foods.component';
@@ -62,7 +62,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { FormsComponent } from './forms/forms.component';
-import { FormDialogExample } from './forms/modal/form.dialog.component';
 import { FormSettingsService } from './forms/form.service';
 import { GridsterComponent } from './gridster/gridster.component';
 import { SmartTableComponent } from './smart-table/smart-table.component';
@@ -82,15 +81,15 @@ import { ToastsComponent } from './toasts/toasts.component';
         CdkTableModule,
 
         // WUF
-        KgToastsModule,
-        KgUtilsModule,
-        KgLayoutModule,
-        KgDrawerModule,
-        KgDashboardModule,
-        KgLoginModule,
-        KgNavigationModule,
-        KgGridsterModule,
-        KgSmartTableModule,
+        WufToastsModule,
+        WufUtilsModule,
+        WufLayoutModule,
+        WufDrawerModule,
+        WufDashboardModule,
+        WufLoginModule,
+        WufNavigationModule,
+        WufGridsterModule,
+        WufSmartTableModule,
 
         // Utils
         UtilsModule,
@@ -127,7 +126,6 @@ import { ToastsComponent } from './toasts/toasts.component';
         LoginComponent,
         DrawerComponent,
         FormsComponent,
-        FormDialogExample,
         GridsterComponent,
         SmartTableComponent,
 
@@ -138,11 +136,10 @@ import { ToastsComponent } from './toasts/toasts.component';
         CustomEditorForIDValidationSmartTable,
 
         // TODO: move this to common-components
-        KgSplitPanelComponent
+        WufSplitPanelComponent
     ],
     entryComponents: [
         MaterialDialogExample,
-        FormDialogExample,
 
         // Smart table examples
         CustomEditorForFoodsSmartTable,

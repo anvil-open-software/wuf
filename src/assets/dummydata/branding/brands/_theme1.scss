@@ -1,0 +1,95 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+/*
+Add brand overrides here.
+
+Note that this file and associated partials are used for DEMO PURPOSES ONLY.
+The CSS here should be returned using a service whereby the value provided
+below are fetched from a database and written to the page via some kind of
+templating mechanism or by other means.  We are using scss syntax for
+convenience.
+
+Refer to available variables in ./partials/_variables.scss for a full list
+of component variables that can be overridden.
+*/
+
+/**********************************/
+/* EXAMPLE USE OF BRANDING (KION) */
+/**********************************/
+
+:root[wuf-theme="theme1"],
+:root[wuf-theme] *[wuf-theme="theme1"] {
+
+    /***** set color values to use in theme *****/
+    $wuf-brand-primary:     #ae0055;
+    $wuf-brand-secondary:   #424242;
+    $wuf-brand-accent:      #cc99b1;
+    $wuf-brand-success:     #5cb85c;
+    $wuf-brand-info:        #03A9F4;
+    $wuf-brand-warning:     #fdd835;
+    $wuf-brand-danger:      #dd2c00;
+
+    /***** create a theme *****/
+    @include wuf-theme-colors((
+        "primary":      $wuf-brand-primary,
+        "secondary":    $wuf-brand-secondary,
+        "accent":       $wuf-brand-accent,
+        "success":      $wuf-brand-success,
+        "info":         $wuf-brand-info,
+        "warning":      $wuf-brand-warning,
+        "danger":       $wuf-brand-danger
+    ));
+
+    /***** logo *****/
+    @include wuf-theme-logo('/assets/images/logo.svg', 200px, 35px);
+
+    /***** typography *****/
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+    $wuf-brand-body-color: $body-color;
+    $wuf-brand-font-family-sans-serif: Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    $wuf-brand-font-family-serif: 'Roboto Slab', Times, serif;
+    $wuf-brand-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    $wuf-brand-font-family-base: $wuf-brand-font-family-sans-serif;
+
+    @include wuf-theme-typography(
+            $wuf-brand-body-color,
+            $wuf-brand-font-family-sans-serif,
+            $wuf-brand-font-family-serif,
+            $wuf-brand-font-family-monospace,
+            $wuf-brand-font-family-base
+    );
+
+    /***** buttons *****/
+    @include wuf-theme-button-radius(4px);
+
+    /***** dark theme overrides *****/
+    &[wuf-theme-dark="true"] {
+
+        $theme2LightLinkColor: var(--wuf-color-primary-lighter-20);
+
+        /***** links *****/
+        --wuf-link-color: #{$theme2LightLinkColor};
+        --wuf-link-hover-color: var(--wuf-color-primary-lighter-10);
+
+        /***** Material form fields *****/
+        .mat-focused {
+            .mat-form-field-label {
+                color: #{$theme2LightLinkColor};
+            }
+            .mat-form-field-underline {
+                background-color: #{$theme2LightLinkColor};
+            }
+        }
+
+        /***** Material buttons *****/
+        .mat-button:not([disabled]),
+        .mat-icon-button:not([disabled]) {
+            &.mat-primary {
+                color: #{$theme2LightLinkColor};
+            }
+        }
+    }
+}

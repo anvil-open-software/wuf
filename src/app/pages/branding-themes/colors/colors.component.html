@@ -3,31 +3,30 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/themes', label: 'Branding & Themes' }, { link: null, label: 'KION Color System', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/themes', label: 'Branding & Themes' }, { link: null, label: 'Color System', active: true }]"></wuf-breadcrumb>
 
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
-    <h1>KION Color System</h1>
+    <h1>Color System</h1>
 
-    <p>The <strong>KION Color System</strong> is an organized structure for defining a set of colors to use throughout
+    <p>The <strong>Color System</strong> is an organized structure for defining a set of colors to use throughout
         the UI.</p>
 
     <hr>
 
     <h2>Semantic Naming Convention</h2>
-    <p>The KION Group is comprised of a number of different brand identities, each with their own distinct theme
-        elements. The KION Color System is designed to accommodate the unique requirements and characteristics of these
+    <p>The Color System is designed to accommodate the unique requirements and characteristics of
         individual brands while still remaining constrained by an organized system.</p>
 
     <p>In order to provide the necessary structure, the complete color system, and the colors within it, will be
@@ -37,14 +36,14 @@
         appear in the UI.</p>
 
     <p>Every color in the color palette has a corresponding CSS custom property name for use in the code. Each CSS
-        custom property name is namespaced with the prefix "--kg-" to help avoid name collisions with third party CSS
+        custom property name is namespaced with the prefix "--wuf-" to help avoid name collisions with third party CSS
         custom property names (like those from Material Design itself). The color swatches for each color shown below
         all include their corresponding CSS custom property names.</p>
 
     <hr>
 
     <h2 name="baseColors">Base Colors</h2>
-    <p>In the KION Color System, a <strong>primary</strong>, <strong>secondary</strong>, and <strong>accent</strong>
+    <p>In the Color System, a <strong>primary</strong>, <strong>secondary</strong>, and <strong>accent</strong>
         color (note the use of the semantic naming convention) are chosen to represent a brand. Lighter and darker
         variants of the three based colors can then be applied to the UI in different ways (see "Color Variations"
         below).</p>
@@ -54,7 +53,7 @@
             <div class="col-md">
                 <div class="swatch-wrap">
                     <h6>primary</h6>
-                    <div class="swatch" style="background-color:var(--kg-color-primary)">--kg-color-primary</div>
+                    <div class="swatch" style="background-color:var(--wuf-color-primary)">--wuf-color-primary</div>
                     <p>The <strong>primary color</strong> is typically the brightest and most easily identifiable color
                         within a brand's identity. If only one color must be selected to represent a brand's entire
                         identity, it is the primary color.</p>
@@ -64,7 +63,7 @@
             <div class="col-md">
                 <div class="swatch-wrap">
                     <h6>secondary</h6>
-                    <div class="swatch" style="background-color:var(--kg-color-secondary)">--kg-color-secondary</div>
+                    <div class="swatch" style="background-color:var(--wuf-color-secondary)">--wuf-color-secondary</div>
                     <p>The <strong>secondary color</strong> plays a support role and is typically the more subdued color
                         of a brand's identity. While it may be more subdued, it is often/usually the color that
                         constitutes the greatest area of a UI in terms of pixel count. Application framing and
@@ -75,7 +74,7 @@
             <div class="col-md">
                 <div class="swatch-wrap">
                     <h6>accent</h6>
-                    <div class="swatch" style="background-color:var(--kg-color-accent)">--kg-color-accent</div>
+                    <div class="swatch" style="background-color:var(--wuf-color-accent)">--wuf-color-accent</div>
                     <p>The <strong>accent color</strong> is used for floating action buttons and other interactive
                         elements, serving as visual contrast to the primary. UI elements that must present a selected
                         state, active items, and enabled states use the accent color for this purpose.</p>
@@ -99,7 +98,7 @@
         example, the Linde primary color is a rich red. If a rich red is the dominant color within the UI for branding
         purposes, the same red cannot also be used to denote an error state (i.e., the "danger" color). This is because
         re-purposing a red for both branding and error states would not allow the error state color to call sufficient
-        attention to itself. When choosing colors for the KION Color System, therefore, either the primary or the error
+        attention to itself. When choosing colors for the Color System, therefore, either the primary or the error
         color can use red, but not both.</p>
 
     <p><strong>NOTE:</strong> Material Design includes several additional state colors including <code>disabled</code>
@@ -113,7 +112,7 @@
             <div class="col-md">
                 <div class="swatch-wrap">
                     <h6>success</h6>
-                    <div class="swatch" style="background-color:var(--kg-color-success)">--kg-color-success</div>
+                    <div class="swatch" style="background-color:var(--wuf-color-success)">--wuf-color-success</div>
                     <p>The <strong>success color</strong> is used to convey successful completion of an user activity to
                         call attention to a positive metric or condition. Given that positive metrics or conditions
                         (hopefully the default state), it's generally not necessary to call attention to UI elements
@@ -125,7 +124,7 @@
             <div class="col-md">
                 <div class="swatch-wrap">
                     <h6>info</h6>
-                    <div class="swatch" style="background-color:var(--kg-color-info)">--kg-color-info</div>
+                    <div class="swatch" style="background-color:var(--wuf-color-info)">--wuf-color-info</div>
                     <p>The <strong>info color</strong> is used to convey information of an informative, non-urgent
                         nature. Users are not required to take action when informational data is displayed.</p>
                 </div>
@@ -134,7 +133,7 @@
             <div class="col-md">
                 <div class="swatch-wrap">
                     <h6>warning</h6>
-                    <div class="swatch" style="background-color:var(--kg-color-warning)">--kg-color-warning</div>
+                    <div class="swatch" style="background-color:var(--wuf-color-warning)">--wuf-color-warning</div>
                     <p>The <strong>warning color</strong> is used to convey information of a potentially serious nature
                         that the user may need to act on. The state is not yet non-blocking but may become so unless the
                         user acts.</p>
@@ -144,7 +143,7 @@
             <div class="col-md">
                 <div class="swatch-wrap">
                     <h6>danger</h6>
-                    <div class="swatch" style="background-color:var(--kg-color-danger)">--kg-color-danger</div>
+                    <div class="swatch" style="background-color:var(--wuf-color-danger)">--wuf-color-danger</div>
                     <p>The <strong>danger color</strong> is used to indicate a blocking or error condition that the user
                         must act on before they can proceed. A system in this state is blocking in nature and requires
                         immediate attention and action.</p>
@@ -160,20 +159,20 @@
 
     <h2>Color Palette</h2>
 
-    <p>Collectively, the colors that constitute the KION Color System are, for the purposes of this documentation,
-        referred to as a "color palette." Here is the complete palette in the KION Color System with their corresponding
+    <p>Collectively, the colors that constitute the Color System are, for the purposes of this documentation,
+        referred to as a "color palette." Here is the complete palette in the Color System with their corresponding
         CSS custom property names:</p>
 
     <div class="container-fluid">
         <div class="row swatch-row palette">
             <div class="col-md">
-                <div class="swatch" style="background-color:var(--kg-color-primary)">--kg-color-primary</div>
+                <div class="swatch" style="background-color:var(--wuf-color-primary)">--wuf-color-primary</div>
             </div>
             <div class="col-md">
-                <div class="swatch" style="background-color:var(--kg-color-secondary)">--kg-color-secondary</div>
+                <div class="swatch" style="background-color:var(--wuf-color-secondary)">--wuf-color-secondary</div>
             </div>
             <div class="col-md">
-                <div class="swatch" style="background-color:var(--kg-color-accent)">--kg-color-accent</div>
+                <div class="swatch" style="background-color:var(--wuf-color-accent)">--wuf-color-accent</div>
             </div>
         </div>
     </div>
@@ -181,13 +180,13 @@
     <div class="container-fluid">
         <div class="row swatch-row palette">
             <div class="col-md">
-                <div class="swatch" style="background-color:var(--kg-color-success)">--kg-color-success</div>
+                <div class="swatch" style="background-color:var(--wuf-color-success)">--wuf-color-success</div>
             </div>
             <div class="col-md">
-                <div class="swatch" style="background-color:var(--kg-color-info)">--kg-color-info</div>
+                <div class="swatch" style="background-color:var(--wuf-color-info)">--wuf-color-info</div>
             </div>
             <div class="col-md">
-                <div class="swatch" style="background-color:var(--kg-color-warning)">--kg-color-warning</div>
+                <div class="swatch" style="background-color:var(--wuf-color-warning)">--wuf-color-warning</div>
             </div>
         </div>
     </div>
@@ -195,7 +194,7 @@
     <div class="container-fluid">
         <div class="row swatch-row palette">
             <div class="col-md-4">
-                <div class="swatch" style="background-color:var(--kg-color-danger)">--kg-color-danger</div>
+                <div class="swatch" style="background-color:var(--wuf-color-danger)">--wuf-color-danger</div>
             </div>
         </div>
     </div>
@@ -206,7 +205,7 @@
 
     <h2>Color Variants</h2>
 
-    <p>The KION Theme System not only provides every color in the color palette for a given theme, but a variety of
+    <p>The Theme System not only provides every color in the color palette for a given theme, but a variety of
         darker and lighter variations of those colors as well. The following tables show the darker/lighter variations
         of each color in the color palette along with their corresponding CSS custom property names for use within the
         application. The code will rarely reference the individual color variations and it is recommended that
@@ -222,65 +221,65 @@
                     <tr>
                         <td colspan="2">
                             <h5>Primary</h5>
-                            <div class="swatch swatch-main" style="background-color:var(--kg-color-primary)">
-                                --kg-color-primary
+                            <div class="swatch swatch-main" style="background-color:var(--wuf-color-primary)">
+                                --wuf-color-primary
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="swatch" style="background-color:var(--kg-color-primary-darker-5)">
-                                --kg-color-primary-darker-5
+                            <div class="swatch" style="background-color:var(--wuf-color-primary-darker-5)">
+                                --wuf-color-primary-darker-5
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-primary-darker-10)">
-                                --kg-color-primary-darker-10
+                            <div class="swatch" style="background-color:var(--wuf-color-primary-darker-10)">
+                                --wuf-color-primary-darker-10
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-primary-darker-15)">
-                                --kg-color-primary-darker-15
+                            <div class="swatch" style="background-color:var(--wuf-color-primary-darker-15)">
+                                --wuf-color-primary-darker-15
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-primary-darker-20)">
-                                --kg-color-primary-darker-20
+                            <div class="swatch" style="background-color:var(--wuf-color-primary-darker-20)">
+                                --wuf-color-primary-darker-20
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-primary-darker-25)">
-                                --kg-color-primary-darker-25
+                            <div class="swatch" style="background-color:var(--wuf-color-primary-darker-25)">
+                                --wuf-color-primary-darker-25
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-primary-darker-30)">
-                                --kg-color-primary-darker-30
+                            <div class="swatch" style="background-color:var(--wuf-color-primary-darker-30)">
+                                --wuf-color-primary-darker-30
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-primary-darker-35)">
-                                --kg-color-primary-darker-35
+                            <div class="swatch" style="background-color:var(--wuf-color-primary-darker-35)">
+                                --wuf-color-primary-darker-35
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-primary-darker-40)">
-                                --kg-color-primary-darker-40
+                            <div class="swatch" style="background-color:var(--wuf-color-primary-darker-40)">
+                                --wuf-color-primary-darker-40
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-primary-darker-45)">
-                                --kg-color-primary-darker-45
+                            <div class="swatch" style="background-color:var(--wuf-color-primary-darker-45)">
+                                --wuf-color-primary-darker-45
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-primary-darker-50)">
-                                --kg-color-primary-darker-50
+                            <div class="swatch" style="background-color:var(--wuf-color-primary-darker-50)">
+                                --wuf-color-primary-darker-50
                             </div>
                         </td>
                         <td>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-primary-lighter-10)">
-                                --kg-color-primary-lighter-10
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-primary-lighter-10)">
+                                --wuf-color-primary-lighter-10
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-primary-lighter-20)">
-                                --kg-color-primary-lighter-20
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-primary-lighter-20)">
+                                --wuf-color-primary-lighter-20
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-primary-lighter-30)">
-                                --kg-color-primary-lighter-30
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-primary-lighter-30)">
+                                --wuf-color-primary-lighter-30
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-primary-lighter-40)">
-                                --kg-color-primary-lighter-40
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-primary-lighter-40)">
+                                --wuf-color-primary-lighter-40
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-primary-lighter-50)">
-                                --kg-color-primary-lighter-50
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-primary-lighter-50)">
+                                --wuf-color-primary-lighter-50
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-primary-lighter-60)">
-                                --kg-color-primary-lighter-60
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-primary-lighter-60)">
+                                --wuf-color-primary-lighter-60
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-primary-lighter-70)">
-                                --kg-color-primary-lighter-70
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-primary-lighter-70)">
+                                --wuf-color-primary-lighter-70
                             </div>
                         </td>
                     </tr>
@@ -291,72 +290,72 @@
                     <tr>
                         <td colspan="2">
                             <h5>Secondary</h5>
-                            <div class="swatch swatch-main" style="background-color:var(--kg-color-secondary)">
-                                --kg-color-secondary
+                            <div class="swatch swatch-main" style="background-color:var(--wuf-color-secondary)">
+                                --wuf-color-secondary
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="swatch" style="background-color:var(--kg-color-secondary-darker-5)">
-                                --kg-color-secondary-darker-5
+                            <div class="swatch" style="background-color:var(--wuf-color-secondary-darker-5)">
+                                --wuf-color-secondary-darker-5
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-secondary-darker-10)">
-                                --kg-color-secondary-darker-10
+                            <div class="swatch" style="background-color:var(--wuf-color-secondary-darker-10)">
+                                --wuf-color-secondary-darker-10
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-secondary-darker-15)">
-                                --kg-color-secondary-darker-15
+                            <div class="swatch" style="background-color:var(--wuf-color-secondary-darker-15)">
+                                --wuf-color-secondary-darker-15
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-secondary-darker-20)">
-                                --kg-color-secondary-darker-20
+                            <div class="swatch" style="background-color:var(--wuf-color-secondary-darker-20)">
+                                --wuf-color-secondary-darker-20
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-secondary-darker-25)">
-                                --kg-color-secondary-darker-25
+                            <div class="swatch" style="background-color:var(--wuf-color-secondary-darker-25)">
+                                --wuf-color-secondary-darker-25
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-secondary-darker-30)">
-                                --kg-color-secondary-darker-30
+                            <div class="swatch" style="background-color:var(--wuf-color-secondary-darker-30)">
+                                --wuf-color-secondary-darker-30
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-secondary-darker-35)">
-                                --kg-color-secondary-darker-35
+                            <div class="swatch" style="background-color:var(--wuf-color-secondary-darker-35)">
+                                --wuf-color-secondary-darker-35
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-secondary-darker-40)">
-                                --kg-color-secondary-darker-40
+                            <div class="swatch" style="background-color:var(--wuf-color-secondary-darker-40)">
+                                --wuf-color-secondary-darker-40
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-secondary-darker-45)">
-                                --kg-color-secondary-darker-45
+                            <div class="swatch" style="background-color:var(--wuf-color-secondary-darker-45)">
+                                --wuf-color-secondary-darker-45
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-secondary-darker-50)">
-                                --kg-color-secondary-darker-50
+                            <div class="swatch" style="background-color:var(--wuf-color-secondary-darker-50)">
+                                --wuf-color-secondary-darker-50
                             </div>
                         </td>
                         <td>
                             <div class="swatch dark-label"
-                                 style="background-color:var(--kg-color-secondary-lighter-10)">
-                                --kg-color-secondary-lighter-10
+                                 style="background-color:var(--wuf-color-secondary-lighter-10)">
+                                --wuf-color-secondary-lighter-10
                             </div>
                             <div class="swatch dark-label"
-                                 style="background-color:var(--kg-color-secondary-lighter-20)">
-                                --kg-color-secondary-lighter-20
+                                 style="background-color:var(--wuf-color-secondary-lighter-20)">
+                                --wuf-color-secondary-lighter-20
                             </div>
                             <div class="swatch dark-label"
-                                 style="background-color:var(--kg-color-secondary-lighter-30)">
-                                --kg-color-secondary-lighter-30
+                                 style="background-color:var(--wuf-color-secondary-lighter-30)">
+                                --wuf-color-secondary-lighter-30
                             </div>
                             <div class="swatch dark-label"
-                                 style="background-color:var(--kg-color-secondary-lighter-40)">
-                                --kg-color-secondary-lighter-40
+                                 style="background-color:var(--wuf-color-secondary-lighter-40)">
+                                --wuf-color-secondary-lighter-40
                             </div>
                             <div class="swatch dark-label"
-                                 style="background-color:var(--kg-color-secondary-lighter-50)">
-                                --kg-color-secondary-lighter-50
+                                 style="background-color:var(--wuf-color-secondary-lighter-50)">
+                                --wuf-color-secondary-lighter-50
                             </div>
                             <div class="swatch dark-label"
-                                 style="background-color:var(--kg-color-secondary-lighter-60)">
-                                --kg-color-secondary-lighter-60
+                                 style="background-color:var(--wuf-color-secondary-lighter-60)">
+                                --wuf-color-secondary-lighter-60
                             </div>
                             <div class="swatch dark-label"
-                                 style="background-color:var(--kg-color-secondary-lighter-70)">
-                                --kg-color-secondary-lighter-70
+                                 style="background-color:var(--wuf-color-secondary-lighter-70)">
+                                --wuf-color-secondary-lighter-70
                             </div>
                         </td>
                     </tr>
@@ -367,65 +366,65 @@
                     <tr>
                         <td colspan="2">
                             <h5>Accent</h5>
-                            <div class="swatch swatch-main" style="background-color:var(--kg-color-accent)">
-                                --kg-color-accent
+                            <div class="swatch swatch-main" style="background-color:var(--wuf-color-accent)">
+                                --wuf-color-accent
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="swatch" style="background-color:var(--kg-color-accent-darker-5)">
-                                --kg-color-accent-darker-5
+                            <div class="swatch" style="background-color:var(--wuf-color-accent-darker-5)">
+                                --wuf-color-accent-darker-5
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-accent-darker-10)">
-                                --kg-color-accent-darker-10
+                            <div class="swatch" style="background-color:var(--wuf-color-accent-darker-10)">
+                                --wuf-color-accent-darker-10
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-accent-darker-15)">
-                                --kg-color-accent-darker-15
+                            <div class="swatch" style="background-color:var(--wuf-color-accent-darker-15)">
+                                --wuf-color-accent-darker-15
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-accent-darker-20)">
-                                --kg-color-accent-darker-20
+                            <div class="swatch" style="background-color:var(--wuf-color-accent-darker-20)">
+                                --wuf-color-accent-darker-20
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-accent-darker-25)">
-                                --kg-color-accent-darker-25
+                            <div class="swatch" style="background-color:var(--wuf-color-accent-darker-25)">
+                                --wuf-color-accent-darker-25
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-accent-darker-30)">
-                                --kg-color-accent-darker-30
+                            <div class="swatch" style="background-color:var(--wuf-color-accent-darker-30)">
+                                --wuf-color-accent-darker-30
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-accent-darker-35)">
-                                --kg-color-accent-darker-35
+                            <div class="swatch" style="background-color:var(--wuf-color-accent-darker-35)">
+                                --wuf-color-accent-darker-35
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-accent-darker-40)">
-                                --kg-color-accent-darker-40
+                            <div class="swatch" style="background-color:var(--wuf-color-accent-darker-40)">
+                                --wuf-color-accent-darker-40
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-accent-darker-45)">
-                                --kg-color-accent-darker-45
+                            <div class="swatch" style="background-color:var(--wuf-color-accent-darker-45)">
+                                --wuf-color-accent-darker-45
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-accent-darker-50)">
-                                --kg-color-accent-darker-50
+                            <div class="swatch" style="background-color:var(--wuf-color-accent-darker-50)">
+                                --wuf-color-accent-darker-50
                             </div>
                         </td>
                         <td>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-accent-lighter-10)">
-                                --kg-color-accent-lighter-10
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-accent-lighter-10)">
+                                --wuf-color-accent-lighter-10
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-accent-lighter-20)">
-                                --kg-color-accent-lighter-20
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-accent-lighter-20)">
+                                --wuf-color-accent-lighter-20
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-accent-lighter-30)">
-                                --kg-color-accent-lighter-30
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-accent-lighter-30)">
+                                --wuf-color-accent-lighter-30
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-accent-lighter-40)">
-                                --kg-color-accent-lighter-40
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-accent-lighter-40)">
+                                --wuf-color-accent-lighter-40
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-accent-lighter-50)">
-                                --kg-color-accent-lighter-50
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-accent-lighter-50)">
+                                --wuf-color-accent-lighter-50
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-accent-lighter-60)">
-                                --kg-color-accent-lighter-60
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-accent-lighter-60)">
+                                --wuf-color-accent-lighter-60
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-accent-lighter-70)">
-                                --kg-color-accent-lighter-70
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-accent-lighter-70)">
+                                --wuf-color-accent-lighter-70
                             </div>
                         </td>
                     </tr>
@@ -441,65 +440,65 @@
                     <tr>
                         <td colspan="2">
                             <h5>Success</h5>
-                            <div class="swatch swatch-main" style="background-color:var(--kg-color-success)">
-                                --kg-color-success
+                            <div class="swatch swatch-main" style="background-color:var(--wuf-color-success)">
+                                --wuf-color-success
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="swatch" style="background-color:var(--kg-color-success-darker-5)">
-                                --kg-color-success-darker-5
+                            <div class="swatch" style="background-color:var(--wuf-color-success-darker-5)">
+                                --wuf-color-success-darker-5
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-success-darker-10)">
-                                --kg-color-success-darker-10
+                            <div class="swatch" style="background-color:var(--wuf-color-success-darker-10)">
+                                --wuf-color-success-darker-10
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-success-darker-15)">
-                                --kg-color-success-darker-15
+                            <div class="swatch" style="background-color:var(--wuf-color-success-darker-15)">
+                                --wuf-color-success-darker-15
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-success-darker-20)">
-                                --kg-color-success-darker-20
+                            <div class="swatch" style="background-color:var(--wuf-color-success-darker-20)">
+                                --wuf-color-success-darker-20
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-success-darker-25)">
-                                --kg-color-success-darker-25
+                            <div class="swatch" style="background-color:var(--wuf-color-success-darker-25)">
+                                --wuf-color-success-darker-25
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-success-darker-30)">
-                                --kg-color-success-darker-30
+                            <div class="swatch" style="background-color:var(--wuf-color-success-darker-30)">
+                                --wuf-color-success-darker-30
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-success-darker-35)">
-                                --kg-color-success-darker-35
+                            <div class="swatch" style="background-color:var(--wuf-color-success-darker-35)">
+                                --wuf-color-success-darker-35
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-success-darker-40)">
-                                --kg-color-success-darker-40
+                            <div class="swatch" style="background-color:var(--wuf-color-success-darker-40)">
+                                --wuf-color-success-darker-40
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-success-darker-45)">
-                                --kg-color-success-darker-45
+                            <div class="swatch" style="background-color:var(--wuf-color-success-darker-45)">
+                                --wuf-color-success-darker-45
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-success-darker-50)">
-                                --kg-color-success-darker-50
+                            <div class="swatch" style="background-color:var(--wuf-color-success-darker-50)">
+                                --wuf-color-success-darker-50
                             </div>
                         </td>
                         <td>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-success-lighter-10)">
-                                --kg-color-success-lighter-10
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-success-lighter-10)">
+                                --wuf-color-success-lighter-10
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-success-lighter-20)">
-                                --kg-color-success-lighter-20
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-success-lighter-20)">
+                                --wuf-color-success-lighter-20
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-success-lighter-30)">
-                                --kg-color-success-lighter-30
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-success-lighter-30)">
+                                --wuf-color-success-lighter-30
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-success-lighter-40)">
-                                --kg-color-success-lighter-40
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-success-lighter-40)">
+                                --wuf-color-success-lighter-40
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-success-lighter-50)">
-                                --kg-color-success-lighter-50
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-success-lighter-50)">
+                                --wuf-color-success-lighter-50
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-success-lighter-60)">
-                                --kg-color-success-lighter-60
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-success-lighter-60)">
+                                --wuf-color-success-lighter-60
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-success-lighter-70)">
-                                --kg-color-success-lighter-70
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-success-lighter-70)">
+                                --wuf-color-success-lighter-70
                             </div>
                         </td>
                     </tr>
@@ -510,65 +509,65 @@
                     <tr>
                         <td colspan="2">
                             <h5>Info</h5>
-                            <div class="swatch swatch-main" style="background-color:var(--kg-color-info)">
-                                --kg-color-info
+                            <div class="swatch swatch-main" style="background-color:var(--wuf-color-info)">
+                                --wuf-color-info
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="swatch" style="background-color:var(--kg-color-info-darker-5)">
-                                --kg-color-info-darker-5
+                            <div class="swatch" style="background-color:var(--wuf-color-info-darker-5)">
+                                --wuf-color-info-darker-5
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-info-darker-10)">
-                                --kg-color-info-darker-10
+                            <div class="swatch" style="background-color:var(--wuf-color-info-darker-10)">
+                                --wuf-color-info-darker-10
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-info-darker-15)">
-                                --kg-color-info-darker-15
+                            <div class="swatch" style="background-color:var(--wuf-color-info-darker-15)">
+                                --wuf-color-info-darker-15
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-info-darker-20)">
-                                --kg-color-info-darker-20
+                            <div class="swatch" style="background-color:var(--wuf-color-info-darker-20)">
+                                --wuf-color-info-darker-20
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-info-darker-25)">
-                                --kg-color-info-darker-25
+                            <div class="swatch" style="background-color:var(--wuf-color-info-darker-25)">
+                                --wuf-color-info-darker-25
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-info-darker-30)">
-                                --kg-color-info-darker-30
+                            <div class="swatch" style="background-color:var(--wuf-color-info-darker-30)">
+                                --wuf-color-info-darker-30
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-info-darker-35)">
-                                --kg-color-info-darker-35
+                            <div class="swatch" style="background-color:var(--wuf-color-info-darker-35)">
+                                --wuf-color-info-darker-35
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-info-darker-40)">
-                                --kg-color-info-darker-40
+                            <div class="swatch" style="background-color:var(--wuf-color-info-darker-40)">
+                                --wuf-color-info-darker-40
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-info-darker-45)">
-                                --kg-color-info-darker-45
+                            <div class="swatch" style="background-color:var(--wuf-color-info-darker-45)">
+                                --wuf-color-info-darker-45
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-info-darker-50)">
-                                --kg-color-info-darker-50
+                            <div class="swatch" style="background-color:var(--wuf-color-info-darker-50)">
+                                --wuf-color-info-darker-50
                             </div>
                         </td>
                         <td>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-info-lighter-10)">
-                                --kg-color-info-lighter-10
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-info-lighter-10)">
+                                --wuf-color-info-lighter-10
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-info-lighter-20)">
-                                --kg-color-info-lighter-20
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-info-lighter-20)">
+                                --wuf-color-info-lighter-20
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-info-lighter-30)">
-                                --kg-color-info-lighter-30
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-info-lighter-30)">
+                                --wuf-color-info-lighter-30
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-info-lighter-40)">
-                                --kg-color-info-lighter-40
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-info-lighter-40)">
+                                --wuf-color-info-lighter-40
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-info-lighter-50)">
-                                --kg-color-info-lighter-50
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-info-lighter-50)">
+                                --wuf-color-info-lighter-50
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-info-lighter-60)">
-                                --kg-color-info-lighter-60
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-info-lighter-60)">
+                                --wuf-color-info-lighter-60
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-info-lighter-70)">
-                                --kg-color-info-lighter-70
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-info-lighter-70)">
+                                --wuf-color-info-lighter-70
                             </div>
                         </td>
                     </tr>
@@ -579,65 +578,65 @@
                     <tr>
                         <td colspan="2">
                             <h5>Warning</h5>
-                            <div class="swatch swatch-main" style="background-color:var(--kg-color-warning)">
-                                --kg-color-warning
+                            <div class="swatch swatch-main" style="background-color:var(--wuf-color-warning)">
+                                --wuf-color-warning
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="swatch" style="background-color:var(--kg-color-warning-darker-5)">
-                                --kg-color-warning-darker-5
+                            <div class="swatch" style="background-color:var(--wuf-color-warning-darker-5)">
+                                --wuf-color-warning-darker-5
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-warning-darker-10)">
-                                --kg-color-warning-darker-10
+                            <div class="swatch" style="background-color:var(--wuf-color-warning-darker-10)">
+                                --wuf-color-warning-darker-10
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-warning-darker-15)">
-                                --kg-color-warning-darker-15
+                            <div class="swatch" style="background-color:var(--wuf-color-warning-darker-15)">
+                                --wuf-color-warning-darker-15
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-warning-darker-20)">
-                                --kg-color-warning-darker-20
+                            <div class="swatch" style="background-color:var(--wuf-color-warning-darker-20)">
+                                --wuf-color-warning-darker-20
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-warning-darker-25)">
-                                --kg-color-warning-darker-25
+                            <div class="swatch" style="background-color:var(--wuf-color-warning-darker-25)">
+                                --wuf-color-warning-darker-25
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-warning-darker-30)">
-                                --kg-color-warning-darker-30
+                            <div class="swatch" style="background-color:var(--wuf-color-warning-darker-30)">
+                                --wuf-color-warning-darker-30
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-warning-darker-35)">
-                                --kg-color-warning-darker-35
+                            <div class="swatch" style="background-color:var(--wuf-color-warning-darker-35)">
+                                --wuf-color-warning-darker-35
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-warning-darker-40)">
-                                --kg-color-warning-darker-40
+                            <div class="swatch" style="background-color:var(--wuf-color-warning-darker-40)">
+                                --wuf-color-warning-darker-40
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-warning-darker-45)">
-                                --kg-color-warning-darker-45
+                            <div class="swatch" style="background-color:var(--wuf-color-warning-darker-45)">
+                                --wuf-color-warning-darker-45
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-warning-darker-50)">
-                                --kg-color-warning-darker-50
+                            <div class="swatch" style="background-color:var(--wuf-color-warning-darker-50)">
+                                --wuf-color-warning-darker-50
                             </div>
                         </td>
                         <td>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-warning-lighter-10)">
-                                --kg-color-warning-lighter-10
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-warning-lighter-10)">
+                                --wuf-color-warning-lighter-10
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-warning-lighter-20)">
-                                --kg-color-warning-lighter-20
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-warning-lighter-20)">
+                                --wuf-color-warning-lighter-20
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-warning-lighter-30)">
-                                --kg-color-warning-lighter-30
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-warning-lighter-30)">
+                                --wuf-color-warning-lighter-30
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-warning-lighter-40)">
-                                --kg-color-warning-lighter-40
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-warning-lighter-40)">
+                                --wuf-color-warning-lighter-40
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-warning-lighter-50)">
-                                --kg-color-warning-lighter-50
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-warning-lighter-50)">
+                                --wuf-color-warning-lighter-50
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-warning-lighter-60)">
-                                --kg-color-warning-lighter-60
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-warning-lighter-60)">
+                                --wuf-color-warning-lighter-60
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-warning-lighter-70)">
-                                --kg-color-warning-lighter-70
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-warning-lighter-70)">
+                                --wuf-color-warning-lighter-70
                             </div>
                         </td>
                     </tr>
@@ -653,65 +652,65 @@
                     <tr>
                         <td colspan="2">
                             <h5>Danger</h5>
-                            <div class="swatch swatch-main" style="background-color:var(--kg-color-danger)">
-                                --kg-color-danger
+                            <div class="swatch swatch-main" style="background-color:var(--wuf-color-danger)">
+                                --wuf-color-danger
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <div class="swatch" style="background-color:var(--kg-color-danger-darker-5)">
-                                --kg-color-danger-darker-5
+                            <div class="swatch" style="background-color:var(--wuf-color-danger-darker-5)">
+                                --wuf-color-danger-darker-5
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-danger-darker-10)">
-                                --kg-color-danger-darker-10
+                            <div class="swatch" style="background-color:var(--wuf-color-danger-darker-10)">
+                                --wuf-color-danger-darker-10
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-danger-darker-15)">
-                                --kg-color-danger-darker-15
+                            <div class="swatch" style="background-color:var(--wuf-color-danger-darker-15)">
+                                --wuf-color-danger-darker-15
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-danger-darker-20)">
-                                --kg-color-danger-darker-20
+                            <div class="swatch" style="background-color:var(--wuf-color-danger-darker-20)">
+                                --wuf-color-danger-darker-20
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-danger-darker-25)">
-                                --kg-color-danger-darker-25
+                            <div class="swatch" style="background-color:var(--wuf-color-danger-darker-25)">
+                                --wuf-color-danger-darker-25
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-danger-darker-30)">
-                                --kg-color-danger-darker-30
+                            <div class="swatch" style="background-color:var(--wuf-color-danger-darker-30)">
+                                --wuf-color-danger-darker-30
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-danger-darker-35)">
-                                --kg-color-danger-darker-35
+                            <div class="swatch" style="background-color:var(--wuf-color-danger-darker-35)">
+                                --wuf-color-danger-darker-35
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-danger-darker-40)">
-                                --kg-color-danger-darker-40
+                            <div class="swatch" style="background-color:var(--wuf-color-danger-darker-40)">
+                                --wuf-color-danger-darker-40
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-danger-darker-45)">
-                                --kg-color-danger-darker-45
+                            <div class="swatch" style="background-color:var(--wuf-color-danger-darker-45)">
+                                --wuf-color-danger-darker-45
                             </div>
-                            <div class="swatch" style="background-color:var(--kg-color-danger-darker-50)">
-                                --kg-color-danger-darker-50
+                            <div class="swatch" style="background-color:var(--wuf-color-danger-darker-50)">
+                                --wuf-color-danger-darker-50
                             </div>
                         </td>
                         <td>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-danger-lighter-10)">
-                                --kg-color-danger-lighter-10
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-danger-lighter-10)">
+                                --wuf-color-danger-lighter-10
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-danger-lighter-20)">
-                                --kg-color-danger-lighter-20
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-danger-lighter-20)">
+                                --wuf-color-danger-lighter-20
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-danger-lighter-30)">
-                                --kg-color-danger-lighter-30
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-danger-lighter-30)">
+                                --wuf-color-danger-lighter-30
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-danger-lighter-40)">
-                                --kg-color-danger-lighter-40
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-danger-lighter-40)">
+                                --wuf-color-danger-lighter-40
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-danger-lighter-50)">
-                                --kg-color-danger-lighter-50
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-danger-lighter-50)">
+                                --wuf-color-danger-lighter-50
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-danger-lighter-60)">
-                                --kg-color-danger-lighter-60
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-danger-lighter-60)">
+                                --wuf-color-danger-lighter-60
                             </div>
-                            <div class="swatch dark-label" style="background-color:var(--kg-color-danger-lighter-70)">
-                                --kg-color-danger-lighter-70
+                            <div class="swatch dark-label" style="background-color:var(--wuf-color-danger-lighter-70)">
+                                --wuf-color-danger-lighter-70
                             </div>
                         </td>
                     </tr>
@@ -719,8 +718,8 @@
             </div>
         </div>
     </div>
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

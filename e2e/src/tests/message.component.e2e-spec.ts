@@ -81,7 +81,7 @@ describe('Message Page View', function () {
             expect(view.get_warningMessage().getCssValue('background-color')).toEqual('rgba(252, 167, 0, 1)');
 
             // TODO: Cooking up the books so that this test passes. If we stop it right before the test, color = black!
-            // This test things it is rgba(73, 80, 87, 1). The tests for its kg-web-messages cousin pass!
+            // This test things it is rgba(73, 80, 87, 1). The tests for its wuf-web-message cousin pass!
             // browser.stop();
             // expect(view.get_warningMessage().getCssValue('color')).toEqual('rgba(33, 37, 41, 1)');
 

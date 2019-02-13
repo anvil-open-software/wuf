@@ -12,8 +12,7 @@ import {map, startWith} from 'rxjs/operators';
 
 import { MatDialog, MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete} from '@angular/material';
 
-import {FormDialogExample} from './modal/form.dialog.component';
-import { KgDrawerService } from '@kion/kg-ang-drawer';
+import { WufDrawerService } from '@anviltech/wuf-ang-drawer';
 import { FormSettingsService } from './form.service';
 
 
@@ -64,7 +63,7 @@ export class FormsComponent implements OnInit {
     ];
 
     constructor(
-        private drawerService: KgDrawerService,
+        private drawerService: WufDrawerService,
         public materialDialog: MatDialog,
         public formSettingsService: FormSettingsService
     ) {
@@ -89,16 +88,6 @@ export class FormsComponent implements OnInit {
 
     initForm() {
         this.updateFormSettings(this.formSettingsService.defaultSettings);
-    }
-
-    openFormDialog() {
-        const dialogWidth = this.formSettingsService.settings.id === 'proposed' ? '500px' : '1000px';
-
-        console.log('dialogWidth='+ dialogWidth);
-
-        const dialogRef = this.materialDialog.open(FormDialogExample, {
-            width: dialogWidth
-        });
     }
 
     updateFormSettings(settings) {

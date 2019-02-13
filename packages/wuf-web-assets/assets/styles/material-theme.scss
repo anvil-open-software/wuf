@@ -1,0 +1,16 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+// This file provides direct access to the AnvilTech Material Design Theme ONLY without including any other SCSS.  Dark theming is not included.
+
+// Mixins & functions (must come first)
+@import 'partials/mixins';
+@import 'partials/functions';
+
+// Themes
+@import 'mixins/themes';
+
+// Create default material design theme
+@include wuf-mat-theme($primary, $accent, $danger);

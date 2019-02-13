@@ -1,0 +1,85 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+// NOTE: There is no shadow DOM used for this component so that the following styles can be applied to content passed via content projection.  This means we can't use the typical :host trick for declaring local CSS custom properties.
+
+wuf-sidebar-footer {
+    width: 100%;
+}
+
+.sidebar-footer-wrap {
+    height: var(--wuf-sidebar-footer-height, var(--wuf-footer-height));
+    background-color: var(--wuf-sidebar-footer-bg-color, var(--wuf-color-secondary-darker-15));
+    font-size: .75em;
+    color: var(--wuf-sidebar-footer-color, var(--wuf-color-secondary-lighter-10));
+    display: flex;
+    align-items: center;
+    ul.sidebar-footer {
+        list-style-type: none;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        justify-content: center;
+        font-size: 18px;
+        align-items: center;
+        display: flex;
+        &.minimized {
+            li {
+                a {
+                    .material-icons {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+        li {
+            flex: 1 1 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0px;
+            line-height: 0;
+            display: flex;
+            align-items: center;
+            a {
+                height: 100%;
+                width: 100%;
+                text-align: center;
+                position: relative;
+                color: var(--sidebar-footer-color);
+                text-decoration: none;
+                vertical-align: middle;
+                display: inline-block;
+                padding: 10px 0;
+                &:hover {
+                    color: var(--wuf-sidebar-footer-hover-color, var(--wuf-color-secondary-lighter-20));
+                    background-color: var(--wuf-sidebar-footer-hover-bg-color, var(--wuf-color-secondary-darker-25));
+                }
+                .material-icons {
+                    padding: 0px;
+                    margin: 0px;
+                    line-height: .75rem;
+                }
+            }
+            &.active {
+                a, a:hover {
+                    color: var(--wuf-sidebar-footer-active-color, var(--wuf-color-white));
+                    background-color: var(--wuf-sidebar-footer-active-bg-color, var(--wuf-color-primary));
+                }
+            }
+        }
+    }
+    .sidebar-footer-content {
+        padding: 8px 10px;
+        &.minimized {
+            text-align: center;
+            padding: 4px;
+            .hideOnMinimized {
+                display: none;
+            }
+        }
+    }
+}
+

@@ -8,8 +8,8 @@
     vertical-align: middle;
     margin: 20px auto;
     width: 400px;
-    background-color: var(--kg-color-secondary-lighter-50);
-    border: 1px solid var(--kg-border-color);
+    background-color: var(--wuf-color-secondary-lighter-50);
+    border: 1px solid var(--wuf-border-color);
     text-align: center;
     .button-wrap {
         margin: 40px auto;
@@ -18,9 +18,9 @@
     }
     .exampleText {
         font-size: 12px;
-        color: var(--kg-body-color);
+        color: var(--wuf-body-color);
         text-align: left;
         display: block;
-        font-family: var(--kg-font-family-monospace);
+        font-family: var(--wuf-font-family-monospace);
     }
 }

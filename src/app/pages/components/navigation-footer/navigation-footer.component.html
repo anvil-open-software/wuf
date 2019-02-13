@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Navigation Footer', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Navigation Footer', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
     <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
                         [tabLabel_4]="'Change Log'">
@@ -29,8 +29,8 @@
 
             <h4>Default</h4>
             <div
-                style="width: 230px; background-color: var(--kg-sidebar-bg-color); color: var(--kg-sidebar-color); margin-bottom: 20px;">
-                <kg-sidebar-footer></kg-sidebar-footer>
+                style="width: 230px; background-color: var(--wuf-sidebar-bg-color); color: var(--wuf-sidebar-color); margin-bottom: 20px;">
+                <wuf-sidebar-footer></wuf-sidebar-footer>
             </div>
             <br>
 
@@ -38,24 +38,24 @@
             <p>Note: It's recommended to pass copyrightName via <a routerLink="/setup/configuration">configuration
                 service</a>.</p>
             <div
-                style="width: 230px; background-color: var(--kg-sidebar-bg-color); color: var(--kg-sidebar-color); margin-bottom: 20px;">
-                <kg-sidebar-footer [copyrightName]="'KION, Inc.'"></kg-sidebar-footer>
+                style="width: 230px; background-color: var(--wuf-sidebar-bg-color); color: var(--wuf-sidebar-color); margin-bottom: 20px;">
+                <wuf-sidebar-footer [copyrightName]="'ACME, Inc.'"></wuf-sidebar-footer>
             </div>
 
             <br>
 
             <h4>Custom Content</h4>
             <div
-                style="width: 230px; background-color: var(--kg-sidebar-bg-color); color: var(--kg-sidebar-color); margin-bottom: 20px;">
-                <kg-sidebar-footer>I'm custom content!</kg-sidebar-footer>
+                style="width: 230px; background-color: var(--wuf-sidebar-bg-color); color: var(--wuf-sidebar-color); margin-bottom: 20px;">
+                <wuf-sidebar-footer>I'm custom content!</wuf-sidebar-footer>
             </div>
             <br>
 
             <h4>Footer Icons/Links</h4>
 
             <div
-                style="width: 230px; background-color: var(--kg-sidebar-bg-color); color: var(--kg-sidebar-color); margin-bottom: 20px;">
-                <kg-sidebar-footer [dataUrl]="footerDataUrl"></kg-sidebar-footer>
+                style="width: 230px; background-color: var(--wuf-sidebar-bg-color); color: var(--wuf-sidebar-color); margin-bottom: 20px;">
+                <wuf-sidebar-footer [dataUrl]="footerDataUrl"></wuf-sidebar-footer>
             </div>
         </div>
 
@@ -67,12 +67,12 @@
 
         <!--start API Content -->
         <div class="component_tabs_3">
-            <p>You can find the <code>&lt;kg-sidebar-footer&gt;</code> in <code>src/app/internal/layouts/main/main.component.html</code>.
+            <p>You can find the <code>&lt;wuf-sidebar-footer&gt;</code> in <code>src/app/internal/layouts/main/main.component.html</code>.
             </p>
 
             <p>By default the navigation footer displays copyright information.</p>
 
-            <p>You can override the default behavior of <code>&lt;kg-sidebar-footer&gt;</code> in one of three ways,
+            <p>You can override the default behavior of <code>&lt;wuf-sidebar-footer&gt;</code> in one of three ways,
                 using:</p>
             <ol>
                 <li>Content projection</li>
@@ -82,10 +82,10 @@
 
             <h4>Content Projection</h4>
 
-            <p>By simply adding content, to the <code>&lt;kg-sidebar-footer&gt;</code> tag, you can replace the default
+            <p>By simply adding content, to the <code>&lt;wuf-sidebar-footer&gt;</code> tag, you can replace the default
                 copyright information with content of your choice:</p>
 
-            <kg-code-sample [code]="exampleHtml1" type="html"></kg-code-sample>
+            <wuf-code-sample [code]="exampleHtml1" type="html"></wuf-code-sample>
 
             <p>Note that the sidebar is resizable. We probably can't display long strings here when the sidebar is
                 minimized, for example. You can use the <code>"hideOnMinimized"</code> classname to help here. In the
@@ -97,43 +97,40 @@
             <p>You can pass an array of links via the <code>data</code> attribute. Use the following code in the
                 component.html file:</p>
 
-            <kg-code-sample [code]="exampleHtml2" type="html"></kg-code-sample>
+            <wuf-code-sample [code]="exampleHtml2" type="html"></wuf-code-sample>
 
             <p>The JSON object in the component.ts file should look like this:</p>
 
-            <kg-code-sample [code]="exampleCode1" type="typescript"></kg-code-sample>
+            <wuf-code-sample [code]="exampleCode1" type="typescript"></wuf-code-sample>
 
             <h4>DataUrl</h4>
 
             <p>You can also pass a URL in the <code>dataUrl</code> attribute. The URL should return a JSON object
                 structured like the example above.</p>
 
-            <kg-code-sample [code]="exampleHtml3" type="html"></kg-code-sample>
+            <wuf-code-sample [code]="exampleHtml3" type="html"></wuf-code-sample>
 
             <hr>
 
             <h4>Copyright Name</h4>
 
             <p>If you want to only change the company name used for the copyright info but keep the
-                algorithmically-generated date, you can use the "copyrightName" attribute to pass the company name. It
-                is recommended to use the name of the KION subsidiary here and <strong>NOT</strong> the name of the
-                theme, which may be associated with a customer brand. For example, if we display a Wal-Mart theme, the
-                copyright name must remain "Dematic, Inc."</p>
+                algorithmically-generated date, you can use the "copyrightName" attribute to pass the company name.</p>
 
             <p>Note: It's recommended to pass copyrightName via <a routerLink="/setup/configuration">configuration
                 service</a> and <em>not</em> hard code the value as a string as in the following example.</p>
 
-            <kg-code-sample [code]="exampleHtml4" type="html"></kg-code-sample>
+            <wuf-code-sample [code]="exampleHtml4" type="html"></wuf-code-sample>
 
             <hr>
 
             <h2>CSS Variables (i.e., CSS Custom Properties) Reference</h2>
 
             <p>The following theme-related CSS custom properties are available to use throughout your application's CSS
-                files should you decide to use them to further customize your brand's appearance. By default, the values
-                of these properties are set to use the Dematic brand theme. However, you can easily override all of the
-                following default value with your own theme values using the SCSS methods definded in the <a
-                    routerLink="/themes/themes">KION Theme System</a> documentation.</p>
+                files should you decide to use them to further customize your brand's appearance. By default, the
+                values of these properties are set to use the default brand theme. However, you can easily override
+                all of the following default value with your own theme values using the SCSS methods defined in the
+                <a routerLink="/themes/themes">Theme System</a> documentation.</p>
 
             <table class="table table-striped css-props-table">
                 <thead>
@@ -144,39 +141,39 @@
                 </tr>
                 </thead>
                 <tr>
-                    <td class="propName">--kg-sidebar-footer-height</td>
+                    <td class="propName">--wuf-sidebar-footer-height</td>
                     <td class="description">The sidebar footer's height.</td>
-                    <td class="value">var(--kg-footer-height)</td>
+                    <td class="value">var(--wuf-footer-height)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-sidebar-footer-bg-color</td>
+                    <td class="propName">--wuf-sidebar-footer-bg-color</td>
                     <td class="description">The sidebar footer's background color.</td>
-                    <td class="value">var(--kg-color-primary-darker-15)</td>
+                    <td class="value">var(--wuf-color-primary-darker-15)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-sidebar-footer-color</td>
+                    <td class="propName">--wuf-sidebar-footer-color</td>
                     <td class="description">The sidebar footer's text color.</td>
-                    <td class="value">var(--kg-color-primary-lighter-10)</td>
+                    <td class="value">var(--wuf-color-primary-lighter-10)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-sidebar-footer-hover-color</td>
+                    <td class="propName">--wuf-sidebar-footer-hover-color</td>
                     <td class="description">The sidebar footer's link hover color.</td>
-                    <td class="value">var(--kg-color-primary-lighter-20)</td>
+                    <td class="value">var(--wuf-color-primary-lighter-20)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-sidebar-footer-hover-bg-color</td>
+                    <td class="propName">--wuf-sidebar-footer-hover-bg-color</td>
                     <td class="description">The sidebar footer's hover background color.</td>
-                    <td class="value">var(--kg-color-primary-darker-25)</td>
+                    <td class="value">var(--wuf-color-primary-darker-25)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-sidebar-footer-active-color</td>
+                    <td class="propName">--wuf-sidebar-footer-active-color</td>
                     <td class="description">The background color to display on active sidebar footer items.</td>
-                    <td class="value">var(--kg-color-white)</td>
+                    <td class="value">var(--wuf-color-white)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-sidebar-footer-active-bg-color</td>
+                    <td class="propName">--wuf-sidebar-footer-active-bg-color</td>
                     <td class="description">The text color to display on active sidebar footer items.</td>
-                    <td class="value">var(--kg-color-secondary)</td>
+                    <td class="value">var(--wuf-color-secondary)</td>
                 </tr>
             </table>
 
@@ -192,9 +189,9 @@
         </div>
         <!--end CHANGELOG Content -->
     </app-component-tabs>
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
-</kg-content-footer>
+</wuf-content-footer>
 

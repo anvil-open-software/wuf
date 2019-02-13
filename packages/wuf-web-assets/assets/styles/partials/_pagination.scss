@@ -1,0 +1,83 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+:root {
+    --wuf-pagination-color: var(--wuf-link-color);
+    --wuf-pagination-bg-color: var(--wuf-color-white);
+    --wuf-pagination-border-color: var(--wuf-border-color);
+    --wuf-pagination-hover-color: var(--wuf-link-hover-color);
+    --wuf-pagination-hover-bg-color: var(--wuf-color-gray-200);
+    --wuf-pagination-hover-border-color: var(--wuf-color-gray-300);
+    --wuf-pagination-active-color: var(--wuf-color-primary);
+    --wuf-pagination-active-bg-color: var(--wuf-color-gray-200);
+    --wuf-pagination-active-border-color: var(--wuf-color-primary);
+    --wuf-pagination-disabled-color: var(--wuf-color-gray-600);
+    --wuf-pagination-disabled-bg-color: var(--wuf-color-white);
+    --wuf-pagination-disabled-border-color: var(--wuf-color-gray-300);
+}
+
+.pagination {
+    display: flex;
+    @include list-unstyled();
+    @include border-radius();
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: $pagination-padding-y $pagination-padding-x;
+    margin-left: calc(var(--wuf-border-width) * -1);
+    line-height: $pagination-line-height;
+    color: var(--wuf-pagination-color);
+    background-color: var(--wuf-pagination-bg-color);
+    border: var(--wuf-border-width) solid var(--wuf-pagination-border-color);
+
+    &:hover {
+        color: var(--wuf-pagination-hover-color);
+        text-decoration: none;
+        background-color: var(--wuf-pagination-hover-bg-color);
+        border-color: var(--wuf-pagination-hover-border-color);
+    }
+
+    &:focus {
+        z-index: 2;
+        outline: 0;
+    }
+
+    // Opinionated: add "hand" cursor to non-disabled .page-link elements
+    &:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+}
+
+.page-item {
+    &:first-child {
+        .page-link {
+            margin-left: 0;
+            @include border-left-radius(var(--wuf-border-radius));
+        }
+    }
+    &:last-child {
+        .page-link {
+            @include border-right-radius(var(--wuf-border-radius));
+        }
+    }
+
+    &.active .page-link {
+        z-index: 1;
+        color: var(--wuf-color-white);
+        background-color: var(--wuf-pagination-active-color);
+        border-color: var(--wuf-pagination-active-border-color);
+    }
+
+    &.disabled .page-link {
+        color: var(--wuf-pagination-disabled-color);
+        pointer-events: none;
+        // Opinionated: remove the "hand" cursor set previously for .page-link
+        cursor: auto;
+        background-color: var(--wuf-pagination-disabled-bg-color);
+        border-color: var(--wuf-pagination-disabled-border-color);
+    }
+}

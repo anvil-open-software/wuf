@@ -1,0 +1,36 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+//
+// Base styles
+//
+
+.alert {
+    position: relative;
+    padding: 15px;
+    margin-bottom: var(--wuf-spacer);
+    @include border-radius(var(--wuf-border-radius));
+}
+
+// Headings for larger alerts
+.alert-heading {
+    // Specified to prevent conflicts of changing $headings-color
+    color: inherit;
+}
+
+// Provide class for links that match alerts
+.alert-link {
+    font-weight: var(--wuf-font-weight-bold);
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+
+@each $color, $value in $theme-colors {
+    .alert-#{$color} {
+        @include alert-variant($color);
+    }
+}

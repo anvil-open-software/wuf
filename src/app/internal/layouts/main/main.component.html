@@ -4,44 +4,37 @@
   -->
 
 <!-- start fancy login screen (goes at top) -->
-<kg-login>
+<wuf-login>
     <ng-container title>
         Sign in to <span>{{title}}</span>
     </ng-container>
-</kg-login>
+</wuf-login>
 <!-- end fancy login screen -->
 
-<kg-view-main [logoRoute]="logoRoute">
+<wuf-view-main [logoRoute]="logoRoute">
     <ng-container sidebarNavigation>
-        <kg-navigation
+        <wuf-navigation
             [data]="navData"
             [position]="configService.config.navigation.position"
             [iconPosition]="configService.config.navigation.iconPosition"
             [alignment]="configService.config.navigation.alignment"
-        ></kg-navigation>
+        ></wuf-navigation>
     </ng-container>
 
     <ng-container sidebarFooter>
-        <!--<kg-sidebar-footer [dataUrl]="footerDataUrl"></kg-sidebar-footer>-->
-        <kg-sidebar-footer [copyrightName]="configService.config.copyrightName"></kg-sidebar-footer>
+        <!--<wuf-sidebar-footer [dataUrl]="footerDataUrl"></wuf-sidebar-footer>-->
+        <wuf-sidebar-footer [copyrightName]="configService.config.copyrightName"></wuf-sidebar-footer>
     </ng-container>
 
-    <ng-container toolbarContent>
+    <ng-container toolbarLeft>
         <!--Optionally add app-level title here-->
         Living Style Guide
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--Add app-level utilities here-->
 
         <div class="util-wrap">
-            <div *ngIf="configService.config.theme === 'still'" class="theme-still-wrap">
-                <i class="material-icons"
-                   matTooltip="Edit"
-                   matTooltipPosition="below"
-                >edit</i>
-            </div>
-
             <i class="material-icons"
                matTooltip="Account"
                matTooltipPosition="below"
@@ -57,10 +50,10 @@
     <ng-container main>
         <router-outlet></router-outlet>
     </ng-container>
-</kg-view-main>
+</wuf-view-main>
 
 <!-- begin settings side drawer -->
-<kg-drawer header="Settings" id="settingsDrawer">
+<wuf-drawer header="Settings" id="settingsDrawer">
     <mat-form-field>
         <mat-select placeholder="Theme" [(value)]="theme" (selectionChange)="onThemeChange($event)">
             <mat-option *ngFor="let theme of themes" [value]="theme">
@@ -99,6 +92,6 @@
     <mat-slide-toggle color="primary" [(checked)]="configService.config.themeDark"
                       (change)="onDarkThemeChange($event.checked)">Dark Theme
     </mat-slide-toggle>
-</kg-drawer>
+</wuf-drawer>
 <!-- end settings side drawer -->
 

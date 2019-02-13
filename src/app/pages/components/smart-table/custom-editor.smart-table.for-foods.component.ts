@@ -5,7 +5,7 @@
 
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 
-import { KgSmartTableCell, KgSmartTableDefaultEditor, KgSmartTableEditor } from '@kion/kg-ang-smart-table';
+import { WufSmartTableCell, WufSmartTableDefaultEditor, WufSmartTableEditor } from '@anviltech/wuf-ang-smart-table';
 
 // import { NgbPopover } from '@ng-bootstrap/ng-bootstrap';
 
@@ -16,15 +16,15 @@ import { KgSmartTableCell, KgSmartTableDefaultEditor, KgSmartTableEditor } from 
         <!--<div class="input-group">-->
 
             <!--<ng-template #popContent1>-->
-                <!--<kg-multi-popover [items]="multipleItems"-->
+                <!--<wuf-multi-popover [items]="multipleItems"-->
                                   <!--(onSubmitClose)="submitPopover($event)"-->
                                   <!--(onCancelClose)="cancelPopover($event)">-->
-                <!--</kg-multi-popover>-->
+                <!--</wuf-multi-popover>-->
             <!--</ng-template>-->
 
             <!--<ng-template #popHoverContent1>-->
-                <!--<kg-multi-popover-hover [items]="multipleItemsForPopover">-->
-                <!--</kg-multi-popover-hover>-->
+                <!--<wuf-multi-popover-hover [items]="multipleItemsForPopover">-->
+                <!--</wuf-multi-popover-hover>-->
             <!--</ng-template>-->
 
             <!--<div class="multiple-popover-wrap-div"-->
@@ -59,7 +59,7 @@ import { KgSmartTableCell, KgSmartTableDefaultEditor, KgSmartTableEditor } from 
         <!--</div>-->
     `
 })
-export class CustomEditorForFoodsSmartTable extends KgSmartTableDefaultEditor implements AfterViewInit {
+export class CustomEditorForFoodsSmartTable extends WufSmartTableDefaultEditor implements AfterViewInit {
 
     // @ViewChild('clickP') public clickPopover: NgbPopover;
     // @ViewChild('hoverP') public hoverPopover: NgbPopover;

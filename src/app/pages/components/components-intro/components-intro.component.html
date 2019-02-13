@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'Intro to Components', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'Intro to Components', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
 
     <h1>Intro to Components</h1>
@@ -35,8 +35,8 @@
         available within WUF.
     </p>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

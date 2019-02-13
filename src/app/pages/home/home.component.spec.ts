@@ -9,7 +9,7 @@ import { DebugElement } from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { KgContentFooterService } from '@kion/kg-ang-layout';
+import { WufContentFooterService } from '@anviltech/wuf-ang-layout';
 import { NgxMdModule } from 'ngx-md';
 
 import { HomeComponent } from './home.component';
@@ -32,7 +32,7 @@ describe('HomeComponent', () => {
                 NgxMdModule
             ],
             providers: [
-                KgContentFooterService
+                WufContentFooterService
             ]
         })
         .compileComponents();

@@ -3,18 +3,18 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Layout Components', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Layout Components', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
     <h1>Layout Components</h1>
 
@@ -26,62 +26,62 @@
 
     <h2>Page Scaffolding</h2>
 
-    <p>Basic page scaffolding is provided by the <code>&lt;kg-content-header&gt;</code>,
-        <code>&lt;kg-content-main&gt;</code>, and <code>&lt;kg-content-footer&gt;</code> components.</p>
+    <p>Basic page scaffolding is provided by the <code>&lt;wuf-content-header&gt;</code>,
+        <code>&lt;wuf-content-main&gt;</code>, and <code>&lt;wuf-content-footer&gt;</code> components.</p>
 
     <p>Every page in your application should include these three components. Even if you don't intend to use all three,
         we recommend including each for consistency and for future functionality. Consider them layout "slots" into
         which your page content can be added. The components will handle the generation and styling of your page's
         layout HTML/CSS while you, as a developer, focus on the page content placed inside each.</p>
 
-    <kg-code-sample type="html" [code]="layoutCodeBasic"></kg-code-sample>
+    <wuf-code-sample type="html" [code]="layoutCodeBasic"></wuf-code-sample>
 
     <hr>
 
-    <h2>&lt;kg-content-header&gt;</h2>
+    <h2>&lt;wuf-content-header&gt;</h2>
 
-    <p>The <code>&lt;kg-content-header&gt;</code> slot is used to add a <a routerLink="/components/toolbars">toolbar</a>,
+    <p>The <code>&lt;wuf-content-header&gt;</code> slot is used to add a <a routerLink="/components/toolbars">toolbar</a>,
         <a routerLink="/components/breadcrumbs">breadcrumb trail</a>, and page-level utility links to an application
         page. Or other content that is not scrollable and need to stay on top.</p>
 
-    <kg-code-sample type="html" [code]="headerCode"></kg-code-sample>
+    <wuf-code-sample type="html" [code]="headerCode"></wuf-code-sample>
 
     <hr>
 
-    <h2>&lt;kg-content-main&gt;</h2>
+    <h2>&lt;wuf-content-main&gt;</h2>
 
-    <p>The <code>&lt;kg-content-main&gt;</code> slot is used to host the main page content. It generates the HTML/CSS
+    <p>The <code>&lt;wuf-content-main&gt;</code> slot is used to host the main page content. It generates the HTML/CSS
         necessary to control content padding, content scrolling, etc.</p>
 
-    <kg-code-sample type="html" [code]="contentCode"></kg-code-sample>
+    <wuf-code-sample type="html" [code]="contentCode"></wuf-code-sample>
 
     <hr>
 
-    <h2>&lt;kg-content-footer&gt;</h2>
+    <h2>&lt;wuf-content-footer&gt;</h2>
 
-    <p>The <code>&lt;kg-content-footer&gt;</code> slot is used to (optionally) display page-level footer content. A
+    <p>The <code>&lt;wuf-content-footer&gt;</code> slot is used to (optionally) display page-level footer content. A
         page
         footer is fixed in position and always appears at the bottom of the content area overlaid on TOP of page
         content.</p>
 
-    <kg-code-sample type="html" [code]="footerCode"></kg-code-sample>
+    <wuf-code-sample type="html" [code]="footerCode"></wuf-code-sample>
 
     <p>The page footer is not intended to be displayed at all times and is recommended to show only when additional
         details need to be shown as the result of an action taken elsewhere on the page. Use the following code to
         toggle the content footer on/off:</p>
 
-    <kg-code-sample type="typescript" [code]="footerToggleCode1"></kg-code-sample>
+    <wuf-code-sample type="typescript" [code]="footerToggleCode1"></wuf-code-sample>
 
     <p>The add the following example HTML to your page:</p>
 
-    <kg-code-sample type="html" [code]="footerToggleCode2"></kg-code-sample>
+    <wuf-code-sample type="html" [code]="footerToggleCode2"></wuf-code-sample>
 
     <p>Click here for an example of toggling a page footer:
         <button mat-raised-button (click)="toggleFooter()">toggle footer</button>
     </p>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     Hi! I'm a content footer.
-</kg-content-footer>
+</wuf-content-footer>

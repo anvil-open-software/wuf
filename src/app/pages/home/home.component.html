@@ -3,18 +3,18 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb [items]="[{ link: null, label: 'Introduction', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb [items]="[{ link: null, label: 'Introduction', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
     <app-component-tabs [tabLabel_1]="'Intro'" [tabLabel_2]="'Installation'" [tabLabel_3]="'CHANGE LOG'"
                         [selectedTabIndex]="selectedTabIndex">
@@ -23,20 +23,33 @@
 
         <!-- EXAMPLE Content -->
         <div class="component_tabs_1">
-            <p>The <strong>Web UI Framework</strong> (WUF) is a framework based on Angular designed to help developers
+            <p>The <strong>Web UI Framework</strong> (WUF) is an open source framework based on Angular designed to help developers
                 quickly and easily create applications built on a modern platform, web standards, and best practices.
             </p>
 
-            <p>The WUF is comprised of the following 3 repos:</p>
+            <p>WUF is based on the following technologies:</p>
+            <ul>
+                <li>Node.js</li>
+                <li>Angular 2+</li>
+                <li>Typescript</li>
+                <li>Material Design</li>
+                <li>SCSS</li>
+                <li>HTML/CSS for Front-end layouts that are fully responsive</li>
+                <li>It also includes support for:</li>
+                <li>Web components</li>
+                <li>Polymer components</li>
+            </ul>
+
+            <p>WUF was initially developed internally by Dematic, Inc. for use in its own applications, but it has since been released to the open source community under the MIT license.  Packages are published under the <a href="https://www.npmjs.com/settings/anvil-open-source/packages" target="_blank">@anviltech</a> scope into the public NPM registry.  Please feel free to use WUF as you see fit.  We also welcome code contributions!</p>
+
+            <p>The WUF is comprised of 2 repos:</p>
 
             <ol>
-                <li>The <a href="https://gitlab.dematic.com/cloud_visualization_services/web-ui-framework"
-                           target="_blank">web-ui-framework</a> repo.  This repo holds the Living Style Guide (this application) as well as the Library of Components.
+                <li>The <a href="https://github.com/anvil-open-software/wuf"
+                           target="_blank">WUF</a> repo.  This repo holds the Living Style Guide (this application) as well as the Library of Components, each of which is published independently to the public NPM registry.
                 </li>
-                <li>The <a href="https://gitlab.dematic.com/cloud_visualization_services/angular-quickstart-app-minimal"
-                           target="_blank">Quick Start Application (Minimal)</a> repo.</li>
-                <li>The <a href="https://gitlab.dematic.com/cloud_visualization_services/angular-quickstart-app-complete"
-                           target="_blank">Quick Start Application (Complete)</a> repo.</li>
+                <li>The <a href="https://https://github.com/anvil-open-software/wuf-quick-start"
+                           target="_blank">WUF Quick Start Application</a> repo.</li>
             </ol>
 
             <p>This application, the <strong>Living Style Guide</strong>, will serve as a living, self-documenting
@@ -54,11 +67,11 @@
                 <li>For instructions on installing the Living Style Guide (this application) locally, click the <a
                     [routerLink]="" (click)="setTab(1)">Installation tab</a> above.
                 </li>
-                <li>To learn how to develop & contribute to the WUF, visit the <a [routerLink]="'/development'">Development</a>
+                <li>To learn how to develop & contribute to WUF, visit the <a [routerLink]="'/development'">Development</a>
                     section.
                 </li>
                 <li>For instructions on developing a <strong>NEW</strong> application based on WUF, view the <a
-                    routerLink="gettingstarted">Quick Start Application (Minimal)</a> page.
+                    routerLink="gettingstarted">Quick Start Application</a> page.
                 </li>
             </ul>
 
@@ -66,6 +79,10 @@
 
         <!-- Installation Content -->
         <div class="component_tabs_2">
+            <p>The following is copied from the project's README.md file:</p>
+
+            <hr>
+
             <markdown path="assets/documentation/README.md"></markdown>
         </div>
 
@@ -74,10 +91,10 @@
             <markdown path="assets/documentation/CHANGELOG.md"></markdown>
         </div>
     </app-component-tabs>
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
     [page footer content here]
-</kg-content-footer>
+</wuf-content-footer>
 

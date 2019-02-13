@@ -16,7 +16,7 @@
 .swatch {
     color: #ffffff;
     font-size: 10px;
-    font-family: var(--kg-font-family-monospace);
+    font-family: var(--wuf-font-family-monospace);
     padding: 5px;
     display: inline-block;
     text-align: center;
@@ -28,15 +28,15 @@
 .swatch-row {
     margin-bottom: 40px;
     .swatch-wrap {
-        border: 1px solid var(--kg-border-color);
+        border: 1px solid var(--wuf-border-color);
         padding: 0 10px;
         height: 100%;
         h6 {
             text-align: center;
             font-size: 1rem;
             margin: 0 -10px 10px -10px;
-            border-bottom: 1px solid var(--kg-border-color);
-            background-color: var(--kg-table-head-bg-color);
+            border-bottom: 1px solid var(--wuf-border-color);
+            background-color: var(--wuf-table-head-bg-color);
             padding: 5px;
         }
         p {

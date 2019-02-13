@@ -1,0 +1,19 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    overflow: hidden;
+    min-height: 100vh;
+    background-color: var(--wuf-body-bg);
+
+    /***** scrolling areas *****/
+    &, * {
+        @include scrollbars;
+    }
+}

@@ -1,22 +1,31 @@
 Installation & Development of the Web UI Framework (WUF)
 ====================================================
-The WUF is comprised of the following 3 repos:
-1. [Web UI Framework (WUF)](https://gitlab.dematic.com/cloud_visualization_services/web-ui-framework) (this repo)
-2. [Quick Start App (Minimal)](https://gitlab.dematic.com/cloud_visualization_services/angular-quickstart-app-minimal)
-3. [Quick Start App (Complete)](https://gitlab.dematic.com/cloud_visualization_services/angular-quickstart-app-complete)
+The Web UI Framework (WUF) is an open source web application framework based on the following technologies:
+* Node.js
+* Angular 2+
+* Typescript
+* Material Design
+* SCSS
+* HTML/CSS for Front-end layouts that are fully responsive
+* It also includes support for: 
+    * Web components
+    * Polymer components
+
+WUF was initially developed internally by Dematic, Inc. for use in its own applications, but it has since been released to the open source community under the MIT license.  Packages are published under the [@anviltech](https://www.npmjs.com/settings/anvil-open-source/packages) scope into the public NPM registry.  Please feel free to use WUF as you see fit.  We also welcome code contributions!
+
+WUF is comprised of the following 2 repos:
+1. [Web UI Framework (WUF)](https://github.com/anvil-open-software/wuf) (this repo)
+2. [Quick Start App](https://github.com/anvil-open-software/wuf-quick-start)
 
 ### WUF
-The [WUF](https://gitlab.dematic.com/cloud_visualization_services/web-ui-framework) repo (this repo) includes two important collections:
-1. **Library of Components**. A library of home-built Polymer, Web Component, and Angular packages, each published to Artifactory (the registry) using the @kion scope.
-2. **Living Style Guide**. All documentation related to the usage, design patterns, setup, and development of the Quick Start Applications (Minimal and Complete), the Library of Components, and WUF in general.  The Living Style Guide is intended to be developed alongside the Library of Components and is included in the same repo with the Library to reinforce this relationship.  The Living Style Guide is "living" in that it remains up to date at all times because it is updated as the components themselves are updated.
+The [WUF](https://github.com/anvil-open-software/wuf) repo (this repo) includes two important collections:
+1. **Library of Components**. A library of home-built Polymer, Web Component, and Angular packages, each published to the NPM registry using the @anviltech scope.
+2. **Living Style Guide**. All documentation related to the usage, design patterns, setup, and development of the Quick Start Application, the Library of Components, and WUF in general.  The Living Style Guide is intended to be developed alongside the Library of Components and is included in the same repo with the Library to reinforce this relationship.  The Living Style Guide is "living" in that it remains up to date at all times because it is updated as the components themselves are updated.
 
-### Quick Start Minimal
-is intended to be used as a baseline, plain-vanilla application for quickly creating a new web-based application from scratch.
+### Quick Start
+The Quick Start app is intended to be used as a baseline, plain-vanilla application for quickly creating a new web-based application from scratch.
 
 The minimal version of the Quick Start application is the most basic and makes no assumptions about any other technology, including the backend. This version allows the developers to start with a bare-bones version of the application that is compatible with any backend, datastore, or services.
-
-### Quick Start Complete
-The Quick Start Complete includes additional components on top of the base vanilla application of Quick Start (Minimal) and is more opinionated about the implementation and structure of your application, including the backend.
 
 Installation and Setup
 -----------------------
@@ -35,48 +44,19 @@ Follow the steps below to set up your development environment and install depend
 The following are dependencies for WUF development:
 * [Node.js](https://nodejs.org/en/) version 8.0.0 or greater, installed globally - A JavaScript runtime built on Chrome's V8 JavaScript engine. 
 * [Yarn](https://yarnpkg.com/en/) version 1.10.0 or greater, installed globally - A dependency management system that replaces NPM.  Yarn is required over NPM for WUF development because of WUF's dependency on Yarn Workspaces for inter-linking package dependencies.  Do not use NPM with WUF because it has the potential to conflict with Yarn and cause problems.
-* [Lerna](https://github.com/lerna/lerna#getting-started) version 3.4.0 or greater, installed globally - Lerna provides a number of convenience functions that allow us to install, build, and publish all of our packages in the Library of Components.
-* [Angular-CLI](https://github.com/angular/angular-cli) version 6.2.3 or greater, installed globally - A collection of command line tools to create and develop Angular applications and libraries.
-* [Angular](https://angular.io/) version 6.1.0 or greater, installed globally - This is installed for you when you install Angular-CLI.
+* [Angular](https://angular.io/guide/quickstart) version 6.1.0 or greater, installed globally - This is installation includes Angular-CLI.
 * [Typescript](https://www.typescriptlang.org/) version 2.9.2 or greater, installed globally - Typescript is a typed superset of JavaScript that compiles to plain JavaScript and it is the language in which all of our Angular application development is done.
 
-#### Configure NPM to Access the Dematic Artifactory NPM Registry
-In order for your NPM command line client to work with Artifactory you will first need to set up your `.npmrc` file with the necessary credentials. For getting authentication details run the following command:
-
-```bash
-$ curl -u "your KION username:your KION password" "https://artifactory.dematic.com/artifactory/api/npm/npm-local/auth/kion"
-```
-
-or you can use this powershell script on windows:
-
-```bash
-Invoke-WebRequest -Credential (Get-Credential) "https://artifactory.dematic.com/artifactory/api/npm/npm-local/auth/kion" | Select-Object -ExpandProperty Content
-```
-
-The response should be pasted in the `~/.npmrc` (in Windows `%USERPROFILE%/.npmrc`) file, as follows:
-```text
-ca=
-strict-ssl=false
-@kion:registry=https://artifactory.dematic.com/artifactory/api/npm/npm-local/
-//artifactory.dematic.com/artifactory/api/npm/npm-local/:_password=<your encoded password>
-//artifactory.dematic.com/artifactory/api/npm/npm-local/:username=luvaas
-//artifactory.dematic.com/artifactory/api/npm/npm-local/:email=Darren.Luvaas@dematic.com
-//artifactory.dematic.com/artifactory/api/npm/npm-local/:always-auth=true
-```
-
-***NOTE:*** If the port number (:443) appears in the output, be sure to remove the port numbers or you will get authentication errors.
-
-***NOTE:*** Because the values for the password property will change when your corporate password changes (i.e., every 90 days), you will need to run the above command whenever your corporate password changes and update your .npmrc file accordingly.
-
 ### 2. Clone WUF
-1. Clone [WUF](https://gitlab.dematic.com/cloud_visualization_services/web-ui-framework).
-2. After cloning WUF `cd` to the repo root folder (`~/web-ui-framework`)
+1. Clone [WUF](https://github.com/anvil-open-software/wuf).
+2. After cloning WUF `cd` to the repo root folder (`~/wuf`)
 3. Run the following command:
 
 ### 3. Bootstrap WUF
 Run the following commands to boostrap WUF:
 
 ```bash
+yarn
 yarn bootstrap
 ```
 
@@ -133,7 +113,7 @@ You can now use this new page in the Living Style Guide to document the new libr
 * **Changelog**. Tracks history of all changes to the component.
 
 ### Perform Integration Testing
-Be sure to write e2e tests for your components within the kg-styleguide.  Doing so helps ensure that your new component works as expected within a consuming application.
+Be sure to write e2e tests for your components within the Living Style Guide.  Doing so helps ensure that your new component works as expected within a consuming application.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
@@ -147,9 +127,9 @@ Also be sure to update the CHANGELOG.md files accordingly:
 
 Issue a Merge Request for Master
 --------------------------------
-After all of your changes are complete and local tests have passed, issue a merge request to master within this gitlab repo at [https://gitlab.dematic.com/cloud_visualization_services/web-ui-framework](https://gitlab.dematic.com/cloud_visualization_services/web-ui-framework).  
+After all of your changes are complete and local tests have passed, issue a merge request to master within this gitlab repo at [https://github.com/anvil-open-software/wuf](https://github.com/anvil-open-software/wuf).  
 
-Once your merge has been reviewed and accepted, the Jenkins pipeline will automatically run integration tests and publish all of the projects and packages to the (Artifactory registry)[https://artifactory.dematic.com/artifactory/webapp/#/artifacts/browse/tree/General/npm-local/@kion/].
+Once your merge has been reviewed and accepted, the Jenkins pipeline will automatically run integration tests and publish all of the projects and packages to the public NPM registry.
 
 Continuous Deployment
 ======================

@@ -4,7 +4,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { ToastsService } from '@kion/kg-ang-toasts';
+import { WufToastsService } from '@anviltech/wuf-ang-toasts';
 
 @Component({
     selector: 'app-toasts',
@@ -35,7 +35,7 @@ export class ToastsComponent implements OnInit {
     success(message: string, title?: string, actionLabel?: string)
     `;
 
-    constructor(private toastsService: ToastsService) { }
+    constructor(private toastsService: WufToastsService) { }
 
     ngOnInit() {
     }

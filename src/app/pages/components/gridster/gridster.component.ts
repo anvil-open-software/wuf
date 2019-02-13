@@ -5,7 +5,7 @@
 
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { KgGridsterService } from '@kion/kg-ang-gridster';
+import { WufGridsterService } from '@anviltech/wuf-ang-gridster';
 
 
 @Component({
@@ -32,7 +32,7 @@ export class GridsterComponent implements OnInit, OnDestroy {
         {cols: 1, rows: 1, y: 3, x: 6, title: '11. Normal Card'}
     ];
 
-    constructor(public gridster: KgGridsterService) {
+    constructor(public gridster: WufGridsterService) {
     }
 
     ngOnInit() {
@@ -59,7 +59,7 @@ export class GridsterComponent implements OnInit, OnDestroy {
 
     serviceCode = `
 import { Subscription } from 'rxjs';
-import { KgGridsterService } from '@kion/kg-ang-gridster';
+import { WufGridsterService } from '@anviltech/wuf-ang-gridster';
 
 
 @Component({
@@ -72,7 +72,7 @@ export class GridsterComponent implements OnInit, OnDestroy {
 
     gridsterUpdateSubscription: Subscription;
 
-    constructor(public gridster: KgGridsterService) {
+    constructor(public gridster: WufGridsterService) {
     }
 
     ngOnInit() {

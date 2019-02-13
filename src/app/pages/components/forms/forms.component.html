@@ -3,23 +3,23 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
         <button mat-raised-button (click)="openDrawer()">Show form options</button>
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
 
-    <kg-drawer header="Form Options" id="formOptions">
+    <wuf-drawer header="Form Options" id="formOptions">
 
 
         <div class="label">Form layout</div>
@@ -98,7 +98,7 @@
             <button mat-raised-button (click)="onProposalClick()">Show Proposed Options</button>
         </div>
 
-    </kg-drawer>
+    </wuf-drawer>
 
     <app-component-tabs [tabLabel_1]="'Examples'"
                         [tabLabel_2]="'Where / When to Use'"
@@ -386,14 +386,6 @@
                             </tr>
                         </table>
                     </form>
-
-                    <hr>
-
-                    <h3>Example Form in Dialog</h3>
-
-                    <button id="createMaterialModalBtn" mat-raised-button (click)="openFormDialog()">
-                        Open Material Design Dialog
-                    </button>
                 </div>
             </div>
         </div>
@@ -418,34 +410,34 @@
                 </tr>
                 </thead>
                 <tr>
-                    <td class="propName">--kg-input-bg-color</td>
+                    <td class="propName">--wuf-input-bg-color</td>
                     <td class="description">The background color used for all text inputs and select controls.</td>
-                    <td class="value">var(--kg-color-gray-200, #EEEEEE)</td>
+                    <td class="value">var(--wuf-color-gray-200, #EEEEEE)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-input-readonly-bg-color</td>
+                    <td class="propName">--wuf-input-readonly-bg-color</td>
                     <td class="description">The background color used for all text inputs and select controls in a readonly state.</td>
                     <td class="value">transparent</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-input-hover-bg-color</td>
+                    <td class="propName">--wuf-input-hover-bg-color</td>
                     <td class="description">The background color used for all text inputs and select controls when hovering over the control.</td>
-                    <td class="value">var(--kg-input-bg-color)</td>
+                    <td class="value">var(--wuf-input-bg-color)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-input-disabled-opacity</td>
+                    <td class="propName">--wuf-input-disabled-opacity</td>
                     <td class="description">The opacity used for various elements when the form control is in a disabled state.</td>
                     <td class="value">.5</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-input-hint-color</td>
+                    <td class="propName">--wuf-input-hint-color</td>
                     <td class="description">The text color used for hint text.  Note that this value will also have a non-overridable opacity level applied to it.</td>
-                    <td class="value">var(--kg-body-color, #616161)</td>
+                    <td class="value">var(--wuf-body-color, #616161)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-input-underline-color</td>
+                    <td class="propName">--wuf-input-underline-color</td>
                     <td class="description">The color used for the underline element applied to form inputs.</td>
-                    <td class="value">var(--kg-body-color, #616161)</td>
+                    <td class="value">var(--wuf-body-color, #616161)</td>
                 </tr>
             </table>
         </div>
@@ -456,9 +448,9 @@
         </div>
     </app-component-tabs>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
     [page footer content here]
-</kg-content-footer>
+</wuf-content-footer>

@@ -1,0 +1,23 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+/////////////////////////////////////////////////////////////////
+////// TOAST - SNACKBAR
+.toast.info {
+	color: var(--wuf-color-info) !important;
+	border-bottom: 4px solid var(--wuf-color-info);
+}
+.toast.success {
+	color: var(--wuf-color-success) !important;
+	border-bottom: 4px solid var(--wuf-color-success);
+}
+.toast.warning {
+	color: var(--wuf-color-warning) !important;
+	border-bottom: 4px solid var(--wuf-color-warning);
+}
+.toast.error {
+	color: var(--wuf-color-danger) !important;
+	border-bottom: 4px solid var(--wuf-color-danger);
+}

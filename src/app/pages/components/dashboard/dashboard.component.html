@@ -3,22 +3,22 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
-    <kg-dashboard minKpiCount="0">
-        <kg-kpi label="Example" value="10" padding="0px">
+    <wuf-dashboard minKpiCount="0">
+        <wuf-kpi label="Example" value="10" padding="0px">
             <div class="splitPanel-wrap">
                 <div class="splitPanel-top">
                     <h2>Dashboard Example</h2>
@@ -93,45 +93,45 @@
                     </vaadin-grid>
                 </div>
             </div>
-        </kg-kpi>
+        </wuf-kpi>
 
-        <kg-kpi label="Usage" value="84" color="success">
+        <wuf-kpi label="Usage" value="84" color="success">
             [Usage info]
-        </kg-kpi>
+        </wuf-kpi>
 
-        <kg-kpi label="API" value="1,234,567" color="warning">
+        <wuf-kpi label="API" value="1,234,567" color="warning">
 
-            <markdown path="assets/documentation/packages/kg-ang-dashboard/README.md"></markdown>
+            <markdown path="assets/documentation/packages/wuf-ang-dashboard/README.md"></markdown>
 
             <hr>
 
             <h2>API</h2>
 
-            <p>The <strong>KgDashboardModule</strong> is comprised of two different components working together:</p>
+            <p>The <strong>WufDashboardModule</strong> is comprised of two different components working together:</p>
 
             <ul>
-                <li>The <strong>&lt;kg-dashboard&gt;</strong> component, which handles the overall layout of the
+                <li>The <strong>&lt;wuf-dashboard&gt;</strong> component, which handles the overall layout of the
                     dashboard.
                 </li>
-                <li>Any number of <strong>&lt;kg-kpi&gt;</strong> components, which make up the contents of the
+                <li>Any number of <strong>&lt;wuf-kpi&gt;</strong> components, which make up the contents of the
                     dashboard and display corresponding Key Performance Indicators on the left side of the layout.
                 </li>
             </ul>
 
-            <p>Both of these components are included as a part of the <strong>KgDashboardModule</strong> module from the
-                <strong>@kion/kg-ang-dashboard</strong> package in Artifactory.
+            <p>Both of these components are included as a part of the <strong>WufDashboardModule</strong> module from the
+                <strong>@anviltech/wuf-ang-dashboard</strong> package in Artifactory.
             </p>
 
             <hr>
 
-            <h3>&lt;kg-dashboard&gt; Usage</h3>
+            <h3>&lt;wuf-dashboard&gt; Usage</h3>
 
             <p>Once installed, using the dashboard component is relatively simple. The
-                <strong>&lt;kg-dashboard&gt;</strong> itself has no attributes. Simply add it inside your page's
-                <strong>&lt;kg-content-main&gt;</strong> tag:
+                <strong>&lt;wuf-dashboard&gt;</strong> itself has no attributes. Simply add it inside your page's
+                <strong>&lt;wuf-content-main&gt;</strong> tag:
             </p>
 
-            <kg-code-sample type="html" [code]="usageCode1"></kg-code-sample>
+            <wuf-code-sample type="html" [code]="usageCode1"></wuf-code-sample>
 
             <p>This will add the overall dashboard layout with a section on left to hold your KPIs and a section on the
                 right to show the content for each KPI when that KPI is clicked.
@@ -150,36 +150,36 @@
                 file:
             </p>
 
-            <kg-code-sample type="css" [code]="usageCode2"></kg-code-sample>
+            <wuf-code-sample type="css" [code]="usageCode2"></wuf-code-sample>
 
             <p>The <code>:host</code> section removes the content padding, allowing the dashboard to fill the entire
                 page space without any spacing around it.
             </p>
 
-            <p>The <code>kg-content-header</code> section causes the toolbar to float above the dashboard component,
+            <p>The <code>wuf-content-header</code> section causes the toolbar to float above the dashboard component,
                 allowing it to cast its dropshadow over the KPI section, which looks a little better and gives the sense
                 of depth that suggests the dashboard is a child of the toolbar (which it is).
             </p>
 
             <hr>
 
-            <h3>&lt;kg-kpi&gt; Usage</h3>
+            <h3>&lt;wuf-kpi&gt; Usage</h3>
 
             <p>Now that we have the dashboard framework in place, we can add some content to it. Dashboard content comes
-                in the form of <strong>&lt;kg-kpi&gt;</strong> components. To add content to a dashboard, place as many
-                <strong>&lt;kg-kpi&gt;</strong> tags inside the <strong>&lt;kg-dashboard&gt;</strong> tag as you'd like:
+                in the form of <strong>&lt;wuf-kpi&gt;</strong> components. To add content to a dashboard, place as many
+                <strong>&lt;wuf-kpi&gt;</strong> tags inside the <strong>&lt;wuf-dashboard&gt;</strong> tag as you'd like:
             </p>
 
-            <kg-code-sample type="html" [code]="usageCode3"></kg-code-sample>
+            <wuf-code-sample type="html" [code]="usageCode3"></wuf-code-sample>
 
-            <p>The only required attributes for the &lt;kg-kpi&gt; component are <strong>label</strong> and <strong>value</strong>.
+            <p>The only required attributes for the &lt;wuf-kpi&gt; component are <strong>label</strong> and <strong>value</strong>.
                 When added, a new KPI will appear in the KPI section on the left displaying the label and value
-                provided. Additionally, the content you provided within the <code>&lt;kg-kpi&gt;</code> tags will be
+                provided. Additionally, the content you provided within the <code>&lt;wuf-kpi&gt;</code> tags will be
                 shown on the right.
             </p>
 
-            <p>If you have added multiple <code>&lt;kg-kpi&gt;</code> tags to the parent
-                <code>&lt;kg-dashboard&gt;</code> tag, the <code>&lt;kg-dashboard&gt;</code> tag will ensure that only
+            <p>If you have added multiple <code>&lt;wuf-kpi&gt;</code> tags to the parent
+                <code>&lt;wuf-dashboard&gt;</code> tag, the <code>&lt;wuf-dashboard&gt;</code> tag will ensure that only
                 one KPI will be active at a time and that only the contents of that active KPI will be displayed in the
                 content area. KPIs behave like tabs in this way and display their corresponding content only when
                 clicked and active. The first KPI added to the page is the initially active KPI on page load.
@@ -188,7 +188,7 @@
             <h4>Dyname Value Sizing</h4>
 
             <p>Notice that in the example to the left the "API" section displays a long string of 9 characters. In order
-                for the entire string to be visible, the <code>&lt;kg-kpi&gt;</code> tag is dynamically sizing the value
+                for the entire string to be visible, the <code>&lt;wuf-kpi&gt;</code> tag is dynamically sizing the value
                 element based on string length. Additionally, the text size of the value will grow/shrink as the
                 available realestate within the browser grows/shrinks. It does this using a combination of SVG, CSS, and
                 some javascript. This mechanism ensures that KPI values can be displayed on as many different devices as
@@ -198,7 +198,7 @@
 
             <hr>
 
-            <h3>&lt;kg-dashboard&gt; Properties</h3>
+            <h3>&lt;wuf-dashboard&gt; Properties</h3>
 
             <table class="table prop-table">
                 <thead>
@@ -215,14 +215,14 @@
                     <td class="prop-type"><code>number</code></td>
                     <td class="prop-default">4</td>
                     <td class="prop-description">Minimum number of KPIs to show. If the dashboard includes fewer than
-                        this number of &lt;kg-kpi&gt; elements, filler KPIs will be added to match this number of
+                        this number of &lt;wuf-kpi&gt; elements, filler KPIs will be added to match this number of
                         displayed KPIs. Set to 0 to allow any number of KPIs.
                     </td>
                 </tr>
                 </tbody>
             </table>
 
-            <h3>&lt;kg-kpi&gt; Properties</h3>
+            <h3>&lt;wuf-kpi&gt; Properties</h3>
 
             <table class="table prop-table">
                 <thead>
@@ -282,51 +282,51 @@
                 </tr>
                 </thead>
                 <tr>
-                    <td class="propName">--kg-dashboard-content-padding</td>
+                    <td class="propName">--wuf-dashboard-content-padding</td>
                     <td class="description">The CSS value for padding to use in the content area of the dashboard.</td>
                     <td class="value">20px</td>
                 </tr>
                 <tr>
                     <td class="propName">--kpi-border-color</td>
                     <td class="description">The color for the line vertically separating the KPIs.</td>
-                    <td class="value">var(--kg-kpi-border-color, var(--kg-color-gray-400))</td>
+                    <td class="value">var(--wuf-kpi-border-color, var(--wuf-color-gray-400))</td>
                 </tr>
                 <tr>
                     <td class="propName">--kpi-stripe-color</td>
                     <td class="description">The color of the thick vertical line appearing on the right side of the KPI.</td>
-                    <td class="value">var(--kg-kpi-stripe-color, var(--kpi-border-color))</td>
+                    <td class="value">var(--wuf-kpi-stripe-color, var(--kpi-border-color))</td>
                 </tr>
                 <tr>
                     <td class="propName">--kpi-label-color</td>
                     <td class="description">The color of the label appearing above the KPI value.</td>
-                    <td class="value">var(--kg-kpi-label-color, var(--kg-color-gray-600))</td>
+                    <td class="value">var(--wuf-kpi-label-color, var(--wuf-color-gray-600))</td>
                 </tr>
                 <tr>
                     <td class="propName">--kpi-bg-color</td>
                     <td class="description">The background color of the KPI element.</td>
-                    <td class="value">var(--kg-kpi-bg-color, var(--kg-color-gray-200))</td>
+                    <td class="value">var(--wuf-kpi-bg-color, var(--wuf-color-gray-200))</td>
                 </tr>
                 <tr>
                     <td class="propName">--kpi-active-bg-color</td>
                     <td class="description">The background color of the KPI element in an active state.</td>
-                    <td class="value">var(--kg-kpi-active-bg-color, var(--kg-color-primary-darker-5))</td>
+                    <td class="value">var(--wuf-kpi-active-bg-color, var(--wuf-color-primary-darker-5))</td>
                 </tr>
                 <tr>
                     <td class="propName">--kpi-active-stripe-color</td>
                     <td class="description">The stripe color to use for the KPI element in an active state.  This color is overridden when the <code>color</code> property is used.</td>
-                    <td class="value">var(--kg-kpi-active-stripe-color, var(--kg-color-primary-lighter-10))</td>
+                    <td class="value">var(--wuf-kpi-active-stripe-color, var(--wuf-color-primary-lighter-10))</td>
                 </tr>
             </table>
-        </kg-kpi>
+        </wuf-kpi>
 
-        <kg-kpi label="Change Log" value="1,234.5" color="danger">
-            <markdown path="assets/documentation/packages/kg-ang-dashboard/CHANGELOG.md"></markdown>
-        </kg-kpi>
-    </kg-dashboard>
-</kg-content-main>
+        <wuf-kpi label="Change Log" value="1,234.5" color="danger">
+            <markdown path="assets/documentation/packages/wuf-ang-dashboard/CHANGELOG.md"></markdown>
+        </wuf-kpi>
+    </wuf-dashboard>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
     [page footer content here]
-</kg-content-footer>
+</wuf-content-footer>
 

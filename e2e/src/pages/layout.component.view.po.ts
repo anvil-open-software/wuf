@@ -9,19 +9,19 @@ import { browser, element, by } from 'protractor';
 export class LayoutComponentView {
 
     get_viewPage = function () {
-        return element(by.css('app-root app-layout-main kg-view-main .page'));
+        return element(by.css('app-root app-layout-main wuf-view-main .page'));
     };
 
     get_viewSidebarComponent = function () {
-        return element(by.css('app-root app-layout-main kg-view-main .page .page-row kg-sidebar'));
+        return element(by.css('app-root app-layout-main wuf-view-main .page .page-row wuf-sidebar'));
     };
 
     get_viewSidebarWrap = function () {
-        return element(by.css('app-root app-layout-main kg-view-main .page .page-row kg-sidebar .sidebar-wrap'));
+        return element(by.css('app-root app-layout-main wuf-view-main .page .page-row wuf-sidebar .sidebar-wrap'));
     };
 
     get_viewSidebarWrapCollapsed = function () {
-        return element(by.css('app-root app-layout-main kg-view-main .page .page-row kg-sidebar .sidebar-wrap.collapsed'));
+        return element(by.css('app-root app-layout-main wuf-view-main .page .page-row wuf-sidebar .sidebar-wrap.collapsed'));
     };
 
     get_SidebarWidth() {
@@ -31,23 +31,23 @@ export class LayoutComponentView {
     }
 
     get_viewSidebarToggler = function () {
-        return element(by.css('app-root app-layout-main kg-view-main .page .page-row .main-header kg-toolbar .sidebar-toggler'));
+        return element(by.css('app-root app-layout-main wuf-view-main .page .page-row .main-header wuf-toolbar .sidebar-toggler'));
     };
 
     get_viewAppHeader = function () {
-        return element(by.css('app-root app-layout-main kg-view-main .page .page-row .main-header kg-toolbar'));
+        return element(by.css('app-root app-layout-main wuf-view-main .page .page-row .main-header wuf-toolbar'));
     };
 
     get_viewContentHeader = function () {
-        return element(by.css('app-root app-layout-main kg-view-main .page .page-row .main-wrap .main kg-content-header'));
+        return element(by.css('app-root app-layout-main wuf-view-main .page .page-row .main-wrap .main wuf-content-header'));
     };
 
     get_viewContentArea = function () {
-        return element(by.css('app-root app-layout-main kg-view-main .page .page-row .main-wrap .main kg-content-main .main-content-wrap'));
+        return element(by.css('app-root app-layout-main wuf-view-main .page .page-row .main-wrap .main wuf-content-main .main-content-wrap'));
     };
 
     get_viewContentFooter = function () {
-        return element(by.css('app-root app-layout-main kg-view-main .page .page-row .main-wrap .main kg-content-footer'));
+        return element(by.css('app-root app-layout-main wuf-view-main .page .page-row .main-wrap .main wuf-content-footer'));
     };
 
 }

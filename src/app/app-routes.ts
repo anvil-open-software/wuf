@@ -47,7 +47,6 @@ const routes = [
     {path: 'components', loadChildren: './pages/components/components.module#ComponentsModule'},
     {path: 'development', loadChildren: './pages/development/development.module#DevelopmentModule'},
     {path: 'setup', loadChildren: './pages/app-setup/setup.module#SetupModule'},
-    {path: 'framework', loadChildren: './pages/framework/framework.readme.module#FrameworkReadmeModule'},
     {path: 'themes', loadChildren: './pages/branding-themes/branding-themes.module#BrandingThemesModule'},
 
     // 404.  If all else fails, go here.  (Keep this as last route)

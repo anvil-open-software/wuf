@@ -3,20 +3,20 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header xmlns="http://www.w3.org/1999/html">
+<wuf-content-header xmlns="http://www.w3.org/1999/html">
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Material Cards', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
         <button mat-raised-button (click)="onAddItemClick()">Add new item</button>
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
 
     <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
@@ -27,9 +27,9 @@
         <!-- EXAMPLE Content -->
         <div class="component_tabs_1" style="margin: -20px;">
             <div class="gridster-wrap">
-                <kg-gridster
+                <wuf-gridster
                     [items]="gridsterItems"
-                ></kg-gridster>
+                ></wuf-gridster>
             </div>
 
         </div>
@@ -42,13 +42,13 @@
         <!-- API Content -->
         <div class="component_tabs_3">
 
-            <markdown path="assets/documentation/packages/kg-ang-gridster/README.md"></markdown>
+            <markdown path="assets/documentation/packages/wuf-ang-gridster/README.md"></markdown>
 
             <hr>
 
             <h3>Attributes</h3>
 
-            <p>The following attributes can be applied to the <code>&lt;kg-gridster&gt;</code> component:</p>
+            <p>The following attributes can be applied to the <code>&lt;wuf-gridster&gt;</code> component:</p>
 
             <table class="table prop-table">
                 <thead>
@@ -98,17 +98,17 @@
                 </tr>
                 </thead>
                 <tr>
-                    <td class="propName">--kg-card-bg-color</td>
+                    <td class="propName">--wuf-card-bg-color</td>
                     <td class="description">The background color used for card elements, including gridster items.</td>
-                    <td class="value">var(--kg-color-white, #ffffff)</td>
+                    <td class="value">var(--wuf-color-white, #ffffff)</td>
                 </tr>
             </table>
 
-            <h3>KgGridsterService</h3>
+            <h3>WufGridsterService</h3>
 
-            <p>A <code>KgGridsterService</code> service is available for adding/deleting gridster items.  An RxJs subject is also provided, allowing your application to subscribe to update events.</p>
+            <p>A <code>WufGridsterService</code> service is available for adding/deleting gridster items.  An RxJs subject is also provided, allowing your application to subscribe to update events.</p>
 
-            <kg-code-sample type="typescript" [code]="serviceCode"></kg-code-sample>
+            <wuf-code-sample type="typescript" [code]="serviceCode"></wuf-code-sample>
 
         </div>
 
@@ -118,9 +118,9 @@
         </div>
     </app-component-tabs>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
     [page footer content here]
-</kg-content-footer>
+</wuf-content-footer>

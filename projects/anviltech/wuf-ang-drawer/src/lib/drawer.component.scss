@@ -1,0 +1,75 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+//Expose custom properties for overrides
+:host {
+    /*     local var           ||            global override            ||        default value        */
+    --drawer-width:                   var( --wuf-drawer-width,                     300px );
+    --drawer-header-bg-color:         var( --wuf-drawer-header-bg-color,           rgba(0,0,0, .05) );
+    --drawer-body-bg-color:           var( --wuf-drawer-body-bg-color,             var(--wuf-body-bg, var(--wuf-color-gray-100, #404040) ) );
+    --drawer-shield-bg-color:         var( --wuf-drawer-shield-bg-color,           rgba(0,0,0, .2) );
+}
+
+.drawer-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    pointer-events: none;
+    overflow: hidden;
+    h4, strong {
+        color: inherit;
+    }
+    .drawer {
+        position: absolute;
+        top: 0;
+        right: calc( (var(--drawer-width) + 20px) * -1); // place further off screen than width so that dropshadow doesn't creep into the main view
+        height: 100%;
+        width: var(--drawer-width);
+        z-index: 1;
+        background-color: var(--drawer-body-bg-color);
+        transition: .5s ease right;
+        overflow: hidden;
+        .drawer-header {
+            background-color: var(--drawer-header-bg-color);
+            padding: 10px 20px;
+            h4 {
+                font-size: 1.25em;
+                margin: 0;
+            }
+        }
+        .drawer-body {
+            padding: 10px 20px;
+            overflow: auto;
+            flex: 1 1 auto;
+        }
+    }
+    .drawer-shield {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: var(--drawer-shield-bg-color);
+        z-index: 0;
+        transition: .5s ease opacity;
+        opacity: 0;
+    }
+    &.active {
+        pointer-events: auto;
+        .drawer-shield {
+            opacity: 1;
+        }
+        .drawer {
+            right: 0;
+        }
+    }
+
+}
+
+// TODO: use media breaks to create maximum width
+

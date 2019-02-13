@@ -1,0 +1,40 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+/*
+The following CSS can NOT go inside the <wuf-navigation> or <wuf-navigation-link>
+components because Angular Material creates the menu panels used for subnavigation
+in the sidebar top position OUTSIDE of the shadow-DOM of these components.
+Therefore, the only way to style these navigation menus is with global CSS.
+*/
+
+div.wuf-nav-menu-panel.mat-menu-panel {
+    .mat-menu-content {
+        background-color: var(--wuf-navigation-link-nested-bg-color, var(--wuf-color-secondary-darker-5));
+        font-size: var(--wuf-navigation-link-nested-font-size);
+        a.nav-link.mat-menu-item {
+            background-color: var(--wuf-navigation-link-nested-bg-color);
+            background-image: none;
+            text-decoration: none;
+            color: var(--wuf-navigation-link-nested-color, var(--wuf-color-secondary-lighter-40));
+            &:hover {
+                color: var(--wuf-navigation-link-nested-hover-color, var(--wuf-color-secondary-lighter-50));
+                background-color: var(--wuf-navigation-link-nested-hover-bg-color, var(--wuf-color-secondary-darker-10));
+            }
+            &.active {
+                &,
+                &:hover {
+                    color: var(--wuf-navigation-link-nested-active-color, var(--wuf-color-white));
+                    background-color: transparent;
+                    background-image: linear-gradient(to right, var(--wuf-navigation-link-nested-active-accent-color, var(--wuf-color-primary)) 4px, var(--wuf-navigation-link-nested-active-bg-color, var(--wuf-color-secondary-darker-10)) 4px);
+                }
+                &:hover {
+                    color: var(--wuf-navigation-link-nested-active-hover-color, var(--wuf-color-white));
+                }
+            }
+        }
+    }
+}
+

@@ -16,7 +16,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RoutesModule } from './routes';
 
 /***** Import WUF *****/
-import { KgLayoutModule } from '@kion/kg-ang-layout';
+import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
@@ -44,7 +44,7 @@ import { DarkThemeComponent } from './dark-theme/dark-theme.component';
         CdkTableModule,
 
         // WUF
-        KgLayoutModule,
+        WufLayoutModule,
 
         // Utils
         UtilsModule,

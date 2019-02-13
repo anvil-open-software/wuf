@@ -17,14 +17,14 @@ table.css-props-table {
         td {
             &.propName,
             &.value {
-                font-family: var(--kg-font-family-monospace);
+                font-family: var(--wuf-font-family-monospace);
                 font-size: .85rem;
                 white-space: nowrap;
             }
             .swatch {
                 color: #ffffff;
                 font-size: 10px;
-                font-family: var(--kg-font-family-monospace);
+                font-family: var(--wuf-font-family-monospace);
                 padding: 10px;
                 display: block;
                 height: 100%;
@@ -58,68 +58,5 @@ table.prop-table {
     td.prop-type,
     td.prop-value {
         white-space: nowrap;
-    }
-}
-
-
-// TODO: Delete this after form design work is complete
-@import '~@kion/kg-web-assets/assets/styles/partials/mixins';
-.mat-form-field-invalid.mat-form-field-appearance-legacy {
-    // Error message
-    .mat-error {
-        &.fill {
-            @include border-bottom-radius(var(--kg-border-radius));
-            @include alert-variant('danger');
-        }
-    }
-    &.noFill {
-        .mat-form-field-suffix,
-        .mat-form-field-prefix {
-            background: var(--kg-input-bg-color)!important;
-        }
-        .mat-form-field-infix {
-            border-color: var(--kg-input-bg-color)!important;
-            background: var(--kg-input-bg-color)!important;
-        }
-    }
-}
-
-:root[kg-theme-dark="true"],
-*[kg-theme-dark="true"],
-:root[kg-theme-dark="true"][kg-theme],
-*[kg-theme-dark="true"][kg-theme] {
-    .mat-form-field-invalid.mat-form-field-appearance-legacy {
-        // Error message
-        .mat-error {
-            &.fill {
-                background: var(--kg-color-danger);
-                color: var(--kg-color-white);
-            }
-        }
-        &.noFill {
-            .mat-form-field-infix {
-                border-color: var(--kg-input-bg-color);
-                background: var(--kg-input-bg-color);
-            }
-            .mat-form-field-suffix,
-            .mat-form-field-prefix {
-                background: var(--kg-input-bg-color);
-            }
-            // Error message
-            .errorIcon {
-                color: var(--kg-color-danger);
-            }
-            .mat-form-field-label {
-                color: var(--kg-color-danger);
-                .mat-form-field-required-marker {
-                    color: var(--kg-color-danger);
-                }
-            }
-            .mat-form-field-underline {
-                .mat-form-field-ripple {
-                    background-color: var(--kg-body-color);
-                }
-            }
-        }
     }
 }

@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Main vs Basic Layout', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Main vs Basic Layout', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
     <h1>Layout</h1>
 
@@ -54,8 +54,8 @@
         application and that can be applied to any application page:</p>
 
     <ul>
-        <li>&lt;kg-view-main&gt;</li>
-        <li>&lt;kg-view-basic&gt;</li>
+        <li>&lt;wuf-view-main&gt;</li>
+        <li>&lt;wuf-view-basic&gt;</li>
     </ul>
 
     <p>Which of these two components a page uses will determine whether that page gets the <strong>Main</strong> layout
@@ -66,29 +66,29 @@
 
     <h2>Main Layout</h2>
 
-    <p>The &lt;kg-view-main&gt; and &lt;kg-view-basic&gt; components each live within their own parent component hosted
+    <p>The &lt;wuf-view-main&gt; and &lt;wuf-view-basic&gt; components each live within their own parent component hosted
         within the application. The Quick Start application, for example, places these components at <code>/src/app/internal/layouts/</code>.
     </p>
 
-    <p>The file <code>/src/app/internal/layouts/main/<strong>main.component.html</strong></code> hosts the &lt;kg-view-main&gt;
+    <p>The file <code>/src/app/internal/layouts/main/<strong>main.component.html</strong></code> hosts the &lt;wuf-view-main&gt;
         component and looks like this:</p>
 
-    <kg-code-sample type="html" [code]="mainCodeHtml"></kg-code-sample>
+    <wuf-code-sample type="html" [code]="mainCodeHtml"></wuf-code-sample>
     <caption>Contents of /src/app/internal/layouts/main/main.component.html</caption>
 
-    <p>The &lt;kg-view-main&gt; takes one attribute: <strong><code>[logoRoute]</code></strong>. The logoRoute attribute
+    <p>The &lt;wuf-view-main&gt; takes one attribute: <strong><code>[logoRoute]</code></strong>. The logoRoute attribute
         is optional. If used, it takes a value for a routerLink and it is applied to the logo that appears in the
         application header. Gernerally you will want to use the application's root path (e.g. "/") so that when the user
         clicks the logo they will return to the application root.</p>
 
-    <p>Inside the &lt;kg-view-main&gt;'s content, you'll see five &lt;ng-container&gt; slots, each with one of following
+    <p>Inside the &lt;wuf-view-main&gt;'s content, you'll see five &lt;ng-container&gt; slots, each with one of following
         selectors:</p>
 
     <ul>
-        <li><strong>sidebarNavigation</strong>. This slot hosts the <a routerLink="/components/navigation">&lt;kg-navigation&gt;</a>
+        <li><strong>sidebarNavigation</strong>. This slot hosts the <a routerLink="/components/navigation">&lt;wuf-navigation&gt;</a>
             component.
         </li>
-        <li><strong>sidebarFooter</strong>. This slot hosts the <a routerLink="/components/navigation-footer">&lt;kg-sidebar-footer&gt;</a>
+        <li><strong>sidebarFooter</strong>. This slot hosts the <a routerLink="/components/navigation-footer">&lt;wuf-sidebar-footer&gt;</a>
             component.
         </li>
         <li><strong>toolbarContent</strong>. This slot hosts content to display in the header, including the application
@@ -105,29 +105,29 @@
 
     <p>Let's take a look at the contents of <code>/src/app/internal/layouts/main/main.component.ts</code>.</p>
 
-    <kg-code-sample type="typescript" [code]="mainCodeComponent"></kg-code-sample>
+    <wuf-code-sample type="typescript" [code]="mainCodeComponent"></wuf-code-sample>
     <caption>Contents of /src/app/internal/layouts/main/main.component.ts</caption>
 
     <p>Note that this component is fetching nav data from a service
-        <code>this.navService.getNavData(this.navDataUrl)</code> and then passing the returned .json object to the &lt;kg-navigation&gt;
+        <code>this.navService.getNavData(this.navDataUrl)</code> and then passing the returned .json object to the &lt;wuf-navigation&gt;
         component.</p>
 
     <hr>
 
     <h2>Basic Layout</h2>
 
-    <p>The file <code>/src/app/internal/layouts/basic/<strong>basic.component.html</strong></code> hosts the &lt;kg-view-basic&gt;
+    <p>The file <code>/src/app/internal/layouts/basic/<strong>basic.component.html</strong></code> hosts the &lt;wuf-view-basic&gt;
         component and looks like this:</p>
 
-    <kg-code-sample type="html" [code]="basicCodeHtml"></kg-code-sample>
+    <wuf-code-sample type="html" [code]="basicCodeHtml"></wuf-code-sample>
     <caption>Contents of /src/app/internal/layouts/basic/basic.component.html</caption>
 
-    <p>Unlike &lt;kg-view-main&gt;, the &lt;kg-view-basic&gt; component hosts only <strong>one</strong> slot: <strong>main</strong>.
-        As with the <strong>main</strong> slot in &lt;kg-view-main&gt;, this slot hosts &lt;router-outlet&gt;.</p>
+    <p>Unlike &lt;wuf-view-main&gt;, the &lt;wuf-view-basic&gt; component hosts only <strong>one</strong> slot: <strong>main</strong>.
+        As with the <strong>main</strong> slot in &lt;wuf-view-main&gt;, this slot hosts &lt;router-outlet&gt;.</p>
 
-    <p>The component code for &lt;kg-view-basic&gt; is similarly very simple:</p>
+    <p>The component code for &lt;wuf-view-basic&gt; is similarly very simple:</p>
 
-    <kg-code-sample type="typescript" [code]="basicCodeComponent"></kg-code-sample>
+    <wuf-code-sample type="typescript" [code]="basicCodeComponent"></wuf-code-sample>
     <caption>Contents of /src/app/internal/layouts/basic/basic.component.ts</caption>
 
     <hr>
@@ -137,7 +137,7 @@
     <p>Create a layout module to host the Main and Basic components created above. The Quick Start application places
         its layout module at <code>/src/app/internal/layouts/layouts.module.ts</code>:</p>
 
-    <kg-code-sample type="typescript" [code]="layoutsModuleCode"></kg-code-sample>
+    <wuf-code-sample type="typescript" [code]="layoutsModuleCode"></wuf-code-sample>
     <caption>Contents of /src/app/internal/layouts/layouts.module.ts</caption>
 
     <hr>
@@ -147,7 +147,7 @@
     <p>Now that we have our Main and Basic layout components and a layouts module ready to use, it's time to assign each
         of our pages to one layout or the other. This is done in through the Angular routing process.</p>
 
-    <kg-code-sample type="typescript" [code]="routesCode"></kg-code-sample>
+    <wuf-code-sample type="typescript" [code]="routesCode"></wuf-code-sample>
     <caption>Contents of an example routes.ts file</caption>
 
     <p>In our <code>routes.ts</code> file we're creating two different arrays to host our routes: <code>routes_layout_main</code>
@@ -165,11 +165,11 @@
         the component from the <code>routes_layout_main</code> array to the <code>routes_layout_basic</code> array.
         That's it!</p>
 
-    <kg-code-sample type="typescript" [code]="routesCode2"></kg-code-sample>
+    <wuf-code-sample type="typescript" [code]="routesCode2"></wuf-code-sample>
     <caption>Example of moving a component from Main layout to Basic layout</caption>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert page footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

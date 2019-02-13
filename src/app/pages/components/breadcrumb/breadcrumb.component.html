@@ -3,18 +3,18 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Breadcrumb', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Breadcrumb', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
     <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'" [tabLabel_4]="'Change Log'">
         <!-- Component name -->
@@ -25,13 +25,13 @@
 
             <p>Example breadcrumb trail inside a page-level toolbar:</p>
 
-            <kg-toolbar>
-                <ng-container toolbarContent>
-                    <kg-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Breadcrumb', active: true }]"></kg-breadcrumb>
+            <wuf-toolbar>
+                <ng-container toolbarLeft>
+                    <wuf-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Breadcrumb', active: true }]"></wuf-breadcrumb>
                 </ng-container>
-                <ng-container utilities>
+                <ng-container toolbarRight>
                 </ng-container>
-            </kg-toolbar>
+            </wuf-toolbar>
         </div>
         <!-- end EXAMPLE Content -->
 
@@ -43,23 +43,23 @@
 
         <!--start API Content -->
         <div class="component_tabs_3">
-            <p>The <code>&lt;kg-breadcrumb&gt;</code> tag is used at the application page level and placed within the
-                ,<code>&lt;kg-content-header&gt;</code> tag, as follows:</p>
+            <p>The <code>&lt;wuf-breadcrumb&gt;</code> tag is used at the application page level and placed within the
+                ,<code>&lt;wuf-content-header&gt;</code> tag, as follows:</p>
 
-            <kg-code-sample [code]="breadcrumbHtmlCode1" type="html"></kg-code-sample>
+            <wuf-code-sample [code]="breadcrumbHtmlCode1" type="html"></wuf-code-sample>
 
             <p>Content can be passed into the component via content projection by manually adding ,<code>&lt;ol
                 class="breadcrumb"&gt;</code>, ,<code>&lt;li class="breadcrumb-item"&gt;</code>, and ,<code>&lt;a
                 class="breadcrumb-link"&gt;</code> tags, as follows. This approach can be helpful when using Angular's
                 <a routerLink="/i18n">i18n</a> mechanism. The dividers are create automatically via CSS.</p>
-            <kg-code-sample [code]="breadcrumbHtmlCode2" type="html"></kg-code-sample>
+            <wuf-code-sample [code]="breadcrumbHtmlCode2" type="html"></wuf-code-sample>
 
             <p>The easier approach, however, is to pass in an array of breadcrumb items in the <code>items</code>
                 attribute and let the component itself generate the breadcrumb trail:</p>
 
             <p>Code for <code>component.html</code>:</p>
 
-            <kg-code-sample [code]="breadcrumbHtmlCode3" type="html"></kg-code-sample>
+            <wuf-code-sample [code]="breadcrumbHtmlCode3" type="html"></wuf-code-sample>
 
             <p>Note that the last item in the array (i.e., the node representing the current page) has the
                 <code>link</code> property set to null and the <code>active</code> property set to true.
@@ -78,7 +78,7 @@
                     of these properties are set to use the Dematic brand theme. However, you can easily override all of
                     the
                     following default value with your own theme values using the SCSS methods definded in the <a
-                        routerLink="/themes/themes">KION Theme System</a> documentation.</p>
+                        routerLink="/themes/themes">Theme System</a> documentation.</p>
 
                 <table class="table table-striped css-props-table">
                     <thead>
@@ -89,11 +89,11 @@
                         </tr>
                     </thead>
                     <tr>
-                        <td class="propName">-kg-breadcrumb-color</td>
+                        <td class="propName">-wuf-breadcrumb-color</td>
                         <td class="description">Text color for breadcrumb trails. This color is lightened via opacity
                             for
                             non-active breadrumb links.</td>
-                        <td class="value">var(--kg-color-gray-500)</td>
+                        <td class="value">var(--wuf-color-gray-500)</td>
                     </tr>
                 </table>
 
@@ -108,8 +108,8 @@
 
     </app-component-tabs>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

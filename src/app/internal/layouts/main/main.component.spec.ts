@@ -10,9 +10,9 @@ import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
-import { KgConfigurationService } from '@kion/kg-ang-configuration';
-import { KgLayoutModule } from '@kion/kg-ang-layout';
-import { KgNavigationModule, KgNavigationService } from '@kion/kg-ang-navigation';
+import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
+import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
+import { WufNavigationModule, WufNavigationService } from '@anviltech/wuf-ang-navigation';
 
 import { LayoutMainComponent } from './main.component';
 import { CustomMaterialModule } from '../../material.module';
@@ -33,12 +33,12 @@ describe('LayoutMainComponent', () => {
                 CustomMaterialModule,
                 HttpClientModule,
                 BrowserAnimationsModule,
-                KgLayoutModule,
-                KgNavigationModule
+                WufLayoutModule,
+                WufNavigationModule
             ],
             providers: [
-                KgConfigurationService,
-                KgNavigationService,
+                WufConfigurationService,
+                WufNavigationService,
                 ThemeListService
             ]
         })
@@ -58,8 +58,8 @@ describe('LayoutMainComponent', () => {
     });
 
     describe('Layout elements', () => {
-        it('should have a kg-view-main element', () => {
-            de = fixture.debugElement.query(By.css('kg-view-main'));
+        it('should have a wuf-view-main element', () => {
+            de = fixture.debugElement.query(By.css('wuf-view-main'));
             el = de.nativeElement;
             expect(de).toBeTruthy();
         });

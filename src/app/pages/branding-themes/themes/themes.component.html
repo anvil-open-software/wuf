@@ -3,22 +3,22 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/themes', label: 'Branding & Themes' }, { link: null, label: 'KION Theme System', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/themes', label: 'Branding & Themes' }, { link: null, label: 'Theme System', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
 
-    <h1>KION Theme System</h1>
+    <h1>Theme System</h1>
 
     <p>The collection of visual design styles, <a routerLink="/themes/colors">color palette</a>, typography, button
         shapes, and the like, are referred to as a "theme". By carefully selecting the decorative styles that constitute
@@ -26,10 +26,10 @@
 
     <p>The mechanism by which WUF has implemented theming allows easy switching between design aesthetics by providing
         specific values for all of the customizable attributes that constitute a theme. The end result of such
-        customization creates a <strong>KION Theme</strong> for each application based on WUF or any similar
+        customization creates a <strong>Custom Theme</strong> for each application based on WUF or any similar
         implementation mechanism.</p>
 
-    <p>It is highly recommended that, once a theme has been identified and implemented, it be applied to all
+    <p>Once a theme has been identified and implemented, we recommend it be applied to all
         applications available under the same brand. Doing so will help ensure a consistent user experience across
         applications and that design aesthetics for each are not allowed to deviate significantly from one another.</p>
 
@@ -58,7 +58,7 @@
         <div class="button-wrap">
             <button mat-raised-button color="primary" #exampleButton>Accent</button>
         </div>
-        <div class="exampleText" *ngIf="buttonTheme.id !== 'dematic'">
+        <div class="exampleText" *ngIf="buttonTheme.id !== 'default'">
             The color is <strong>{{exampleTextColor}}</strong>.<br>
             The fill color is <strong>{{exampleFillColor}}</strong>.<br>
             The text is <strong>{{exampleFontSize}}</strong>, <strong>{{exampleFontWeight}}</strong> weight.<br>
@@ -72,24 +72,21 @@
 
     <h2>Creating a Theme</h2>
 
-    <p>Every application based on the Quickstart App (including the Living Style Guide) uses a <strong>Dematic</strong>
-        branding theme out-of-the-box &#151; because we need some default, fallback values for our theming mechanism.
-        This is fine if your application falls under the umbrella of the Dematic product suite. Fortunately, for those
-        applications that must be branded to match a customer's brand (e.g., Amazon or Walmart) or that must be branded
-        to match another brand under the KION umbrella (Linde or Still), it is extremely easy to override the default
-        Dematic theme.</p>
+    <p>We need default, fallback values for our theming mechanism, so every application based on the Quick Start
+        application includes a theme out-of-the-box.  These theme includes some basic colors. Fortunately, it is
+        extremely easy to override the default theme in order to create a completely custom aesthetic to match your
+        own brand.</p>
 
-    <p>The <strong>kg-web-assets</strong> package includes all of the CSS, SCSS, and SCSS convenience functions
+    <p>The <strong>wuf-web-assets</strong> package includes all of the CSS, SCSS, and SCSS convenience functions
         necessary to create and use another theme within a given application.</p>
 
-    <p>Creating a theme that can be applied a given application is a 4 step process. All steps are optional, except for
-        the color definition step:</p>
+    <p>Creating a theme that can be applied a given application is a 4 step process.</p>
 
     <ol>
-        <li>Define theme colors (required)</li>
+        <li>Define theme colors</li>
         <li>Define brand logo</li>
-        <li>Define button radius</li>
-        <li>Define font styles</li>
+        <li>Define button radius (optional)</li>
+        <li>Define font styles (optional)</li>
     </ol>
 
     <p>Once your theme has been created you can apply it to your application. There are two ways of applying a theme to
@@ -110,7 +107,7 @@
 
     <hr>
 
-    <h2>Define Theme Colors (Required)</h2>
+    <h2>Define Theme Colors</h2>
 
     <p>The first step in creating a theme requires the creation of a <code>.scss</code> file. The process described
         below assumes you already understand how to create a <code>.scss</code> file and are familiar with associated
@@ -119,17 +116,17 @@
     <p>When <a routerLink="/thems/colors">colors</a> are applied to a theme, all components within an application will
         pick up those colors automatically. As demonstrated by the example branding files at <code>/src/assets/dummydata/branding/brands</code>,
         we first declare SCSS variables in our <code>.scss</code> file for each of the colors in the <a
-            routerLink="/themes/colors">KION Color System</a> and then pass them into the <code>kg-theme-colors()</code>
+            routerLink="/themes/colors">Color System</a> and then pass them into the <code>wuf-theme-colors()</code>
         method as a SCSS map. Note that in order for CSS custom properties to work they must be bound to some object in
         the DOM. In the following, we're binding to the &lt;body&gt; tag because it more specific than the :root (i.e.,
-        HTML element) tag that the default KION theme binds to, but generic enough to be easily overridden.</p>
+        HTML element) tag that the default theme binds to, but generic enough to be easily overridden.</p>
 
-    <kg-code-sample
+    <wuf-code-sample
         type="scss"
         [code]="exampleColorCode">
-    </kg-code-sample>
+    </wuf-code-sample>
 
-    <p>This process defines all of the colors used in a KION Theme and binds their CSS custom properties to some
+    <p>This process defines all of the colors used in a Custom Theme and binds their CSS custom properties to some
         high-level element (in this example it's the &lt;body&gt; tag). Components from the component library along with
         Material Design Components should now start showing the colors you defined in your theme.</p>
 
@@ -137,7 +134,7 @@
 
     <h2>Define Brand Logo</h2>
 
-    <p>The <code>kg-theme-logo()</code> method allows you to override the default logo-related CSS custom properties for
+    <p>The <code>wuf-theme-logo()</code> method allows you to override the default logo-related CSS custom properties for
         the logo that appears in the application's header area. When creating a theme, you'll most likely also want to
         change the logo associated with that theme. This allows you to support multiple brands within the same
         application.</p>
@@ -149,45 +146,43 @@
     <p>Like the theme colors above, the properties for logo overrides must be bound to a high-level DOM element, like
         the &lt;body&gt; tag.</p>
 
-    <kg-code-sample
+    <wuf-code-sample
         type="scss"
         [code]="exampleLogoCode">
-    </kg-code-sample>
+    </wuf-code-sample>
 
     <hr>
 
-    <h2>Define Button Radius</h2>
+    <h2>Define Button Radius (Optional)</h2>
 
-    <p>The <code>kg-theme-logo()</code> method allows you to optionally override the default corner radius for
+    <p>The <code>wuf-theme-logo()</code> method allows you to optionally override the default corner radius for
         application buttons. View the <a routerLink="/themes/cssprops">Theme CSS Custom Properties page</a> for a list
         of generated CSS custom properties.</p>
 
     <p>Like the other methods defined above, these properties must be bound to a high-level DOM element, like the &lt;body&gt;
         tag.</p>
 
-    <kg-code-sample
+    <wuf-code-sample
         type="scss"
         [code]="exampleButtonCode">
-    </kg-code-sample>
+    </wuf-code-sample>
 
     <hr>
 
-    <h2>Define Font Styles (Typography)</h2>
+    <h2>Define Font Styles (Optional)</h2>
 
-    <p>The <code>kg-theme-typography()</code> method allows you to optionally override the default font styling. View
+    <p>The <code>wuf-theme-typography()</code> method allows you to optionally override the default font styling. View
         the <a routerLink="/themes/cssprops">Theme CSS Custom Properties page</a> for a list of generated CSS custom
         properties.</p>
 
     <p>Like the other methods defined above, these properties must be bound to a high-level DOM element, like the &lt;body&gt;
         tag.</p>
 
-    <p><strong>NOTE:</strong> Any font file used by your application should be included in the local file system. All
-        assets (like fonts) should be bundled in the app's assets folder in order to avoid having to require access to
-        external CDNs and other network-based assets.</p>
-    <kg-code-sample
+    <p><strong>NOTE:</strong> Don't forget to include import your font.</p>
+    <wuf-code-sample
         type="scss"
         [code]="exampleFontCode">
-    </kg-code-sample>
+    </wuf-code-sample>
 
     <hr>
 
@@ -197,10 +192,10 @@
         complete theme that overrides the default Dematic theme. As discussed above, this is a SCSS file so it requires
         server-side pre-compilation before it can be sent to the browser (if you include your scss partial using Angular
         bundling &#151; see below &#151; this process is handled for you).</p>
-    <kg-code-sample
+    <wuf-code-sample
         type="scss"
         [code]="exampleCodeComplete">
-    </kg-code-sample>
+    </wuf-code-sample>
 
     <hr>
 
@@ -218,7 +213,7 @@
     <p>The <strong>Living Style Guide</strong> (this application) includes a number of example files that demonstrate
         the mechanism for creating new themes in order to override the default Dematic theme. You can view these files
         within the <a
-            href="https://gitlab.dematic.com/cloud_visualization_services/living-style-guide/tree/master/src/assets/dummydata/branding"
+            href="https://github.com/anvil-open-software/wuf/tree/master/src/assets/dummydata/branding"
             target="_blank">repository</a> itself or within your local version of the Living Style guide at <code>/src/assets/dummydata/branding</code>.
     </p>
 
@@ -297,7 +292,7 @@
         <li>URLs in HTML should keep relative paths (e.g., <code>"&lt;img
             src="/assets/images/example_images/logos/bmw.svg"&gt;</code>).
         </li>
-        <li>Ensure all paths in SCSS in EXTERNAL components (e.g., @kion/kg-web-assets) use relative paths.</li>
+        <li>Ensure all paths in SCSS in EXTERNAL components (e.g., @anviltech/wuf-web-assets) use relative paths.</li>
     </ul>
 
     <hr>
@@ -308,8 +303,8 @@
         href="https://material.io/design/material-theming/overview.html" target="_blank">https://material.io/design/material-theming/overview.html</a>.
     </p>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

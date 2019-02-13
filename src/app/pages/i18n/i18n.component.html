@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'I18N', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'I18N', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'">
         <!-- Component name -->
         <div class="component_tabs_name">I18N (Internationalization) and Localization</div>
@@ -141,7 +141,7 @@
 
             <p>Your final markup should look something like this:</p>
 
-            <kg-code-sample
+            <wuf-code-sample
                 showCopyButton
                 type="html"
                 copy-label="Copy"
@@ -149,7 +149,7 @@
                 copy-label-done="Done"
                 [code]="exampleCode"
             >
-            </kg-code-sample>
+            </wuf-code-sample>
 
             <p>Add <a href="https://www.w3schools.com/tags/ref_language_codes.asp" target="_blank">ISO Language
                 Codes</a> to "languages" property of <code>/xliffmerge.json</code> file.</p>
@@ -227,9 +227,9 @@
 
     </app-component-tabs>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
     [footer content goes here]
-</kg-content-footer>
+</wuf-content-footer>

@@ -13,21 +13,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SetupConfigurationComponent implements OnInit {
 
-    constructor() {
-    }
-
-    ngOnInit() {
-    }
-
     serviceDefaultExample = `
     {
-        id:                     'kg-application',
+        id:                     'wuf-application',
         navigation: {
             position:       'left',
             iconPosition:   'left',
             alignment:      'left'
         },
-        theme:                  'dematic',
+        theme:                  'default',
         user: {
             id:             'default'
         }
@@ -47,23 +41,23 @@ export class SetupConfigurationComponent implements OnInit {
 
     appDefaultExample = `
     {
-        id:                     'kg-living-style-guide',
+        id:                     'living-style-guide',
         name:                   'Living Style Guide',
-        copyrightName:          'Dematic, Inc.'
+        copyrightName:          'ACME, Inc.'
         navigation: {
             position:       'left',
             iconPosition:   'left',
             alignment:      'left'
         },
-        theme:                  'dematic',
+        theme:                  'default',
     }
     `;
 
     appComponentExample = `
         import { Component, ViewEncapsulation, OnInit, Renderer2, OnDestroy } from '@angular/core';
 
-        import { KgConfigurationService } from '@kion/kg-ang-configuration'
-        import { deepMerge } from '@kion/kg-ang-utils';
+        import { WufConfigurationService } from '@anviltech/wuf-ang-configuration'
+        import { deepMerge } from '@anviltech/wuf-ang-utils';
         import { UserService } from './internal/services/user.service';
         
         // The following imports are only used for demo purposes
@@ -75,7 +69,7 @@ export class SetupConfigurationComponent implements OnInit {
             selector: 'app-root',
             templateUrl: './app.component.html',
             styleUrls: ['./app.component.scss'],
-            providers: [ KgConfigurationService, UserService ],
+            providers: [ WufConfigurationService, UserService ],
             encapsulation: ViewEncapsulation.Emulated
         })
         export class AppComponent implements OnInit, OnDestroy {
@@ -84,7 +78,7 @@ export class SetupConfigurationComponent implements OnInit {
             configSubscription: any;
             currentThemeId: string;
         
-            constructor(private configService: KgConfigurationService, private renderer: Renderer2, private userService: UserService) {
+            constructor(private configService: WufConfigurationService, private renderer: Renderer2, private userService: UserService) {
             }
         
             ngOnInit() {
@@ -188,30 +182,36 @@ export class SetupConfigurationComponent implements OnInit {
             }
         
             applyTheme(themeId: string) {
-                // Set the 'kg-theme' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
+                // Set the 'wuf-theme' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
                 this.currentThemeId = themeId;
-                this.renderer.setAttribute(document.documentElement, 'kg-theme', themeId);
+                this.renderer.setAttribute(document.documentElement, 'wuf-theme', themeId);
             }
         
             applyDarkTheme(applyDark: boolean) {
                 if (!applyDark) {
-                    // Remove the 'kg-theme-dark' property, if no longer applicable
-                    this.renderer.removeAttribute(document.documentElement, 'kg-theme-dark');
+                    // Remove the 'wuf-theme-dark' property, if no longer applicable
+                    this.renderer.removeAttribute(document.documentElement, 'wuf-theme-dark');
                 }
                 else if (applyDark) {
-                    // Set the 'kg-theme-dark' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
-                    this.renderer.setAttribute(document.documentElement, 'kg-theme-dark', "true");
+                    // Set the 'wuf-theme-dark' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
+                    this.renderer.setAttribute(document.documentElement, 'wuf-theme-dark', "true");
                 }
             }
         
         }
     `;
 
-    setupCode1 = `import { KgConfigurationModule, KgConfigurationService } from '@kion/kg-ang-configuration';`;
+    setupCode1 = `import { WufConfigurationModule, WufConfigurationService } from '@anviltech/wuf-ang-configuration';`;
     setupCode2 = `
     providers: [
-        KgConfigurationService
+        WufConfigurationService
     ],
     `;
+
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
 
 }

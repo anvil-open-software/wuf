@@ -1,0 +1,38 @@
+{
+    "name": "@anviltech/wuf-ang-navigation",
+    "version": "1.0.0",
+    "description": "A set of components and services for display navigation elements.",
+    "author": "Darren Luvaas",
+    "scripts": {
+        "build": "ng build --prod @anviltech/wuf-ang-navigation",
+        "packagr": "npm run build",
+        "pub": "npm run packagr && npm publish dist --access public"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "main": "dist/bundles/anviltech-wuf-ang-navigation.umd.js",
+    "typings": "dist/anviltech-wuf-ang-navigation.d.ts",
+    "dependencies": {
+        "@anviltech/wuf-ang-configuration": "1.0.0",
+        "@anviltech/wuf-ang-layout": "1.0.0"
+    },
+    "peerDependencies": {
+        "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/cdk": "6.4.7",
+        "@angular/material": "6.4.7",
+        "@anviltech/wuf-web-assets": "1.0.0",
+        "material-design-icons": "3.0.1",
+        "rxjs": "^6.2.2"
+    },
+    "devDependencies": {
+        "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/cdk": "6.4.7",
+        "@angular/material": "6.4.7",
+        "@anviltech/wuf-web-assets": "1.0.0",
+        "material-design-icons": "3.0.1",
+        "rxjs": "^6.2.2"
+    }
+}

@@ -4,10 +4,10 @@
  */
 
 import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { KgNavigationService } from '@kion/kg-ang-navigation';
+import { WufNavigationService } from '@anviltech/wuf-ang-navigation';
 import { ThemeListService } from '../../theme-list.service';
-import { KgConfigurationService } from '@kion/kg-ang-configuration';
-import { KgDrawerService } from '@kion/kg-ang-drawer';
+import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
+import { WufDrawerService } from '@anviltech/wuf-ang-drawer';
 
 
 @Component({
@@ -31,10 +31,10 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
     configSubscription: any;
 
     constructor(
-        private navService: KgNavigationService,
+        private navService: WufNavigationService,
         private themeList: ThemeListService,
-        public configService: KgConfigurationService,
-        private drawerService: KgDrawerService
+        public configService: WufConfigurationService,
+        private drawerService: WufDrawerService
     ) {
         this.theme = this.themeList[0];
         this.themes = themeList.themes;
@@ -67,7 +67,7 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
     }
 
     setTheme(theme: any) {
-        // Convert theme properties to config properties and send them to the KgConfigurationService
+        // Convert theme properties to config properties and send them to the WufConfigurationService
         this.configService.config = theme.config;
     }
 
@@ -105,7 +105,7 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
     }
 
     setDarkTheme(applyDark: boolean) {
-        // Convert to config properties and send them to the KgConfigurationService
+        // Convert to config properties and send them to the WufConfigurationService
         this.configService.config = {
             themeDark: applyDark
         };

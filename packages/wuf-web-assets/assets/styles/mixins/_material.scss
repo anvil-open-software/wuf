@@ -1,0 +1,560 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+/***** Angular Material *****/
+// Include overrides for Material Design.  These are included in every theme.
+// These styles are NOT applied without a theme.
+
+$wuf-label-offset: .75em;
+$wuf-input-vert-padding: .75em;
+$wuf-input-horiz-padding: .75em;
+$wuf-input-hint-horiz-padding: .95em;
+$wuf-input-hint-vert-padding: .3em;
+
+:root {
+    /*     local var           ||            global override            ||        default value        */
+
+    // inputs
+    --wuf-input-bg-color:                var(--wuf-color-gray-200,                    #EEEEEE);
+    --wuf-input-readonly-bg-color:       transparent;
+    --wuf-input-hover-bg-color:          var(--wuf-input-bg-color);
+    --wuf-input-disabled-opacity:        .5;
+    --wuf-input-hint-color:              var(--wuf-body-color,                        #616161);
+    --wuf-input-underline-color:         var(--wuf-body-color,                        #616161);
+
+    // cards
+    --wuf-card-bg-color:                 var(--wuf-color-white,                       #ffffff);
+}
+
+@mixin dotted-underline {
+    background-color: initial;
+    background-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 33%, var(--wuf-input-underline-color) 0%)!important;
+    background-size: 6px 100%!important;
+    background-repeat: repeat-x;
+}
+
+@mixin mat-overrides {
+
+    /***** icons *****/
+    .material-icons {
+        vertical-align: middle;
+    }
+
+    /***** inputs *****/
+    .mat-form-field-appearance-legacy {
+        .mat-hint {
+            padding: $wuf-input-hint-vert-padding $wuf-input-hint-horiz-padding 0 $wuf-input-hint-horiz-padding;
+            color: var(--wuf-input-hint-color);
+            opacity: .38;
+        }
+        .mat-form-field-wrapper {
+            margin-bottom: .35em;
+        }
+        .mat-form-field-infix {
+            padding: $wuf-input-vert-padding $wuf-input-horiz-padding;
+            @include border-top-radius(var(--wuf-border-radius));
+            background-color: var(--wuf-input-bg-color);
+            border-top-width: $wuf-input-vert-padding;
+        }
+        .mat-form-field-subscript-wrapper {
+            overflow: visible !important;
+            margin-top: 0;
+        }
+        .mat-form-field-label-wrapper {
+            .mat-form-field-label {
+                padding: 0 $wuf-input-horiz-padding;
+            }
+        }
+        .mat-form-field-label-wrapper {
+            top: -($wuf-label-offset);
+        }
+        .mat-form-field-underline {
+            background-color: var(--wuf-input-underline-color);
+        }
+        .mat-form-field-label {
+            color: var(--wuf-body-color);
+        }
+
+        // labels
+        .mat-form-field-label {
+            opacity: .8;
+            transition: all .25s ease;
+        }
+        &.mat-form-field-should-float {
+            .mat-form-field-label-wrapper {
+                top: -.25em;
+                .mat-form-field-label {
+                    opacity: .7;
+                    padding: 0 $wuf-input-hint-horiz-padding;
+                }
+            }
+        }
+        &.mat-focused {
+            .mat-form-field-label-wrapper {
+                .mat-form-field-label {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    /***** prefix/suffix inputs *****/
+    .mat-form-field {
+        .mat-form-field-suffix,
+        .mat-form-field-prefix {
+            background-color: var(--wuf-input-bg-color);
+        }
+        .mat-form-field-prefix {
+            padding: 1.32em .5em .5em .5em;
+            @include border-top-left-radius(var(--wuf-border-radius));
+            margin-right: calc(var(--wuf-border-radius) * -1);
+        }
+        .mat-form-field-suffix {
+            padding: 1.31em .5em .5em 0;
+            @include border-top-right-radius(var(--wuf-border-radius));
+            margin-left: calc(var(--wuf-border-radius) * -1);
+        }
+        .mat-form-field-prefix,
+        .mat-form-field-suffix {
+            line-height: 1.5em;
+            .mat-icon {
+                position: relative;
+                top: -5px;
+            }
+            span[matprefix] {
+                // text prefixes
+            }
+        }
+    }
+
+    /***** input errors *****/
+    .mat-form-field-appearance-legacy {
+        &.mat-form-field-invalid {
+            .mat-form-field-infix {
+                border-color: var(--wuf-color-danger-lighter-20);
+                background: var(--wuf-color-danger-lighter-20);
+            }
+            .mat-form-field-suffix,
+            .mat-form-field-prefix {
+                background: var(--wuf-color-danger-lighter-20);
+            }
+            .errorIcon {
+                position: relative;
+                top: -5px;
+                color: var(--wuf-color-white);
+            }
+            .mat-form-field-label {
+                color: var(--wuf-color-white);
+                .mat-form-field-required-marker {
+                    color: var(--wuf-color-white);
+                }
+            }
+            // Error message
+            .mat-error {
+                padding: $wuf-input-hint-vert-padding $wuf-input-hint-horiz-padding;
+            }
+        }
+    }
+
+    /***** disabled input *****/
+    .mat-input-element:disabled,
+    .mat-form-field-disabled {
+        &:not(readonly) {
+            /* There is no "readonly" directive on Angular Material Inputs.  Instead, we need to add the "disabled"
+            directive to these inputs and then change the styling of the DOM elements using the .readonly classname.
+            In the following we are styling disabled inputs that do NOT also have the ".readonly" classname.
+            */
+            input,
+            .mat-form-field-label-wrapper {
+                opacity: var(--wuf-input-disabled-opacity);
+                color: var(--wuf-body-color) !important;
+            }
+            .mat-form-field-underline {
+                @include dotted-underline;
+                opacity: var(--wuf-input-disabled-opacity);
+            }
+            .mat-form-field-suffix {
+                .mat-icon-button {
+                    opacity: var(--wuf-input-disabled-opacity);
+                }
+            }
+            .mat-select-value {
+                opacity: var(--wuf-input-disabled-opacity);
+            }
+        }
+    }
+
+    /***** readonly input *****/
+    .mat-form-field-disabled {
+        &.readonly {
+            /* There is no "readonly" directive on Angular Material Inputs.  Instead, we need to add the "disabled"
+            directive to these inputs and then change the styling of the DOM elements using the .readonly classname.
+            In the following we are styling disabled inputs that ALSO have the ".readonly" classname.
+            */
+            .mat-form-field-infix {
+                background-color: var(--wuf-input-readonly-bg-color);
+            }
+            input,
+            .mat-form-field-label-wrapper {
+                opacity: initial;
+            }
+            .mat-form-field-underline {
+                @include dotted-underline;
+                opacity: .7;
+            }
+            .mat-form-field-suffix {
+                .mat-icon-button {
+                    pointer-events: none;
+                    opacity: var(--wuf-input-disabled-opacity);
+                }
+            }
+            .mat-select-value {
+                opacity: initial;
+            }
+            .mat-form-field-suffix,
+            .mat-form-field-prefix {
+                background-color: var(--wuf-input-readonly-bg-color);
+            }
+        }
+    }
+
+    /***** hover state *****/
+    .mat-form-field {
+        &:not(.mat-form-field-disabled):not(.mat-focused) {
+            &:hover {
+                &:not(.mat-form-field-invalid) {
+                    .mat-form-field-infix {
+                        background-color: var(--wuf-input-hover-bg-color)!important;
+                    }
+                }
+                .mat-form-field-underline {
+                    height: 2px;
+                    bottom: 19px;
+                    background-color: var(--wuf-input-underline-color);
+                    transition: background-color .5s ease;
+                    .mat-form-field-ripple {
+                        height: 2px;
+                    }
+                }
+            }
+        }
+    }
+
+    /***** select *****/
+    .mat-select-arrow,
+    .mat-select-value-text {
+        color: var(--wuf-body-color);
+    }
+    .mat-select-content {
+        background-color: var(--wuf-color-white);
+    }
+    .mat-option {
+        color: var(--wuf-body-color);
+        .mat-option-pseudo-checkbox {
+            .mat-option-text {
+                color: var(--wuf-body-color);
+            }
+        }
+        &.mat-option-disabled {
+            color: var(--wuf-body-color);
+            .mat-option-pseudo-checkbox,
+            .mat-option-text {
+                opacity: var(--wuf-input-disabled-opacity);
+            }
+        }
+        &.mat-active {
+            color: var(--wuf-body-color);
+        }
+        &:not(.mat-selected) {
+            .mat-option-pseudo-checkbox {
+                border-color: var(--wuf-body-color);
+            }
+        }
+    }
+
+    /***** slider *****/
+    .mat-slider {
+        .mat-slider-wrapper {
+            .mat-slider-track-wrapper {
+                .mat-slider-track-background {
+                    background-color: var(--wuf-body-color);
+                    opacity: .5;
+                }
+                .mat-slider-track-fill {}
+            }
+            .mat-slider-tick-wrapper {}
+            .mat-slider-ticks-container {}
+            .mat-slider-thumb-container {
+                .mat-slider-focus-ring {}
+                .mat-slider-thumb {}
+                .mat-slider-thumb-label {}
+            }
+        }
+        &.mat-slider-min-value.mat-slider-thumb-label-showing {
+            .mat-slider-wrapper {
+                .mat-slider-thumb-container {
+                    .mat-slider-thumb {
+                        background-color: var(--wuf-body-color);
+                    }
+                }
+            }
+        }
+    }
+
+    /***** date picker *****/
+    .mat-datepicker-toggle-default-icon {
+        color: var(--wuf-body-color);
+    }
+
+    .mat-calendar {
+        background-color: var(--wuf-body-bg);
+        color: var(--wuf-body-color);
+        .mat-calendar-table-header {
+            color: var(--wuf-body-color);
+            opacity: .5;
+        }
+        .mat-calendar-body-cell-content {
+            color: var(--wuf-body-color);
+            &.mat-calendar-body-today {
+                border-color: var(--wuf-color-gray-500);
+            }
+            &:hover {
+                //background-color: rgba(0,0,0, .5);
+            }
+        }
+        .mat-calendar-body-label {
+            color: var(--wuf-body-color);
+        }
+        .mat-calendar-arrow {
+            border-top-color: var(--wuf-body-color);
+        }
+        .mat-calendar-table-header-divider {
+            &::after {
+                background-color: var(--wuf-border-color);
+            }
+        }
+        .mat-calendar-previous-button,
+        .mat-calendar-next-button {
+            color: var(--wuf-body-color);
+        }
+    }
+
+    /***** radios *****/
+    .mat-radio-group {
+        margin-bottom: calc(var(--wuf-spacer)/2);
+        display: block;
+    }
+    .mat-radio-button {
+        display: block;
+        margin-right: 10px;
+        .mat-radio-container {
+            .mat-radio-outer-circle {
+                border-color: var(--wuf-body-color);
+            }
+        }
+        &.mat-radio-disabled {
+            .mat-radio-label-content {
+                opacity: var(--wuf-input-disabled-opacity);
+                color: var(--wuf-body-color);
+            }
+            .mat-radio-container {
+                opacity: var(--wuf-input-disabled-opacity);
+                .mat-radio-outer-circle {
+                    border-color: var(--wuf-body-color);
+                }
+            }
+        }
+    }
+
+    /***** checkboxes *****/
+    .mat-checkbox-group {
+        margin-bottom: calc(var(--wuf-spacer)/2);
+        display: block;
+    }
+    .mat-checkbox {
+        cursor: default;
+        .mat-checkbox-layout {
+            cursor: pointer;
+        }
+        .mat-checkbox-frame {
+            border-color: var(--wuf-body-color);
+        }
+        .mat-checkbox-label {
+            color: var(--wuf-body-color);
+        }
+        &.mat-checkbox-disabled {
+            .mat-checkbox-layout {
+                opacity: var(--wuf-input-disabled-opacity);
+                .mat-checkbox-frame {
+                    border-color: var(--wuf-body-color);
+                }
+            }
+        }
+    }
+
+    /***** switches *****/
+    .mat-slide-toggle-group {
+        margin-bottom: calc(var(--wuf-spacer)/2);
+        display: block;
+    }
+    .mat-slide-toggle {
+        .mat-slide-toggle-content {
+            font-size: var(--wuf-font-size-base);
+        }
+        &:disabled,
+        &.mat-disabled {
+            .mat-slide-toggle-label {
+                .mat-slide-toggle-content {
+                    opacity: var(--wuf-input-disabled-opacity);
+                }
+            }
+        }
+    }
+
+    /***** modals/dialogs *****/
+    .mat-dialog-container {
+        background-color: var(--wuf-body-bg);
+        color: var(--wuf-body-color);
+    }
+
+    /***** buttons *****/
+    .mat-fab[disabled],
+    .mat-mini-fab[disabled] {
+        box-shadow: none;
+    }
+
+    /***** cards *****/
+    .mat-card {
+        background-color: var(--wuf-card-bg-color);
+        color: var(--wuf-body-color);
+        .mat-card-title,
+        .mat-card-subtitle {
+            color: var(--wuf-body-color);
+        }
+        .mat-card-subtitle {
+            opacity: .5;
+        }
+    }
+
+    /***** menu panel *****/
+    .mat-menu-panel,
+    .mat-autocomplete-panel {
+        background: var(--wuf-color-white);
+        .mat-menu-content {
+            color: var(--wuf-body-color);
+            .mat-menu-item {
+                background: transparent;
+                color: var(--wuf-body-color);
+                &:hover {
+                    background: rgba(0,0,0,.05);
+                }
+            }
+        }
+    }
+
+    /***** autocomplete panel *****/
+    .mat-autocomplete-panel {
+        background: var(--wuf-color-white);
+        color: var(--wuf-body-color);
+    }
+
+    /***** chips *****/
+    .mat-chip-list-wrapper {
+        .mat-chip {
+            margin-bottom: 0;
+            margin-left: 0;
+        }
+    }
+    .mat-chip {
+        .mat-chip-remove {
+            color: var(--wuf-body-color);
+        }
+        &:not([color]) {
+            color: var(--wuf-body-color);
+        }
+    }
+
+    /**************************************************/
+    /*****               DARK THEME               *****/
+    /**************************************************/
+    &[wuf-theme-dark="true"],
+    *[wuf-theme-dark="true"] {
+        // Everything below applies to dark themes only
+
+        /***** input errors *****/
+        .mat-form-field-appearance-legacy {
+            &.mat-form-field-invalid {
+                .mat-form-field-infix {
+                    border-color: var(--wuf-color-danger);
+                    background: var(--wuf-color-danger);
+                }
+                .mat-form-field-suffix,
+                .mat-form-field-prefix {
+                    background: var(--wuf-color-danger);
+                }
+                .mat-form-field-underline {
+                    .mat-form-field-ripple {
+                        background-color: var(--wuf-color-white);
+                    }
+                }
+            }
+        }
+
+        /***** select *****/
+        .mat-select-content {
+            background-color: var(--wuf-body-bg);
+        }
+
+        /***** buttons *****/
+        .mat-raised-button:not([color]) {
+            background-color: var(--wuf-color-secondary-lighter-10);
+            color: var(--wuf-body-color);
+        }
+        .mat-raised-button[disabled] {
+            background-color: var(--wuf-color-secondary-lighter-10);
+        }
+        .mat-icon-button {
+            //color: var(--wuf-color-secondary-lighter-30);
+        }
+
+        /***** disabled buttons *****/
+        .mat-button,
+        .mat-icon-button {
+            &.mat-primary[disabled],
+            &.mat-accent[disabled],
+            &.mat-warn[disabled],
+            &[disabled][disabled] {
+                color: rgba(#fff, .2);
+            }
+        }
+        .mat-raised-button,
+        .mat-stroked-button,
+        .mat-fab,
+        .mat-mini-fab {
+            &.mat-primary[disabled],
+            &.mat-accent[disabled],
+            &.mat-warn[disabled],
+            &[disabled][disabled] {
+                color: rgba(#000, .3);
+                background-color: rgba(#fff, .2);
+            }
+        }
+
+        /***** menu panel *****/
+        .mat-menu-panel {
+            background: var(--wuf-body-bg);
+        }
+
+        /***** autocomplete panel *****/
+        .mat-autocomplete-panel {
+            background: var(--wuf-body-bg);
+        }
+
+        /***** chips *****/
+        .mat-chip:not([color]) {
+            background-color: var(--wuf-color-secondary-lighter-10);
+        }
+    }
+}

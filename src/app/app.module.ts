@@ -16,17 +16,17 @@ import { AppComponent } from './app.component';
 import { RoutesModule } from './app-routes';
 
 /***** Import WUF *****/
-import { KgConfigurationModule, KgConfigurationService } from '@kion/kg-ang-configuration';
-import { KgLayoutModule, KgLayoutService } from '@kion/kg-ang-layout';
-import { KgUtilsModule } from '@kion/kg-ang-utils';
-import { KgDrawerModule } from '@kion/kg-ang-drawer';
-import { KgDashboardModule } from '@kion/kg-ang-dashboard';
-import { KgLoginModule } from '@kion/kg-ang-login-animated';
-import { KgNavigationModule } from '@kion/kg-ang-navigation';
-import { KgGridsterModule } from '@kion/kg-ang-gridster';
-import { KgSmartTableModule } from '@kion/kg-ang-smart-table';
-import '@kion/kg-web-code-sample';
-import '@kion/kg-web-message';
+import { WufConfigurationModule, WufConfigurationService } from '@anviltech/wuf-ang-configuration';
+import { WufLayoutModule, WufLayoutService } from '@anviltech/wuf-ang-layout';
+import { WufUtilsModule } from '@anviltech/wuf-ang-utils';
+import { WufDrawerModule } from '@anviltech/wuf-ang-drawer';
+import { WufDashboardModule } from '@anviltech/wuf-ang-dashboard';
+import { WufLoginModule } from '@anviltech/wuf-ang-login-animated';
+import { WufNavigationModule } from '@anviltech/wuf-ang-navigation';
+import { WufGridsterModule } from '@anviltech/wuf-ang-gridster';
+import { WufSmartTableModule } from '@anviltech/wuf-ang-smart-table';
+import '@anviltech/wuf-web-code-sample';
+import '@anviltech/wuf-web-message';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
@@ -48,7 +48,7 @@ import '@vaadin/vaadin-grid/vaadin-grid-selection-column.js';
 import '@vaadin/vaadin-grid/vaadin-grid-column';
 import '@vaadin/vaadin-grid/vaadin-grid-sorter';
 import '@vaadin/vaadin-grid/vaadin-grid-filter';
-import '@kion/kg-poly-grid-styles';
+import '@anviltech/wuf-poly-grid-styles';
 
 /***** fake backend *****/
 // Delete this for a production app
@@ -96,15 +96,15 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
         LayoutsModule.forRoot(),
 
         // WUF
-        KgUtilsModule,
-        KgConfigurationModule.forRoot(),
-        KgLayoutModule.forRoot(),
-        KgDrawerModule.forRoot(),
-        KgDashboardModule.forRoot(),
-        KgLoginModule.forRoot(),
-        KgNavigationModule.forRoot(),
-        KgGridsterModule.forRoot(),
-        KgSmartTableModule.forRoot(),
+        WufUtilsModule,
+        WufConfigurationModule.forRoot(),
+        WufLayoutModule.forRoot(),
+        WufDrawerModule.forRoot(),
+        WufDashboardModule.forRoot(),
+        WufLoginModule.forRoot(),
+        WufNavigationModule.forRoot(),
+        WufGridsterModule.forRoot(),
+        WufSmartTableModule.forRoot(),
 
         // 3rd Party Imports
         NgxMdModule.forRoot(), // Markdown
@@ -127,8 +127,8 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
         I18nComponent
     ],
     providers: [
-        KgConfigurationService,
-        KgLayoutService,
+        WufConfigurationService,
+        WufLayoutService,
         ThemeListService,
         UserService,
         NavigationService,

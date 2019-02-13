@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Alerts', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Alerts', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
 
 
     <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
@@ -60,7 +60,7 @@
 
         <!-- API Content -->
         <div class="component_tabs_3">
-            <kg-code-sample
+            <wuf-code-sample
                 showCopyButton
                 type="html"
                 copy-label="Copy"
@@ -68,7 +68,7 @@
                 copy-label-done="Done"
                 [code]="sampleCode"
             >
-            </kg-code-sample>
+            </wuf-code-sample>
         </div>
 
         <!-- CAHNGELOG Content -->
@@ -77,8 +77,8 @@
         </div>
     </app-component-tabs>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

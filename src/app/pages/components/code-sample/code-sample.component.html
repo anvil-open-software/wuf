@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Code Sample', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Code Sample', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         <!--page-level utilities here-->
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
     <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
                         [tabLabel_4]="'Change Log'">
@@ -24,11 +24,11 @@
 
         <!-- EXAMPLE Content -->
         <div class="component_tabs_1">
-            <p>The <strong>&lt;kg-code-sample&gt;</strong> component is great for displaying example code to your users.
+            <p>The <strong>&lt;wuf-code-sample&gt;</strong> component is great for displaying example code to your users.
                 It supports syntax coloring for a number of different languages based on the popular <a
                     href="https://highlightjs.org/" target="_blank">highlight.js</a> library.</p>
 
-            <kg-code-sample
+            <wuf-code-sample
                 showCopyButton
                 type="html"
                 copy-label="Copy"
@@ -36,7 +36,7 @@
                 copy-label-done="Done"
                 [code]="sampleCode"
             >
-            </kg-code-sample>
+            </wuf-code-sample>
         </div>
 
         <!-- WHEN/WHERE Content -->
@@ -46,18 +46,18 @@
 
         <!-- API Content -->
         <div class="component_tabs_3">
-            <markdown path="assets/documentation/packages/kg-web-code-sample/README.md"></markdown>
+            <markdown path="assets/documentation/packages/wuf-web-code-sample/README.md"></markdown>
         </div>
 
         <!-- CAHNGELOG Content -->
         <div class="component_tabs_4">
-            <markdown path="assets/documentation/packages/kg-web-code-sample/CHANGELOG.md"></markdown>
+            <markdown path="assets/documentation/packages/wuf-web-code-sample/CHANGELOG.md"></markdown>
         </div>
     </app-component-tabs>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
     Home page footer
-</kg-content-footer>
+</wuf-content-footer>

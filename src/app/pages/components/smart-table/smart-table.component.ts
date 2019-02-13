@@ -10,8 +10,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 // import 'rxjs/add/operator/debounceTime';
 // import 'rxjs/add/operator/skip';
 
-// We are going to simulate loading data from a remote source for demo purposes, so include the KgSmartTableLocalDataSource object from kg-library-angular
-import { KgSmartTableLocalDataSource, KgSmartTableValidatorService } from '@kion/kg-ang-smart-table';
+// We are going to simulate loading data from a remote source for demo purposes, so include the WufSmartTableLocalDataSource object from wuf-library-angular
+import { WufSmartTableLocalDataSource, WufSmartTableValidatorService } from '@anviltech/wuf-ang-smart-table';
 
 // Load custom editors and renderers
 import { CustomEditorForFoodsSmartTable } from './custom-editor.smart-table.for-foods.component';
@@ -19,7 +19,7 @@ import { CustomRenderForGradeSmartTable } from './custom-render.smart-table.for-
 import { CustomEditorForNameValidationSmartTable } from './custom-editor.smart-table.for-name-validation.component';
 import { CustomEditorForIDValidationSmartTable } from './custom-editor.smart-table.for-id-validation.component';
 
-import { SmartTableKgSmartTableValidatorService } from './smart-table-validator.service';
+import { SmartTableWufSmartTableValidatorService } from './smart-table-validator.service';
 
 
 @Component({
@@ -27,13 +27,13 @@ import { SmartTableKgSmartTableValidatorService } from './smart-table-validator.
     templateUrl: './smart-table.component.html',
     styleUrls: ['./smart-table.component.scss'],
     providers: [
-        {provide: KgSmartTableValidatorService, useClass: SmartTableKgSmartTableValidatorService}
+        {provide: WufSmartTableValidatorService, useClass: SmartTableWufSmartTableValidatorService}
     ],
     encapsulation: ViewEncapsulation.Emulated
 })
 export class SmartTableComponent implements OnInit {
     // Var for managing table data
-    public smartTableData: KgSmartTableLocalDataSource;
+    public smartTableData: WufSmartTableLocalDataSource;
 
     private fakeWaitForServer = 3000;
 
@@ -132,7 +132,7 @@ export class SmartTableComponent implements OnInit {
     }
 
     getData() {
-        this.smartTableData = new KgSmartTableLocalDataSource();
+        this.smartTableData = new WufSmartTableLocalDataSource();
 
         // Usually you would get data via a service and subscribe to the results.
         // For demo purposes, however, we are simply setting a timeout to simulate

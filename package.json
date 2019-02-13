@@ -1,7 +1,11 @@
 {
-    "name": "@kion/kg-web-ui-framework",
+    "name": "@anviltech/wuf-web-ui-framework",
     "version": "2.0.0",
-    "author": "Joris Hermans <Joris.Hermans@dematic.com>, Darren Luvaas <darren.luvaas@dematic.com>",
+    "author": "Darren Luvaas",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/anvil-open-software/wuf"
+    },
     "scripts": {
         "ng": "ng",
         "start": "ng serve --aot",
@@ -29,18 +33,15 @@
         "@angular/platform-browser-dynamic": "^6.1.0",
         "@angular/router": "^6.1.0",
         "@codebakery/origami": "^3.0.2",
-        "@kion/kg-cli-ui-config-dev-server": "^2.0.0",
-        "@kion/kg-poly-grid-styles": "^2.0.0",
-        "@kion/kg-poly-paper-elements": "^2.0.0",
-        "@kion/kg-poly-vaadin-elements": "^2.0.0",
-        "@kion/kg-web-assets": "^2.0.5",
-        "@kion/kg-web-code-sample": "^2.0.0",
-        "@kion/kg-web-message": "^2.0.0",
-        "@kion/kg-webpack-ui-config-plugin": "^2.0.0",
+        "@anviltech/wuf-poly-grid-styles": "^1.0.0",
+        "@anviltech/wuf-poly-paper-elements": "^1.0.0",
+        "@anviltech/wuf-poly-vaadin-elements": "^1.0.0",
+        "@anviltech/wuf-web-assets": "^1.0.0",
+        "@anviltech/wuf-web-code-sample": "^1.0.0",
+        "@anviltech/wuf-web-message": "^1.0.0",
         "@webcomponents/webcomponentsjs": "2.1.3",
         "classlist.js": "^1.1.20150312",
         "core-js": "^2.5.4",
-        "font-awesome": "^4.7.0",
         "hammerjs": "^2.0.8",
         "intl": "^1.2.5",
         "jquery": "^3.3.1",
@@ -82,6 +83,6 @@
     },
     "workspaces": [
         "packages/*",
-        "projects/kion/*"
+        "projects/anviltech/*"
     ]
 }

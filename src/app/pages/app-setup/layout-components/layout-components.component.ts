@@ -4,7 +4,7 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import { KgContentFooterService } from '@kion/kg-ang-layout';
+import { WufContentFooterService } from '@anviltech/wuf-ang-layout';
 
 
 @Component({
@@ -14,13 +14,13 @@ import { KgContentFooterService } from '@kion/kg-ang-layout';
 })
 export class LayoutComponentsComponent implements OnInit {
 
-    constructor(private footerService: KgContentFooterService) {
+    constructor(private footerService: WufContentFooterService) {
     }
 
     ngOnInit() {
     }
 
-    styleCode = `@import "~@kion/kg-web-assets/src/assets/styles/library”;`;
+    styleCode = `@import "~@anviltech/wuf-web-assets/src/assets/styles/library”;`;
 
     headCode = `<base href="/">
 	<meta charset="utf-8">
@@ -29,46 +29,46 @@ export class LayoutComponentsComponent implements OnInit {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	`;
 
-    layoutCodeBasic = `<kg-content-header>
+    layoutCodeBasic = `<wuf-content-header>
 	<!-- insert page header content here -->
-	</kg-content-header>
+	</wuf-content-header>
 
-	<kg-content-main>
+	<wuf-content-main>
 	<!-- insert page content here -->
-	</kg-content-main>
+	</wuf-content-main>
 	
-	<kg-content-footer>
+	<wuf-content-footer>
 	<!-- insert page footer content here -->
-	</kg-content-footer>
+	</wuf-content-footer>
 	`;
 
     headerCode = `
-	<kg-content-header>
+	<wuf-content-header>
 		<!-- insert page header content here -->
-		<ng-container toolbarContent>
-			<kg-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Layout Components', active: true }]"></kg-breadcrumb>
+		<ng-container toolbarLeft>
+			<wuf-breadcrumb [items]="[{ link: '/', label: 'Introduction' }, { link: '/setup', label: 'Application Setup' }, { link: null, label: 'Layout Components', active: true }]"></wuf-breadcrumb>
 		</ng-container>
 	
-		<ng-container utilities>
+		<ng-container toolbarRight>
 			<!--page-level utilities here-->
 		</ng-container>
-	</kg-content-header>
+	</wuf-content-header>
 	`;
 
     contentCode = `
-	<kg-content-main>
+	<wuf-content-main>
 		Page content goes here
-	</kg-content-main>
+	</wuf-content-main>
 	`;
 
     footerCode = `
-	<kg-content-footer>
+	<wuf-content-footer>
 		footer content goes here
-	</kg-content-footer>
+	</wuf-content-footer>
 	`;
 
     footerToggleCode1 = `import { Component, OnInit } from '@angular/core';
-	import { KgContentFooterService } from '@kion/kg-ang-layout';
+	import { WufContentFooterService } from '@anviltech/wuf-ang-layout';
 	
 	
 	@Component({
@@ -78,7 +78,7 @@ export class LayoutComponentsComponent implements OnInit {
 	})
 	export class LayoutComponentsComponent implements OnInit {
 	
-		constructor(private footerService: KgContentFooterService) {
+		constructor(private footerService: WufContentFooterService) {
 		}
 	
 		ngOnInit() {

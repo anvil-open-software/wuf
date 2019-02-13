@@ -1,0 +1,16 @@
+<!--
+  ~ Copyright (c) 2018 Dematic, Corp.
+  ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+  -->
+
+<div class="content-header">
+    <wuf-toolbar>
+        <ng-container toolbarLeft>
+            <ng-content select="[toolbarLeft]"></ng-content>
+        </ng-container>
+        <ng-container toolbarRight>
+            <ng-content select="[toolbarRight]"></ng-content>
+        </ng-container>
+    </wuf-toolbar>
+    <ng-content select="[otherContent]"></ng-content>
+</div>

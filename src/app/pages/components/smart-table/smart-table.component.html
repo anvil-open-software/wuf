@@ -3,19 +3,19 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<kg-content-header>
+<wuf-content-header>
     <!-- insert page header content here -->
-    <ng-container toolbarContent>
-        <kg-breadcrumb
-            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Smart Table', active: true }]"></kg-breadcrumb>
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'Smart Table', active: true }]"></wuf-breadcrumb>
     </ng-container>
 
-    <ng-container utilities>
+    <ng-container toolbarRight>
         [page-level utilities here]
     </ng-container>
-</kg-content-header>
+</wuf-content-header>
 
-<kg-content-main>
+<wuf-content-main>
     <!-- insert page content here -->
     <app-component-tabs [tabLabel_1]="'EXAMPLE'" [tabLabel_2]="'WHERE / WHEN TO USE'" [tabLabel_3]="'API'"
                         [tabLabel_4]="'CHANGE LOG'">
@@ -33,7 +33,7 @@
                     this a fair warning if deciding to adopt Smart Tables.</p>
             </div>
             <h5>Smart Table</h5>
-            <kg-smart-table
+            <wuf-smart-table
                 id="userTable"
                 [settings]="smartTableSettings"
                 [source]="smartTableData"
@@ -41,7 +41,7 @@
                 (deleteConfirm)="deleteUser($event)"
                 (editConfirm)="updateUser($event)"
                 (userRowSelect)="selectRow($event)">
-            </kg-smart-table>
+            </wuf-smart-table>
 
             <h3>Standard Bootstrap-style Table</h3>
             <table class="table table-striped">
@@ -311,10 +311,10 @@
             <h2>CSS Variables (i.e., CSS Custom Properties) Reference</h2>
 
             <p>The following theme-related CSS custom properties are available to use throughout your application's CSS
-                files should you decide to use them to further customize your brand's appearance. By default, the values
-                of these properties are set to use the Dematic brand theme. However, you can easily override all of the
-                following default value with your own theme values using the SCSS methods definded in the <a
-                    routerLink="/themes/themes">KION Theme System</a> documentation.</p>
+                files should you decide to use them to further customize your brand's appearance. By default, the
+                values of these properties are set to use the default brand theme. However, you can easily override
+                all of the following default value with your own theme values using the SCSS methods defined in the
+                <a routerLink="/themes/themes">Theme System</a> documentation.</p>
 
             <table class="table table-striped css-props-table">
                 <thead>
@@ -325,93 +325,93 @@
                 </tr>
                 </thead>
                 <tr>
-                    <td class="propName">--kg-table-bg-color</td>
+                    <td class="propName">--wuf-table-bg-color</td>
                     <td class="description">Background color for entire table (has the affectd of setting row color).
                     </td>
-                    <td class="value">var(--kg-color-white)</td>
+                    <td class="value">var(--wuf-color-white)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-border-width</td>
+                    <td class="propName">--wuf-table-border-width</td>
                     <td class="description">Border that appears around table and between rows.</td>
-                    <td class="value">var(--kg-border-width)</td>
+                    <td class="value">var(--wuf-border-width)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-border-color</td>
+                    <td class="propName">--wuf-table-border-color</td>
                     <td class="description">Color of border.</td>
-                    <td class="value">var(--kg-border-color)</td>
+                    <td class="value">var(--wuf-border-color)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-head-bg-color</td>
+                    <td class="propName">--wuf-table-head-bg-color</td>
                     <td class="description">Background color of table head.</td>
-                    <td class="value">var(--kg-color-white)</td>
+                    <td class="value">var(--wuf-color-white)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-head-color</td>
+                    <td class="propName">--wuf-table-head-color</td>
                     <td class="description">Text color for table head.</td>
-                    <td class="value">var(--kg-body-color)</td>
+                    <td class="value">var(--wuf-body-color)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-filter-bg-color</td>
+                    <td class="propName">--wuf-table-filter-bg-color</td>
                     <td class="description">Background color for the filter placeholder. Only applies to Smart Tables.
                     </td>
-                    <td class="value">var(--kg-color-secondary-lighter-30)</td>
+                    <td class="value">var(--wuf-color-secondary-lighter-30)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-filter-color</td>
+                    <td class="propName">--wuf-table-filter-color</td>
                     <td class="description">Text color for the filter placeholder.</td>
-                    <td class="value">var(--kg-color-gray-400)</td>
+                    <td class="value">var(--wuf-color-gray-400)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-cell-padding-vert</td>
+                    <td class="propName">--wuf-table-cell-padding-vert</td>
                     <td class="description">Vertical cell padding.</td>
                     <td class="value">5px</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-cell-padding-horiz</td>
+                    <td class="propName">--wuf-table-cell-padding-horiz</td>
                     <td class="description">Horizontal cell padding.</td>
                     <td class="value">20px</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-action-padding</td>
+                    <td class="propName">--wuf-table-action-padding</td>
                     <td class="description">Padding for row action cell. Only applies to Smart Tables.</td>
                     <td class="value">4px</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-font-size</td>
+                    <td class="propName">--wuf-table-font-size</td>
                     <td class="description">Font size for table contents.</td>
                     <td class="value">1rem</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-active-bg-color</td>
+                    <td class="propName">--wuf-table-active-bg-color</td>
                     <td class="description">Background color for active rows.</td>
-                    <td class="value">var(--kg-color-primary-lighter-30)</td>
+                    <td class="value">var(--wuf-color-primary-lighter-30)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-accent-bg-color</td>
+                    <td class="propName">--wuf-table-accent-bg-color</td>
                     <td class="description">Background color used for alternating rows. Requires &lt;table&gt; to use
                         the "table-striped" class.
                     </td>
-                    <td class="value">var(--kg-color-gray-100)</td>
+                    <td class="value">var(--wuf-color-gray-100)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-hover-bg-color</td>
+                    <td class="propName">--wuf-table-hover-bg-color</td>
                     <td class="description">Background color to use when hovering over clickable table rows.</td>
-                    <td class="value">var(--kg-color-gray-200)</td>
+                    <td class="value">var(--wuf-color-gray-200)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-button-add-color</td>
+                    <td class="propName">--wuf-table-button-add-color</td>
                     <td class="description">Add item button text color. Only applies to Smart Tables.</td>
-                    <td class="value">var(--kg-table-head-color)</td>
+                    <td class="value">var(--wuf-table-head-color)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-button-add-bg-color</td>
+                    <td class="propName">--wuf-table-button-add-bg-color</td>
                     <td class="description">Add item button background color. Only applies to Smart Tables.</td>
-                    <td class="value">var(--kg-table-head-bg-color)</td>
+                    <td class="value">var(--wuf-table-head-bg-color)</td>
                 </tr>
                 <tr>
-                    <td class="propName">--kg-table-button-add-bg-hover-color</td>
+                    <td class="propName">--wuf-table-button-add-bg-hover-color</td>
                     <td class="description">Add item button hover background color. Only applies to Smart Tables.</td>
-                    <td class="value">var(--kg-color-secondary-lighter-10)</td>
+                    <td class="value">var(--wuf-color-secondary-lighter-10)</td>
                 </tr>
             </table>
 
@@ -426,8 +426,8 @@
 
     </app-component-tabs>
 
-</kg-content-main>
+</wuf-content-main>
 
-<kg-content-footer>
+<wuf-content-footer>
     <!-- insert footer content here -->
-</kg-content-footer>
+</wuf-content-footer>

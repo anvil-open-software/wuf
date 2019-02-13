@@ -1,0 +1,21 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+// Create a default, baseline theme using default colors
+:root,
+:root[wuf-theme="default"],
+:root[wuf-theme] *[wuf-theme="default"],
+:root *[wuf-theme="default"] {
+
+    /***** colors *****/
+    // create default theme using default colors
+    @include wuf-theme-colors($theme-colors);
+
+    /***** typography *****/
+    @include wuf-theme-typography();
+
+    /***** buttons *****/
+    @include wuf-theme-button-radius(4px);
+}

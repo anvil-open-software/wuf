@@ -1,0 +1,32 @@
+{
+    "name": "@anviltech/wuf-ang-layout",
+    "version": "1.0.0",
+    "description": "A set of components and services related to application layout.",
+    "author": "Darren Luvaas",
+    "scripts": {
+        "build": "ng build @anviltech/wuf-ang-layout",
+        "packagr": "npm run build",
+        "pub": "npm run packagr && npm publish dist --access public"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "main": "dist/bundles/anviltech-wuf-ang-layout.umd.js",
+    "typings": "dist/anviltech-wuf-ang-layout.d.ts",
+    "dependencies": {
+        "@anviltech/wuf-ang-configuration": "^1.0.0",
+        "@anviltech/wuf-web-assets": "^1.0.0"
+    },
+    "peerDependencies": {
+        "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+        "material-design-icons": "3.0.1",
+        "rxjs": "^6.2.2"
+    },
+    "devDependencies": {
+        "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
+        "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+        "material-design-icons": "3.0.1",
+        "rxjs": "^6.2.2"
+    }
+}
