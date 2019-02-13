@@ -6,7 +6,7 @@
     "scripts": {
         "build": "ng build --prod @anviltech/wuf-ang-gridster",
         "packagr": "npm run build",
-        "pub": "npm run packagr && npm publish dist"
+        "pub": "npm run packagr && npm publish dist --access public"
     },
     "publishConfig": {
         "access": "public"

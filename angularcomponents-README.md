@@ -96,7 +96,7 @@ Add the following properties to the project's `./projects/anviltech/[name-of-lib
     "scripts": {
         "build": "ng build --prod @anviltech/[name-of-library-without-scope]",
         "packagr": "npm run build",
-        "pub": "npm run packagr && npm publish dist"
+        "pub": "npm run packagr && npm publish dist --access public"
     },
     "publishConfig": {
         "access": "public"
