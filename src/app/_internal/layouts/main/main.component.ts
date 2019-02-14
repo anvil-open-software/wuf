@@ -22,8 +22,7 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
     // We're setting this to a dummy, local route for this app but you
     // can/should use a data service for a real app.
     navDataUrl: string = '/api/navigation';
-    footerDataUrl: string = '/api/footer';
-    title: string;
+    appName: string;
     navData: any;
     logoRoute: string = '/'; // Route path to take users when clicking on header logo
     themes: any;
@@ -100,8 +99,14 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
             }
         }
 
-        // Add page title to login screen
-        this.title = newConfig.hasOwnProperty('name') ? newConfig['name'] : undefined;
+        // Add page appName to login screen
+        this.appName = newConfig.hasOwnProperty('name') ? newConfig['name'] : undefined;
+
+        // Check for app name change
+        if (newConfig.name !== this.appName) {
+            // Update page title
+            this.appName = newConfig.name;
+        }
     }
 
     setDarkTheme(applyDark: boolean) {

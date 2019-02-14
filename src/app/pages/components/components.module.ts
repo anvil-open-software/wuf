@@ -27,8 +27,8 @@ import { WufSmartTableModule } from '@anviltech/wuf-ang-smart-table';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
-import { CustomMaterialModule } from '../../internal/material.module';
-import { UtilsModule } from '../../internal/utils/utils.module';
+import { CustomMaterialModule } from '../../_internal/material.module';
+import { UtilsModule } from '../../_internal/utils/utils.module';
 
 /***** TODO *****/
 import { WufSplitPanelComponent } from './dashboard/wuf-split-panel/wuf-split-panel.component'; // TODO: move this to common-components once component is built

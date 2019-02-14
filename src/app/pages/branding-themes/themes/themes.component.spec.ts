@@ -10,7 +10,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { ThemesComponent } from './themes.component';
-import { ThemeListService } from '../../../internal/theme-list.service';
+import { ThemeListService } from '../../../_internal/theme-list.service';
 
 
 describe('ThemesComponent', () => {

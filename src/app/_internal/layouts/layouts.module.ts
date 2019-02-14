@@ -16,7 +16,7 @@ import { WufLoginModule } from '@anviltech/wuf-ang-login-animated';
 
 /***** 3rd Party *****/
 import { MatTooltipModule } from '@angular/material';
-import { CustomMaterialModule } from '../../internal/material.module';
+import { CustomMaterialModule } from '../material.module';
 
 /***** Local layout components *****/
 import { LayoutMainComponent } from './main/main.component';

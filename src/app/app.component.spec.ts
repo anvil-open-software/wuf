@@ -23,7 +23,7 @@ import { AppComponent } from './app.component';
 import { RoutesModule } from './app-routes';
 import { MessageComponent } from './pages/components/message/message.component';
 import { HomeComponent } from './pages/home/home.component';
-import { UserService } from './internal/services/user.service';
+import { UserService } from './_internal/services/user.service';
 
 
 describe('AppComponent', () => {

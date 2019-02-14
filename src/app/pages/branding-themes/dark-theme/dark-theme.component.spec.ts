@@ -10,7 +10,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { DarkThemeComponent } from './dark-theme.component';
-import { ThemeListService } from '../../../internal/theme-list.service';
+import { ThemeListService } from '../../../_internal/theme-list.service';
 import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
 
 

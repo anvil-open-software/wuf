@@ -8,13 +8,13 @@ import { Component, ViewEncapsulation, OnInit, Renderer2, OnDestroy } from '@ang
 import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
 import { deepMerge } from '@anviltech/wuf-ang-utils';
 
-import { UserService } from './internal/services/user.service';
+import { UserService } from './_internal/services/user.service';
 
 // App configuration
-import { configuration } from './internal/configuration/configuration';
+import { configuration } from './_internal/configuration/configuration';
 
 // The following imports are only used for demo purposes
-import { FakeUser } from './internal/fake-backend/data/user';
+import { FakeUser } from './_internal/fake-backend/data/user';
 import { WufLoginService } from '@anviltech/wuf-ang-login-animated';
 
 

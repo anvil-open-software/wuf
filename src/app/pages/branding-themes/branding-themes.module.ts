@@ -20,8 +20,8 @@ import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
-import { CustomMaterialModule } from '../../internal/material.module';
-import { UtilsModule } from '../../internal/utils/utils.module';
+import { CustomMaterialModule } from '../../_internal/material.module';
+import { UtilsModule } from '../../_internal/utils/utils.module';
 
 /***** Import page modules *****/
 import { BrandingThemesIntroComponent } from './branding-themes-intro/branding-themes-intro.component';
