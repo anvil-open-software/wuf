@@ -21,14 +21,12 @@ import { NgxMdModule } from 'ngx-md';
 
 import { AppComponent } from './app.component';
 import { RoutesModule } from './app-routes';
-import { MessageComponent } from './pages/components/message/message.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserService } from './_internal/services/user.service';
 
 
 describe('AppComponent', () => {
     let fake_routes: Routes = [
-        {path: 'messageComponent', component: MessageComponent},
         {path: '**', component: HomeComponent}
     ];
     let fixture: ComponentFixture<AppComponent>;
@@ -43,7 +41,6 @@ describe('AppComponent', () => {
                 CUSTOM_ELEMENTS_SCHEMA
             ],
             declarations: [
-                MessageComponent,
                 AppComponent,
                 HomeComponent
             ],

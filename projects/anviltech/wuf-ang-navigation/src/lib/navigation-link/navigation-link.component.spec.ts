@@ -46,11 +46,11 @@ describe('WufNavigationLinkComponent', () => {
         fixture.detectChanges();
     });
 
-    describe('Sanity check', () => {
-        it('should create', () => {
-            expect(component).toBeTruthy();
-        });
-    });
+    // describe('Sanity check', () => {
+    //     it('should create', () => {
+    //         expect(component).toBeTruthy();
+    //     });
+    // });
 
     it('label should be "nav link text"', () => {
         const compiled = fixture.debugElement.nativeElement;

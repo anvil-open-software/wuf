@@ -56,11 +56,11 @@ describe('WufSidebarFooterComponent', () => {
         fixture.detectChanges();
     });
 
-    describe('Sanity check', () => {
-        it('should create', () => {
-            expect(component).toBeTruthy();
-        });
-    });
+    // describe('Sanity check', () => {
+    //     it('should create', () => {
+    //         expect(component).toBeTruthy();
+    //     });
+    // });
 
     describe('Footer', () => {
         it('should have a sidebar footer element', () => {
