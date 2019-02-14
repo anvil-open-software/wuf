@@ -10,7 +10,6 @@
 export * from './lib/smart-table.component';
 export * from './lib/smart-table.module';
 
-// TODO: change the following to use the "kg" prefix
 export { WufSmartTableLocalDataSource } from './lib/lib/data-source/local/local.data-source';
 export { WufSmartTableValidatorService } from './lib/lib/validator.service';
 export { WufSmartTableDefaultEditor, WufSmartTableEditor } from './lib/components/cell/cell-editors/default-editor';
