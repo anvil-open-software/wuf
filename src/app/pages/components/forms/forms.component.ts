@@ -13,7 +13,6 @@ import {map, startWith} from 'rxjs/operators';
 import { MatDialog, MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete} from '@angular/material';
 
 import { WufDrawerService } from '@anviltech/wuf-ang-drawer';
-import { FormSettingsService } from './form.service';
 
 
 @Component({
@@ -29,7 +28,6 @@ export class FormsComponent implements OnInit {
     clearValue = '';
     requiredInput = new FormControl('', [Validators.required]);
     requiredInputValue = '';
-    multiSelect = new FormControl();
 
     // Slider settings
     autoTicks = false;
@@ -40,7 +38,6 @@ export class FormsComponent implements OnInit {
     showTicks = true;
     step = 10;
     thumbLabel = true;
-    value = 0;
     vertical = false;
 
     // Chip inputs
@@ -65,9 +62,7 @@ export class FormsComponent implements OnInit {
     constructor(
         private drawerService: WufDrawerService,
         public materialDialog: MatDialog,
-        public formSettingsService: FormSettingsService
     ) {
-        this.initForm();
         this.filteredFruits = this.fruitCtrl1.valueChanges.pipe(
             startWith(null),
             map((fruit: string | null) => fruit ? this._filter(fruit) : this.allFruits.slice()));
@@ -83,43 +78,12 @@ export class FormsComponent implements OnInit {
 
 
     ngOnInit() {
-        this.initForm();
-    }
-
-    initForm() {
-        this.updateFormSettings(this.formSettingsService.defaultSettings);
-    }
-
-    updateFormSettings(settings) {
-        for (let attr in settings) {
-            this.formSettingsService.settings[attr] = settings[attr];
-        }
     }
 
     getErrorMessage() {
         return this.requiredInput.hasError('required') ? 'You must enter a value' :
             this.requiredInput.hasError('email') ? 'Not a valid email' :
                 '';
-    }
-
-    openDrawer() {
-        this.drawerService.show('formOptions');
-    }
-
-    onProposalClick() {
-        this.updateFormSettings(this.formSettingsService.proposedSettings);
-    }
-
-    onCurrentSettingsClick() {
-        this.updateFormSettings(this.formSettingsService.diqSettings);
-    }
-
-    onErrorIconChange(bol) {
-        this.formSettingsService.settings.errorIcon = bol;
-    }
-
-    onReserveSpaceChange(bol) {
-        this.formSettingsService.settings.reserveSpace = bol;
     }
 
     /***** chips *****/

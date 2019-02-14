@@ -123,22 +123,10 @@ export const NavigationItems =
                     id: 'nav-gridster'
                 },
                 {
-                    link: '/components/loginScreen',
-                    label: 'Login Screen',
-                    icon: '&#xE89D;',
-                    id: 'nav-loginScreen'
-                },
-                {
                     link: '/components/login',
-                    label: 'Login (Fancy)',
+                    label: 'Login (Animated)',
                     icon: '&#xE89D;',
                     id: 'nav-login'
-                },
-                {
-                    link: '/components/logoutScreen',
-                    label: 'Logout Screen',
-                    icon: '&#xE89E;',
-                    id: 'nav-logoutScreen'
                 },
                 {
                     link: '/components/kgWebMessages',

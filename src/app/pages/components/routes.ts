@@ -21,8 +21,6 @@ import { NavigationFooterComponent } from './navigation-footer/navigation-footer
 import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import { LoginScreenReadmeComponent } from './login.screen.readme.component/login.screen.readme.component';
-import { LogoutScreenReadmeComponent } from './logout.screen.readme.component/logout.screen.readme.component';
 import { WebMessagesComponent } from './web-messages/web-messages.component';
 import { AlertComponent } from './alert/alert.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
@@ -46,8 +44,6 @@ const routes_layout_main = [
     {path: 'cards', component: CardComponent, pathMatch: 'full'},
     {path: 'codesample', component: CodeSampleComponent, pathMatch: 'full'},
     {path: 'kgWebMessages', component: WebMessagesComponent, pathMatch: 'full'},
-    {path: 'loginScreen', component: LoginScreenReadmeComponent, pathMatch: 'full'},
-    {path: 'logoutScreen', component: LogoutScreenReadmeComponent, pathMatch: 'full'},
     {path: 'modals', component: ModalComponent, pathMatch: 'full'},
     {path: 'navigation', component: NavigationComponent, pathMatch: 'full'},
     {path: 'navigationfooter', component: NavigationFooterComponent, pathMatch: 'full'},
