@@ -238,6 +238,11 @@
   dependencies:
     tslib "^1.9.0"
 
+"@anviltech/wuf-web-assets@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@anviltech/wuf-web-assets/-/wuf-web-assets-1.0.0.tgz#73bfe8d8f3f0f6c75f6c75e2356ca92d8d3bfb65"
+  integrity sha512-ScxU6sAX/Q3DXwvf0+bFeOdfIs+IiB72a0wyrTEFi1Uh/lEXLshGfSeLV+vuTS93vTimqXguRpcfnzs5vV+JKg==
+
 "@babel/code-frame@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"

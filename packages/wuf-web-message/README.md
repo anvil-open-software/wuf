@@ -12,7 +12,7 @@ Note that the examples below are derived from a web application written with Ang
 The software engineer updates the host application's _packages.json_ to include _kg-web-message_:
 
 ````json
-    "@anviltech/wuf-web-message": "0.0.1",
+    "@anviltech/wuf-web-message": "1.0.0",
 ````
 
 #### Import the components

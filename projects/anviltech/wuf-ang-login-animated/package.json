@@ -14,7 +14,7 @@
     "main": "dist/bundles/anviltech-wuf-ang-login-animated.umd.js",
     "typings": "dist/anviltech-wuf-ang-login-animated.d.ts",
     "dependencies": {
-        "@anviltech/wuf-ang-layout": "1.0.0"
+        "@anviltech/wuf-ang-layout": "^1.0.0"
     },
     "peerDependencies": {
         "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
