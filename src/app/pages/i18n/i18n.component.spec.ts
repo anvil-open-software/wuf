@@ -46,11 +46,11 @@ describe('I18nComponent', () => {
         fixture.detectChanges();
     });
 
-    describe('Sanity check', () => {
-        it('should create', () => {
-            expect(component).toBeTruthy();
-        });
-    });
+    // describe('Sanity check', () => {
+    //     it('should create', () => {
+    //         expect(component).toBeTruthy();
+    //     });
+    // });
 
     it('should have cardinality paragraph', async(() => {
         de = fixture.debugElement.query(By.css('#example_cardinality'));
