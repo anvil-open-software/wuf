@@ -1,6 +1,6 @@
 {
     "name": "@anviltech/wuf-web-assets",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A collection of fonts, styles, images, and other assets for WUF.",
     "author": "Darren Luvaas",
     "scripts": {

@@ -12,93 +12,11 @@
 
     <ng-container toolbarRight>
         <!--page-level utilities here-->
-        <button mat-raised-button (click)="openDrawer()">Show form options</button>
     </ng-container>
 </wuf-content-header>
 
 <wuf-content-main>
     <!-- insert page content here -->
-
-    <wuf-drawer header="Form Options" id="formOptions">
-
-
-        <div class="label">Form layout</div>
-        <mat-form-field>
-            <mat-select placeholder="Alignment" [(value)]="formSettingsService.settings.alignment">
-                <mat-option value="left">Left</mat-option>
-                <mat-option value="center">Center</mat-option>
-                <mat-option value="right">Right</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
-            <mat-select placeholder="Width" [(value)]="formSettingsService.settings.width">
-                <mat-option value="25">25%</mat-option>
-                <mat-option value="50">50%</mat-option>
-                <mat-option value="100">100%</mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <hr>
-
-        <div class="label">Text input layout</div>
-        <mat-radio-group name="inputBlock" class="radio-wrap" [(ngModel)]="formSettingsService.settings.inputBlock">
-            <mat-radio-button value="block" color="primary">1 item/row</mat-radio-button>
-            <mat-radio-button value="inline" color="primary">Multiple items/row</mat-radio-button>
-        </mat-radio-group>
-
-        <hr>
-
-        <div class="label">Radio/Checkbox/Switch layout</div>
-        <mat-radio-group name="radioBlock" class="radio-wrap" [(ngModel)]="formSettingsService.settings.radioBlock">
-            <mat-radio-button value="block" color="primary">1 item/row</mat-radio-button>
-            <mat-radio-button value="inline" color="primary">Multiple items/row</mat-radio-button>
-        </mat-radio-group>
-
-        <hr>
-
-        <div class="label">Textarea layout</div>
-        <mat-radio-group name="textareaBlock" class="radio-wrap" [(ngModel)]="formSettingsService.settings.textareaBlock">
-            <mat-radio-button value="inline" color="primary">Inline</mat-radio-button>
-            <mat-radio-button value="block" color="primary">Own line</mat-radio-button>
-        </mat-radio-group>
-
-        <hr>
-
-        <div class="label">Float labels</div>
-        <mat-radio-group name="floatLabel" class="radio-wrap" [(ngModel)]="formSettingsService.settings.floatLabel">
-            <mat-radio-button value="auto" color="primary">Auto</mat-radio-button>
-            <mat-radio-button value="always" color="primary">Always</mat-radio-button>
-            <mat-radio-button value="never" color="primary">Never</mat-radio-button>
-        </mat-radio-group>
-
-        <hr>
-
-        <div class="label">Error messages</div>
-        <mat-radio-group name="errorFill" class="radio-wrap" [(ngModel)]="formSettingsService.settings.errorFill">
-            <mat-radio-button value="input" color="primary">Fill input</mat-radio-button>
-            <mat-radio-button value="message" color="primary">Fill error message</mat-radio-button>
-            <mat-radio-button value="neither" color="primary">None</mat-radio-button>
-        </mat-radio-group>
-
-        <mat-slide-toggle labelPosition="before" color="primary" [checked]="formSettingsService.settings.errorIcon" (change)="onErrorIconChange($event.checked)">Show error icon</mat-slide-toggle>
-
-        <hr>
-
-        <div class="label">Error and hint messaging</div>
-
-        <mat-slide-toggle labelPosition="before" color="primary" [checked]="formSettingsService.settings.reserveSpace" (change)="onReserveSpaceChange($event.checked)">Reserve space</mat-slide-toggle>
-
-        <hr>
-
-        <p>Option sets:</p>
-
-        <div class="settings-button-wrap">
-            <button mat-raised-button (click)="onCurrentSettingsClick()">Show DiQ Options</button>
-            <button mat-raised-button (click)="onProposalClick()">Show Proposed Options</button>
-        </div>
-
-    </wuf-drawer>
 
     <app-component-tabs [tabLabel_1]="'Examples'"
                         [tabLabel_2]="'Where / When to Use'"
@@ -108,65 +26,59 @@
         <div class="component_tabs_name">Forms</div>
 
         <!-- EXAMPLE Content -->
-        <div class="component_tabs_1" [class.hideFormSpacing]="!formSettingsService.settings.reserveSpace">
+        <div class="component_tabs_1">
             <h2>Form Layout</h2>
 
-            <p>The following shows an example form.  To experiment with different layout and behaviors, click the "Show form options" button.</p>
+            <p>The following shows an example form.</p>
 
             <hr>
 
-            <div class="row"
-                 [class.justify-content-center]="formSettingsService.settings.alignment == 'center'"
-                 [class.justify-content-end]="formSettingsService.settings.alignment == 'right'"
-            >
-                <div class="col example-container"
-                     [class.col-md-3]="formSettingsService.settings.width == '25'"
-                     [class.col-md-6]="formSettingsService.settings.width == '50'"
-                     [class.col-md-12]="formSettingsService.settings.width == '100'"
-                     [class.inlineInputs]="formSettingsService.settings.inputBlock === 'inline'"
-                >
+            <h3>Example Text Inputs</h3>
 
-                    <h3>Example Text Inputs</h3>
+            <p>Text inputs should always be 100% width of their container.  However, on screens with a large
+                amount of real estate, text inputs should span a max of 50% of page width. This can be handled
+                by using a responsive class of "col col-lg-6" on the parent wrapper element.</p>
 
-                    <p>Text inputs should be 100% width of their container.</p>
-                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+            <div class="row">
+                <div class="col col-lg-6">
+                    <mat-form-field>
                         <input matInput placeholder="Text input">
                     </mat-form-field>
 
-                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                    <mat-form-field>
                         <input matInput placeholder="Text input with hint">
                         <mat-hint align="start">Normal text input with a hint</mat-hint>
                     </mat-form-field>
 
-                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel" hintLabel="Max 30 characters">
+                    <mat-form-field hintLabel="Max 30 characters">
                         <input matInput #input maxlength="30" placeholder="Max width input">
                         <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
                     </mat-form-field>
 
-                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel" [class.noFill]="formSettingsService.settings.errorFill !== 'input'">
+                    <mat-form-field>
                         <input matInput placeholder="Required input" [formControl]="requiredInput" required [(ngModel)]="requiredInputValue">
-                        <mat-error *ngIf="requiredInput.invalid" [class.fill]="formSettingsService.settings.errorFill === 'message'">{{getErrorMessage()}}</mat-error>
-                        <span class="errorIcon" *ngIf="requiredInput.invalid && formSettingsService.settings.errorIcon && requiredInput.touched" matSuffix mat-icon-button>
+                        <mat-error *ngIf="requiredInput.invalid">{{getErrorMessage()}}</mat-error>
+                        <span class="errorIcon" *ngIf="requiredInput.invalid && requiredInput.touched" matSuffix mat-icon-button>
                             <mat-icon>error</mat-icon>
                         </span>
                         <mat-hint align="start">This input is required</mat-hint>
                     </mat-form-field>
 
-                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                    <mat-form-field>
                         <input matInput placeholder="Disabled input" disabled value="I'm a disabled input">
                     </mat-form-field>
 
-                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel" class="readonly">
+                    <mat-form-field class="readonly">
                         <input matInput placeholder="Read-only input" disabled value="I'm a read-only input">
                     </mat-form-field>
 
-                    <div class="textarea-wrap" [class.full-width]="formSettingsService.settings.textareaBlock !== 'inline'">
-                        <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                    <div class="textarea-wrap">
+                        <mat-form-field>
                             <textarea matInput placeholder="Textarea"></textarea>
                         </mat-form-field>
                     </div>
 
-                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                    <mat-form-field>
                         <mat-select placeholder="Select" [(value)]="selectValue">
                             <mat-option>--</mat-option>
                             <mat-option value="option1">Option 1</mat-option>
@@ -176,7 +88,7 @@
                     </mat-form-field>
 
                     <mat-form-field>
-                        <mat-select placeholder="Multi-select" [formControl]="multiSelect" multiple>
+                        <mat-select placeholder="Multi-select" multiple>
                             <mat-option value="option1">Option 1</mat-option>
                             <mat-option value="option2">Option 2</mat-option>
                             <mat-option value="option3">Option 3</mat-option>
@@ -235,7 +147,7 @@
 
                     <h3>Example Text Inputs with Prefix/Suffixes</h3>
 
-                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                    <mat-form-field>
                         <input matInput [matDatepicker]="picker" placeholder="Choose a date">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker startView="year"></mat-datepicker>
@@ -256,7 +168,7 @@
                         <input type="tel" matInput placeholder="Input with icon suffix">
                     </mat-form-field>
 
-                    <mat-form-field [floatLabel]="formSettingsService.settings.floatLabel">
+                    <mat-form-field>
                         <input matInput type="text" placeholder="Clearable input" [(ngModel)]="clearValue">
                         <button mat-button *ngIf="clearValue" matSuffix mat-icon-button aria-label="Clear" (click)="clearValue=''">
                             <mat-icon>close</mat-icon>
@@ -283,7 +195,6 @@
                         [step]="step"
                         [thumbLabel]="thumbLabel"
                         [tickInterval]="tickInterval"
-                        [(ngModel)]="value"
                         [vertical]="vertical"
                         color="primary"
                     >
@@ -298,8 +209,7 @@
                     <mat-radio-group
                         name="radioExample"
                         id="radioExample"
-                        class="controls-wrap"
-                        [class.block]="formSettingsService.settings.radioBlock === 'block'"
+                        class="mat-radio-group"
                     >
                         <mat-radio-button value="1" color="primary">Option 1</mat-radio-button>
                         <mat-radio-button value="2" color="primary">Option 2</mat-radio-button>
@@ -314,7 +224,7 @@
                     <h3>Example Checkbox Controls</h3>
 
                     <div class="label">Choose several options</div>
-                    <div class="controls-wrap mat-checkbox-group" [class.block]="formSettingsService.settings.radioBlock === 'block'">
+                    <div class="mat-checkbox-group">
                         <mat-checkbox color="primary">Option 1</mat-checkbox>
                         <mat-checkbox color="primary">Option 2</mat-checkbox>
                         <mat-checkbox color="primary">Option 3</mat-checkbox>
@@ -328,7 +238,7 @@
                     <h3>Switch Controls (aka, Slide Toggles)</h3>
 
                     <div class="label">Enable different options</div>
-                    <div class="controls-wrap mat-slide-toggle-group" [class.block]="formSettingsService.settings.radioBlock === 'block'">
+                    <div class="mat-slide-toggle-group full-width">
                         <mat-slide-toggle labelPosition="before" color="primary">Option 1</mat-slide-toggle>
                         <mat-slide-toggle labelPosition="before" color="primary">Option 2</mat-slide-toggle>
                         <mat-slide-toggle labelPosition="before" color="primary">Option 3</mat-slide-toggle>
@@ -339,46 +249,57 @@
 
                     <hr>
 
-                    <h3>Example Form</h3>
+                    <h3>Example Form in Table</h3>
 
-                    <form class="example-form">
+                    <p>The following table demonstrates how to place related form inputs side-by-side.</p>
 
-                        <table class="example-table full-width">
+                    <form class="example-form inlineInputs">
+
+                        <table class="full-width">
                             <tr>
                                 <td>
-                                    <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                                    <mat-form-field>
                                         <input matInput placeholder="First name">
                                     </mat-form-field></td>
                                 <td>
-                                    <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                                    <mat-form-field>
                                         <input matInput placeholder="Last name">
                                     </mat-form-field>
                                 </td>
                             </tr>
                         </table>
 
-                        <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
-                            <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
-                        </mat-form-field>
-
-                        <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
-                            <textarea matInput placeholder="Address 2"></textarea>
-                        </mat-form-field>
-
-                        <table class="example-table full-width">
+                        <table class="full-width">
                             <tr>
                                 <td>
-                                    <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                                    <mat-form-field>
+                                        <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <mat-form-field>
+                                        <textarea matInput placeholder="Address 2"></textarea>
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="full-width">
+                            <tr>
+                                <td>
+                                    <mat-form-field>
                                     <input matInput placeholder="City">
                                     </mat-form-field>
                                 </td>
                                 <td style="max-width: 75px">
-                                    <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                                    <mat-form-field>
                                         <input matInput placeholder="State">
                                     </mat-form-field>
                                 </td>
                                 <td style="max-width: 100px">
-                                    <mat-form-field class="full-width" [floatLabel]="formSettingsService.settings.floatLabel">
+                                    <mat-form-field>
                                     <input matInput #postalCode maxlength="5" placeholder="Postal Code">
                                         <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
                                     </mat-form-field>

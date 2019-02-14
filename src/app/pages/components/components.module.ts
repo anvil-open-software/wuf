@@ -51,8 +51,6 @@ import { ButtonComponent } from './button/button.component';
 import { CardComponent } from './card/card.component';
 import { CodeSampleComponent } from './code-sample/code-sample.component';
 import { CalendarComponent } from './calendar/calendar.component';
-import { LoginScreenReadmeComponent } from './login.screen.readme.component/login.screen.readme.component';
-import { LogoutScreenReadmeComponent } from './logout.screen.readme.component/logout.screen.readme.component';
 import { WebMessagesComponent } from './web-messages/web-messages.component';
 import { AlertComponent } from './alert/alert.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
@@ -62,7 +60,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { FormsComponent } from './forms/forms.component';
-import { FormSettingsService } from './forms/form.service';
 import { GridsterComponent } from './gridster/gridster.component';
 import { SmartTableComponent } from './smart-table/smart-table.component';
 import { ToastsComponent } from './toasts/toasts.component';
@@ -114,8 +111,6 @@ import { ToastsComponent } from './toasts/toasts.component';
         ComponentsIntroComponent,
         CodeSampleComponent,
         CalendarComponent,
-        LoginScreenReadmeComponent,
-        LogoutScreenReadmeComponent,
         WebMessagesComponent,
         AlertComponent,
         BreadcrumbComponent,
@@ -146,9 +141,6 @@ import { ToastsComponent } from './toasts/toasts.component';
         CustomRenderForGradeSmartTable,
         CustomEditorForNameValidationSmartTable,
         CustomEditorForIDValidationSmartTable
-    ],
-    providers: [
-        FormSettingsService
     ]
 })
 export class ComponentsModule {
