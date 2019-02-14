@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CalendarComponent } from './calendar.component';
-import { CustomMaterialModule } from '../../../internal/material.module';
+import { CustomMaterialModule } from '../../../_internal/material.module';
 
 
 describe('CalendarComponent', () => {

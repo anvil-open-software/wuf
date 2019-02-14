@@ -5,6 +5,7 @@ TODO
 [ ] forms page warning: It looks like you're using ngModel on the same form field as formControl. 
 [ ] update Gridster to include component loading
 [ ] clean up form page.  Remove drawer
+[ ] make resize bar transparent.  Just use cursor.
 [ ] ensure navigation with horizontal orientation highlights top-level navigation element when child element is active
 [ ] Smart Table fixes:
     [ ] forms.js:1181 

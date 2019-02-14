@@ -12,7 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ModalComponent } from './modal.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CustomMaterialModule } from '../../../internal/material.module';
+import { CustomMaterialModule } from '../../../_internal/material.module';
 
 
 describe('ModalComponent', () => {

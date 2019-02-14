@@ -18,8 +18,8 @@ import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
-import { UtilsModule } from '../../internal/utils/utils.module';
-import { CustomMaterialModule } from '../../internal/material.module';
+import { UtilsModule } from '../../_internal/utils/utils.module';
+import { CustomMaterialModule } from '../../_internal/material.module';
 
 /***** Import page modules *****/
 import { SetupIntroComponent } from './setup-intro/setup-intro.component';

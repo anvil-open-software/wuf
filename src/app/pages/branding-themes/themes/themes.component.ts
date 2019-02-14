@@ -5,7 +5,7 @@
 
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
-import { ThemeListService } from '../../../internal/theme-list.service';
+import { ThemeListService } from '../../../_internal/theme-list.service';
 
 
 @Component({

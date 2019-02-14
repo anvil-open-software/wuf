@@ -30,7 +30,7 @@ import '@anviltech/wuf-web-message';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
-import { CustomMaterialModule } from './internal/material.module';
+import { CustomMaterialModule } from './_internal/material.module';
 import { OrigamiModule } from '@codebakery/origami';
 
 // Import polymer controls that will be used by Vaadin Grid
@@ -52,28 +52,28 @@ import '@anviltech/wuf-poly-grid-styles';
 
 /***** fake backend *****/
 // Delete this for a production app
-import { fakeBackendProvider } from './internal/fake-backend/fake-backend.service';
+import { fakeBackendProvider } from './_internal/fake-backend/fake-backend.service';
 
 /***** Error pages *****/
 import { PageNotFoundComponent } from './other/page-not-found/page-not-found.component';
 import { ForbiddenComponent } from './other/forbidden/forbidden.component';
 
 /***** Layouts *****/
-import { LayoutsModule } from './internal/layouts/layouts.module';
+import { LayoutsModule } from './_internal/layouts/layouts.module';
 
 /***** Misc placeholder pages *****/
 import { SettingsComponent } from './other/settings/settings.component';
 
 /***** Services *****/
-import { ThemeListService } from './internal/theme-list.service';
-import { UserService } from './internal/services/user.service';
-import { NavigationService } from './internal/services/navigation.service';
-import { FooterService } from './internal/services/footer.service';
+import { ThemeListService } from './_internal/theme-list.service';
+import { UserService } from './_internal/services/user.service';
+import { NavigationService } from './_internal/services/navigation.service';
+import { FooterService } from './_internal/services/footer.service';
 
 /***** Example component pages *****/
 import { HomeComponent } from './pages/home/home.component';
 import { I18nComponent } from './pages/i18n/i18n.component';
-import { UtilsModule } from './internal/utils/utils.module';
+import { UtilsModule } from './_internal/utils/utils.module';
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
 
 

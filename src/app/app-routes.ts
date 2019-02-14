@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 /***** Import page layouts *****/
-import { LayoutsModule, LayoutBasicComponent, LayoutMainComponent } from './internal/layouts/layouts.module';
+import { LayoutsModule, LayoutBasicComponent, LayoutMainComponent } from './_internal/layouts/layouts.module';
 
 /***** Import page modules *****/
 // Error pages
