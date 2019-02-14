@@ -50,11 +50,11 @@ describe('WufSidebarMainComponent', () => {
         fixture.detectChanges();
     });
 
-    describe('Sanity check', () => {
-        it('should create', () => {
-            expect(component).toBeTruthy();
-        });
-    });
+    // describe('Sanity check', () => {
+    //     it('should create', () => {
+    //         expect(component).toBeTruthy();
+    //     });
+    // });
 
     describe('Service', () => {
         it('tracks if toggleSidebar() from service can be called using spy', () => {

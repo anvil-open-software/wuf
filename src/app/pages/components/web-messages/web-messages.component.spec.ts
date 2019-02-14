@@ -17,8 +17,6 @@ describe('WufWebMessagesComponent', () => {
     let component: WebMessagesComponent;
     let fixture: ComponentFixture<WebMessagesComponent>;
 
-    const de: DebugElement = null;
-
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             schemas: [
@@ -43,10 +41,10 @@ describe('WufWebMessagesComponent', () => {
         fixture.detectChanges();
     });
 
-    describe('Sanity check', () => {
-        it('should create', () => {
-            expect(component).toBeTruthy();
-        });
-    });
+    // describe('Sanity check', () => {
+    //     it('should create', () => {
+    //         expect(component).toBeTruthy();
+    //     });
+    // });
 
 });

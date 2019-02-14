@@ -41,9 +41,9 @@ describe('WufContentFooterComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
-        expect(component).toBeTruthy();
-    });
+    // it('should create', () => {
+    //     expect(component).toBeTruthy();
+    // });
 
     it('should have a main-footer-wrap', () => {
         de = fixture.debugElement.query(By.css('.main-footer-wrap'));
