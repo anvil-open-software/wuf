@@ -546,46 +546,6 @@
           }
         }
       }
-    },
-    "@anviltech/wuf-ang-toasts": {
-      "root": "projects/anviltech/wuf-ang-toasts",
-      "sourceRoot": "projects/anviltech/wuf-ang-toasts/src",
-      "projectType": "library",
-      "prefix": "wuf",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/anviltech/wuf-ang-toasts/tsconfig.lib.json",
-            "project": "projects/anviltech/wuf-ang-toasts/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "project": "projects/anviltech/wuf-ang-toasts/ng-package.json"
-            }
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/anviltech/wuf-ang-toasts/src/test.ts",
-            "tsConfig": "projects/anviltech/wuf-ang-toasts/tsconfig.spec.json",
-            "karmaConfig": "projects/anviltech/wuf-ang-toasts/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/anviltech/wuf-ang-toasts/tsconfig.lib.json",
-              "projects/anviltech/wuf-ang-toasts/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
     }
   },
   "defaultProject": "wuf"

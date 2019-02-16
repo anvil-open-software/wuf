@@ -31,24 +31,6 @@ import '@anviltech/wuf-web-message';
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
 import { CustomMaterialModule } from './_internal/material.module';
-import { OrigamiModule } from '@codebakery/origami';
-
-// Import polymer controls that will be used by Vaadin Grid
-import '@polymer/polymer/lib/elements/dom-if.js';
-import '@polymer/paper-button/paper-button.js';
-import '@polymer/paper-input/paper-input.js';
-import '@polymer/paper-checkbox/paper-checkbox.js';
-import '@polymer/iron-ajax/iron-ajax.js';
-import '@polymer/iron-icons/iron-icons.js';
-import '@polymer/iron-icon/iron-icon.js';
-
-// Import Vaadin Grid components
-import '@vaadin/vaadin-grid/vaadin-grid.js';
-import '@vaadin/vaadin-grid/vaadin-grid-selection-column.js';
-import '@vaadin/vaadin-grid/vaadin-grid-column';
-import '@vaadin/vaadin-grid/vaadin-grid-sorter';
-import '@vaadin/vaadin-grid/vaadin-grid-filter';
-import '@anviltech/wuf-poly-grid-styles';
 
 /***** fake backend *****/
 // Delete this for a production app
@@ -109,7 +91,6 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
         // 3rd Party Imports
         NgxMdModule.forRoot(), // Markdown
         CustomMaterialModule.forRoot(), // Load all Angular Material modules
-        OrigamiModule,
 
         // Routes (Keep as last module loaded)
         RoutesModule

@@ -47,14 +47,14 @@
         padding: 10px 0 0 10px;
         line-height: 1em;
         .label {
-            font-size: .85em;
+            font-size: .75em;
             opacity: .75;
             color: var(--kpi-label-color);
         }
     }
     .value-wrap {
         flex: auto; // fill remaining space
-        font-size: 52px;
+        font-size: 48px;
         font-weight: bold;
         line-height: 1em;
         position: relative;

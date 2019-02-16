@@ -6,7 +6,7 @@
 // Import styles from 3rd party modules
 
 /***** @anviltech WUF *****/
-@import '../../../../../packages/wuf-web-assets/assets/styles/library';
+@import '~@anviltech/wuf-web-assets/assets/styles/library';
 
 /***** Material Design *****/
 // Angular Material appears to include most (but not all) mdc styles.  "mdc-elevation--zX" styles, for example, are missing.

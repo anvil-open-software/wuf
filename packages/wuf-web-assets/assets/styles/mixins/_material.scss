@@ -304,7 +304,7 @@ $wuf-input-hint-vert-padding: .3em;
     .mat-select-value-text {
         color: var(--wuf-body-color);
     }
-    .mat-select-content {
+    .mat-select-panel {
         background-color: var(--wuf-color-white);
     }
     .mat-option {
@@ -577,6 +577,27 @@ $wuf-input-hint-vert-padding: .3em;
         }
     }
 
+    /***** toasts *****/
+    .toast {
+       &.info {
+            color: var(--wuf-color-info) !important;
+            border-bottom: 4px solid var(--wuf-color-info);
+        }
+       &.success {
+            color: var(--wuf-color-success) !important;
+            border-bottom: 4px solid var(--wuf-color-success);
+        }
+       &.warning {
+            color: var(--wuf-color-warning) !important;
+            border-bottom: 4px solid var(--wuf-color-warning);
+        }
+       &.error {
+            color: var(--wuf-color-danger) !important;
+            border-bottom: 4px solid var(--wuf-color-danger);
+        }
+    }
+
+
     /**************************************************/
     /*****               DARK THEME               *****/
     /**************************************************/
@@ -604,7 +625,7 @@ $wuf-input-hint-vert-padding: .3em;
         }
 
         /***** select *****/
-        .mat-select-content {
+        .mat-select-panel {
             background-color: var(--wuf-body-bg);
         }
 

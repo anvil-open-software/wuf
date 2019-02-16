@@ -32,7 +32,7 @@ Run the following command from @anviltech/wuf's root folder:
 ng generate library @anviltech/[name-of-library] --prefix=wuf
 ``` 
 
-This will create a new folder for `@anviltech/[name-of-library]` at `./projects/anviltech/[name-of-library]` and populate that folder with scaffolding files for a new module, one service, and one component.  Collectively, Angular 6 refers to this collection as a "project".
+This will create a new folder for `@anviltech/[name-of-library]` at `./projects/anviltech/[name-of-library]` and populate that folder with scaffolding files for a new module, one service, and one component.  Collectively, Angular refers to this collection as a "project".
 
 ### Revise Generated Files
 We now need to make some modifications to the scaffolded files so that your new component will fit within the WUF component ecosystem.
@@ -145,10 +145,10 @@ If your new component DOES depend on other local packages/projects from WUF, add
 
 ```json
     "dependencies": {
-        "@anviltech/wuf-web-assets": "^2.0.5",
+        "@anviltech/wuf-web-assets": "^2.0.0",
         "@anviltech/wuf-ang-utils": "^2.0.0",
         "@anviltech/wuf-ang-configuration": "^2.0.0",
-        "@anviltech/wuf-ang-layout": "^2.0.3"
+        "@anviltech/wuf-ang-layout": "^2.0.0"
     },
 ```
 
@@ -253,7 +253,7 @@ The main workspace application in @anviltech/wuf is the Living Style Guide.  Whe
 
 This linking process allows you to develop library components within this repo and see the results immediately within the workspace application *without having to publish your libraries to Artifactory*.  This makes component development *much* easier.
 
-Thanks to Angular 6 and ng-packagr, the main workspace application will also find your new library component whenever you use a standard barrel import `@import { Wuf[name-of-library] } from '@anviltech/[name-of-library]'` statement, exactly as if your library component were already published to Artifactory.  In fact, you don't even need to add your library component to the main workspace's `./package.json` file.  When the main workspace application is running, Angular 6 will use the `./tsconfig.ts` file to locate your library component by package name. 
+Thanks to Angular and ng-packagr, the main workspace application will also find your new library component whenever you use a standard barrel import `@import { Wuf[name-of-library] } from '@anviltech/[name-of-library]'` statement, exactly as if your library component were already published to Artifactory.  In fact, you don't even need to add your library component to the main workspace's `./package.json` file.  When the main workspace application is running, Angular 6 will use the `./tsconfig.ts` file to locate your library component by package name. 
 
 Running the Living Style Guide
 ------------------------------

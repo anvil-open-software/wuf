@@ -1,6 +1,6 @@
 {
     "name": "@anviltech/wuf-ang-smart-table",
-    "version": "1.0.0",
+    "version": "2.0.0-rc.1",
     "description": "A series of table components (grid) for displaying tabular data",
     "author": "Darren Luvaas",
     "scripts": {
@@ -14,8 +14,8 @@
     "main": "dist/bundles/anviltech-wuf-ang-smart-table.umd.js",
     "typings": "dist/anviltech-wuf-ang-smart-table.d.ts",
     "peerDependencies": {
-        "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-        "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
-        "@angular/material": "6.4.7"
+        "@angular/common": "^7.0.0",
+        "@angular/core": "^7.0.0",
+        "@angular/material": "7.3.2"
     }
 }

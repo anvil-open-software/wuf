@@ -8,13 +8,13 @@ Dependencies
 This package has some peer dependencies.  To install these dependencies, run the following commands from your application root:
 
 ```bash
-npm install @angular/material@6.4.7 material-design-icons@3.0.1 --save
+npm install @angular/material@7.3.2 material-design-icons@3.0.1 --save
 ```
 
 or
 
 ```bash
-yarn add @angular/material@6.4.7 material-design-icons@3.0.1
+yarn add @angular/material@7.3.2 material-design-icons@3.0.1
 ```
 
 Installation

@@ -15,7 +15,6 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RoutesModule } from './routes';
 
 /***** Import WUF *****/
-import { WufToastsModule } from '@anviltech/wuf-ang-toasts';
 import { WufUtilsModule } from '@anviltech/wuf-ang-utils';
 import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
 import { WufDrawerModule } from '@anviltech/wuf-ang-drawer';
@@ -55,14 +54,12 @@ import { WebMessagesComponent } from './web-messages/web-messages.component';
 import { AlertComponent } from './alert/alert.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { VaadinGridComponent } from './vaadin-grid/vaadin-grid.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { FormsComponent } from './forms/forms.component';
 import { GridsterComponent } from './gridster/gridster.component';
 import { SmartTableComponent } from './smart-table/smart-table.component';
-import { ToastsComponent } from './toasts/toasts.component';
 
 
 @NgModule({
@@ -78,7 +75,6 @@ import { ToastsComponent } from './toasts/toasts.component';
         CdkTableModule,
 
         // WUF
-        WufToastsModule,
         WufUtilsModule,
         WufLayoutModule,
         WufDrawerModule,
@@ -114,9 +110,7 @@ import { ToastsComponent } from './toasts/toasts.component';
         WebMessagesComponent,
         AlertComponent,
         BreadcrumbComponent,
-        ToastsComponent,
         ToolbarComponent,
-        VaadinGridComponent,
         DashboardComponent,
         LoginComponent,
         DrawerComponent,

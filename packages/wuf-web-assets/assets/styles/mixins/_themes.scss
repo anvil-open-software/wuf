@@ -249,7 +249,8 @@
 @mixin wuf-theme-button-radius($radius) {
     button.mat-button, button.mat-raised-button,
     a.mat-button, a.mat-raised-button {
-        @include mdc-button-corner-radius($radius);
+        //@include mdc-button-corner-radius($radius);
+        //@include mdc-button-shape-radius(small, $query: $query);
     }
 }
 
