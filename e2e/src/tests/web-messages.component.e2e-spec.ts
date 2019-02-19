@@ -568,25 +568,4 @@ describe('WEB Component: KG-WEB-MESSAGES Page View', function () {
         });
     });
 
-    /* Make sure there is a nav item for this page and that it is active */
-    describe('Nav item', function () {
-        const navItem = nav.get_navItemById(navItemId);
-        const navItem_active = nav.get_activeNavItems().get(0);
-
-        it(`should have a nav-item for this page`, () => {
-            expect(navItem).toBeTruthy();
-            expect(nav.get_navItemText(navItemId)).toBe(navItemText);
-            expect(nav.get_navItemAnchorById(navItemId).getAttribute('href')).toContain(pageRoute);
-        });
-
-        it(`should have only one active nav-item`, () => {
-            expect(navItem_active).toBeTruthy();
-            expect(nav.get_activeNavItems().count()).toBe(1);
-        });
-
-        it(`nav-item for this page should be the active nav-item`, () => {
-            expect(navItem.getAttribute(`outerHTML`)).toEqual(navItem_active.getAttribute(`outerHTML`));
-        });
-    });
-
 });
