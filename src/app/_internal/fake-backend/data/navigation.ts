@@ -165,18 +165,6 @@ export const NavigationItems =
                     id: 'nav-smart-table-grid'
                 },
                 {
-                    link: '/components/vaadingrid',
-                    label: 'Tables - Vaadin Grid',
-                    icon: '&#xE228;',
-                    id: 'nav-vaadin-grid'
-                },
-                {
-                    link: '/components/toasts',
-                    label: 'Toasts',
-                    icon: '&#xE8AA;',
-                    id: 'nav-toasts'
-                },
-                {
                     link: '/components/toolbars',
                     label: 'Toolbars',
                     icon: 'build',

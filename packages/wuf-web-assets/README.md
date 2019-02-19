@@ -8,13 +8,13 @@ Dependencies
 This package has some peer dependencies.  To install these dependencies, run the following commands from your application root:
 
 ```bash
-npm install @angular/material@6.4.7 material-components-web@0.39.3 --save
+npm install @angular/material@7.3.2 material-components-web@0.44.0 --save
 ```
 
 or
 
 ```bash
-yarn add @angular/material@6.4.7 material-components-web@0.39.3
+yarn add @angular/material@7.3.2 material-components-web@0.44.0
 ```
 
 Installation

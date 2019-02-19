@@ -76,7 +76,7 @@ export class WufViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
         this.sidebarService.startResizerDrag($event);
 
         // Prevent inadvertent text selection of surrounding content
-        document.body.style.userSelect="none";
+        document.body.style.userSelect = 'none';
         $event.preventDefault();
     }
 
@@ -89,7 +89,7 @@ export class WufViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
     onSidebarResizerDragEnd($event: any) {
         if (this.sidebarService.sidebarIsResizing) {
             this.sidebarService.endResizerDrag($event);
-            document.body.style.userSelect="initial";
+            document.body.style.userSelect = 'initial';
         }
     }
 
@@ -98,7 +98,7 @@ export class WufViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     onMouseOutOfWindow($event: any) {
-        if ($event.target == 'document') {
+        if ($event.target === 'document') {
             this.sidebarService.setMouseOut($event);
         }
     }

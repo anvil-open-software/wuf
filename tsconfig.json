@@ -71,12 +71,6 @@
       ],
       "@anviltech/wuf-ang-smart-table/*": [
         "./projects/anviltech/wuf-ang-smart-table/dist/*"
-      ],
-      "@anviltech/wuf-ang-toasts": [
-        "./projects/anviltech/wuf-ang-toasts/dist"
-      ],
-      "@anviltech/wuf-ang-toasts/*": [
-        "./projects/anviltech/wuf-ang-toasts/dist/*"
       ]
     }
   }

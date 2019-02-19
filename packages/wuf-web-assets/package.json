@@ -1,6 +1,6 @@
 {
     "name": "@anviltech/wuf-web-assets",
-    "version": "1.0.1",
+    "version": "2.0.0-rc.1",
     "description": "A collection of fonts, styles, images, and other assets for WUF.",
     "author": "Darren Luvaas",
     "scripts": {
@@ -10,11 +10,11 @@
         "access": "public"
     },
     "peerDependencies": {
-        "@angular/material": "6.4.7",
-        "material-components-web": "0.39.3"
+        "@angular/material": "7.3.2",
+        "material-components-web": "0.44.0"
     },
     "devDependencies": {
-        "@angular/material": "6.4.7",
-        "material-components-web": "0.39.3"
+        "@angular/material": "7.3.2",
+        "material-components-web": "0.44.0"
     }
 }

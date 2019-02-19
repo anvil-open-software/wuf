@@ -8,6 +8,9 @@
     position: relative;
     display: inline-block;
     padding: 18px 0 0 18px;
+    .material-icons {
+        cursor: default;
+    }
 }
 
 wuf-drawer {

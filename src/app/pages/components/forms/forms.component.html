@@ -187,7 +187,6 @@
                     <h3>Slider</h3>
 
                     <mat-slider
-                        class="example-margin"
                         [disabled]="disabled"
                         [invert]="invert"
                         [max]="max"
@@ -195,9 +194,9 @@
                         [step]="step"
                         [thumbLabel]="thumbLabel"
                         [tickInterval]="tickInterval"
+                        [(ngModel)]="sliderValue"
                         [vertical]="vertical"
-                        color="primary"
-                    >
+                        color="primary">
                     </mat-slider>
 
                     <hr>

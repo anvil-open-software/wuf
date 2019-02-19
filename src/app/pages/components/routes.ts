@@ -25,14 +25,12 @@ import { WebMessagesComponent } from './web-messages/web-messages.component';
 import { AlertComponent } from './alert/alert.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { VaadinGridComponent } from './vaadin-grid/vaadin-grid.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { DrawerComponent } from './drawer/drawer.component';
 import { FormsComponent } from './forms/forms.component';
 import { GridsterComponent } from './gridster/gridster.component';
 import { SmartTableComponent } from './smart-table/smart-table.component';
-import { ToastsComponent } from './toasts/toasts.component';
 
 
 // Pages with main layout (header, footer, nav, content area)
@@ -48,10 +46,8 @@ const routes_layout_main = [
     {path: 'navigation', component: NavigationComponent, pathMatch: 'full'},
     {path: 'navigationfooter', component: NavigationFooterComponent, pathMatch: 'full'},
     {path: 'switches', component: SwitchComponent, pathMatch: 'full'},
-    {path: 'toasts', component: ToastsComponent, pathMatch: 'full'},
     {path: 'toolbars', component: ToolbarComponent, pathMatch: 'full'},
     {path: 'utilities', component: UtilitiesComponent, pathMatch: 'full'},
-    {path: 'vaadingrid', component: VaadinGridComponent, pathMatch: 'full'},
     {path: 'dashboard', component: DashboardComponent, pathMatch: 'full'},
     {path: 'login', component: LoginComponent, pathMatch: 'full'},
     {path: 'drawer', component: DrawerComponent, pathMatch: 'full'},

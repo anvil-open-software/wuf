@@ -30,6 +30,11 @@ export class WufSidebarService {
     sidebarIsMinimized: boolean = false;
     mouseOutOfWindow: boolean = false;
 
+    private resizerDragStartSubject = new Subject<any>();
+    private resizerDragSubject = new Subject<any>();
+    private resizerDragEndSubject = new Subject<any>();
+    private resizerToggleSubject = new Subject<any>();
+
     constructor(private http: HttpClient) {
     }
 
@@ -76,11 +81,6 @@ export class WufSidebarService {
     }
 
     /***** sidebar resizer *****/
-    private resizerDragStartSubject = new Subject<any>();
-    private resizerDragSubject = new Subject<any>();
-    private resizerDragEndSubject = new Subject<any>();
-    private resizerToggleSubject = new Subject<any>();
-
     // Allow other components to subscribe to sidebar resizing events...
     onSidebarResizerDragStart(): Observable<any> {
         // Allow other components to subscribe to resizing event
