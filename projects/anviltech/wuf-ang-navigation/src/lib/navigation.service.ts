@@ -22,7 +22,6 @@ export interface NavItem {
 
 interface NavItems extends Array<NavItem>{}
 
-
 export interface NavResponseData {
     data?: NavItems;
 }
