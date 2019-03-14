@@ -27,11 +27,11 @@ describe('CardComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(CardComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 });

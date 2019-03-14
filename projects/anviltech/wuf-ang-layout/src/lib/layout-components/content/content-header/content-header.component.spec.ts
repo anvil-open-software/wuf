@@ -41,13 +41,13 @@ describe('WufContentHeaderComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(WufContentHeaderComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     it('should have a content-header', () => {
         de = fixture.debugElement.query(By.css('.content-header'));

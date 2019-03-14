@@ -38,11 +38,11 @@ describe('WufLoginComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(WufLoginComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 });

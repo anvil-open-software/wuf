@@ -37,13 +37,13 @@ describe('WufContentFooterComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(WufContentFooterComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     it('should have a main-footer-wrap', () => {
         de = fixture.debugElement.query(By.css('.main-footer-wrap'));

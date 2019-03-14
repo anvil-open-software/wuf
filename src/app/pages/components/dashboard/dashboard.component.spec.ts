@@ -27,11 +27,11 @@ describe('DashboardComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(DashboardComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 });

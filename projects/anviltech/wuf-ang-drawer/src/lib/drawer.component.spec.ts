@@ -20,7 +20,6 @@ describe('WufDrawerComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(WufDrawerComponent);
-    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 

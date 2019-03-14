@@ -13,12 +13,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CustomMaterialModule } from '../../../_internal/material.module';
+import { keyframes } from '@angular/animations';
 
 
 describe('ModalComponent', () => {
     let component: ModalComponent;
     let fixture: ComponentFixture<ModalComponent>;
-    // let comp:    CompositeComponent;
     let de: DebugElement;
     let el: HTMLElement;
 
@@ -47,13 +47,14 @@ describe('ModalComponent', () => {
         component = fixture.debugElement.componentInstance;
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     it(`should have a button`, async(() => {
         fixture.detectChanges();
-        let compiled = fixture.debugElement.nativeElement;
-        expect(compiled.querySelector('#createMaterialModalBtn').textContent).toContain('Open Material Design Dialog');
+        const compiled = fixture.debugElement.nativeElement;
+        expect(compiled.querySelector('#createMaterialModalBtn')).toBeTruthy();
     }));
 });

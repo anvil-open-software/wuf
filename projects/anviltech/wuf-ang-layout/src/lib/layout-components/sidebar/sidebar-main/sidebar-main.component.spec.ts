@@ -42,7 +42,6 @@ describe('WufSidebarMainComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(WufSidebarMainComponent);
-        component = fixture.componentInstance;
 
         // Get WufSidebarService from the root injector
         sidebarService = fixture.debugElement.injector.get(WufSidebarService);
@@ -50,11 +49,10 @@ describe('WufSidebarMainComponent', () => {
         fixture.detectChanges();
     });
 
-    // describe('Sanity check', () => {
-    //     it('should create', () => {
-    //         expect(component).toBeTruthy();
-    //     });
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     describe('Service', () => {
         it('tracks if toggleSidebar() from service can be called using spy', () => {

@@ -38,7 +38,7 @@ describe('WufSidebarFooterComponent', () => {
             declarations: [WufSidebarFooterComponent],
             providers: [WufSidebarService]
         });
-        // .compileComponents();
+        .compileComponents();
 
         service = TestBed.get(WufSidebarService);
         httpMock = TestBed.get(HttpTestingController);
@@ -51,16 +51,13 @@ describe('WufSidebarFooterComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(WufSidebarFooterComponent);
-        component = fixture.componentInstance;
-
         fixture.detectChanges();
     });
 
-    // describe('Sanity check', () => {
-    //     it('should create', () => {
-    //         expect(component).toBeTruthy();
-    //     });
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     describe('Footer', () => {
         it('should have a sidebar footer element', () => {

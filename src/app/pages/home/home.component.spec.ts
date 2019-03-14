@@ -40,15 +40,13 @@ describe('HomeComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(HomeComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // describe('Sanity check', () => {
-    //     it('should create', () => {
-    //         expect(component).toBeTruthy();
-    //     });
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     describe('Layout', () => {
         let el;

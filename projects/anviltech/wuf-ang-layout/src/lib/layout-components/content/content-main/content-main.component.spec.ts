@@ -26,13 +26,13 @@ describe('WufContentMainComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(WufContentMainComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     it('should have a main-content-wrap element', () => {
         de = fixture.debugElement.query(By.css('.content-wrap'));

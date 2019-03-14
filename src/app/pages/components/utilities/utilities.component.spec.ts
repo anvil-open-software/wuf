@@ -41,66 +41,66 @@ describe('UtilitiesComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(UtilitiesComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // it('should create the \'app-utilities\' component', () => {
-    //     expect(component).toBeTruthy();
-    // });
-    //
-    // it('should create the \'app-utilities\' component attributes', () => {
-    //     expect(component.string_1).toBe('abc');
-    //     expect(component.string_2).toBe('abc def');
-    //     expect(component.string_3).toBe('Abc');
-    //     expect(component.string_4).toBe('aBc');
-    //     expect(component.string_5).toBe('123');
-    // });
-    //
-    // it('should have a \'capitalize-pipe-examples\' element', async(() => {
-    //     de = fixture.debugElement.query(By.css('#capitalize-pipe-examples'));
-    //     el = de.nativeElement;
-    //     expect(el).toBeTruthy();
-    // }));
-    //
-    // it('should have a \'capitalize-pipe\' header', async(() => {
-    //     de = fixture.debugElement.query(By.css('#capitalize-pipe-header'));
-    //     el = de.nativeElement;
-    //     expect(el.textContent).toContain('Capitalize Pipe');
-    // }));
-    //
-    // it('should have 5 \'capitalize-pipe\' paragraphs', async(() => {
-    //     const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p'));
-    //     expect(elements.length).toBe(5);
-    // }));
-    //
-    // it('should have first paragraph be a conversion of \`abc\' to \'Abc\'', async(() => {
-    //     const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p span'));
-    //     el = elements[0].nativeElement;
-    //     expect(el.textContent).toContain('Abc');
-    // }));
-    //
-    // it('should have first paragraph be a conversion of \`abc def\' to \'Abc Def\'', async(() => {
-    //     const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p span'));
-    //     el = elements[1].nativeElement;
-    //     expect(el.textContent).toContain('Abc Def');
-    // }));
-    //
-    // it('should have first paragraph be a conversion of \`Abc\' to \'Abc\'', async(() => {
-    //     const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p span'));
-    //     el = elements[2].nativeElement;
-    //     expect(el.textContent).toContain('Abc');
-    // }));
-    //
-    // it('should have first paragraph be a conversion of \`aBc\' to \'Abc\'', async(() => {
-    //     const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p span'));
-    //     el = elements[3].nativeElement;
-    //     expect(el.textContent).toContain('Abc');
-    // }));
-    //
-    // it('should have first paragraph be a conversion of \`123\' to \'123\'', async(() => {
-    //     const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p span'));
-    //     el = elements[4].nativeElement;
-    //     expect(el.textContent).toContain('123');
-    // }));
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
+
+    it('should create the \'app-utilities\' component attributes', () => {
+        expect(component.string_1).toBe('abc');
+        expect(component.string_2).toBe('abc def');
+        expect(component.string_3).toBe('Abc');
+        expect(component.string_4).toBe('aBc');
+        expect(component.string_5).toBe('123');
+    });
+
+    it('should have a \'capitalize-pipe-examples\' element', async(() => {
+        de = fixture.debugElement.query(By.css('#capitalize-pipe-examples'));
+        el = de.nativeElement;
+        expect(el).toBeTruthy();
+    }));
+
+    it('should have a \'capitalize-pipe\' header', async(() => {
+        de = fixture.debugElement.query(By.css('#capitalize-pipe-header'));
+        el = de.nativeElement;
+        expect(el.textContent).toContain('Capitalize Pipe');
+    }));
+
+    it('should have 5 \'capitalize-pipe\' paragraphs', async(() => {
+        const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p'));
+        expect(elements.length).toBe(5);
+    }));
+
+    it('should have first paragraph be a conversion of \`abc\' to \'Abc\'', async(() => {
+        const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p span'));
+        el = elements[0].nativeElement;
+        expect(el.textContent).toContain('Abc');
+    }));
+
+    it('should have first paragraph be a conversion of \`abc def\' to \'Abc Def\'', async(() => {
+        const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p span'));
+        el = elements[1].nativeElement;
+        expect(el.textContent).toContain('Abc Def');
+    }));
+
+    it('should have first paragraph be a conversion of \`Abc\' to \'Abc\'', async(() => {
+        const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p span'));
+        el = elements[2].nativeElement;
+        expect(el.textContent).toContain('Abc');
+    }));
+
+    it('should have first paragraph be a conversion of \`aBc\' to \'Abc\'', async(() => {
+        const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p span'));
+        el = elements[3].nativeElement;
+        expect(el.textContent).toContain('Abc');
+    }));
+
+    it('should have first paragraph be a conversion of \`123\' to \'123\'', async(() => {
+        const elements = fixture.debugElement.queryAll(By.css('#capitalize-pipe-examples p span'));
+        el = elements[4].nativeElement;
+        expect(el.textContent).toContain('123');
+    }));
 });
