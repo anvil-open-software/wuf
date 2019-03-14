@@ -32,7 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
     loginSubscription: any;
     currentThemeId: string;
 
-    constructor(private configService: WufConfigurationService,
+    constructor(private wufConfigService: WufConfigurationService,
                 private renderer: Renderer2,
                 private userService: UserService,
                 private loginService: WufLoginService) {
@@ -70,17 +70,20 @@ export class AppComponent implements OnInit, OnDestroy {
 
         // Authenticate using fake username/password
         this.userService.authenticate(fakeLoginData).subscribe(
-            data => {
-                // success
-                const user = {
-                    user: data
-                };
+            userData => {
+                // Authentication successful.  We now have fake user data.
+                const user = userData.data;
+
+                // Set a storage key to get/set config in local storage
+                const appName = configuration.id;
+                const userName = user.hasOwnProperty('id') ? user.id : user.hasOwnProperty('username') ? user.username : 'default_user';
+                this.wufConfigService.setStorageKey(appName + '_' + userName); // set the storage key to use from here on out
 
                 // Merge received user data with configuration data from local storage
                 const mergedConfiguration = this.getMergedConfiguration(user);
 
                 // Send merged configuration data to the config service (which updates the UI accordingly)
-                this.configService.config = mergedConfiguration;
+                this.wufConfigService.config = mergedConfiguration;
             },
             error => {
                 // error
@@ -89,7 +92,7 @@ export class AppComponent implements OnInit, OnDestroy {
         );
 
         // Subscribe to configuration updates
-        this.configSubscription = this.configService.onConfigChange().subscribe(
+        this.configSubscription = this.wufConfigService.onConfigChange().subscribe(
             newConfig => {
                 this.onConfigChange(newConfig);
             },
@@ -132,13 +135,12 @@ export class AppComponent implements OnInit, OnDestroy {
                use the default settings baked into the application and application components.
                Nothing to do here since those properties live in the components themselves.
         */
-        const userId = userData.user.hasOwnProperty('id') ? userData.user.id : userData.user.hasOwnProperty('username') ? userData.user.username : 'default_user';
-        const key = this.configService.getStorageKey(this.config.id, userId);
+        const key = this.wufConfigService.getStorageKey();
 
         return deepMerge(
             {},
             this.config, // start with default app config
-            this.configService.getStoredConfig(key), // apply config from local storage, if any
+            this.wufConfigService.getStoredConfig(key), // apply config from local storage, if any
             userData // data from server response trumps all
         );
 

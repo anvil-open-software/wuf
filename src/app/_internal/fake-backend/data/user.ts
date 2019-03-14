@@ -5,7 +5,7 @@
 
 export const FakeUser = {
     id: 1,
-    username: 'someuser',
+    username: 'tonystark',
     firstName: 'Tony',
     lastName: 'Stark',
     password: 'password',

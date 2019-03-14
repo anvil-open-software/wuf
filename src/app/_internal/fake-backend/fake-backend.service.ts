@@ -72,8 +72,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
                     if (filteredUsers.length) {
                         // if login details are valid return 200 OK with user details and fake jwt token
-                        let user = filteredUsers[0];
-                        let body = {
+                        const user = filteredUsers[0];
+                        const data = {
                             id: user.id,
                             username: user.username,
                             firstName: user.firstName,
@@ -82,7 +82,13 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                             // we do not return password
                         };
 
-                        return of(new HttpResponse({status: 200, body: body}));
+                        const results: any = {
+                            info: 'Retrieved user from fake backend',
+                            success: true,
+                            data: data
+                        };
+
+                        return of(new HttpResponse({status: 200, body: results}));
                     } else {
                         // else return 400 bad request
                         return observableThrowError('Username or password is incorrect');
@@ -93,7 +99,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 if (request.url.endsWith('/api/users') && request.method === 'GET') {
                     // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
                     if (request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-                        return of(new HttpResponse({status: 200, body: this.users}));
+
+                        const results: any = {
+                            info: 'Retrieved users from fake backend',
+                            success: true,
+                            data: this.users
+                        };
+
+                        return of(new HttpResponse({status: 200, body: results}));
                     } else {
                         // return 401 not authorised if token is null or invalid
                         return observableThrowError('Unauthorised');
@@ -122,10 +135,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 // create user
                 if (request.url.endsWith('/api/users') && request.method === 'POST') {
                     // get new user object from post body
-                    let newUser = request.body;
+                    const newUser = request.body;
 
                     // validation
-                    let duplicateUser = this.users.filter(user => {
+                    const duplicateUser = this.users.filter(user => {
                         return user.username === newUser.username;
                     }).length;
                     if (duplicateUser) {
