@@ -21,11 +21,11 @@ describe('WufSplitPanelComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(WufSplitPanelComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 });

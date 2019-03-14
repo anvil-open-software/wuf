@@ -38,15 +38,13 @@ describe('SwitchComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(SwitchComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // describe('Sanity check', () => {
-    //     it('should create', () => {
-    //         expect(component).toBeTruthy();
-    //     });
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     describe('Switch component', () => {
         beforeEach(() => {

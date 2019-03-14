@@ -44,8 +44,12 @@ export class WufDrawerComponent implements OnInit {
 
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks
-        this.drawerShowSubscription.unsubscribe();
-        this.drawerHideSubscription.unsubscribe();
+        if (this.drawerShowSubscription && !this.drawerShowSubscription.closed) {
+            this.drawerShowSubscription.unsubscribe();
+        }
+        if (this.drawerHideSubscription && !this.drawerHideSubscription.closed) {
+            this.drawerHideSubscription.unsubscribe();
+        }
     }
 
     show() {

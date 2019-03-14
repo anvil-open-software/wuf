@@ -15,16 +15,13 @@ export class SetupConfigurationComponent implements OnInit {
 
     serviceDefaultExample = `
     {
-        id:                     'wuf-application',
         navigation: {
-            position:       'left',
-            iconPosition:   'left',
-            alignment:      'left'
+            position: 'left',
+            iconPosition: 'left',
+            alignment: 'left'
         },
-        theme:                  'default',
-        user: {
-            id:             'default'
-        }
+        themeDark: false,
+        sidebarSize: 230
     }
     `;
 
@@ -41,15 +38,15 @@ export class SetupConfigurationComponent implements OnInit {
 
     appDefaultExample = `
     {
-        id:                     'living-style-guide',
-        name:                   'Living Style Guide',
-        copyrightName:          'ACME, Inc.'
+        id:                 'living-style-guide',
+        name:               'Living Style Guide',
+        copyrightName:      'ACME, Inc.'
         navigation: {
             position:       'left',
             iconPosition:   'left',
             alignment:      'left'
         },
-        theme:                  'default',
+        theme:              'default',
     }
     `;
 
@@ -143,15 +140,20 @@ export class SetupConfigurationComponent implements OnInit {
             }
         
             ngOnDestroy() {
-                this.configSubscription.unsubscribe();
+                // unsubscribe to ensure no memory leaks
+                if (this.configSubscription && !this.configSubscription.closed) {
+                    this.configSubscription.unsubscribe();
+                }
             }
         
             getMergedConfiguration(userData: any) {
                 /* Create a config object comprised of data from various sources:
-                    1. If user settings are received from the backend with new attributes or with modified values, use these new/modified values
+                    1. If user settings are received from backend with new attributes or with modified values, use these new/modified values
                     2. If no new or modified setting values are received from server, use locally stored setting values
-                    3. If no local or stored settings values exist, use default application settings pulled from Angular's environment properties
-                    4. If no default application settings exist in Angular's environment properties, use the default settings baked into the application and application components.  Nothing to do here since those properties live in the components themselves.
+                    3. If no local or stored settings values exist, use default application settings pulled from Angular's environment 
+                    properties
+                    4. If no default application settings exist in Angular's environment properties, use the default settings baked into the
+                     application and application components.  Nothing to do here since those properties live in the components themselves.
                 */
                 let key = this.configService.getStorageKey(this.config.id,  userData.user.id);
         
@@ -182,7 +184,8 @@ export class SetupConfigurationComponent implements OnInit {
             }
         
             applyTheme(themeId: string) {
-                // Set the 'wuf-theme' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
+                // Set the 'wuf-theme' property on the <html> element.  This is what makes the SCSS selectors inside 
+                // /src/assets/dummydata/branding work.
                 this.currentThemeId = themeId;
                 this.renderer.setAttribute(document.documentElement, 'wuf-theme', themeId);
             }
@@ -193,7 +196,8 @@ export class SetupConfigurationComponent implements OnInit {
                     this.renderer.removeAttribute(document.documentElement, 'wuf-theme-dark');
                 }
                 else if (applyDark) {
-                    // Set the 'wuf-theme-dark' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
+                    // Set the 'wuf-theme-dark' property on the <html> element.  This is what makes the SCSS selectors inside 
+                    // /src/assets/dummydata/branding work.
                     this.renderer.setAttribute(document.documentElement, 'wuf-theme-dark', "true");
                 }
             }

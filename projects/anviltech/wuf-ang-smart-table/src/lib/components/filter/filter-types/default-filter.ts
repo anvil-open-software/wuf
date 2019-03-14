@@ -19,7 +19,7 @@ export class DefaultFilter implements Filter, OnDestroy {
     @Output() filter = new EventEmitter<string>();
 
     ngOnDestroy() {
-        if (this.changesSubscription) {
+        if (this.changesSubscription && !this.changesSubscription.closed) {
             this.changesSubscription.unsubscribe();
         }
     }

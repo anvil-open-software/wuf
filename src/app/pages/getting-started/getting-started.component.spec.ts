@@ -40,41 +40,12 @@ describe('GettingStartedComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(GettingStartedComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // describe('Sanity check', () => {
-    //     it('should create', () => {
-    //         expect(component).toBeTruthy();
-    //     });
-    // });
-
-    describe('Layout', () => {
-        let el;
-
-        beforeEach(() => {
-            fixture.detectChanges();
-        });
-
-        it('should have a view component', () => {
-            el = fixture.debugElement.queryAll(By.css('app-root view-main'));
-            expect(el).toBeTruthy;
-        });
-
-        it('should have a header component', () => {
-            el = fixture.debugElement.queryAll(By.css('app-root view-main .container-fluid.page .main-wrap .main app-content-header'));
-            expect(el).toBeTruthy;
-        });
-
-        it('should have a content component', () => {
-            el = fixture.debugElement.queryAll(By.css('app-root view-main .container-fluid.page .main-wrap .main app-content'));
-            expect(el).toBeTruthy;
-        });
-
-        it('should have a footer component', () => {
-            el = fixture.debugElement.queryAll(By.css('app-root view-main .container-fluid.page .main-wrap .main app-content-footer'));
-            expect(el).toBeTruthy;
-        });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
     });
+
 });

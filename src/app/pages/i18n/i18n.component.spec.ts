@@ -17,9 +17,7 @@ import { WufContentFooterService } from '@anviltech/wuf-ang-layout';
 describe('I18nComponent', () => {
     let component: I18nComponent;
     let fixture: ComponentFixture<I18nComponent>;
-
-    let de: DebugElement;
-    let el: HTMLElement;
+    let compiled;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -42,50 +40,33 @@ describe('I18nComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(I18nComponent);
-        component = fixture.componentInstance;
+        compiled = fixture.debugElement.nativeElement;
         fixture.detectChanges();
     });
 
-    // describe('Sanity check', () => {
-    //     it('should create', () => {
-    //         expect(component).toBeTruthy();
-    //     });
-    // });
-
-    it('should have cardinality paragraph', async(() => {
-        de = fixture.debugElement.query(By.css('#example_cardinality'));
-        el = de.nativeElement;
-        expect(el).toBeTruthy();
-    }));
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     it('should have cardinality paragraph showing \'two wolves\'', async(() => {
-        de = fixture.debugElement.query(By.css('#example_cardinality'));
-        el = de.nativeElement;
-        expect(el.textContent).toContain('no wolves');
+        expect(compiled.querySelector('#example_cardinality').textContent).toContain('no wolves');
     }));
 
     it('should have gender paragraph', async(() => {
-        de = fixture.debugElement.query(By.css('#example_gender'));
-        el = de.nativeElement;
-        expect(el).toBeTruthy();
+        expect(compiled.querySelector('#example_gender')).toBeTruthy();
     }));
 
     it('should have gender paragraph showing \'female.\'', async(() => {
-        de = fixture.debugElement.query(By.css('#example_gender'));
-        el = de.nativeElement;
-        expect(el.textContent).toContain('female.');
+        expect(compiled.querySelector('#example_gender').textContent).toContain('female.');
     }));
 
     it('should have pluralization paragraph', async(() => {
-        de = fixture.debugElement.query(By.css('#example_pluralization'));
-        el = de.nativeElement;
-        expect(el).toBeTruthy();
+        expect(compiled.querySelector('#example_pluralization')).toBeTruthy();
     }));
 
     it('should have pluralization paragraph showing \'has no wolves.\'', async(() => {
-        de = fixture.debugElement.query(By.css('#example_pluralization'));
-        el = de.nativeElement;
-        expect(el.textContent).toContain('has no wolves.');
+        expect(compiled.querySelector('#example_pluralization').textContent).toContain('has no wolves.');
     }));
 
 

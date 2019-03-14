@@ -29,11 +29,11 @@ describe('WufDashboardKpiComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(KpiDisplayComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 });

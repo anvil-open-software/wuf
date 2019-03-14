@@ -67,14 +67,14 @@
     <h2>Main Layout</h2>
 
     <p>The &lt;wuf-view-main&gt; and &lt;wuf-view-basic&gt; components each live within their own parent component hosted
-        within the application. The Quick Start application, for example, places these components at <code>/src/app/internal/layouts/</code>.
+        within the application. The Quick Start application, for example, places these components at <code>/src/app/_internal/layouts/</code>.
     </p>
 
-    <p>The file <code>/src/app/internal/layouts/main/<strong>main.component.html</strong></code> hosts the &lt;wuf-view-main&gt;
+    <p>The file <code>/src/app/_internal/layouts/main/<strong>main.component.html</strong></code> hosts the &lt;wuf-view-main&gt;
         component and looks like this:</p>
 
     <wuf-code-sample type="html" [code]="mainCodeHtml"></wuf-code-sample>
-    <caption>Contents of /src/app/internal/layouts/main/main.component.html</caption>
+    <caption>Contents of /src/app/_internal/layouts/main/main.component.html</caption>
 
     <p>The &lt;wuf-view-main&gt; takes one attribute: <strong><code>[logoRoute]</code></strong>. The logoRoute attribute
         is optional. If used, it takes a value for a routerLink and it is applied to the logo that appears in the
@@ -103,10 +103,10 @@
         </li>
     </ul>
 
-    <p>Let's take a look at the contents of <code>/src/app/internal/layouts/main/main.component.ts</code>.</p>
+    <p>Let's take a look at the contents of <code>/src/app/_internal/layouts/main/main.component.ts</code>.</p>
 
     <wuf-code-sample type="typescript" [code]="mainCodeComponent"></wuf-code-sample>
-    <caption>Contents of /src/app/internal/layouts/main/main.component.ts</caption>
+    <caption>Contents of /src/app/_internal/layouts/main/main.component.ts</caption>
 
     <p>Note that this component is fetching nav data from a service
         <code>this.navService.getNavData(this.navDataUrl)</code> and then passing the returned .json object to the &lt;wuf-navigation&gt;
@@ -116,11 +116,11 @@
 
     <h2>Basic Layout</h2>
 
-    <p>The file <code>/src/app/internal/layouts/basic/<strong>basic.component.html</strong></code> hosts the &lt;wuf-view-basic&gt;
+    <p>The file <code>/src/app/_internal/layouts/basic/<strong>basic.component.html</strong></code> hosts the &lt;wuf-view-basic&gt;
         component and looks like this:</p>
 
     <wuf-code-sample type="html" [code]="basicCodeHtml"></wuf-code-sample>
-    <caption>Contents of /src/app/internal/layouts/basic/basic.component.html</caption>
+    <caption>Contents of /src/app/_internal/layouts/basic/basic.component.html</caption>
 
     <p>Unlike &lt;wuf-view-main&gt;, the &lt;wuf-view-basic&gt; component hosts only <strong>one</strong> slot: <strong>main</strong>.
         As with the <strong>main</strong> slot in &lt;wuf-view-main&gt;, this slot hosts &lt;router-outlet&gt;.</p>
@@ -128,17 +128,17 @@
     <p>The component code for &lt;wuf-view-basic&gt; is similarly very simple:</p>
 
     <wuf-code-sample type="typescript" [code]="basicCodeComponent"></wuf-code-sample>
-    <caption>Contents of /src/app/internal/layouts/basic/basic.component.ts</caption>
+    <caption>Contents of /src/app/_internal/layouts/basic/basic.component.ts</caption>
 
     <hr>
 
     <h2>Layout Module</h2>
 
     <p>Create a layout module to host the Main and Basic components created above. The Quick Start application places
-        its layout module at <code>/src/app/internal/layouts/layouts.module.ts</code>:</p>
+        its layout module at <code>/src/app/_internal/layouts/layouts.module.ts</code>:</p>
 
     <wuf-code-sample type="typescript" [code]="layoutsModuleCode"></wuf-code-sample>
-    <caption>Contents of /src/app/internal/layouts/layouts.module.ts</caption>
+    <caption>Contents of /src/app/_internal/layouts/layouts.module.ts</caption>
 
     <hr>
 

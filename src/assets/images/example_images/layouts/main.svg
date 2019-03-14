@@ -1,69 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 487.63 545.64">
-    <defs>
-        <style>
-            .cls-1,.cls-3,.cls-4{fill:none;}.cls-1{stroke:#231f20;}.cls-1,.cls-2,.cls-3,.cls-4{stroke-miterlimit:10;}.cls-2,.cls-5{fill:#fff;}.cls-2{stroke:#e5e5e5;stroke-width:5px;}.cls-3{stroke:#c2c1c0;}.cls-4{stroke:#000;}.cls-6,.cls-9{font-size:12px;}.cls-6{fill:#bfbfbf;font-family:Roboto-Thin,
-            Roboto;}.cls-7{letter-spacing:-0.01em;}.cls-8{letter-spacing:-0.02em;}.cls-9{fill:#231f20;font-family:Roboto-Bold,
-            Roboto;font-weight:700;}.cls-10{letter-spacing:-0.01em;}
-        </style>
-    </defs>
-    <title>main</title>
-    <g id="Layer_2" data-name="Layer 2">
-        <g id="Layer_1-2" data-name="Layer 1">
-            <rect class="cls-1" x="12.5" y="17.09" width="462.63" height="516.05"/>
-            <rect class="cls-2" x="-24.21" y="33.8" width="536.05" height="482.63"
-                  transform="translate(518.93 31.3) rotate(90)"/>
-            <rect class="cls-3" x="12.5" y="17.09" width="462.63" height="516.05"/>
-            <rect class="cls-3" x="13.32" y="71.33" width="460.98" height="442.63"
-                  transform="translate(536.46 48.83) rotate(90)"/>
-            <rect class="cls-4" x="-134.11" y="238.77" width="440.98" height="107.76"
-                  transform="translate(379.03 206.27) rotate(90)"/>
-            <rect class="cls-3" x="72.71" y="445.58" width="27.35" height="87.76"
-                  transform="translate(575.84 403.08) rotate(90)"/>
-            <polygon class="cls-5" points="263.59 23.5 224.03 23.5 224.22 12.49 263.78 12.49 263.59 23.5"/>
-            <polygon class="cls-5" points="96.33 14.41 10.48 14.24 10.48 4.28 96.33 4.45 96.33 14.41"/>
-            <text class="cls-6" transform="translate(231.38 19.09)">page</text>
-            <text class="cls-6" transform="translate(10.61 10.27)">b
-                <tspan class="cls-7" x="6.57" y="0">r</tspan>
-                <tspan x="10.46" y="0">owser ch</tspan>
-                <tspan class="cls-7" x="57.71" y="0">r</tspan>
-                <tspan x="61.61" y="0">ome</tspan>
-            </text>
-            <rect class="cls-5" x="210.8" y="53.58" width="66.03" height="17.15"/>
-            <text class="cls-6" transform="translate(216.42 66.32)">main-w
-                <tspan class="cls-8" x="38.77" y="0">r</tspan>
-                <tspan x="42.55" y="0">ap</tspan>
-            </text>
-            <rect class="cls-1" x="231.47" y="-181.82" width="24.68" height="442.63"
-                  transform="translate(283.31 -204.32) rotate(90)"/>
-            <rect class="cls-5" x="207.97" y="22.22" width="71.68" height="12.51"/>
-            <text class="cls-9" transform="translate(209.83 30.32)">main-header</text>
-            <rect class="cls-5" x="60.17" y="63.36" width="50.72" height="17.15"/>
-            <rect class="cls-5" x="45.6" y="467.21" width="79.86" height="17.15"/>
-            <text class="cls-6" transform="translate(47.91 478.85)">side-bar footer</text>
-            <rect class="cls-3" x="-105.79" y="230.08" width="384.35" height="87.76"
-                  transform="translate(360.34 187.58) rotate(90)"/>
-            <rect class="cls-5" x="54.74" y="73.21" width="61.59" height="17.15"/>
-            <text class="cls-6" transform="translate(58.84 84.85)">n
-                <tspan class="cls-10" x="6.57" y="0">a</tspan>
-                <tspan x="12.81" y="0">vigation</tspan>
-            </text>
-            <rect class="cls-1" x="82.2" y="140.21" width="440.98" height="304.87"
-                  transform="translate(595.34 -10.05) rotate(90)"/>
-            <rect class="cls-3" x="288.72" y="-46.3" width="27.95" height="284.87"
-                  transform="translate(398.83 -206.56) rotate(90)"/>
-            <rect class="cls-5" x="283.37" y="63.36" width="38.65" height="17.15"/>
-            <text class="cls-9" transform="translate(289.33 75)">main</text>
-            <rect class="cls-5" x="260.18" y="76.58" width="85.02" height="14.15"/>
-            <text class="cls-6" transform="translate(263.39 85.22)">content-header</text>
-            <rect class="cls-3" x="288.72" y="346.73" width="27.95" height="284.87"
-                  transform="translate(791.85 186.47) rotate(90)"/>
-            <rect class="cls-5" x="260.18" y="469.61" width="85.02" height="14.15"/>
-            <text class="cls-6" transform="translate(265.76 478.25)">content-footer</text>
-            <rect class="cls-3" x="130" y="150.06" width="345.38" height="284.87"
-                  transform="translate(595.19 -10.2) rotate(90)"/>
-            <rect class="cls-5" x="260.18" y="114.23" width="85.02" height="14.15"/>
-            <text class="cls-6" transform="translate(268.11 122.86)">content-main</text>
-            <text class="cls-9" transform="translate(63.12 75)">side-bar</text>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 487.6 545.6" style="enable-background:new 0 0 487.6 545.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#231F20;stroke-miterlimit:10;}
+	.st1{fill:#FFFFFF;stroke:#E5E5E5;stroke-width:5;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#C2C1C0;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st4{fill:#FFFFFF;}
+	.st5{fill:#BFBFBF;}
+	.st6{font-family:'Roboto-Thin';}
+	.st7{font-size:12px;}
+	.st8{fill:#9E9E9E;}
+	.st9{font-family:'ArialMT';}
+	.st10{fill:#231F20;}
+	.st11{font-family:'Arial-BoldMT';}
+</style>
+<title>main</title>
+<g>
+	<g id="Layer_1-2">
+		<rect x="12.5" y="17.1" class="st0" width="462.6" height="516"/>
+		<rect x="2.5" y="7.1" class="st1" width="482.6" height="536"/>
+		<rect x="12.5" y="17.1" class="st2" width="462.6" height="516"/>
+		<rect x="22.5" y="62.2" class="st2" width="442.6" height="461"/>
+		<rect x="32.5" y="72.2" class="st3" width="107.8" height="441"/>
+		<rect x="42.5" y="475.8" class="st2" width="87.8" height="27.3"/>
+		<polygon class="st4" points="263.6,23.5 224,23.5 224.2,12.5 263.8,12.5 		"/>
+		<polygon class="st4" points="96.3,14.4 10.5,14.2 10.5,4.3 96.3,4.4 		"/>
+		<text transform="matrix(1 0 0 1 21.0444 10.27)" class="st5 st6 st7"> </text>
+		<text transform="matrix(1 0 0 1 68.2497 10.27)" class="st5 st6 st7"> </text>
+		<text transform="matrix(1 0 0 1 72.1844 10.27)" class="st5 st6 st7"> </text>
+		<rect x="210.8" y="53.6" class="st4" width="66" height="17.2"/>
+		<text transform="matrix(1 0 0 1 258.9344 66.32)" class="st5 st6 st7"> </text>
+		<rect x="22.5" y="27.1" class="st0" width="442.6" height="24.7"/>
+		<rect x="208" y="22.2" class="st4" width="71.7" height="12.5"/>
+		<rect x="60.2" y="63.4" class="st4" width="50.7" height="17.2"/>
+		<rect x="45.6" y="467.2" class="st4" width="79.9" height="17.1"/>
+		<text transform="matrix(1 0 0 1 47.91 478.85)" class="st5 st6 st7">side-bar footer</text>
+		<rect x="42.5" y="81.8" class="st2" width="87.8" height="384.4"/>
+		<rect x="54.7" y="73.2" class="st4" width="61.6" height="17.2"/>
+		<rect x="150.3" y="72.1" class="st0" width="304.9" height="441"/>
+		<rect x="160.3" y="82.2" class="st2" width="284.9" height="28"/>
+		<rect x="283.4" y="63.4" class="st4" width="38.6" height="17.2"/>
+		<rect x="260.2" y="76.6" class="st4" width="85" height="14.2"/>
+		<rect x="160.2" y="475.2" class="st2" width="284.9" height="28"/>
+		<rect x="260.2" y="469.6" class="st4" width="85" height="14.1"/>
+		<text transform="matrix(1 0 0 1 265.76 478.25)" class="st5 st6 st7">content-footer</text>
+		<rect x="160.3" y="119.8" class="st2" width="284.9" height="345.4"/>
+		<rect x="260.2" y="114.2" class="st4" width="85" height="14.2"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 9.811 10.27)" class="st8 st9 st7">browser chrome</text>
+<text transform="matrix(1 0 0 1 231.5525 18.9951)" class="st8 st9 st7">page</text>
+<text transform="matrix(1 0 0 1 216.8924 65.3201)" class="st8 st9 st7">main-wrap</text>
+<text transform="matrix(1 0 0 1 209.2225 30.3744)" class="st10 st11 st7">main-header</text>
+<text transform="matrix(1 0 0 1 288.6913 75.0001)" class="st10 st11 st7">main</text>
+<text transform="matrix(1 0 0 1 62.1941 75.0001)" class="st10 st11 st7">side-bar</text>
+<text transform="matrix(1 0 0 1 262.3328 84.8497)" class="st8 st9 st7">content-header</text>
+<text transform="matrix(1 0 0 1 58.1803 84.8497)" class="st8 st9 st7">navigation</text>
+<text transform="matrix(1 0 0 1 268.0105 122.3051)" class="st8 st9 st7">content-main</text>
 </svg>

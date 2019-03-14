@@ -89,14 +89,30 @@ export class WufSidebarMainComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         // unsubscribe to ensure no memory leaks
-        this.sidebarToggleSubscription.unsubscribe();
-        this.sidebarShowSubscription.unsubscribe();
-        this.sidebarHideSubscription.unsubscribe();
-        this.sidebarResizerDragStartSubscription.unsubscribe();
-        this.sidebarResizerDragSubscription.unsubscribe();
-        this.sidebarResizerDragEndSubscription.unsubscribe();
-        this.sidebarResizerToggleSubscription.unsubscribe();
-        this.configSubscription.unsubscribe();
+        if (this.sidebarToggleSubscription && !this.sidebarToggleSubscription.closed) {
+            this.sidebarToggleSubscription.unsubscribe();
+        }
+        if (this.sidebarShowSubscription && !this.sidebarShowSubscription.closed) {
+            this.sidebarShowSubscription.unsubscribe();
+        }
+        if (this.sidebarHideSubscription && !this.sidebarHideSubscription.closed) {
+            this.sidebarHideSubscription.unsubscribe();
+        }
+        if (this.sidebarResizerDragStartSubscription && !this.sidebarResizerDragStartSubscription.closed) {
+            this.sidebarResizerDragStartSubscription.unsubscribe();
+        }
+        if (this.sidebarResizerDragSubscription && !this.sidebarResizerDragSubscription.closed) {
+            this.sidebarResizerDragSubscription.unsubscribe();
+        }
+        if (this.sidebarResizerDragEndSubscription && !this.sidebarResizerDragEndSubscription.closed) {
+            this.sidebarResizerDragEndSubscription.unsubscribe();
+        }
+        if (this.sidebarResizerToggleSubscription && !this.sidebarResizerToggleSubscription.closed) {
+            this.sidebarResizerToggleSubscription.unsubscribe();
+        }
+        if (this.configSubscription && !this.configSubscription.closed) {
+            this.configSubscription.unsubscribe();
+        }
     }
 
     /***** sidebar initialization and restoration from configuration *****/

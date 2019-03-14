@@ -3,12 +3,13 @@
  * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
  */
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
 import { WufLoginService, WufLoginModule } from '@anviltech/wuf-ang-login-animated';
@@ -39,7 +40,8 @@ describe('LayoutMainComponent', () => {
                 WufLayoutModule,
                 WufNavigationModule,
                 WufLoginModule,
-                WufDrawerModule
+                WufDrawerModule,
+                HttpClientTestingModule // Mock backend for navigation service
             ],
             providers: [
                 WufConfigurationService,
@@ -55,15 +57,13 @@ describe('LayoutMainComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(LayoutMainComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // describe('Sanity check', () => {
-    //     it('should create', () => {
-    //         expect(component).toBeTruthy();
-    //     });
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     describe('Layout elements', () => {
         it('should have a wuf-view-main element', () => {
@@ -78,4 +78,18 @@ describe('LayoutMainComponent', () => {
             expect(de).toBeTruthy();
         });
     });
+
+    it(`should issue a request for navigation`,
+        // 1. declare as async test since the HttpClient works with Observables
+        async(
+            // 2. inject HttpClient and HttpTestingController into the test
+            inject([HttpClient, HttpTestingController], (http: HttpClient, backend: HttpTestingController) => {
+                // 3. Verify that only a single request has been issued for this URL
+                backend.expectOne({
+                    url: '/api/navigation',
+                    method: 'GET'
+                });
+            })
+        )
+    );
 });

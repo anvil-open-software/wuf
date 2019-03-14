@@ -62,7 +62,10 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.configSubscription.unsubscribe();
+        // unsubscribe to ensure no memory leaks
+        if (this.configSubscription && !this.configSubscription.closed) {
+            this.configSubscription.unsubscribe();
+        }
     }
 
     setTheme(theme: any) {

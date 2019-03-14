@@ -20,18 +20,18 @@ export interface NavItem {
     [propName: string]: any;
 }
 
-export interface NavResponseData {
-    routes: NavItem[];
-    data?: any;
-}
+interface NavItems extends Array<NavItem>{}
 
+export interface NavResponseData {
+    data?: NavItems;
+}
 
 @Injectable()
 export class WufNavigationService {
     constructor(private http: HttpClient) {
     }
 
-    getNavData(url: string): Observable<NavResponseData> {
+    getNavData(url: string): Observable<any> {
         return this.http.get<NavResponseData>(url);
     }
 }

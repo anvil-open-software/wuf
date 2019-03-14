@@ -1,12 +1,12 @@
 {
     "name": "@anviltech/wuf-ang-configuration",
-    "version": "2.0.0-rc.1",
+    "version": "2.0.0-rc.3",
     "description": "A configuration service for storing, maintaining, and broadcasting application configurations.",
     "author": "Darren Luvaas",
     "scripts": {
         "build": "ng build --prod @anviltech/wuf-ang-configuration",
-        "packagr": "npm run build",
-        "pub": "npm run packagr && npm publish dist --access public"
+        "packagr": "yarn build",
+        "pub": "yarn packagr && yarn publish dist --access public"
     },
     "publishConfig": {
         "access": "public"

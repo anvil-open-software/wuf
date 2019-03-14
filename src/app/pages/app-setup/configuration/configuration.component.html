@@ -72,15 +72,15 @@
                 since they are built in to the components themselves.</p>
 
             <p>The <strong>WufConfigurationService</strong> service itself includes the following default values (which
-                are stored in JSON format):</p>
+                are stored in JSON format).  These values handle basic default layout:</p>
 
             <wuf-code-sample [code]="serviceDefaultExample" type="javascript"></wuf-code-sample>
 
             <h4>Application Defaults</h4>
 
             <p>The application should include some default values. For the Living Style Guide, these values are stored
-                in a file at <code>/src/app/internal/configuration/configuration.ts</code>. This file has the following
-                values:</p>
+                in a file at <code>/src/app/_internal/configuration/configuration.ts</code>. This file has the following
+                values which focus primarily on application-specific values:</p>
 
             <wuf-code-sample [code]="appDefaultExample" type="javascript"></wuf-code-sample>
 
@@ -133,10 +133,10 @@
                     storage. These stored values were saved there during a previous user session.
                 </li>
                 <li>If no local or stored settings values exist, use default application settings pulled from the
-                    application's configuration file <code>/src/app/internal/configuration/configuration.ts</code>.
+                    application's configuration file <code>/src/app/_internal/configuration/configuration.ts</code>.
                 </li>
                 <li>If no default application settings exist in
-                    <code>/src/app/internal/configuration/configuration.ts</code>, use the default settings baked into
+                    <code>/src/app/_internal/configuration/configuration.ts</code>, use the default settings baked into
                     each components (which should always be coded with default values).
                 </li>
             </ol>
@@ -307,10 +307,9 @@
                     <td class="prop-name">theme</td>
                     <td class="prop-type"><code>string</code></td>
                     <td class="prop-default">none</td>
-                    <td class="prop-description">By default, the application's CSS uses Dematic's light theme. To use
-                        another theme (like the Dematic dark theme) set a theme name to correspond CSS overrides
-                        provided to generate a theme. See <a routerLink="/themes">themes</a> for more information on
-                        creating and using a theme.
+                    <td class="prop-description">This is an open field that can be used to hold a theme name or
+                        a theme URL, or some other property which you can use to set a theme upon a config change.
+                        See <a routerLink="/themes">themes</a> for more information on creating and using a theme.
                     </td>
                 </tr>
                 <tr>

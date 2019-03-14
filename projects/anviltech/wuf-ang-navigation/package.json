@@ -1,12 +1,12 @@
 {
     "name": "@anviltech/wuf-ang-navigation",
-    "version": "2.0.0-rc.1",
+    "version": "2.0.0-rc.2",
     "description": "A set of components and services for display navigation elements.",
     "author": "Darren Luvaas",
     "scripts": {
         "build": "ng build --prod @anviltech/wuf-ang-navigation",
         "packagr": "npm run build",
-        "pub": "npm run packagr && npm publish dist --access public"
+        "pub": "yarn packagr && yarn publish dist --access public"
     },
     "publishConfig": {
         "access": "public"

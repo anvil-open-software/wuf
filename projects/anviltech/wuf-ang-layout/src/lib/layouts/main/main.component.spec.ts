@@ -50,16 +50,14 @@ describe('WufViewMainComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(WufViewMainComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
         sidebarService = WufSidebarService;
     });
 
-    // describe('Sanity check', () => {
-    //     it('should create', () => {
-    //         expect(component).toBeTruthy();
-    //     });
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     describe('Layout elements', () => {
 

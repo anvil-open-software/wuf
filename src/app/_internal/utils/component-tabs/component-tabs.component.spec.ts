@@ -27,11 +27,11 @@ describe('ComponentTabsComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(ComponentTabsComponent);
-        component = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    // it('should create', () => {
-    //     expect(component).toBeTruthy();
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 });

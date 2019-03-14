@@ -13,7 +13,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
     encapsulation: ViewEncapsulation.Emulated
 })
 export class NavigationFooterComponent implements OnInit {
-    // Set the URL from which to fetch the routes/navigation data object.
+    // Set the URL from which to fetch the routes/footeritems data object.
     // We're setting this to a dummy, local route for this app but you
     // can & should use a data service for a real app.
 

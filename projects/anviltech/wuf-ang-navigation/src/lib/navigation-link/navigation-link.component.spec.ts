@@ -39,18 +39,16 @@ describe('WufNavigationLinkComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(WufNavigationLinkComponent);
-        component = fixture.componentInstance;
         component.link = '/navlink';
         component.label = '"nav link text"';
         component.icon = '&#xE88A;';
         fixture.detectChanges();
     });
 
-    // describe('Sanity check', () => {
-    //     it('should create', () => {
-    //         expect(component).toBeTruthy();
-    //     });
-    // });
+    it('should create', () => {
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
 
     it('label should be "nav link text"', () => {
         const compiled = fixture.debugElement.nativeElement;
