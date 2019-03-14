@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Removing unused dependencies
 - Improve unsubscribes by checking for existence of subscription first
 - Update publish scripts to use Yarn
+- Use Arial in layout diagrams to ensure consistency across browsers
 ### Added
 - Add generic favicons
 
