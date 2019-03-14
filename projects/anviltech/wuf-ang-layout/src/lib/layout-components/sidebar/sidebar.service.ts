@@ -18,8 +18,10 @@ export interface SidebarFooterItem {
     [propName: string]: any; // This "index signature" allows the interface to accept any additional unexpected properties without throwing an error.  This is necessary because the routes service may use the same data object.
 }
 
+interface SidebarFooterItems extends Array<SidebarFooterItem>{}
+
 export interface FooterResponseData {
-    routes: SidebarFooterItem[];
+    data?: SidebarFooterItems;
 }
 
 @Injectable()
