@@ -38,10 +38,9 @@ export class WufConfigurationService implements OnInit {
             iconPosition: 'left',
             alignment: 'left'
         },
-        themeDark: false,
         sidebarSize: 230
     };
-
+    private _storageKey: string;
     private configSubject = new BehaviorSubject(this._config);
 
     constructor() {
@@ -67,12 +66,23 @@ export class WufConfigurationService implements OnInit {
         this._saveConfig(this._config, key);
     }
 
-    getStorageKey(appId?: string, userId?: string) {
-        const myAppId = appId ? appId : this._config.id;
-        const myUserId = userId ? userId : this._config.user.id;
+    setStorageKey(keyName: string) {
+        // Override the default storage key
+        this._storageKey = keyName;
+    }
 
-        // Get a unique storage key for the current configuration based on App id and User id
-        return myAppId + '_' + myUserId;
+    getStorageKey(appId?: string, userId?: string): string {
+
+        if (this._storageKey) {
+            return this._storageKey;
+        }
+        else {
+            const myAppId = appId ? appId : this._config.id;
+            const myUserId = userId ? userId : this._config.hasOwnProperty('user') && this._config.user.hasOwnProperty('id') ? this._config.user.id : this._config.hasOwnProperty('user') && this._config.user.hasOwnProperty('username') ? this._config.user.username : 'default_user';
+
+            // Get a unique storage key for the current configuration based on App id and User id
+            return myAppId + '_' + myUserId;
+        }
     }
 
     broadCastConfigChange(newConfig: WufConfiguration) {

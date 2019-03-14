@@ -29,7 +29,7 @@ export class SetupConfigurationComponent implements OnInit {
     {
         "user": {
             id: 147123-874793-75782819,
-            username: 'someuser',
+            username: 'tonystark',
             firstName: 'Tony',
             lastName: 'Stark'
         }
