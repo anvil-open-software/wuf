@@ -46,7 +46,9 @@ export class TitleComponent implements OnChanges {
     ngOnChanges(changes: SimpleChanges) {
         if (changes.source) {
             if (!changes.source.firstChange) {
-                this.dataChangedSub.unsubscribe();
+                if (this.dataChangedSub && !this.dataChangedSub.closed) {
+                    this.dataChangedSub.unsubscribe();
+                }
             }
             this.dataChangedSub = this.source.onChanged().subscribe((dataChanges) => {
                 const sortConf = this.source.getSort();

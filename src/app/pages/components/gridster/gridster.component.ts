@@ -90,7 +90,10 @@ export class GridsterComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.gridsterUpdateSubscription.unsubscribe();
+        // unsubscribe to ensure no memory leaks
+        if (this.gridsterUpdateSubscription && !this.gridsterUpdateSubscription.closed) {
+            this.gridsterUpdateSubscription.unsubscribe();
+        }
     }
 
     onAddItemClick() {

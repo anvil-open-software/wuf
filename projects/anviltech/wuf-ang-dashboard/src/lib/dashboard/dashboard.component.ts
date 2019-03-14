@@ -41,7 +41,10 @@ export class WufDashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngOnDestroy() {
-        this.kpiSubscription.unsubscribe();
+        // unsubscribe to ensure no memory leaks
+        if (this.kpiSubscription && !this.kpiSubscription.closed) {
+            this.kpiSubscription.unsubscribe();
+        }
     }
 
     ngAfterViewInit() {

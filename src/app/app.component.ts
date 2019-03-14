@@ -111,8 +111,13 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.configSubscription.unsubscribe();
-        this.loginSubscription.unsubscribe();
+        // unsubscribe to ensure no memory leaks
+        if (this.configSubscription && !this.configSubscription.closed) {
+            this.configSubscription.unsubscribe();
+        }
+        if (this.loginSubscription && !this.loginSubscription.closed) {
+            this.loginSubscription.unsubscribe();
+        }
     }
 
     getMergedConfiguration(userData: any) {
@@ -156,7 +161,8 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     applyTheme(themeId: string) {
-        // Set the 'wuf-theme' property on the <html> element.  This is what makes the SCSS selectors inside /src/assets/dummydata/branding work.
+        // Set the 'wuf-theme' property on the <html> element.  This is what makes the SCSS selectors inside
+        // /src/assets/dummydata/branding work.
         this.currentThemeId = themeId;
         this.renderer.setAttribute(document.documentElement, 'wuf-theme', themeId);
     }
