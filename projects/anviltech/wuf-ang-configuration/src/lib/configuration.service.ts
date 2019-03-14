@@ -33,19 +33,13 @@ export class WufConfigurationService implements OnInit {
 
     // Define default values for Configuration
     private _config: WufConfiguration = {
-        id: 'wuf-application',
-        copyrightName: '',
         navigation: {
             position: 'left',
             iconPosition: 'left',
             alignment: 'left'
         },
-        theme: 'default',
         themeDark: false,
-        sidebarSize: 230,
-        user: {
-            id: 'default'
-        }
+        sidebarSize: 230
     };
 
     private configSubject = new BehaviorSubject(this._config);
