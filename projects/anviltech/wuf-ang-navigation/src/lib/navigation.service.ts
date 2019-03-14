@@ -31,7 +31,7 @@ export class WufNavigationService {
     constructor(private http: HttpClient) {
     }
 
-    getNavData(url: string): Observable<NavResponseData> {
+    getNavData(url: string): Observable<any> {
         return this.http.get<NavResponseData>(url);
     }
 }

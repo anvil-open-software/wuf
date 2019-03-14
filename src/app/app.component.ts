@@ -132,7 +132,8 @@ export class AppComponent implements OnInit, OnDestroy {
                use the default settings baked into the application and application components.
                Nothing to do here since those properties live in the components themselves.
         */
-        const key = this.configService.getStorageKey(this.config.id, userData.user.id);
+        const userId = userData.user.hasOwnProperty('id') ? userData.user.id : userData.user.hasOwnProperty('username') ? userData.user.username : 'default_user';
+        const key = this.configService.getStorageKey(this.config.id, userId);
 
         return deepMerge(
             {},
