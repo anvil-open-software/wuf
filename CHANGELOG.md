@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Standardizing unit tests
 - Removing unused dependencies
 - Improve unsubscribes by checking for existence of subscription first
+- Update publish scripts to use Yarn
 ### Added
 - Add generic favicons
 
