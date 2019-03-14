@@ -20,11 +20,12 @@ export interface NavItem {
     [propName: string]: any;
 }
 
-export interface NavResponseData {
-    routes: NavItem[];
-    data?: any;
-}
+interface NavItems extends Array<NavItem>{}
 
+
+export interface NavResponseData {
+    data?: NavItems;
+}
 
 @Injectable()
 export class WufNavigationService {
