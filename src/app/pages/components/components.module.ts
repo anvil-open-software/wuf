@@ -28,6 +28,7 @@ import { WufSmartTableModule } from '@anviltech/wuf-ang-smart-table';
 import { NgxMdModule } from 'ngx-md';
 import { CustomMaterialModule } from '../../_internal/material.module';
 import { UtilsModule } from '../../_internal/utils/utils.module';
+import { TranslateSharedLazyModule } from '../../_internal/translate.module';
 
 /***** TODO *****/
 // TODO: move this to common-components once component is built
@@ -91,6 +92,7 @@ import { SmartTableComponent } from './smart-table/smart-table.component';
         // 3rd Party Imports
         NgxMdModule, // Markdown
         CustomMaterialModule,
+        TranslateSharedLazyModule,
 
         // Routes (Keep as last module loaded)
         RoutesModule

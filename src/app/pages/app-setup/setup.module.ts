@@ -20,6 +20,7 @@ import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
 import { NgxMdModule } from 'ngx-md';
 import { UtilsModule } from '../../_internal/utils/utils.module';
 import { CustomMaterialModule } from '../../_internal/material.module';
+import { TranslateSharedLazyModule } from '../../_internal/translate.module';
 
 /***** Import page modules *****/
 import { SetupIntroComponent } from './setup-intro/setup-intro.component';
@@ -28,7 +29,6 @@ import { LayoutComponentsComponent } from './layout-components/layout-components
 import { LayoutMainBasicComponent } from './main-basic/main-basic.component';
 import { SetupCssPropertiesComponent } from './css-properties/css-properties.component';
 import { SetupConfigurationComponent } from './configuration/configuration.component';
-
 
 @NgModule({
     schemas: [
@@ -50,6 +50,7 @@ import { SetupConfigurationComponent } from './configuration/configuration.compo
         // 3rd Party Imports
         NgxMdModule, // Markdown
         CustomMaterialModule,
+        TranslateSharedLazyModule,
 
         // Routes (Keep as last module loaded)
         RoutesModule

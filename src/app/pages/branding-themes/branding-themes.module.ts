@@ -22,6 +22,7 @@ import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
 import { NgxMdModule } from 'ngx-md';
 import { CustomMaterialModule } from '../../_internal/material.module';
 import { UtilsModule } from '../../_internal/utils/utils.module';
+import { TranslateSharedLazyModule } from '../../_internal/translate.module';
 
 /***** Import page modules *****/
 import { BrandingThemesIntroComponent } from './branding-themes-intro/branding-themes-intro.component';
@@ -52,6 +53,7 @@ import { DarkThemeComponent } from './dark-theme/dark-theme.component';
         // 3rd Party Imports
         NgxMdModule, // Markdown
         CustomMaterialModule,
+        TranslateSharedLazyModule,
 
         // Routes (Keep as last module loaded)
         RoutesModule
