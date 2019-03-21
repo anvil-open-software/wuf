@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient } from '@angular/common/http';
 
 /***** Basic app components *****/
 import { AppComponent } from './app.component';
@@ -31,6 +32,8 @@ import '@anviltech/wuf-web-message';
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
 import { CustomMaterialModule } from './_internal/material.module';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 /***** fake backend *****/
 // Delete this for a production app
@@ -54,10 +57,13 @@ import { FooterService } from './_internal/services/footer.service';
 
 /***** Example component pages *****/
 import { HomeComponent } from './pages/home/home.component';
-import { I18nComponent } from './pages/i18n/i18n.component';
 import { UtilsModule } from './_internal/utils/utils.module';
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
 
+// Create a factory for the translate loader
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
     schemas: [
@@ -91,6 +97,13 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
         // 3rd Party Imports
         NgxMdModule.forRoot(), // Markdown
         CustomMaterialModule.forRoot(), // Load all Angular Material modules
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: createTranslateLoader,
+                deps: [HttpClient]
+            }
+        }),
 
         // Routes (Keep as last module loaded)
         RoutesModule
@@ -104,8 +117,7 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
         ForbiddenComponent,
         SettingsComponent,
         HomeComponent,
-        GettingStartedComponent,
-        I18nComponent
+        GettingStartedComponent
     ],
     providers: [
         WufConfigurationService,

@@ -10,13 +10,13 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 
-import { I18nComponent } from './i18n.component';
+import { I18nAngularComponent } from './i18n-ang.component';
 import { WufContentFooterService } from '@anviltech/wuf-ang-layout';
 
 
-describe('I18nComponent', () => {
-    let component: I18nComponent;
-    let fixture: ComponentFixture<I18nComponent>;
+describe('I18nAngularComponent', () => {
+    let component: I18nAngularComponent;
+    let fixture: ComponentFixture<I18nAngularComponent>;
     let compiled;
 
     beforeEach(async(() => {
@@ -25,7 +25,7 @@ describe('I18nComponent', () => {
                 CUSTOM_ELEMENTS_SCHEMA
             ],
             declarations: [
-                I18nComponent
+                I18nAngularComponent
             ],
             providers: [
                 WufContentFooterService
@@ -39,7 +39,7 @@ describe('I18nComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(I18nComponent);
+        fixture = TestBed.createComponent(I18nAngularComponent);
         compiled = fixture.debugElement.nativeElement;
         fixture.detectChanges();
     });

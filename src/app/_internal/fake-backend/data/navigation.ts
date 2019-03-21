@@ -214,7 +214,21 @@ export const NavigationItems =
             link: '/i18n',
             label: 'I18N',
             icon: '&#xE927;',
-            id: 'nav-i18n'
+            id: 'nav-i18n',
+            links: [
+                {
+                    link: '/i18n/i18nangular',
+                    label: 'I18N - Angular',
+                    icon: '&#xE927;',
+                    id: 'nav-i18n-ang'
+                },
+                {
+                    link: '/i18n/i18nngxtranslate',
+                    label: 'I18N - ngx-translate',
+                    icon: '&#xE927;',
+                    id: 'nav-i18n-ngx-translate'
+                }
+            ]
         },
         {
             link: '/development',

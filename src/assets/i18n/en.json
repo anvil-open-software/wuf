@@ -1,0 +1,26 @@
+{
+    "FRAME": {
+        "BREADCRUMB": "Home",
+        "APP_NAME": "Fleet Management",
+        "SETTINGS": {
+            "TITLE": "Settings",
+            "LANGUAGE": {
+                "LABEL": "Language",
+                "LANGUAGES": {
+                    "ENGLISH": "English (en)",
+                    "CHINESE": "Chinese (zh)"
+                }
+            },
+            "DARKTHEME": {
+                "LABEL": "Dark Theme"
+            }
+        }
+    },
+    "PAGE1": {
+        "BREADCRUMB": "Welcome",
+        "H1": "Welcome!",
+        "WELCOME": "Hello, {{firstName}}.  Welcome to the first demo version of the Fleet Management System.",
+        "USER": "User",
+        "TENANT": "Tenant"
+    }
+}

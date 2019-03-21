@@ -7,6 +7,7 @@ import { Component, ViewEncapsulation, OnInit, Renderer2, OnDestroy } from '@ang
 
 import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
 import { deepMerge } from '@anviltech/wuf-ang-utils';
+import { TranslateService } from '@ngx-translate/core';
 
 import { UserService } from './_internal/services/user.service';
 
@@ -31,11 +32,17 @@ export class AppComponent implements OnInit, OnDestroy {
     configSubscription: any;
     loginSubscription: any;
     currentThemeId: string;
+    defaultLang: string = 'en';
 
-    constructor(private wufConfigService: WufConfigurationService,
-                private renderer: Renderer2,
-                private userService: UserService,
-                private loginService: WufLoginService) {
+    constructor(
+        private wufConfigService: WufConfigurationService,
+        private renderer: Renderer2,
+        private userService: UserService,
+        private loginService: WufLoginService,
+        public translate: TranslateService
+    ) {
+        // This language will be used as a fallback when a translation isn't found in the current language
+        translate.setDefaultLang(this.defaultLang);
     }
 
     ngOnInit() {

@@ -5,16 +5,14 @@
 
 import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 
-import { WufContentFooterService } from '@anviltech/wuf-ang-layout';
-
 
 @Component({
     selector: 'app-i18n',
-    templateUrl: './i18n.component.html',
-    styleUrls: ['./i18n.component.scss'],
+    templateUrl: './i18n-ang.component.html',
+    styleUrls: ['./i18n-ang.component.scss'],
     encapsulation: ViewEncapsulation.Emulated
 })
-export class I18nComponent implements OnInit, OnDestroy {
+export class I18nAngularComponent implements OnInit, OnDestroy {
 
     // Change these values to see cardinality in action
     count: number = 0;
@@ -31,15 +29,13 @@ export class I18nComponent implements OnInit, OnDestroy {
     }.
 </p>`;
 
-    constructor(private kgContentFooterService: WufContentFooterService) {
+    constructor() {
     }
 
     ngOnInit() {
-        this.kgContentFooterService.showFooter();
     }
 
     ngOnDestroy() {
-        this.kgContentFooterService.hideFooter();
     }
 
 }

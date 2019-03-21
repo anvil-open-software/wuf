@@ -1,0 +1,47 @@
+<!--
+  ~ Copyright (c) 2018 Dematic, Corp.
+  ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+  -->
+
+<wuf-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: null, label: 'I18N', active: true }]"></wuf-breadcrumb>
+    </ng-container>
+
+    <ng-container toolbarRight>
+        <!--page-level utilities here-->
+    </ng-container>
+</wuf-content-header>
+
+<wuf-content-main>
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'">
+        <!-- Component name -->
+        <div class="component_tabs_name">I18N - ngx-translate</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+            <p>
+
+            </p>
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            [WHEN/WHERE to USE]
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+            For more information on using ngx-translate, refer to the <a href="https://github.com/ngx-translate/core" target="_blank">@ngx-translate/core documentation</a>.
+        </div>
+
+    </app-component-tabs>
+
+</wuf-content-main>
+
+<wuf-content-footer>
+    <!-- insert footer content here -->
+    [footer content goes here]
+</wuf-content-footer>

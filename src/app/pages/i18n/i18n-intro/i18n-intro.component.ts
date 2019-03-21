@@ -7,16 +7,15 @@ import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss'],
+    selector: 'app-i18n',
+    templateUrl: './i18n-intro.component.html',
+    styleUrls: ['./i18n-intro.component.scss'],
     encapsulation: ViewEncapsulation.Emulated
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class I18nIntroComponent implements OnInit, OnDestroy {
+
     constructor() {
     }
-
-    selectedTabIndex: number = 0;
 
     ngOnInit() {
     }
@@ -24,7 +23,4 @@ export class HomeComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
     }
 
-    setTab(tabIndex: number) {
-        this.selectedTabIndex = tabIndex;
-    }
 }
