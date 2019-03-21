@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
  */
 import { MatMenuModule, MatTooltipModule } from '@angular/material';
 import { WufConfigurationModule } from '@anviltech/wuf-ang-configuration';
-import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
+import { WufLayoutModule, WufSidebarService } from '@anviltech/wuf-ang-layout';
 
 /**
  * Imports
@@ -55,7 +55,8 @@ export class WufNavigationModule {
             ngModule: WufNavigationModule,
             providers: [
                 // Add any services used by this module to the providers collection
-                WufNavigationService
+                WufNavigationService,
+                WufSidebarService
             ]
         };
     }
