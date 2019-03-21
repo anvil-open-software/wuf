@@ -28,9 +28,11 @@ import { WufSmartTableModule } from '@anviltech/wuf-ang-smart-table';
 import { NgxMdModule } from 'ngx-md';
 import { CustomMaterialModule } from '../../_internal/material.module';
 import { UtilsModule } from '../../_internal/utils/utils.module';
+import { TranslateSharedLazyModule } from '../../_internal/translate.module';
 
 /***** TODO *****/
-import { WufSplitPanelComponent } from './dashboard/wuf-split-panel/wuf-split-panel.component'; // TODO: move this to common-components once component is built
+// TODO: move this to common-components once component is built
+import { WufSplitPanelComponent } from './dashboard/wuf-split-panel/wuf-split-panel.component';
 
 /***** Smart Table extras *****/
 import { CustomEditorForFoodsSmartTable } from './smart-table/custom-editor.smart-table.for-foods.component';
@@ -90,6 +92,7 @@ import { SmartTableComponent } from './smart-table/smart-table.component';
         // 3rd Party Imports
         NgxMdModule, // Markdown
         CustomMaterialModule,
+        TranslateSharedLazyModule,
 
         // Routes (Keep as last module loaded)
         RoutesModule

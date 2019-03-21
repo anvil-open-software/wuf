@@ -5,10 +5,10 @@
 
 <!-- layout for sidebar left position -->
 <li *ngIf="position === 'left'" class="nav-item position-left" routerLinkActive="expanded" [routerLinkActiveOptions]="activeOptions"
-    id="{{id}}" [class.expanded]="isExpanded" [class.minimized]="kgSidebarService.sidebarIsMinimized"
+    id="{{id}}" [class.expanded]="isExpanded" [class.minimized]="wufSidebarService.sidebarIsMinimized"
     [class.icon-position-top]="iconPosition === 'top'" #parentNavItem>
     <a class="nav-link" routerLinkActive="active" [class.nav-link-hasChildren]="links" [routerLinkActiveOptions]="activeOptions"
-        [routerLink]="link" [matTooltip]="kgSidebarService.sidebarIsMinimized ? label : ''" matTooltipPosition="right"><i
+        [routerLink]="link" [matTooltip]="wufSidebarService.sidebarIsMinimized ? label : ''" matTooltipPosition="right"><i
             *ngIf="icon" class="material-icons" [innerHTML]="icon"></i>
         <span class="nav-item-label" [innerHTML]="label"></span>
     </a>
@@ -18,9 +18,9 @@
 
     <!-- display child nav items vertically in sidebar left configuration -->
     <ul *ngIf="links" class="d-flex flex-column nav-wrap-nested">
-        <li *ngFor="let item of links" class="nav-item" id="{{item.id}}" [class.minimized]="kgSidebarService.sidebarIsMinimized">
+        <li *ngFor="let item of links" class="nav-item" id="{{item.id}}" [class.minimized]="wufSidebarService.sidebarIsMinimized">
             <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="activeOptions" [routerLink]="item.link"
-                [matTooltip]="kgSidebarService.sidebarIsMinimized ? item.label : ''" matTooltipPosition="right"><i
+                [matTooltip]="wufSidebarService.sidebarIsMinimized ? item.label : ''" matTooltipPosition="right"><i
                     *ngIf="item.icon" class="material-icons" [innerHTML]="item.icon"></i>
                 <span class="nav-item-label" [innerHTML]="item.label"></span>
             </a>

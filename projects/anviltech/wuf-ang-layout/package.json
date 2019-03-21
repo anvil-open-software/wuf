@@ -1,6 +1,6 @@
 {
     "name": "@anviltech/wuf-ang-layout",
-    "version": "2.0.0-rc.3",
+    "version": "2.0.0-rc.4",
     "description": "A set of components and services related to application layout.",
     "author": "Darren Luvaas",
     "scripts": {
@@ -14,7 +14,7 @@
     "main": "dist/bundles/anviltech-wuf-ang-layout.umd.js",
     "typings": "dist/anviltech-wuf-ang-layout.d.ts",
     "dependencies": {
-        "@anviltech/wuf-ang-configuration": "^2.0.0-rc.1",
+        "@anviltech/wuf-ang-configuration": "^2.0.0-rc.6",
         "@anviltech/wuf-web-assets": "^2.0.0-rc.1"
     },
     "peerDependencies": {

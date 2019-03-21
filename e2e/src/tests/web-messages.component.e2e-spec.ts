@@ -9,7 +9,7 @@ import { WebElement } from 'selenium-webdriver';
 import { NavigationComponentView } from '../pages/navigation.component.view.po';
 
 
-describe('WEB Component: KG-WEB-MESSAGES Page View', function () {
+describe('WEB Component: WUF-WEB-MESSAGES Page View', function () {
 
     const MESSAGES = {
         ERROR: `Danger, Will Robinson!`,
@@ -40,13 +40,13 @@ describe('WEB Component: KG-WEB-MESSAGES Page View', function () {
         browser.waitForAngularEnabled();
     });
 
-    describe('The KG-WEB-COMPONENT page ', function () {
+    describe('The WUF-WEB-COMPONENT page ', function () {
         it('has title', () => {
             expect(view.get_viewTitle()).toBeTruthy();
         });
 
-        it('has title saying "WEB Component: KG-WEB-MESSAGES"', () => {
-            expect(view.get_viewTitle()).toContain('WEB Component: KG-WEB-MESSAGE');
+        it('has title saying "WEB Component: WUF-WEB-MESSAGES"', () => {
+            expect(view.get_viewTitle()).toContain('WEB Component: WUF-WEB-MESSAGE');
         });
 
         it('has the wuf-web-message element on the page', () => {

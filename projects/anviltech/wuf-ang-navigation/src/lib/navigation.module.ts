@@ -16,8 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
  * Import 3rd party modules and components here
  */
 import { MatMenuModule, MatTooltipModule } from '@angular/material';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { WufConfigurationModule } from '@anviltech/wuf-ang-configuration';
-import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
+import { WufLayoutModule, WufSidebarService } from '@anviltech/wuf-ang-layout';
 
 /**
  * Imports
@@ -35,6 +36,7 @@ import { WufNavigationService } from './navigation.service';
         HttpClientModule,
         MatTooltipModule,
         MatMenuModule,
+        TranslateModule,
         WufConfigurationModule,
         WufLayoutModule
     ],
@@ -55,7 +57,9 @@ export class WufNavigationModule {
             ngModule: WufNavigationModule,
             providers: [
                 // Add any services used by this module to the providers collection
-                WufNavigationService
+                WufNavigationService,
+                WufSidebarService,
+                TranslateService
             ]
         };
     }

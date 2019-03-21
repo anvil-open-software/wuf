@@ -20,7 +20,7 @@ import { SettingsComponent } from './other/settings/settings.component';
 
 // Component pages
 import { HomeComponent } from './pages/home/home.component';
-import { I18nComponent } from './pages/i18n/i18n.component';
+import { I18nAngularComponent } from './pages/i18n/i18n-angular/i18n-ang.component';
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
 
 
@@ -28,7 +28,6 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
 const routes_layout_main = [
     {path: '', component: HomeComponent, pathMatch: 'full'},
     {path: 'gettingstarted', component: GettingStartedComponent, pathMatch: 'full'},
-    {path: 'i18n', component: I18nComponent, pathMatch: 'full'},
     {path: 'settings', component: SettingsComponent, pathMatch: 'full'}
 ];
 
@@ -46,6 +45,7 @@ const routes = [
     // Lazy load feature modules
     {path: 'components', loadChildren: './pages/components/components.module#ComponentsModule'},
     {path: 'development', loadChildren: './pages/development/development.module#DevelopmentModule'},
+    {path: 'i18n', loadChildren: './pages/i18n/i18n.module#I18nModule'},
     {path: 'setup', loadChildren: './pages/app-setup/setup.module#SetupModule'},
     {path: 'themes', loadChildren: './pages/branding-themes/branding-themes.module#BrandingThemesModule'},
 

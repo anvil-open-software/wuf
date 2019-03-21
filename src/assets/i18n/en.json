@@ -1,0 +1,19 @@
+{
+    "I18N": {
+        "LANGUAGE": {
+            "LABEL": "Language",
+            "LANGUAGES": {
+                "ENGLISH": "English (en)",
+                "CHINESE": "Chinese (zh)"
+            }
+        },
+        "INTRODUCTION": "This page uses <strong>ngx-translate</strong> in lieu of the Angular I18N method.  The primary advantage of this approach is that ngx-translate allows language switching at run time."
+    },
+    "NAVIGATION": {
+        "I18N": {
+            "INTRO": "I18N",
+            "ANGULAR": "I18N - Angular",
+            "NGX": "I18N - ngx-translate"
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "I18N": {
+        "LANGUAGE": {
+            "LABEL": "语言",
+            "LANGUAGES": {
+                "ENGLISH": "英语 (en)",
+                "CHINESE": "中文 (zh)"
+            }
+        },
+        "INTRODUCTION": "此页面使用ngx-translate代替Angular I18N方法。 这种方法的主要优点是ngx-translate允许在运行时切换语言。"
+    },
+    "NAVIGATION": {
+        "I18N": {
+            "INTRO": "国际化",
+            "ANGULAR": "国际化 - 角度",
+            "NGX": "国际化 - ngx-translate"
+        }
+    }
+}
