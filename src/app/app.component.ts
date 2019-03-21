@@ -118,6 +118,9 @@ export class AppComponent implements OnInit, OnDestroy {
                 console.warn('error on login form:', err);
             }
         );
+
+        // set language for ngx-translate
+        this.translate.use('en');
     }
 
     ngOnDestroy() {

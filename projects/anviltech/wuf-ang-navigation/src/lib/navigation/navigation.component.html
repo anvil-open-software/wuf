@@ -4,12 +4,24 @@
   -->
 
 <div class="nav-wrap" [class.position-left]="position === 'left'" [class.position-top]="position === 'top'">
-    <ul class="nav d-flex" [class.flex-column]="position === 'left'" [class.flex-row]="position === 'top'"
-        [class.link-align-left]="alignment === 'left'" [class.link-align-center]="alignment === 'center'"
-        [class.link-align-right]="alignment === 'right'">
-        <wuf-navigation-link *ngFor="let item of navData" [link]="item.link" [label]="item.label" [icon]="item.icon"
-            [id]="item.id" [links]="item.links" [activeOptions]="item.activeOptions ? item.activeOptions : { exact: true }"
-            [position]="position" [iconPosition]="iconPosition"></wuf-navigation-link>
+    <ul class="nav d-flex"
+        [class.flex-column]="position === 'left'"
+        [class.flex-row]="position === 'top'"
+        [class.link-align-left]="alignment === 'left'"
+        [class.link-align-center]="alignment === 'center'"
+        [class.link-align-right]="alignment === 'right'"
+    >
+        <wuf-navigation-link *ngFor="let item of navData"
+            [link]="item.link"
+            [label]="item.label"
+            [icon]="item.icon"
+            [id]="item.id"
+            [links]="item.links"
+            [activeOptions]="item.activeOptions ? item.activeOptions : { exact: true }"
+            [position]="position"
+            [iconPosition]="iconPosition"
+            [i18nKey]="item.i18nKey"
+        ></wuf-navigation-link>
         <ng-content></ng-content>
     </ul>
 </div>

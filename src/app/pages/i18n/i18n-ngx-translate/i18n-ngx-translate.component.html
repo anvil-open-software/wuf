@@ -22,9 +22,20 @@
 
         <!-- EXAMPLE Content -->
         <div class="component_tabs_1">
-            <p>
 
-            </p>
+            <p [innerHTML]="'I18N.INTRODUCTION' | translate"></p>
+
+            <mat-form-field>
+                <mat-select [placeholder]="'I18N.LANGUAGE.LABEL' | translate" [(value)]="currentLanguage" (selectionChange)="onLanguageSelectionChange($event)">
+                    <mat-option value="en">
+                        {{'I18N.LANGUAGE.LANGUAGES.ENGLISH' | translate}}
+                    </mat-option>
+                    <mat-option value="zh">
+                        {{'I18N.LANGUAGE.LANGUAGES.CHINESE' | translate}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
         </div>
 
         <!-- WHEN/WHERE Content -->

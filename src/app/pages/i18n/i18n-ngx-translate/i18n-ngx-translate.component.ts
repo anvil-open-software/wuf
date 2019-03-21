@@ -4,6 +4,7 @@
  */
 
 import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
+import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
 
 
 @Component({
@@ -14,13 +15,27 @@ import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
 })
 export class I18nNgxTranslateComponent implements OnInit, OnDestroy {
 
-    constructor() {
+    currentLanguage: string;
+
+    constructor(public translate: TranslateService) {
+        translate.onLangChange.subscribe(($event: LangChangeEvent) => {
+            this.onLanguageChange($event);
+        });
     }
 
     ngOnInit() {
+        this.currentLanguage = this.translate.currentLang ? this.translate.currentLang : 'en';
     }
 
     ngOnDestroy() {
+    }
+
+    onLanguageChange($event: any) {
+        // Language has changed.  Now do something.
+    }
+
+    onLanguageSelectionChange($event: any) {
+        this.translate.use(this.currentLanguage);
     }
 
 }

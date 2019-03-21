@@ -8,6 +8,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
 import { I18nNgxTranslateComponent } from './i18n-ngx-translate.component';
 import { WufContentFooterService } from '@anviltech/wuf-ang-layout';
 
@@ -26,11 +28,13 @@ describe('I18nNgxTranslateComponent', () => {
                 I18nNgxTranslateComponent
             ],
             providers: [
-                WufContentFooterService
+                WufContentFooterService,
+                TranslateService
             ],
             imports: [
                 RouterTestingModule,
-                FormsModule
+                FormsModule,
+                TranslateModule
             ]
         })
         .compileComponents();

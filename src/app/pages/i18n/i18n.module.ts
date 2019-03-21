@@ -19,6 +19,8 @@ import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
+import { CustomMaterialModule } from '../../_internal/material.module';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 /***** Import page modules *****/
 import { I18nIntroComponent } from './i18n-intro/i18n-intro.component';
@@ -45,6 +47,8 @@ import { I18nNgxTranslateComponent } from './i18n-ngx-translate/i18n-ngx-transla
 
         // 3rd Party Imports
         NgxMdModule, // Markdown
+        CustomMaterialModule,
+        TranslateModule,
 
         // Routes (Keep as last module loaded)
         RoutesModule
@@ -55,6 +59,9 @@ import { I18nNgxTranslateComponent } from './i18n-ngx-translate/i18n-ngx-transla
         I18nIntroComponent,
         I18nAngularComponent,
         I18nNgxTranslateComponent
+    ],
+    providers: [
+        TranslateService
     ]
 })
 export class I18nModule {

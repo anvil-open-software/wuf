@@ -1,26 +1,19 @@
 {
-    "FRAME": {
-        "BREADCRUMB": "家",
-        "APP_NAME": "车队的管理",
-        "SETTINGS": {
-            "TITLE": "设置",
-            "LANGUAGE": {
-                "LABEL": "语言",
-                "LANGUAGES": {
-                    "ENGLISH": "英语 (en)",
-                    "CHINESE": "中文 (zh)"
-                }
-            },
-            "DARKTHEME": {
-                "LABEL": "黑暗主题"
+    "I18N": {
+        "LANGUAGE": {
+            "LABEL": "语言",
+            "LANGUAGES": {
+                "ENGLISH": "英语 (en)",
+                "CHINESE": "中文 (zh)"
             }
-        }
+        },
+        "INTRODUCTION": "此页面使用ngx-translate代替Angular I18N方法。 这种方法的主要优点是ngx-translate允许在运行时切换语言。"
     },
-    "PAGE1": {
-        "BREADCRUMB": "欢迎",
-        "H1": "欢迎！",
-        "WELCOME": "你好，{{firstName}}。 欢迎来到车队管理系统的第一个演示版。",
-        "USER": "用户",
-        "TENANT": "承租人"
+    "NAVIGATION": {
+        "I18N": {
+            "INTRO": "国际化",
+            "ANGULAR": "国际化 - 角度",
+            "NGX": "国际化 - ngx-translate"
+        }
     }
 }
