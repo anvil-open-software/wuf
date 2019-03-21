@@ -71,7 +71,7 @@ describe('<wuf-web-message>', () => {
             describe('when defined', () => {
 
                 it(' is correct', () => {
-                    expect(component.tagName).equal('KG-WEB-MESSAGE');
+                    expect(component.tagName).equal('WUF-WEB-MESSAGE');
                 });
 
                 it(' has correct id', () => {
@@ -185,7 +185,7 @@ describe('<wuf-web-message>', () => {
             describe('when defined', () => {
 
                 it(' is correct', () => {
-                    expect(component.tagName).equal('KG-WEB-MESSAGE');
+                    expect(component.tagName).equal('WUF-WEB-MESSAGE');
                 });
 
                 it(' has correct id', () => {
@@ -224,7 +224,7 @@ describe('<wuf-web-message>', () => {
             describe('when defined', () => {
 
                 it(' is correct', () => {
-                    expect(component.tagName).equal('KG-WEB-MESSAGE');
+                    expect(component.tagName).equal('WUF-WEB-MESSAGE');
                 });
 
                 it(' has correct id', () => {
@@ -259,7 +259,7 @@ describe('<wuf-web-message>', () => {
             describe('when defined', () => {
 
                 it(' is correct', () => {
-                    expect(component.tagName).equal('KG-WEB-MESSAGE');
+                    expect(component.tagName).equal('WUF-WEB-MESSAGE');
                 });
 
                 it(' has correct id', () => {

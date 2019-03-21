@@ -31,7 +31,7 @@ export class WufNavigationLinkComponent implements OnInit {
     isExpanded: boolean;
 
     constructor(
-        public kgSidebarService: WufSidebarService,
+        public wufSidebarService: WufSidebarService,
         public translate: TranslateService
     ) {
         translate.onLangChange.subscribe(($event: LangChangeEvent) => {

@@ -230,31 +230,6 @@
   dependencies:
     tslib "^1.9.0"
 
-"@anviltech/wuf-ang-configuration@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@anviltech/wuf-ang-configuration/-/wuf-ang-configuration-1.0.0.tgz#3e1376172dca5f6bcaccca76599588284007efdf"
-  integrity sha512-9S8uQXTh/YeCtpF3+awXbgUtWrSIUSMCTeUxu3P3Mu5sheI21300zF1piD26SNa+BDvn/J4knDRJlhTgLqyqOQ==
-  dependencies:
-    "@anviltech/wuf-ang-utils" "^1.0.0"
-
-"@anviltech/wuf-ang-layout@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@anviltech/wuf-ang-layout/-/wuf-ang-layout-1.0.0.tgz#88895a000866587081743afd444c581bede7b25e"
-  integrity sha512-pRu6UxVgjpulKf4rS4X9GB7BHZ7daljSMDrdPPI8u1Qe9HbH5NGSDWQlU2lDjt3X4x9k4K586jBQfn+eFw1i0Q==
-  dependencies:
-    "@anviltech/wuf-ang-configuration" "^1.0.0"
-    "@anviltech/wuf-web-assets" "^1.0.0"
-
-"@anviltech/wuf-ang-utils@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@anviltech/wuf-ang-utils/-/wuf-ang-utils-1.0.0.tgz#fe918e241d40eb033df3d5b49655ed2eaa4946e0"
-  integrity sha512-Bc6OAqagXptzkMETTTgQ645xTPy5dHjW2zD1zRTKbClyc2XWuC6T4/iqqOVPNOZUaH7FcydQdL/B4tK7mlVd5Q==
-
-"@anviltech/wuf-web-assets@^1.0.0":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@anviltech/wuf-web-assets/-/wuf-web-assets-1.0.1.tgz#ab0a2d29fa8911e62927e741cd36af2d49eb75ac"
-  integrity sha512-vvBN5GouQ345GXhB7YXX0xkxVNH4rji8TqeZ7bGdCOnXmx7esgjhZDH4XA711zu0Nt7LsRX1wx/x75GnB4dg5g==
-
 "@babel/code-frame@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"
