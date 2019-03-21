@@ -1,6 +1,6 @@
 {
     "name": "@anviltech/wuf-ang-navigation",
-    "version": "2.0.0-rc.5",
+    "version": "2.0.0-rc.6",
     "description": "A set of components and services for display navigation elements.",
     "author": "Darren Luvaas",
     "scripts": {
