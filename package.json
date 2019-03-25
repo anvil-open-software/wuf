@@ -1,6 +1,6 @@
 {
   "name": "@anviltech/wuf-web-ui-framework",
-  "version": "2.0.0-rc.3",
+  "version": "2.0.0-rc.4",
   "author": "Darren Luvaas",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "extract-i18n": "ng xi18n --output-path src/locale && xliffmerge --profile xliffmerge.json",
-    "bootstrap": "lerna bootstrap && lerna run packagr",
+    "bootstrap": "yarn install && lerna bootstrap && lerna run packagr",
     "packagr": "lerna run packagr",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:build": "lerna run build"
