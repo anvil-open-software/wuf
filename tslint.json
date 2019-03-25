@@ -10,7 +10,7 @@
             true,
             "check-space"
         ],
-        "curly": true,
+        "curly": [true, "ignore-same-line"],
         "deprecation": {
             "severity": "warn"
         },
@@ -116,7 +116,10 @@
             "check-decl",
             "check-operator",
             "check-separator",
-            "check-type"
+            "check-type",
+            "check-preblock",
+            "check-postbrace",
+            "check-module"
         ],
         "no-output-on-prefix": true,
         "use-input-property-decorator": true,

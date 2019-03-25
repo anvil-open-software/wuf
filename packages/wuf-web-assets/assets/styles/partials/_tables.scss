@@ -21,16 +21,39 @@
         border-top: var(--wuf-table-border-width) solid var(--wuf-table-border-color);
     }
 
-    thead tr {
-        background-color: var(--wuf-table-head-bg-color);
-    }
+    thead {
+        tr {
+            background-color: var(--wuf-table-head-bg-color);
 
-    thead th {
-        vertical-align: bottom;
-        border-bottom: calc(2 * var(--wuf-table-border-width)) solid var(--wuf-table-border-color);
-        padding: 20px 20px 10px 20px;
-        font-size: 1.1em;
-        font-weight: bold;
+            th {
+                border-bottom: 1px solid var(--wuf-table-border-color);
+                padding: 20px 20px 10px 20px;
+                position: relative;
+
+                h1, h2, h3, h4, h5, h6 {
+                    font-size: 1.15em;
+                    margin-bottom: 0;
+                }
+                .actions {
+                    text-align: right;
+                    white-space: nowrap;
+                    font-weight: normal;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    padding: 0 20px 10px 0;
+                }
+            }
+
+            &:last-child {
+                th {
+                    font-size: 1.1em;
+                    font-weight: bold;
+                    border-bottom-width: calc(2 * var(--wuf-table-border-width));
+                    vertical-align: bottom;
+                }
+            }
+        }
     }
 
     tbody + tbody {
