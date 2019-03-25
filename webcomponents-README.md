@@ -57,7 +57,7 @@ In the following example, we're going to create a 'hello world' web component th
         "start": "nutmeg serve .",
         "test": "nutmeg test .",
         "watch": "nutmeg watch .",
-        "packagr": "npm run build",
+        "packagr": "yarn build",
         "publish": "npm publish"
       }
     ```

@@ -95,7 +95,7 @@ Add the following properties to the project's `./projects/anviltech/[name-of-lib
     "author": "name <emailaddress>",
     "scripts": {
         "build": "ng build --prod @anviltech/[name-of-library-without-scope]",
-        "packagr": "npm run build",
+        "packagr": "yarn build",
         "pub": "yarn packagr && yarn publish dist --access public"
     },
     "publishConfig": {

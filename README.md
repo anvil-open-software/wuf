@@ -53,10 +53,9 @@ The following are dependencies for WUF development:
 3. Run the following command:
 
 ### 3. Bootstrap WUF
-Run the following commands to boostrap WUF:
+Run the following command to install dependencies and boostrap WUF:
 
 ```bash
-yarn
 yarn bootstrap
 ```
 
