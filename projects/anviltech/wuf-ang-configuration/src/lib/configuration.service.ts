@@ -62,8 +62,8 @@ export class WufConfigurationService implements OnInit {
         this._config = deepMerge(this._config, newConfig);
 
         const key = this.getStorageKey();
-        this.broadCastConfigChange(this._config);
         this._saveConfig(this._config, key);
+        this.broadCastConfigChange(this._config);
     }
 
     setStorageKey(keyName: string) {
