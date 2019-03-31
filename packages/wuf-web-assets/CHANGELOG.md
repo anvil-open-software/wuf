@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.3] - 2019-02-30
+### Added
+- Adding an animations partial with a fade effect.
+- Adding an actions cell to table.
+
 ## [2.0.0-rc.2] - 2019-02-14
 ### Added
 - Added classes for table headers
