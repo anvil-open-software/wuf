@@ -34,6 +34,21 @@ export class WufWebMessage extends HTMLElement {
     }
 
     /**
+     * Public functions
+     */
+
+    clearAll() {
+        // Remove all currently displayed messages
+        const currentMessages = this.shadowRoot.querySelectorAll('.message');
+
+        for (let i = 0; i < currentMessages.length; i++) {
+            const elem = currentMessages[i];
+            elem.parentNode.removeChild(elem);
+        }
+    }
+
+
+    /**
      * Getters and setters
      */
 

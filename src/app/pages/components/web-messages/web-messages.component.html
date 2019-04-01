@@ -24,18 +24,19 @@
 
         <!--start EXAMPLE Content -->
         <div class="component_tabs_1">
-            <wuf-web-message #kgm></wuf-web-message>
+            <wuf-web-message #wm></wuf-web-message>
 
             <p>Click the following links to show messages in their various flavors:</p>
             <ul>
-                <li><a href="javascript:void(0)" id="infoMessageLink" (click)="onShowInfoMessageClick()">info
+                <li><a href="javascript:void(0)" id="infoMessageLink" (click)="onShowInfoMessageClick()">show info
                     message</a></li>
-                <li><a href="javascript:void(0)" id="successMessageLink" (click)="onShowSuccessMessageClick()">success
+                <li><a href="javascript:void(0)" id="successMessageLink" (click)="onShowSuccessMessageClick()">show success
                     message</a></li>
-                <li><a href="javascript:void(0)" id="warningMessageLink" (click)="onShowWarningMessageClick()">warning
+                <li><a href="javascript:void(0)" id="warningMessageLink" (click)="onShowWarningMessageClick()">show warning
                     message</a></li>
-                <li><a href="javascript:void(0)" id="errorMessageLink" (click)="onShowErrorMessageClick()">error
+                <li><a href="javascript:void(0)" id="errorMessageLink" (click)="onShowErrorMessageClick()">show error
                     message</a></li>
+                <li><a href="javascript:void(0)" id="clearAllMessageLink" (click)="onClearAllMessagesClick()">clear all messages</a></li>
             </ul>
         </div>
         <!--end EXAMPLE Content -->

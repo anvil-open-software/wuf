@@ -23,7 +23,7 @@
     --message-danger-link-color: var(--wuf-message-danger-link-color, var(--wuf-color-danger-darker));
 
     --message-close-color: var(--wuf-message-close-color, var(--wuf-color-gray-800, #424242));
-    --message-close-hover-color: var(--wuf-message-hover-color, var(--wuf-color-gray-800, #424242));
+    --message-close-hover-color: var(--wuf-message-hover-color, var(--wuf-color-black, #0000));
     --message-close-shadow-color: var(--wuf-message-close-shadow-color, var(--wuf-color-white, #ffffff));
 }
 
@@ -47,7 +47,7 @@
         padding: 0;
 
         &:hover, &:focus {
-            color: var(--wuf-color-black);
+            color: var(--wuf-message-hover-color);
             text-decoration: none;
             opacity: .75;
         }
