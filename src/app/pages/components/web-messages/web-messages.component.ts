@@ -12,7 +12,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
     styleUrls: ['./web-messages.component.scss']
 })
 export class WebMessagesComponent implements OnInit {
-    @ViewChild('kgm') kgm: ElementRef;
+    @ViewChild('wm') wm: ElementRef;
 
     constructor() {
     }
@@ -22,21 +22,25 @@ export class WebMessagesComponent implements OnInit {
 
     onShowErrorMessageClick() {
         // console.log('WufWebMessagesComponent::onShowErrorMessageClick');
-        this.kgm.nativeElement.errorMessage = `Danger, Will Robinson!`;
+        this.wm.nativeElement.errorMessage = `Danger, Will Robinson!`;
     }
 
     onShowInfoMessageClick() {
         // console.log('WufWebMessagesComponent::onShowInfoMessageClick');
-        this.kgm.nativeElement.infoMessage = `Did you know that astronauts never snore? Sleep apnea can't happen without gravity!`;
+        this.wm.nativeElement.infoMessage = `Did you know that astronauts never snore? Sleep apnea can't happen without gravity!`;
     }
 
     onShowSuccessMessageClick() {
         // console.log('WufWebMessagesComponent::onShowSuccessMessageClick');
-        this.kgm.nativeElement.successMessage = `I'm ok!`;
+        this.wm.nativeElement.successMessage = `I'm ok!`;
     }
 
     onShowWarningMessageClick() {
         // console.log('WufWebMessagesComponent::onShowWarningMessageClick');
-        this.kgm.nativeElement.warningMessage = `The "check engine" light is on.`;
+        this.wm.nativeElement.warningMessage = `The "check engine" light is on.`;
+    }
+
+    onClearAllMessagesClick() {
+        this.wm.nativeElement.clearAll();
     }
 }

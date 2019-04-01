@@ -123,6 +123,7 @@ The _kg-web-message_ web component includes a _multiplication_ sign element at t
 * set successMessage(value: string)
 * get warningMessage(): string {
 * set warningMessage(value: string)
+* set clearAll()
 
 #### Events Received
 none
