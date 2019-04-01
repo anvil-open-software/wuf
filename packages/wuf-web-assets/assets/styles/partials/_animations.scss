@@ -1,0 +1,5 @@
+/***** yellow fade effect *****/
+@keyframes fadeBg {
+    from    {background-color: rgba(var(--wuf-color-rgb-warning), .5);}
+    to      {background-color: rgba(var(--wuf-color-rgb-warning), 0) ;}
+}

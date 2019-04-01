@@ -37,6 +37,7 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
     ) {
         this.theme = this.themeList[0];
         this.themes = themeList.themes;
+
     }
 
     ngOnInit() {
@@ -62,7 +63,7 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        // unsubscribe to ensure no memory leaks
+        // Unsubscribe to ensure no memory leaks
         if (this.configSubscription && !this.configSubscription.closed) {
             this.configSubscription.unsubscribe();
         }

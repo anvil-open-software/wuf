@@ -40,10 +40,7 @@ export class AppComponent implements OnInit, OnDestroy {
         private userService: UserService,
         private loginService: WufLoginService,
         public translate: TranslateService
-    ) {
-        // This language will be used as a fallback when a translation isn't found in the current language
-        translate.setDefaultLang(this.defaultLang);
-    }
+    ) {}
 
     ngOnInit() {
         /*
@@ -98,6 +95,9 @@ export class AppComponent implements OnInit, OnDestroy {
             }
         );
 
+        // This language will be used as a fallback when a translation isn't found in the current language
+        this.translate.setDefaultLang(this.defaultLang);
+
         // Subscribe to configuration updates
         this.configSubscription = this.wufConfigService.onConfigChange().subscribe(
             newConfig => {
@@ -119,15 +119,17 @@ export class AppComponent implements OnInit, OnDestroy {
             }
         );
 
-        // set language for ngx-translate
-        this.translate.use('en');
     }
 
     ngOnDestroy() {
-        // unsubscribe to ensure no memory leaks
+        // Unsubscribe to ensure no memory leaks
+
+        // Unsubscribe from configuration updates
         if (this.configSubscription && !this.configSubscription.closed) {
             this.configSubscription.unsubscribe();
         }
+
+        // Unsubscribe from login updates
         if (this.loginSubscription && !this.loginSubscription.closed) {
             this.loginSubscription.unsubscribe();
         }

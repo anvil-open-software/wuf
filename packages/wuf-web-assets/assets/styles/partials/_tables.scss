@@ -60,6 +60,12 @@
         border-top: calc(2 * var(--wuf-table-border-width)) solid var(--wuf-table-border-color);
     }
 
+    td.actions {
+        text-align: right;
+        white-space: nowrap;
+    }
+
+    // nested tables
     .table {
         background-color: var(--wuf-table-bg-color);
     }
@@ -114,8 +120,11 @@
     }
 }
 
-// Vaadin Grid
-vaadin-grid {
-    border-color: var(--wuf-table-border-color);
-    @include scrollbars;
+/***** yellow fade effect for new items *****/
+tr {
+    &.fade {
+        td {
+            animation: fadeBg 2s ease-out .5s;
+        }
+    }
 }
