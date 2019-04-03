@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.4] - 2019-04-03
+### Fix
+- Fixed issue where .mat-form-field-suffix showed partial pixel heights 
+
 ## [2.0.0-rc.3] - 2019-02-30
 ### Added
 - Adding an animations partial with a fade effect.
