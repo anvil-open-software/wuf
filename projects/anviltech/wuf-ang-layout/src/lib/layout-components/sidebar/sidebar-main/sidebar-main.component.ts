@@ -32,6 +32,7 @@ export class WufSidebarMainComponent implements OnInit, OnDestroy {
     fontsizeBreakpointSmall: number = 200; // The width under which sidebar font decreases in size
     fontsizeBreakpointTiny: number = 150; // The width under which sidebar font decreases in size
 
+    _position: string = 'left';
     _storedTransition: string;
     _currentSize: number;
 
@@ -139,6 +140,11 @@ export class WufSidebarMainComponent implements OnInit, OnDestroy {
     onConfigChange(newConfig: any) {
         // Received notification of a config update.  Do something with each updated property, if applicable.
 
+        if (newConfig.hasOwnProperty('navigation') && newConfig['navigation'].hasOwnProperty('position') && newConfig['navigation'].position !== this._position) {
+            // The config has a new sidebar position
+            this._position = newConfig['navigation'].position;
+        }
+
         // Update sidebar sizing as per config setting
         if (newConfig.hasOwnProperty('sidebarSize') && newConfig.sidebarSize !== this._currentSize) {
             // The config has a new sidebar size
@@ -240,7 +246,7 @@ export class WufSidebarMainComponent implements OnInit, OnDestroy {
 
     getSidebarMaxSize() {
         // The side panel can be as large as the browser window minus mainPanelMinSize
-        let windowSize: number = document.body.offsetWidth;
+        const windowSize: number = document.body.offsetWidth;
 
         return windowSize - this.mainPanelMinSize;
     }
@@ -252,7 +258,8 @@ export class WufSidebarMainComponent implements OnInit, OnDestroy {
         }
 
         // The above trick with CSS custom properties doesn't work for the transition property.  This is because setting a value for a custom property with "none" or "inherit" doesn't actually create a CSS custom property.  So instead we need to fall back on writing the cssText to the element.
-        const sidebarTransition = this.kgSidebarService.sidebarIsResizing || turnOffTransition ? 'none!important' : this._storedTransition;
+        const sidebarTransition = this.kgSidebarService.sidebarIsResizing || turnOffTransition || this._position === 'top' ? 'none!important' : this._storedTransition;
+
         const sidebarStyles = `transition:${sidebarTransition}`;
         this.sidebarWrap.nativeElement.style.cssText = sidebarStyles;
 
