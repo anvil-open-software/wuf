@@ -48,9 +48,6 @@ export class WufDashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     ngAfterViewInit() {
-        console.log('ngAfterViewInit');
-        console.log('this.kpiList.length=' + this.kpiList.length);
-        console.log('this.kpiFillerList.length=' + this.kpiFillerList.length);
         this.addFillerKpis();
     }
 
