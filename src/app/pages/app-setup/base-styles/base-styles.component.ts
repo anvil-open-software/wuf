@@ -13,14 +13,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SetupBaseStylesComponent implements OnInit {
 
+    headCode = `<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    `;
+
     constructor() {
     }
 
     ngOnInit() {
     }
 
-    headCode = `<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	`;
 }
