@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.5] - 2019-04-18
+### Fixed
+- scss wuf-theme-button-radius() method now working as expected
+### Added
+- Add a scss variable for button radius.
+- Removing $zindex-popover for z-index control. No longer needed for the now removed popovers.
+
 ## [2.0.0-rc.4] - 2019-04-03
 ### Fix
 - Fixed issue where .mat-form-field-suffix showed partial pixel heights 

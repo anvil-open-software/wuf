@@ -17,5 +17,5 @@
     @include wuf-theme-typography();
 
     /***** buttons *****/
-    @include wuf-theme-button-radius(4px);
+    @include wuf-theme-button-radius($button-radius);
 }
