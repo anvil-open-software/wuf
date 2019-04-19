@@ -551,8 +551,7 @@ $wuf-input-hint-vert-padding: .3em;
     button.mat-raised-button,
     a.mat-button,
     a.mat-raised-button {
-        border-radius: var(--wuf-button-border-radius, 4px);
-        border-color: 6px solid red;
+        border-radius: var(--wuf-button-border-radius, 4px)!important;
     }
 
     /***** cards *****/
