@@ -247,12 +247,7 @@
 }
 
 @mixin wuf-theme-button-radius($radius: 4px) {
-    button.mat-button,
-    button.mat-raised-button,
-    a.mat-button,
-    a.mat-raised-button {
-        border-radius: $radius;
-    }
+    --wuf-button-border-radius: #{$radius};
 }
 
 /** Create a theme for typography styles

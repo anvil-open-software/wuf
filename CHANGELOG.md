@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.5] - 2019-04-19
+### Changed
+- Add documentation for new --wuf-button-border-radius css custom property.
+
 ## [2.0.0-rc.4] - 2019-03-25
 ### Changed
 - New lock file with updated packages
