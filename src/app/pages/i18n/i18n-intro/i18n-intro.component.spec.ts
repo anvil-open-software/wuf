@@ -49,25 +49,4 @@ describe('I18nNgxTranslateComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should have cardinality paragraph showing \'two wolves\'', async(() => {
-        expect(compiled.querySelector('#example_cardinality').textContent).toContain('no wolves');
-    }));
-
-    it('should have gender paragraph', async(() => {
-        expect(compiled.querySelector('#example_gender')).toBeTruthy();
-    }));
-
-    it('should have gender paragraph showing \'female.\'', async(() => {
-        expect(compiled.querySelector('#example_gender').textContent).toContain('female.');
-    }));
-
-    it('should have pluralization paragraph', async(() => {
-        expect(compiled.querySelector('#example_pluralization')).toBeTruthy();
-    }));
-
-    it('should have pluralization paragraph showing \'has no wolves.\'', async(() => {
-        expect(compiled.querySelector('#example_pluralization').textContent).toContain('has no wolves.');
-    }));
-
-
 });

@@ -40,7 +40,7 @@ describe('I18nAngularComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(I18nAngularComponent);
-        compiled = fixture.debugElement.nativeElement;
+
         fixture.detectChanges();
     });
 
@@ -49,24 +49,29 @@ describe('I18nAngularComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should have cardinality paragraph showing \'two wolves\'', async(() => {
-        expect(compiled.querySelector('#example_cardinality').textContent).toContain('no wolves');
+    it('should have cardinality paragraph showing \'no wolves\'', async(() => {
+        compiled = fixture.nativeElement.querySelector('#example_cardinality').textContent;
+        expect(compiled).toContain('no wolves');
     }));
 
     it('should have gender paragraph', async(() => {
-        expect(compiled.querySelector('#example_gender')).toBeTruthy();
+        compiled = fixture.nativeElement.querySelector('#example_gender');
+        expect(compiled).toBeTruthy();
     }));
 
     it('should have gender paragraph showing \'female.\'', async(() => {
-        expect(compiled.querySelector('#example_gender').textContent).toContain('female.');
+        compiled = fixture.nativeElement.querySelector('#example_gender').textContent;
+        expect(compiled).toContain('female.');
     }));
 
     it('should have pluralization paragraph', async(() => {
-        expect(compiled.querySelector('#example_pluralization')).toBeTruthy();
+        compiled = fixture.nativeElement.querySelector('#example_pluralization');
+        expect(compiled).toBeTruthy();
     }));
 
     it('should have pluralization paragraph showing \'has no wolves.\'', async(() => {
-        expect(compiled.querySelector('#example_pluralization').textContent).toContain('has no wolves.');
+        compiled = fixture.nativeElement.querySelector('#example_pluralization').textContent;
+        expect(compiled).toContain('has no wolves.');
     }));
 
 
