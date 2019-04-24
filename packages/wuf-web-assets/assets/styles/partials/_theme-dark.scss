@@ -6,79 +6,10 @@
 // These theme overrides are applied when the root element has a "wuf-theme-dark" property set to true
 
 :root[wuf-theme-dark="true"],
-*[wuf-theme-dark="true"],
+:root[wuf-theme-dark="true"] body,
 :root[wuf-theme-dark="true"][wuf-theme],
+*[wuf-theme-dark="true"],
 *[wuf-theme-dark="true"][wuf-theme] {
     // Match any root element with wuf-theme set, regardless of wuf-theme value, if any
-
-    /***** content area *****/
-    --wuf-body-bg:                               var(--wuf-color-secondary);
-    --wuf-body-color:                            var(--wuf-color-gray-200);
-
-    /***** sidebar resizer *****/
-    --wuf-sidebar-resizer-bg-color:              var(--wuf-color-secondary-lighter-10);
-    --wuf-sidebar-resizer-draghandle-color:      var(--wuf-color-secondary-lighter-30);
-
-    /***** toolbar *****/
-    --wuf-toolbar-bg-color:                      var(--wuf-color-secondary-lighter-10);
-
-    /***** breadcrumb *****/
-    --wuf-breadcrumb-color:                      var(--wuf-color-secondary-lighter-40);
-
-    /***** tabs *****/
-    --wuf-tabs-color:                            var(--wuf-body-color);
-    --wuf-tabs-wrap-bg-color:                    var(--wuf-toolbar-bg-color);
-
-    /***** misc *****/
-    --wuf-border-color:                          var(--wuf-color-secondary-lighter-30);
-
-    /***** tables *****/
-    --wuf-table-bg-color:                        var(--wuf-body-bg);
-    --wuf-table-border-color:                    var(--wuf-border-color);
-    --wuf-table-head-bg-color:                   var(--wuf-body-bg);
-    --wuf-table-head-color:                      var(--wuf-body-color);
-    --wuf-table-filter-bg-color:                 var(--wuf-table-head-bg-color);
-    --wuf-table-filter-color:                    var(--wuf-color-gray-300);
-    --wuf-table-accent-bg-color:                 var(--wuf-color-secondary-darker-5);
-    --wuf-table-hover-bg-color:                  var(--wuf-color-secondary-lighter-10);
-    --wuf-table-active-bg-color:                 var(--wuf-color-primary);
-
-    /***** pagination links *****/
-    --wuf-pagination-color:                      var(--wuf-link-color);
-    --wuf-pagination-bg-color:                   var(--wuf-color-secondary-darker-5);
-    --wuf-pagination-border-color:               var(--wuf-border-color);
-    --wuf-pagination-hover-color:                var(--wuf-link-hover-color);
-    --wuf-pagination-hover-bg-color:             var(--wuf-color-secondary-darker-10);
-    --wuf-pagination-hover-border-color:         var(--wuf-pagination-border-color);
-    --wuf-pagination-active-color:               var(--wuf-color-primary);
-    --wuf-pagination-active-bg-color:            var(--wuf-color-gray-200);
-    --wuf-pagination-active-border-color:        var(--wuf-color-primary);
-    --wuf-pagination-disabled-color:             var(--wuf-color-gray-400);
-    --wuf-pagination-disabled-bg-color:          var(--wuf-body-bg);
-    --wuf-pagination-disabled-border-color:      var(--wuf-pagination-border-color);
-
-    /***** scrolling areas *****/
-    --wuf-scroll-track-bg-color:                 var(--wuf-color-secondary-darker-10);
-    --wuf-scroll-thumb-bg-color:                 var(--wuf-color-secondary-lighter-20);
-
-    /***** dashboard *****/
-    --wuf-kpi-label-color:                       var(--wuf-color-gray-300);
-    --wuf-kpi-bg-color:                          var(--wuf-body-bg);
-    --wuf-kpi-border-color: #333;
-    --wuf-kpi-stripe-color:                      var(--wuf-color-gray-600);
-
-    /***** drawer *****/
-    --wuf-drawer-header-bg-color:                rgba(0,0,0, .1);
-
-    /***** gridster *****/
-    --wuf-gridster-grid-line-color:              rgba(0, 0, 0, 0.5);
-    --wuf-gridster-title-border-color:           var(--wuf-color-secondary);
-    --wuf-gridster-resize-handle-color:          rgba(255,255,255,.3);
-
-    /***** inputs *****/
-    --wuf-input-bg-color:                        var(--wuf-color-secondary-darker-5);
-    --wuf-input-underline-color:                 var(--wuf-color-white);
-
-    /***** cards *****/
-    --wuf-card-bg-color:                         var(--wuf-color-secondary-darker-10);
+    @include darktheme();
 }
