@@ -22,5 +22,21 @@ of component variables that can be overridden.
 
     /***** logo *****/
     @include wuf-theme-logo('/assets/images/logo.svg', 200px, 35px);
+
+    /***** typography *****/
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+    $wuf-brand-body-color: $body-color;
+    $wuf-brand-font-family-sans-serif: Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    $wuf-brand-font-family-serif: 'Roboto Slab', Times, serif;
+    $wuf-brand-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    $wuf-brand-font-family-base: $wuf-brand-font-family-sans-serif;
+
+    @include wuf-theme-typography(
+            $wuf-brand-body-color,
+            $wuf-brand-font-family-sans-serif,
+            $wuf-brand-font-family-serif,
+            $wuf-brand-font-family-monospace,
+            $wuf-brand-font-family-base
+    );
 }
 
