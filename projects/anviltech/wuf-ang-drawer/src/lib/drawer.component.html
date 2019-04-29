@@ -3,13 +3,25 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
-<!-- begin settings side drawer -->
-<div class="drawer-wrap" [class.active]="active">
-    <div class="drawer-shield" (click)="onHideClick()"></div>
-    <div class="drawer d-flex flex-column mdc-elevation--z6">
-        <div class="drawer-header"><h4>{{header}}</h4></div>
-        <div class="drawer-body">
-            <ng-content></ng-content>
+<div class="drawer-shield" (click)="onHideClick()" *ngIf="includeBackdrop" [class.active]="active"></div>
+
+<div class="drawer-wrap" [class.active]="active" [class.minimized]="active && minimized">
+    <div class="drawer d-flex flex-column mdc-elevation--z6" (mouseenter)="onMouseEnterDrawer($event)" (mouseleave)="onMouseLeaveDrawer($event)" [class.mouseOver]="mouseOverDrawer">
+        <div class="drawer-minimizeToggle" *ngIf="allowMinimize">
+            <button mat-icon-button *ngIf="allowMinimize && !minimized" (click)="onMinimizeClick()">
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+            <button mat-icon-button *ngIf="allowMinimize && minimized" (click)="onExpandClick()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div class="drawer-minimizeToggleBuffer" *ngIf="allowMinimize"></div>
+        <div class="drawer-content">
+            <div class="drawer-header"><h4>{{header}}</h4></div>
+            <div class="drawer-body">
+                <ng-content></ng-content>
+            </div>
+            <div class="drawer-footer"><ng-content select="[drawerFooter]"></ng-content></div>
         </div>
     </div>
 </div>

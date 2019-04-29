@@ -14,6 +14,14 @@ import { WufDrawerService } from '@anviltech/wuf-ang-drawer';
     encapsulation: ViewEncapsulation.Emulated
 })
 export class DrawerComponent implements OnInit {
+    includeBackdrop: boolean = true;
+    allowMinimize: boolean = true;
+    minimized: boolean = false;
+
+    footerHtml: string =
+`<ng-container drawerFooter>
+    I have a footer
+</ng-container>`;
 
     constructor(private drawerService: WufDrawerService) {
     }

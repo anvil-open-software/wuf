@@ -27,8 +27,24 @@
         <div class="component_tabs_1">
             <button mat-raised-button (click)="openDrawer()">Show drawer</button>
 
-            <wuf-drawer header="Hey There" id="helloDrawer">
+            <hr>
+
+            <h3>Options</h3>
+
+            <div style="width: 300px">
+                <div class="mat-slide-toggle-group full-width">
+                    <mat-slide-toggle labelPosition="before" color="primary" [(ngModel)]="includeBackdrop">Include backdrop</mat-slide-toggle>
+                    <mat-slide-toggle labelPosition="before" color="primary" [(ngModel)]="allowMinimize">Allow minimize</mat-slide-toggle>
+                    <mat-slide-toggle labelPosition="before" color="primary" [(ngModel)]="minimized" [disabled]="!allowMinimize">Minimize</mat-slide-toggle>
+                </div>
+            </div>
+
+            <wuf-drawer header="Hey There" id="helloDrawer" [includeBackdrop]="includeBackdrop" [allowMinimize]="allowMinimize" [minimized]="minimized">
                 Hi.  I'm a drawer.
+
+                <ng-container drawerFooter>
+                    I have a footer
+                </ng-container>
             </wuf-drawer>
 
         </div>
@@ -68,6 +84,13 @@
                 </tbody>
             </table>
 
+            <h3>&lt;wuf-drawer&gt; Footer</h3>
+            <p>Place the following markup inside your &lt;wuf-drawer&gt; tag to include a footer at the bottom of your drawer.</p>
+
+            <wuf-code-sample type="html" [code]="footerHtml"></wuf-code-sample>
+
+            <markdown type="html"></markdown>
+
             <h3>&lt;wuf-drawer&gt; Properties</h3>
 
             <table class="table prop-table">
@@ -80,20 +103,38 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td class="prop-name">header</td>
-                    <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default">none</td>
-                    <td class="prop-description">The title to display in the header section of the drawer.
-                    </td>
-                </tr>
-                <tr>
-                    <td class="prop-name">id</td>
-                    <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default">none</td>
-                    <td class="prop-description">The unique identifier used to identify the drawer for show/hide methods.
-                    </td>
-                </tr>
+                    <tr>
+                        <td class="prop-name">allowMinimize</td>
+                        <td class="prop-type"><code>boolean</code></td>
+                        <td class="prop-default">false</td>
+                        <td class="prop-description">Whether or not to allow the drawer to be minimzed.  When enabled, the drawer will display an additional minimize toggle.</td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">header</td>
+                        <td class="prop-type"><code>string</code></td>
+                        <td class="prop-default">none</td>
+                        <td class="prop-description">The title to display in the header section of the drawer.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">id</td>
+                        <td class="prop-type"><code>string</code></td>
+                        <td class="prop-default">none</td>
+                        <td class="prop-description">The unique identifier used to identify the drawer for show/hide methods.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">inludeBackdrop</td>
+                        <td class="prop-type"><code>boolean</code></td>
+                        <td class="prop-default">true</td>
+                        <td class="prop-description">Whether or not to show a backdrop when the drawer is displayed.  When clicked, the backdrop will dismiss the drawer.</td>
+                    </tr>
+                    <tr>
+                        <td class="prop-name">minimized</td>
+                        <td class="prop-type"><code>boolean</code></td>
+                        <td class="prop-default">false</td>
+                        <td class="prop-description">When set to true, the drawer will display as minimized.  This is helpful for launching the drawer in a minimized state.</td>
+                    </tr>
                 </tbody>
             </table>
 
