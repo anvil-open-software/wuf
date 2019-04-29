@@ -15,12 +15,12 @@
 .drawer-wrap {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
+    right: 0;
+    width: 0;
     height: 100%;
-    z-index: 1000;
-    pointer-events: none;
+    z-index: 1001;
     overflow: hidden;
+    transition: width ease .5s;
     h4, strong {
         color: inherit;
     }
@@ -33,42 +33,138 @@
         z-index: 1;
         background-color: var(--drawer-body-bg-color);
         transition: .5s ease right;
-        overflow: hidden;
-        .drawer-header {
-            background-color: var(--drawer-header-bg-color);
-            padding: 10px 20px;
-            h4 {
-                font-size: 1.25em;
-                margin: 0;
+        .drawer-content {
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            .drawer-header {
+                background-color: var(--drawer-header-bg-color);
+                padding: 10px 20px;
+                h4 {
+                    font-size: 1.25em;
+                    margin: 0;
+                }
+            }
+            .drawer-body {
+                padding: 10px 20px;
+                overflow: auto;
+                flex: 1 1 auto;
+            }
+            .drawer-footer {
+                border-top: 1px solid var(--wuf-border-color);
             }
         }
-        .drawer-body {
-            padding: 10px 20px;
-            overflow: auto;
-            flex: 1 1 auto;
+        .drawer-minimizeToggle {
+            position: absolute;
+            top: 7px;
+            left: -15px;
+            z-index: 1;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity ease .25s;
+            button[mat-icon-button],
+            button.mat-icon-button {
+                height: 30px;
+                width: 30px;
+                border: 1px solid var(--wuf-border-color);
+                background-color: var(--wuf-body-bg);
+                color: var(--wuf-body-color);
+                transition: all ease .25s;
+                line-height: 30px;
+                transform-origin: center center;
+                box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+                .mat-button-wrapper {
+                    line-height: 30px;
+                }
+                .mat-icon,
+                .material-icon {
+                    line-height: 14px;
+                    height: 18px;
+                    width: 18px;
+                    font-size: 18px;
+                }
+                &:hover {
+                    background-color: var(--wuf-color-primary);
+                    color: var(--wuf-color-white);
+                    border-color: var(--wuf-color-primary);
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
         }
-    }
-    .drawer-shield {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        background-color: var(--drawer-shield-bg-color);
-        z-index: 0;
-        transition: .5s ease opacity;
-        opacity: 0;
+        .drawer-minimizeToggleBuffer {
+            position: absolute;
+            top: 0;
+            left: -20px;
+            width: 20px;
+            height: 100%;
+        }
+        &.mouseOver {
+            .drawer-minimizeToggle {
+                pointer-events: auto;
+                opacity: 1;
+            }
+        }
     }
     &.active {
-        pointer-events: auto;
-        .drawer-shield {
-            opacity: 1;
-        }
+        width: calc(var(--drawer-width) + 20px);
         .drawer {
             right: 0;
         }
     }
+    &.minimized {
+        width: 40px;
+        .drawer {
+            right: calc( (var(--drawer-width) - 20px) * -1);
+            &.mouseOver {
+                .drawer-minimizeToggle {
+                    animation: bounceToggle .25s ease-in-out;
+                    button[mat-icon-button],
+                    button.mat-icon-button {
+                        border-color: var(--wuf-color-primary);
+                    }
+                }
+            }
+            .drawer-minimizeToggle {
+                opacity: 1;
+            }
+        }
+    }
+}
 
+.drawer-shield {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: var(--drawer-shield-bg-color);
+    transition: .5s ease opacity;
+    opacity: 0;
+    pointer-events: none;
+    &.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+@keyframes bounceToggle {
+    0% {
+        transform: scale(1.0);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1.0);
+    }
 }
 
 // TODO: use media breaks to create maximum width

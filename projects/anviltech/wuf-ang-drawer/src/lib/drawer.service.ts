@@ -14,6 +14,8 @@ export class WufDrawerService {
 
     private showSubject = new Subject<any>();
     private hideSubject = new Subject<any>();
+    private minimizeSubject = new Subject<any>();
+    private expandSubject = new Subject<any>();
 
     constructor() {
     }
@@ -34,6 +36,16 @@ export class WufDrawerService {
     hideDrawerObservable(): Observable<any> {
         // Allow other components to subscribe to the hide event
         return this.hideSubject.asObservable();
+    }
+
+    minimizeDrawerObservable(): Observable<any> {
+        // Allow other components to subscribe to the minimize event
+        return this.minimizeSubject.asObservable();
+    }
+
+    expandDrawerObservable(): Observable<any> {
+        // Allow other components to subscribe to the expand event
+        return this.expandSubject.asObservable();
     }
 
     hideDrawer(id: string) {

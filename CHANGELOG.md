@@ -5,9 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-rc.7] - 2019-04-29
+### Added
+- Add documentation for new drawer attributes.
+
 ## [2.0.0-rc.6] - 2019-04-29
 ### Fixed
 - Fix some failed unit tests
+
+## [2.0.0-rc.6] - 2019-04-26
+### Added
+- Added documentation about drawer footer
 
 ## [2.0.0-rc.5] - 2019-04-24
 ### Changed
