@@ -8,6 +8,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClient } from '@angular/common/http';
 
 import { WufConfigurationModule, WufConfigurationService } from '@anviltech/wuf-ang-configuration';
 import { WufLayoutModule, WufLayoutService } from '@anviltech/wuf-ang-layout';
@@ -18,11 +19,18 @@ import { Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgxMdModule } from 'ngx-md';
+import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { RoutesModule } from './app-routes';
 import { HomeComponent } from './pages/home/home.component';
 import { UserService } from './_internal/services/user.service';
+
+// Create a factory for the translate loader
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 
 describe('AppComponent', () => {
@@ -51,14 +59,22 @@ describe('AppComponent', () => {
                 BrowserAnimationsModule,
                 WufConfigurationModule.forRoot(),
                 WufLayoutModule.forRoot(),
-                WufUtilsModule
+                WufUtilsModule,
+                TranslateModule.forRoot({
+                    loader: {
+                        provide: TranslateLoader,
+                        useFactory: (createTranslateLoader),
+                        deps: [HttpClient]
+                    },
+                    isolate: false
+                })
             ],
             providers: [
                 RoutesModule,
                 WufConfigurationService,
                 UserService,
                 WufLoginService,
-                WufLayoutService
+                WufLayoutService,
             ]
         })
         .compileComponents();

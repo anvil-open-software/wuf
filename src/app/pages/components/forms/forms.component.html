@@ -39,6 +39,7 @@
                 amount of real estate, text inputs should span a max of 50% of page width. This can be handled
                 by using a responsive class of "col col-lg-6" on the parent wrapper element.</p>
 
+            <form>
             <div class="row">
                 <div class="col col-lg-6">
                     <mat-form-field>
@@ -56,7 +57,7 @@
                     </mat-form-field>
 
                     <mat-form-field>
-                        <input matInput placeholder="Required input" [formControl]="requiredInput" required [(ngModel)]="requiredInputValue">
+                        <input matInput placeholder="Required input" [formControl]="requiredInput" required name="requiredInput">
                         <mat-error *ngIf="requiredInput.invalid">{{getErrorMessage()}}</mat-error>
                         <span class="errorIcon" *ngIf="requiredInput.invalid && requiredInput.touched" matSuffix mat-icon-button>
                             <mat-icon>error</mat-icon>
@@ -308,6 +309,7 @@
                     </form>
                 </div>
             </div>
+            </form>
         </div>
 
         <!-- WHEN/WHERE Content -->

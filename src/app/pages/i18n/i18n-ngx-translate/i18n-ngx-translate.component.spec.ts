@@ -7,11 +7,19 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClient } from '@angular/common/http';
 
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { I18nNgxTranslateComponent } from './i18n-ngx-translate.component';
 import { WufContentFooterService } from '@anviltech/wuf-ang-layout';
+
+// Create a factory for the translate loader
+export function createTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 
 describe('I18nNgxTranslateComponent', () => {
@@ -29,12 +37,19 @@ describe('I18nNgxTranslateComponent', () => {
             ],
             providers: [
                 WufContentFooterService,
-                TranslateService
             ],
             imports: [
                 RouterTestingModule,
                 FormsModule,
-                TranslateModule
+                HttpClientTestingModule,
+                TranslateModule.forRoot({
+                    loader: {
+                        provide: TranslateLoader,
+                        useFactory: (createTranslateLoader),
+                        deps: [HttpClient]
+                    },
+                    isolate: false
+                })
             ]
         })
         .compileComponents();

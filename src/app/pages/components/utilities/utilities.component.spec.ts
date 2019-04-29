@@ -8,6 +8,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { WufSentenceCasePipe } from '@anviltech/wuf-ang-utils';
@@ -33,6 +34,7 @@ describe('UtilitiesComponent', () => {
             providers: [],
             imports: [
                 RouterTestingModule,
+                HttpClientTestingModule,
                 NgxMdModule
             ]
         })
