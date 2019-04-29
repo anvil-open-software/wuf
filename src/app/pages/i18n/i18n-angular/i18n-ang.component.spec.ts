@@ -8,6 +8,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormsModule } from '@angular/forms';
 
 import { I18nAngularComponent } from './i18n-ang.component';
@@ -32,6 +33,7 @@ describe('I18nAngularComponent', () => {
             ],
             imports: [
                 RouterTestingModule,
+                HttpClientTestingModule,
                 FormsModule
             ]
         })
