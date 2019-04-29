@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - Fix some failed unit tests
 
+## [2.0.0-rc.5] - 2019-04-24
+### Changed
+- Build output to dist folder instead of dist/anviltech-components
+- Use Roboto as font for default theme.
+
 ## [2.0.0-rc.5] - 2019-04-19
 ### Changed
 - Add documentation for new --wuf-button-border-radius css custom property.
