@@ -305,7 +305,7 @@ $wuf-input-hint-vert-padding: .3em;
         }
     }
 
-    /***** misc input colors *****/
+    /***** focused state *****/
     .mat-form-field {
         &.mat-focused {
             &.mat-primary {
@@ -325,62 +325,6 @@ $wuf-input-hint-vert-padding: .3em;
             }
         }
     }
-    // primary
-    .mat-primary {
-        // select list
-        .mat-option {
-            &.mat-selected:not(.mat-option-disabled) {
-                color: var(--wuf-color-primary);
-            }
-        }
-        // slider
-        .mat-slider-thumb,
-        .mat-slider-thumb-label,
-        .mat-slider-track-fill {
-            background-color: var(--wuf-color-primary);
-        }
-        // multi-select checkbox
-        .mat-pseudo-checkbox-checked {
-            background-color: var(--wuf-color-primary);
-        }
-    }
-    // accent
-    .mat-accent {
-        // select list
-        .mat-option {
-            &.mat-selected:not(.mat-option-disabled) {
-                color: var(--wuf-color-accent);
-            }
-        }
-        // slider
-        .mat-slider-thumb,
-        .mat-slider-thumb-label,
-        .mat-slider-track-fill {
-            background-color: var(--wuf-color-accent);
-        }
-        // multi-select checkbox
-        .mat-pseudo-checkbox-checked {
-            background-color: var(--wuf-color-accent);
-        }
-    }
-    //danger
-    .mat-danger {
-        .mat-option {
-            &.mat-selected:not(.mat-option-disabled) {
-                color: var(--wuf-color-danger);
-            }
-        }
-        // slider
-        .mat-slider-thumb,
-        .mat-slider-thumb-label,
-        .mat-slider-track-fill {
-            background-color: var(--wuf-color-danger);
-        }
-        // multi-select checkbox
-        .mat-pseudo-checkbox-checked {
-            background-color: var(--wuf-color-danger);
-        }
-    }
 
     /***** select *****/
     .mat-select-arrow,
@@ -389,6 +333,27 @@ $wuf-input-hint-vert-padding: .3em;
     }
     .mat-select-panel {
         background-color: var(--wuf-color-white);
+        // primary color
+        .mat-primary {
+            // multi-select checkbox
+            .mat-pseudo-checkbox-checked {
+                background-color: var(--wuf-color-primary);
+            }
+        }
+        // accent color
+        .mat-accent {
+            // multi-select checkbox
+            .mat-pseudo-checkbox-checked {
+                background-color: var(--wuf-color-accent);
+            }
+        }
+        //danger color
+        .mat-danger {
+            // multi-select checkbox
+            .mat-pseudo-checkbox-checked {
+                background-color: var(--wuf-color-danger);
+            }
+        }
     }
     .mat-option {
         color: var(--wuf-body-color);
@@ -413,7 +378,32 @@ $wuf-input-hint-vert-padding: .3em;
             }
         }
     }
-
+    // primary color
+    .mat-primary {
+        // select list
+        .mat-option {
+            &.mat-selected:not(.mat-option-disabled) {
+                color: var(--wuf-color-primary);
+            }
+        }
+    }
+    // accent color
+    .mat-accent {
+        // select list
+        .mat-option {
+            &.mat-selected:not(.mat-option-disabled) {
+                color: var(--wuf-color-accent);
+            }
+        }
+    }
+    //danger color
+    .mat-danger {
+        .mat-option {
+            &.mat-selected:not(.mat-option-disabled) {
+                color: var(--wuf-color-danger);
+            }
+        }
+    }
 
     /***** slider *****/
     .mat-slider {
@@ -443,6 +433,30 @@ $wuf-input-hint-vert-padding: .3em;
                         background-color: var(--wuf-body-color);
                     }
                 }
+            }
+        }
+        // primary color
+        &.mat-primary {
+            .mat-slider-thumb,
+            .mat-slider-thumb-label,
+            .mat-slider-track-fill {
+                background-color: var(--wuf-color-primary);
+            }
+        }
+        // accent color
+        &.mat-accent {
+            .mat-slider-thumb,
+            .mat-slider-thumb-label,
+            .mat-slider-track-fill {
+                background-color: var(--wuf-color-accent);
+            }
+        }
+        //danger color
+        &.mat-danger {
+            .mat-slider-thumb,
+            .mat-slider-thumb-label,
+            .mat-slider-track-fill {
+                background-color: var(--wuf-color-danger);
             }
         }
     }
@@ -519,7 +533,8 @@ $wuf-input-hint-vert-padding: .3em;
             .mat-radio-inner-circle {
                 background-color: var(--wuf-color-primary);
             }
-            &.mat-radio-checked {
+            &.mat-radio-checked,
+            &:active {
                 .mat-radio-persistent-ripple {
                     background-color: var(--wuf-color-primary);
                 }
@@ -533,7 +548,8 @@ $wuf-input-hint-vert-padding: .3em;
             .mat-radio-inner-circle {
                 background-color: var(--wuf-color-accent);
             }
-            &.mat-radio-checked {
+            &.mat-radio-checked,
+            &:active {
                 .mat-radio-persistent-ripple {
                     background-color: var(--wuf-color-accent);
                 }
@@ -547,7 +563,8 @@ $wuf-input-hint-vert-padding: .3em;
             .mat-radio-inner-circle {
                 background-color: var(--wuf-color-danger);
             }
-            &.mat-radio-checked {
+            &.mat-radio-checked,
+            &:active {
                 .mat-radio-persistent-ripple {
                     background-color: var(--wuf-color-danger);
                 }
@@ -783,10 +800,10 @@ $wuf-input-hint-vert-padding: .3em;
         &.mat-raised-button {
             border-radius: var(--wuf-button-border-radius, 4px)!important;
         }
-
-        // Buttom color overrides
-        // TODO: remove these once Angular Material supports theming with CSS custom properties (https://github.com/angular/components/issues/4352)
-        &.mat-raised-button {
+        // color overrides
+        &.mat-raised-button,
+        &.mat-fab,
+        &.mat-mini-fab {
             &.mat-primary {
                 background-color: var(--wuf-color-primary);
             }
@@ -797,7 +814,8 @@ $wuf-input-hint-vert-padding: .3em;
                 background-color: var(--wuf-color-warn);
             }
         }
-        &.mat-button {
+        &.mat-button,
+        &.mat-icon-button {
             &.mat-primary {
                 color: var(--wuf-color-primary);
             }
