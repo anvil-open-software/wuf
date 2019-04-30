@@ -1,3 +1,6 @@
+
+**WUF-41**: [![CircleCI](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI.svg?style=svg)](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI)
+
 Installation & Development of the Web UI Framework (WUF)
 ====================================================
 The Web UI Framework (WUF) is an open source web application framework based on the following technologies:
@@ -12,8 +15,6 @@ The Web UI Framework (WUF) is an open source web application framework based on 
     * Polymer components
 
 WUF was initially developed internally by Dematic, Inc. for use in its own applications, but it has since been released to the open source community under the MIT license.  Packages are published under the [@anviltech](https://www.npmjs.com/org/anviltech) scope into the public NPM registry.  Please feel free to use WUF as you see fit.  We also welcome code contributions!
-
-**WUF-41**: [![CircleCI](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI.svg?style=svg)](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI)
 
 WUF is comprised of the following 2 repos:
 1. [Web UI Framework (WUF)](https://github.com/anvil-open-software/wuf) (this repo)
