@@ -37,7 +37,7 @@ export class FormsComponent implements OnInit {
     min = 0;
     showTicks = true;
     step = 10;
-    thumbLabel = false;
+    thumbLabel = true;
     vertical = false;
     sliderValue: number = 0;
 

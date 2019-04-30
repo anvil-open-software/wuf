@@ -103,6 +103,12 @@ $wuf-input-hint-vert-padding: .3em;
                     opacity: 1;
                 }
             }
+            .mat-form-field-ripple {
+                background-color: var(--wuf-color-primary);
+            }
+            .mat-form-field-label {
+                color: var(--wuf-color-primary);
+            }
         }
     }
 
@@ -299,6 +305,27 @@ $wuf-input-hint-vert-padding: .3em;
         }
     }
 
+    /***** focused state *****/
+    .mat-form-field {
+        &.mat-focused {
+            &.mat-primary {
+                .mat-select-arrow {
+                    color: var(--wuf-color-primary);
+                }
+            }
+            &.mat-accent {
+                .mat-select-arrow {
+                    color: var(--wuf-color-accent);
+                }
+            }
+            &.mat-danger {
+                .mat-select-arrow {
+                    color: var(--wuf-color-danger);
+                }
+            }
+        }
+    }
+
     /***** select *****/
     .mat-select-arrow,
     .mat-select-value-text {
@@ -306,6 +333,27 @@ $wuf-input-hint-vert-padding: .3em;
     }
     .mat-select-panel {
         background-color: var(--wuf-color-white);
+        // primary color
+        .mat-primary {
+            // multi-select checkbox
+            .mat-pseudo-checkbox-checked {
+                background-color: var(--wuf-color-primary);
+            }
+        }
+        // accent color
+        .mat-accent {
+            // multi-select checkbox
+            .mat-pseudo-checkbox-checked {
+                background-color: var(--wuf-color-accent);
+            }
+        }
+        //danger color
+        .mat-danger {
+            // multi-select checkbox
+            .mat-pseudo-checkbox-checked {
+                background-color: var(--wuf-color-danger);
+            }
+        }
     }
     .mat-option {
         color: var(--wuf-body-color);
@@ -327,6 +375,32 @@ $wuf-input-hint-vert-padding: .3em;
         &:not(.mat-selected) {
             .mat-option-pseudo-checkbox {
                 border-color: var(--wuf-body-color);
+            }
+        }
+    }
+    // primary color
+    .mat-primary {
+        // select list
+        .mat-option {
+            &.mat-selected:not(.mat-option-disabled) {
+                color: var(--wuf-color-primary);
+            }
+        }
+    }
+    // accent color
+    .mat-accent {
+        // select list
+        .mat-option {
+            &.mat-selected:not(.mat-option-disabled) {
+                color: var(--wuf-color-accent);
+            }
+        }
+    }
+    //danger color
+    .mat-danger {
+        .mat-option {
+            &.mat-selected:not(.mat-option-disabled) {
+                color: var(--wuf-color-danger);
             }
         }
     }
@@ -361,6 +435,30 @@ $wuf-input-hint-vert-padding: .3em;
                 }
             }
         }
+        // primary color
+        &.mat-primary {
+            .mat-slider-thumb,
+            .mat-slider-thumb-label,
+            .mat-slider-track-fill {
+                background-color: var(--wuf-color-primary);
+            }
+        }
+        // accent color
+        &.mat-accent {
+            .mat-slider-thumb,
+            .mat-slider-thumb-label,
+            .mat-slider-track-fill {
+                background-color: var(--wuf-color-accent);
+            }
+        }
+        //danger color
+        &.mat-danger {
+            .mat-slider-thumb,
+            .mat-slider-thumb-label,
+            .mat-slider-track-fill {
+                background-color: var(--wuf-color-danger);
+            }
+        }
     }
 
     /***** date picker *****/
@@ -387,6 +485,10 @@ $wuf-input-hint-vert-padding: .3em;
         .mat-calendar-body-label {
             color: var(--wuf-body-color);
         }
+        .mat-calendar-body-selected {
+            background-color: var(--wuf-color-primary);
+            color: var(--wuf-color-white);
+        }
         .mat-calendar-arrow {
             border-top-color: var(--wuf-body-color);
         }
@@ -401,7 +503,7 @@ $wuf-input-hint-vert-padding: .3em;
         }
     }
 
-    /***** radios *****/
+    /***** radio buttons *****/
     .mat-radio-group {
         margin-bottom: calc(var(--wuf-spacer)/2);
         display: block;
@@ -423,6 +525,51 @@ $wuf-input-hint-vert-padding: .3em;
                 opacity: var(--wuf-input-disabled-opacity);
                 .mat-radio-outer-circle {
                     border-color: var(--wuf-body-color);
+                }
+            }
+        }
+        // primary color
+        &.mat-primary {
+            .mat-radio-inner-circle {
+                background-color: var(--wuf-color-primary);
+            }
+            &.mat-radio-checked,
+            &:active {
+                .mat-radio-persistent-ripple {
+                    background-color: var(--wuf-color-primary);
+                }
+                .mat-radio-outer-circle {
+                    border-color: var(--wuf-color-primary);
+                }
+            }
+        }
+        // accent color
+        &.mat-accent {
+            .mat-radio-inner-circle {
+                background-color: var(--wuf-color-accent);
+            }
+            &.mat-radio-checked,
+            &:active {
+                .mat-radio-persistent-ripple {
+                    background-color: var(--wuf-color-accent);
+                }
+                .mat-radio-outer-circle {
+                    border-color: var(--wuf-color-accent);
+                }
+            }
+        }
+        // danger color
+        &.mat-danger {
+            .mat-radio-inner-circle {
+                background-color: var(--wuf-color-danger);
+            }
+            &.mat-radio-checked,
+            &:active {
+                .mat-radio-persistent-ripple {
+                    background-color: var(--wuf-color-danger);
+                }
+                .mat-radio-outer-circle {
+                    border-color: var(--wuf-color-danger);
                 }
             }
         }
@@ -452,6 +599,52 @@ $wuf-input-hint-vert-padding: .3em;
                 }
             }
         }
+        &.mat-checkbox-checked {
+            // primary color
+            &.mat-primary {
+                .mat-checkbox-background {
+                    background-color: var(--wuf-color-primary);
+                }
+            }
+            // accent color
+            &.mat-accent {
+                .mat-checkbox-background {
+                    background-color: var(--wuf-color-accent);
+                }
+            }
+            // danger color
+            &.mat-danger {
+                .mat-checkbox-background {
+                    background-color: var(--wuf-color-danger);
+                }
+            }
+        }
+        &:not(.mat-checkbox-disabled) {
+            // primary color
+            &.mat-primary {
+                .mat-checkbox-ripple {
+                    .mat-ripple-element {
+                        background-color: var(--wuf-color-primary);
+                    }
+                }
+            }
+            // accent color
+            &.mat-accent {
+                .mat-checkbox-ripple {
+                    .mat-ripple-element {
+                        background-color: var(--wuf-color-accent);
+                    }
+                }
+            }
+            // danger color
+            &.mat-danger {
+                .mat-checkbox-ripple {
+                    .mat-ripple-element {
+                        background-color: var(--wuf-color-danger);
+                    }
+                }
+            }
+        }
     }
 
     /***** switches *****/
@@ -477,10 +670,43 @@ $wuf-input-hint-vert-padding: .3em;
                 }
             }
         }
+        // primary color
+        &.mat-primary {
+            &.mat-checked {
+                .mat-slide-toggle-thumb,
+                .mat-ripple-element {
+                    background-color: var(--wuf-color-primary);
+                }
+                .mat-slide-toggle-bar {
+                    background-color: css-rgba(var(--wuf-color-rgb-primary), .54);
+                }
+            }
+        }
+        // accent color
+        &.mat-accent {
+            &.mat-checked {
+                .mat-slide-toggle-thumb,
+                .mat-ripple-element {
+                    background-color: var(--wuf-color-accent);
+                }
+                .mat-slide-toggle-bar {
+                    background-color: css-rgba(var(--wuf-color-rgb-accent), .54);
+                }
+            }
+        }
+        // danger color
+        &.mat-danger {
+            &.mat-checked {
+                .mat-slide-toggle-thumb,
+                .mat-ripple-element {
+                    background-color: var(--wuf-color-danger);
+                }
+                .mat-slide-toggle-bar {
+                    background-color: css-rgba(var(--wuf-color-rgb-danger), .54);
+                }
+            }
+        }
     }
-
-    // slide toggles inside "full-width" groups
-
 
     /***** autocomplete panel *****/
     .mat-autocomplete-panel {
@@ -542,16 +768,64 @@ $wuf-input-hint-vert-padding: .3em;
         color: var(--wuf-body-color);
     }
 
+    /***** tabs *****/
+    .mat-tab-group {
+        // primary color
+        &.mat-primary {
+            .mat-ink-bar {
+                background-color: var(--wuf-color-primary);
+            }
+        }
+        // accent color
+        &.mat-accent {
+            .mat-ink-bar {
+                background-color: var(--wuf-color-accent);
+            }
+        }
+        // danger color
+        &.mat-danger {
+            .mat-ink-bar {
+                background-color: var(--wuf-color-danger);
+            }
+        }
+    }
+
     /***** buttons *****/
     .mat-fab[disabled],
     .mat-mini-fab[disabled] {
         box-shadow: none;
     }
-    button.mat-button,
-    button.mat-raised-button,
-    a.mat-button,
-    a.mat-raised-button {
-        border-radius: var(--wuf-button-border-radius, 4px)!important;
+    button, a {
+        &.mat-button,
+        &.mat-raised-button {
+            border-radius: var(--wuf-button-border-radius, 4px)!important;
+        }
+        // color overrides
+        &.mat-raised-button,
+        &.mat-fab,
+        &.mat-mini-fab {
+            &.mat-primary {
+                background-color: var(--wuf-color-primary);
+            }
+            &.mat-accent {
+                background-color: var(--wuf-color-accent);
+            }
+            &.mat-warn {
+                background-color: var(--wuf-color-warn);
+            }
+        }
+        &.mat-button,
+        &.mat-icon-button {
+            &.mat-primary {
+                color: var(--wuf-color-primary);
+            }
+            &.mat-accent {
+                color: var(--wuf-color-accent);
+            }
+            &.mat-warn {
+                color: var(--wuf-color-warn);
+            }
+        }
     }
 
     /***** cards *****/

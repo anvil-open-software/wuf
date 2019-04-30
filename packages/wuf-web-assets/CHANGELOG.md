@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.10] - 2019-04-30
+### Fixed
+- Added missing CSS overrides for some Angular Material buttons
+
+## [2.0.0-rc.9] - 2019-04-29
+### Added
+- Add some additional CSS overrides to some Angular Material Elements to force them to use CSS custom properties where possible
+### Fixed
+- Fixed css-rgba() SCSS function for SASS compatibility.
+
 ## [2.0.0-rc.8] - 2019-04-24
 ### Added
 - Created new darktheme() mixin to generate dark theme css custom property overrides

@@ -197,13 +197,13 @@
  */
 @mixin wuf-theme-colors($map) {
     // Create local SCSS variables for colors, defaulting to a matching color key in $wuf-mat-app-theme-colors
-    $brand-primary: getMapColor($map, "primary");
-    $brand-secondary: getMapColor($map, "secondary");
-    $brand-accent: getMapColor($map, "accent");
-    $brand-success: getMapColor($map, "success");
-    $brand-info: getMapColor($map, "info");
-    $brand-warning: getMapColor($map, "warning");
-    $brand-danger: getMapColor($map, "danger");
+    $brand-primary:     getMapColor($map, "primary");
+    $brand-secondary:   getMapColor($map, "secondary");
+    $brand-accent:      getMapColor($map, "accent");
+    $brand-success:     getMapColor($map, "success");
+    $brand-info:        getMapColor($map, "info");
+    $brand-warning:     getMapColor($map, "warning");
+    $brand-danger:      getMapColor($map, "danger");
 
     // Create CSS custom properties for every theme color passed in the map
     @each $name, $color in $map {
