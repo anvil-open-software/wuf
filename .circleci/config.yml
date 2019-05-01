@@ -9,9 +9,11 @@ orbs:
 
 workflows:
     "Hello Workflow":
-        filters:
-          branches:
-            only:
-              - WUF-41-CI # list of branches to build
+        triggers:
+          schedule:
+            filters:
+              branches:
+                only:
+                  - WUF-41-CI # list of branches to build
         jobs:
           - hello/hello-build
