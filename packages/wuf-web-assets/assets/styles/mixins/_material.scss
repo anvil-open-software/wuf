@@ -26,6 +26,10 @@ $wuf-input-hint-vert-padding: .3em;
 
     // cards
     --wuf-card-bg-color:                 var(--wuf-color-white,                       #ffffff);
+
+    // expansion panels
+    --wuf-expansion-panel-bg-color:      var(--wuf-color-white,                       #ffffff);
+    --wuf-expansion-panel-color:         var(--wuf-body-color,                        #616161);
 }
 
 @mixin dotted-underline {
@@ -786,6 +790,25 @@ $wuf-input-hint-vert-padding: .3em;
         &.mat-danger {
             .mat-ink-bar {
                 background-color: var(--wuf-color-danger);
+            }
+        }
+    }
+
+    /***** expansion panels *****/
+    .mat-expansion-panel {
+        background-color: var(--wuf-expansion-panel-bg-color);
+        color: var(--wuf-expansion-panel-color);
+        .mat-expansion-panel-header-title {
+            color: var(--wuf-expansion-panel-color);
+        }
+        .mat-expansion-panel-header-description {
+            opacity: .35;
+            color: var(--wuf-expansion-panel-color);
+        }
+        .mat-expansion-indicator {
+            &::after {
+                opacity: .75;
+                color: var(--wuf-expansion-panel-color);
             }
         }
     }

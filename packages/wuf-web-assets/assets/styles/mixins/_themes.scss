@@ -376,4 +376,8 @@
     /***** typography *****/
     --wuf-body-color:                            var(--wuf-color-gray-200);
     --wuf-headings-color:                        var(--wuf-body-color);
+
+    /***** expansion panels *****/
+    --wuf-expansion-panel-bg-color:             var(--wuf-color-secondary-lighter-10);
+    --wuf-expansion-panel-color:                var(--wuf-body-color);
 }
