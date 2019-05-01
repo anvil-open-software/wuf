@@ -16,6 +16,7 @@ export class WufDrawerService {
     private hideSubject = new Subject<any>();
     private minimizeSubject = new Subject<any>();
     private expandSubject = new Subject<any>();
+    private activeDrawers = [];
 
     constructor() {
     }
@@ -26,6 +27,10 @@ export class WufDrawerService {
 
     hide(id: string) {
         this.hideDrawer(id);
+    }
+
+    isActive(id: string) {
+        return (this.activeDrawers.indexOf(id) > -1);
     }
 
     showDrawerObservable(): Observable<any> {
@@ -50,9 +55,18 @@ export class WufDrawerService {
 
     hideDrawer(id: string) {
         this.hideSubject.next({id: id});
+
+        // remove the item from the activeDrawers list
+        for( let i = 0; i < this.activeDrawers.length; i++){
+            if ( this.activeDrawers[i] === id) {
+                this.activeDrawers.splice(i, 1);
+                i--;
+            }
+        }
     }
 
     showDrawer(id: string) {
         this.showSubject.next({id: id});
+        this.activeDrawers.push(id);
     }
 }
