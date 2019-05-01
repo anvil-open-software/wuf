@@ -1,5 +1,9 @@
 version: 2.1
 
+general:
+  branches:
+    only:
+     - WUF-41-CI # list of branches to build
 orbs:
     hello: circleci/hello-build@0.0.7 # uses the circleci/buildpack-deps Docker images
 
