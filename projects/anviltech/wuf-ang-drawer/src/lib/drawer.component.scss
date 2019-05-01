@@ -18,7 +18,7 @@
     right: 0;
     width: 0;
     height: 100%;
-    z-index: 1001;
+    z-index: 901;
     overflow: hidden;
     transition: width ease .5s;
     h4, strong {
@@ -144,7 +144,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 900;
     background-color: var(--drawer-shield-bg-color);
     transition: .5s ease opacity;
     opacity: 0;
