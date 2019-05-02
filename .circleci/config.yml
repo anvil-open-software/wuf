@@ -1,11 +1,70 @@
-version: 2
+version: 2.1
+
+executors:
+  wuf-env: # declares a reusable executor
+    docker:
+    working_directory: ~/project
+    environment:
+      - SOURCE_BRANCH: WUF-41-CI
+      - TARGET_BRANCH: gh-pages
+
 jobs:
-  build:
-    branches:
-      only:
-        - WUF-41-CI
-    docker: # use the docker executor type; machine and macos executors are also supported
-      - image: circleci/node:4.8.2 # the primary container, where your job's commands are run
+  install_packages:
+    executor: wuf-env
+#    steps:
+#      - run:
+#          name: Install Yarn
+#          command: brew install yarn
+#      - run:
+#          name: Install Angular
+#          command: npm install -g @angular/cli
+#      - run:
+#          name: Install Typescript
+#          command: brew install typescript
     steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+      - run:
+        command: |
+          echo Installation disabled at the moment
+  build_wuf:
+    executor: wuf-env
+    steps:
+      - run:
+        command: |
+          echo Build disabled at the moment
+  test_wuf:
+    machine:
+        enabled: true
+    working_directory: .
+    steps:
+      - run:
+        command: |
+          echo Tests disabled at the moment
+  deploy_wuf:
+    executor: wuf-env
+    steps:
+      - run:
+        command: |
+          echo Deployment disabled at the moment
+workflows:
+  version: 2
+  install_build-test_deploy:
+    jobs:
+      - install_packages:
+          filters:
+            branches:
+              only: $SOURCE_BRANCH
+      - build_wuf:
+          requires:
+            - install_packages
+      - test_wuf:
+          requires:
+            - build
+          filters:
+            branches:
+              only: $SOURCE_BRANCH
+      - deploy_wuf:
+          requires:
+            - test
+          filters:
+            branches:
+              only: $SOURCE_BRANCH
