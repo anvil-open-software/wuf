@@ -9,7 +9,7 @@ executors:
       - TARGET_BRANCH: gh-pages
 
 jobs:
-  install_packages:
+  install_wuf:
     executor: wuf-env
 #    steps:
 #      - run:
@@ -25,7 +25,7 @@ jobs:
       - run:
         command: |
           echo Installation disabled at the moment
-  build_wuf:
+  build:
     executor: wuf-env
     steps:
       - run:
