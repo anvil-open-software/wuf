@@ -62,6 +62,7 @@ workflows:
               ignore: master
       - test_wuf:
           requires:
+            - install_wuf
             - build_wuf
           filters:
             branches:
@@ -69,6 +70,8 @@ workflows:
               ignore: master
       - deploy_wuf:
           requires:
+            - install_wuf
+            - build_wuf
             - test_wuf
           filters:
             branches:
