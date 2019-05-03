@@ -289,7 +289,7 @@
     --wuf-font-weight-light: 300;
     --wuf-font-weight-normal: 400;
     --wuf-font-weight-bold: 700;
-    --wuf-font-muted-color: var(--wuf-color-gray-600);
+    --wuf-font-muted-color: var(--wuf-color-gray-500);
 
     /***** Angular Material components *****/
     //// Define a custom typography config that overrides the font-family
@@ -376,6 +376,7 @@
     /***** typography *****/
     --wuf-body-color:                            var(--wuf-color-gray-200);
     --wuf-headings-color:                        var(--wuf-body-color);
+    --wuf-font-muted-color:                      var(--wuf-color-secondary-lighter-50);
 
     /***** expansion panels *****/
     --wuf-expansion-panel-bg-color:             var(--wuf-color-secondary-lighter-10);
