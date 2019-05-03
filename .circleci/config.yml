@@ -47,11 +47,11 @@ workflows:
   version: 2
   install_build-test_deploy:
     jobs:
-      - install_packages:
+      - install_wuf:
           filters:
             branches:
               only: $SOURCE_BRANCH
-      - build_wuf:
+      - build:
           requires:
             - install_packages
       - test_wuf:
