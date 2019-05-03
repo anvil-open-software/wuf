@@ -10,6 +10,11 @@ jobs:
       - TARGET_BRANCH: gh-pages
 
     steps:
+      #  My unix environment
+      - run:
+          command: |
+            uname
+
       #  chekout project
       - checkout
 
