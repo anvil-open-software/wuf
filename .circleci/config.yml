@@ -1,7 +1,7 @@
 version: 2.1
 
 executors:
-  wuf_env: # declares a reusable executor
+  wuf_env: # declaress a reusable executor
     docker:
       - image: circleci/node:8
     working_directory: ~/project
