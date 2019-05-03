@@ -1,7 +1,7 @@
-version: 2.1
+version: 2.0
 
-executors:
-  wuf_executor: # declaress a reusable executor
+jobs:
+  build:
     docker:
       - image: circleci/node:8
     working_directory: ~/project
@@ -9,71 +9,21 @@ executors:
       - SOURCE_BRANCH: WUF-41-CI
       - TARGET_BRANCH: gh-pages
 
-jobs:
-  install_wuf:
-    executor: wuf_executor
-#    steps:
-#      - run:
-#          name: Install Yarn
-#          command: brew install yarn
-#      - run:
-#          name: Install Angular
-#          command: npm install -g @angular/cli
-#      - run:
-#          name: Install Typescript
-#          command: brew install typescript
     steps:
+      #  Install tools
       - run:
           command: |
             echo 'Installation disabled at the moment'
-  build_wuf:
-    executor: wuf_executor
-    steps:
+      # Build application
       - run:
           command: |
             echo 'Build disabled at the moment'
-  test_wuf:
-    executor: wuf_executor
-    steps:
+      # Test application
       - run:
           command: |
             echo 'Tests disabled at the moment'
-  deploy_wuf:
-    executor: wuf_executor
-    steps:
+      # Deploy application
       - run:
           command: |
             echo 'Deployment disabled at the moment'
-workflows:
-  version: 2
-  install_build_test_deploy:
-    jobs:
-      - install_wuf:
-          filters:
-            branches:
-              # only: $SOURCE_BRANCH
-              ignore: master
-      - build_wuf:
-          requires:
-            - install_wuf
-          filters:
-            branches:
-              # only: $SOURCE_BRANCH
-              ignore: master
-      - test_wuf:
-          requires:
-            - install_wuf
-            - build_wuf
-          filters:
-            branches:
-              # only: $SOURCE_BRANCH
-              ignore: master
-      - deploy_wuf:
-          requires:
-            - install_wuf
-            - build_wuf
-            - test_wuf
-          filters:
-            branches:
-              # only: $SOURCE_BRANCH
-              ignore: master
+            
