@@ -23,26 +23,26 @@ jobs:
 #          command: brew install typescript
     steps:
       - run:
-        command: |
-          echo Installation disabled at the moment
+          command: |
+            echo Installation disabled at the moment
   build_wuf:
     executor: wuf-env
     steps:
       - run:
-        command: |
-          echo Build disabled at the moment
+          command: |
+            echo Build disabled at the moment
   test_wuf:
     executor: wuf-env
     steps:
       - run:
-        command: |
-          echo Tests disabled at the moment
+          command: |
+            echo Tests disabled at the moment
   deploy_wuf:
     executor: wuf-env
     steps:
       - run:
-        command: |
-          echo Deployment disabled at the moment
+          command: |
+            echo Deployment disabled at the moment
 workflows:
   version: 2
   install_build-test_deploy:
