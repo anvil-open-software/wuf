@@ -2,10 +2,11 @@ version: 2.0
 
 jobs:
   build:
-    macos:
-      xcode: "9.0"
-    # docker:
-    #   - image: circleci/node:8
+    # macos:
+    #   xcode: "9.0"
+    docker:
+      - image: wasvic/node_dev:1.0.0-FM-188-SNAPSHOT
+      - entrypoint: /bin/sh
     working_directory: ~/wuf
     environment:
       - SOURCE_BRANCH: WUF-41-CI
