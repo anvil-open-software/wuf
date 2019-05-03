@@ -29,15 +29,14 @@ jobs:
       #  Install tools
       - run:
           command: |
-            echo 'Installing tools'
-            brew install yarn
-            npm install -g @angular/cli
-            brew install typescript
+            # echo 'Installing tools'
+            yarn bootstrap
 
       # Build application
       - run:
           command: |
-            echo 'Build disabled at the moment'
+            # echo 'Build disabled at the moment'
+            yarn build
       # Test application
       - run:
           command: |
