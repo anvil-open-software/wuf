@@ -7,6 +7,9 @@ executors:
     environment:
       - SOURCE_BRANCH: WUF-41-CI
       - TARGET_BRANCH: gh-pages
+    branches:
+      only:
+        - $SOURCE_BRANCH
 
 jobs:
   install_wuf:
@@ -25,7 +28,7 @@ jobs:
       - run:
         command: |
           echo Installation disabled at the moment
-  build:
+  build_wuf:
     executor: wuf-env
     steps:
       - run:
@@ -51,18 +54,18 @@ workflows:
           filters:
             branches:
               only: $SOURCE_BRANCH
-      - build:
+      - build_wuf:
           requires:
-            - install_packages
+            - install_wuf
       - test_wuf:
           requires:
-            - build
+            - build_wuf
           filters:
             branches:
               only: $SOURCE_BRANCH
       - deploy_wuf:
           requires:
-            - test
+            - test_wuf
           filters:
             branches:
               only: $SOURCE_BRANCH
