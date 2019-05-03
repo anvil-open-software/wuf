@@ -4,12 +4,26 @@ jobs:
   build:
     docker:
       - image: circleci/node:8
-    working_directory: ~/project
+    working_directory: ~/wuf
     environment:
       - SOURCE_BRANCH: WUF-41-CI
       - TARGET_BRANCH: gh-pages
 
     steps:
+      #  chekout project
+      - checkout
+
+      #  Inspect chekout
+      - run:
+          command: |
+            echo 'Inspecting checkout'
+            ls
+
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+
       #  Install tools
       - run:
           command: |
@@ -26,4 +40,3 @@ jobs:
       - run:
           command: |
             echo 'Deployment disabled at the moment'
-            
