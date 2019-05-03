@@ -40,7 +40,8 @@ jobs:
       # Test application
       - run:
           command: |
-            echo 'Tests disabled at the moment'
+            # echo 'Tests disabled at the moment'
+            yarn test
       # Deploy application
       - run:
           command: |
