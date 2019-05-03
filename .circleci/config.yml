@@ -13,12 +13,6 @@ jobs:
       #  chekout project
       - checkout
 
-      #  Inspect chekout
-      - run:
-          command: |
-            echo 'Inspecting checkout'
-            ls
-
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -27,7 +21,11 @@ jobs:
       #  Install tools
       - run:
           command: |
-            echo 'Installation disabled at the moment'
+            echo 'Installing tools'
+            brew install yarn
+            npm install -g @angular/cli
+            brew install typescript
+
       # Build application
       - run:
           command: |
