@@ -32,9 +32,7 @@ jobs:
         command: |
           echo Build disabled at the moment
   test_wuf:
-    machine:
-        enabled: true
-    working_directory: .
+    executor: wuf-env
     steps:
       - run:
         command: |
