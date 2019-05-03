@@ -44,7 +44,7 @@ jobs:
           command: |
             echo Deployment disabled at the moment
 workflows:
-  version: 2
+  version: 2.1
   install_build-test_deploy:
     jobs:
       - install_wuf:
