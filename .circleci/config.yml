@@ -1,8 +1,9 @@
 version: 2.1
 
 executors:
-  wuf-env: # declares a reusable executor
+  wuf_env: # declares a reusable executor
     docker:
+      image: circleci/node:8
     working_directory: ~/project
     environment:
       - SOURCE_BRANCH: WUF-41-CI
@@ -10,7 +11,7 @@ executors:
 
 jobs:
   install_wuf:
-    executor: wuf-env
+    executor: wuf_env
 #    steps:
 #      - run:
 #          name: Install Yarn
@@ -26,19 +27,19 @@ jobs:
           command: |
             echo Installation disabled at the moment
   build_wuf:
-    executor: wuf-env
+    executor: wuf_env
     steps:
       - run:
           command: |
             echo Build disabled at the moment
   test_wuf:
-    executor: wuf-env
+    executor: wuf_env
     steps:
       - run:
           command: |
             echo Tests disabled at the moment
   deploy_wuf:
-    executor: wuf-env
+    executor: wuf_env
     steps:
       - run:
           command: |
