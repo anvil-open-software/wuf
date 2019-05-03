@@ -51,19 +51,26 @@ workflows:
       - install_wuf:
           filters:
             branches:
-              only: $SOURCE_BRANCH
+              # only: $SOURCE_BRANCH
+              ignore: master
       - build_wuf:
           requires:
             - install_wuf
+          filters:
+            branches:
+              # only: $SOURCE_BRANCH
+              ignore: master
       - test_wuf:
           requires:
             - build_wuf
           filters:
             branches:
-              only: $SOURCE_BRANCH
+              # only: $SOURCE_BRANCH
+              ignore: master
       - deploy_wuf:
           requires:
             - test_wuf
           filters:
             branches:
               only: $SOURCE_BRANCH
+              ignore: master
