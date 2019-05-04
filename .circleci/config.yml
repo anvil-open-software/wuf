@@ -13,42 +13,46 @@ jobs:
       - TARGET_BRANCH: gh-pages
 
     steps:
-      #  My unix environment, set up package manager
       - run:
+          name: Show the Unix environment
           command: |
             uname
 
       #  chekout project
       - checkout
 
-      # TODO Need to find out why
+      # TODO Need to find out why this is not working
       # - restore_cache:
       #     keys:
       #     - v1-dependencies-{{ checksum "package.json" }}
       #     - v1-dependencies-
 
-      #  Install tools
       - run:
+          name: Install tools
           command: |
-            apt-get install curl
-            curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-              && sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-              && apt-get update \
-              && apt-get install -y google-chrome-stable build-essential jq git openssh-server \
-              && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+            # https://github.com/westy92/headless-chrome-alpine/blob/master/Dockerfile
+            apk --no-cache upgrade && apk add --no-cache chromium
+            # apk install curl
+            # curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
+            #   && sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
+            #   && apk update \
+            #   && apk install -y google-chrome-stable build-essential jq git openssh-server \
+            #   && apk clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
             yarn bootstrap
 
-      # Build application
       - run:
+          name: Build application WUF
           command: |
             # echo 'Building WUF ... it takes a looooooong time'
             yarn build
-      # Test application
+
       - run:
+          name: Test application - WUF
           command: |
             # echo 'Testing WUF'
             yarn test
-      # Deploy application
+
       - run:
-          command: |
+        name: Deploy application - WUF
+        command: |
             echo 'Deployment disabled at the moment'
