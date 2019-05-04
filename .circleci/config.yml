@@ -52,7 +52,7 @@ jobs:
             # echo 'Testing WUF'
             yarn test
 
+      # name: Deploy application - WUF
       - run:
-        name: Deploy application - WUF
         command: |
             echo 'Deployment disabled at the moment'
