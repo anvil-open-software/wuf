@@ -66,6 +66,7 @@
     "ng-packagr": "^4.2.0",
     "ngx-i18nsupport": "^0.8.6",
     "protractor": "~5.4.0",
+    "puppeteer": "1.15.0",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",

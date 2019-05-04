@@ -13,10 +13,10 @@ jobs:
       - TARGET_BRANCH: gh-pages
 
     steps:
-      - run:
-          name: Show the Unix environment
-          command: |
-            uname
+      # - run:
+      #     name: Show the Unix environment
+      #     command: |
+      #       uname
 
       #  chekout project
       - checkout
@@ -31,11 +31,11 @@ jobs:
           name: Install tools
           command: |
             # Install headless chrome and place it in the path
-            apk --no-cache upgrade && apk add --no-cache chromium
-            export CHROME_BIN=/usr/lib/chromium
-            printenv
+            # apk --no-cache upgrade && apk add --no-cache chromium
+            # export CHROME_BIN=/usr/lib/chromium
+            # printenv
 
-            # Install yarn
+            # Install the application
             yarn bootstrap
 
       - run:
