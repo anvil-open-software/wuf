@@ -12,11 +12,11 @@ jobs:
       - SOURCE_BRANCH: WUF-41-CI
       - TARGET_BRANCH: gh-pages
 
-    steps:
-      - run:
-          name: Show the Unix environment
-          command: |
-            uname
+    # steps:
+    #   - run:
+    #       name: Show the Unix environment
+    #       command: |
+    #         uname
 
       #  chekout project
       - checkout
@@ -33,6 +33,7 @@ jobs:
             # Install headless chrome and place it in the path
             apk --no-cache upgrade && apk add --no-cache chromium
             export CHROME_BIN=/usr/lib/chromium
+            printenv
 
             # Install yarn
             yarn bootstrap
