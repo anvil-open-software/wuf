@@ -32,7 +32,7 @@ jobs:
           command: |
             # Install headless chrome and place it in the path
             apk --no-cache upgrade && apk add --no-cache chromium
-            export PATH="$PATH:/usr/lib/chromium/chrome"
+            export CHROME_BIN=/usr/lib/chromium
 
             # Install yarn
             yarn bootstrap
