@@ -30,14 +30,11 @@ jobs:
       - run:
           name: Install tools
           command: |
-            # https://github.com/westy92/headless-chrome-alpine/blob/master/Dockerfile
+            # Install headless chrome and place it in the path
             apk --no-cache upgrade && apk add --no-cache chromium
-            # apk install curl
-            # curl https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-            #   && sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-            #   && apk update \
-            #   && apk install -y google-chrome-stable build-essential jq git openssh-server \
-            #   && apk clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+            export PATH="$PATH:/usr/lib/chromium/chrome"
+
+            # Install yarn
             yarn bootstrap
 
       - run:
