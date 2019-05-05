@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Install tools - WUF
           command: |
-            apk update && apk add git
+            apk update && apk add git && apk add openssh
             yarn bootstrap
 
       - run:
