@@ -21,6 +21,7 @@ import { WufConfigurationService } from '@anviltech/wuf-ang-configuration';
 
 import { WufSidebarService } from '../../layout-components/sidebar/sidebar.service';
 import { WufLayoutService } from '../layout.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -31,12 +32,27 @@ import { WufLayoutService } from '../layout.service';
 })
 export class WufViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
 
+    navPosition: string = 'top';
+    iconPosition: string = 'left';
+    navAlignment: string = 'left';
+
+    configSubscription: Subscription;
+
     constructor(
         public sidebarService: WufSidebarService,
         public configService: WufConfigurationService,
         public layoutService: WufLayoutService,
         @Inject(DOCUMENT) private document: any
     ) {
+        // Subscribe to configuration updates
+        this.configSubscription = this.configService.onConfigChange().subscribe(
+            newConfig => {
+                this.onConfigChange(newConfig);
+            },
+            err => {
+                console.warn('error on subscription:', err);
+            }
+        );
     }
 
     @Input() logoRoute: string;
@@ -56,7 +72,13 @@ export class WufViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     ngOnDestroy() {
+        // Unsubscribe to ensure no memory leaks
         this.unbindSidebarEvents();
+
+        // Unsubscribe from configuration updates
+        if (this.configSubscription && !this.configSubscription.closed) {
+            this.configSubscription.unsubscribe();
+        }
     }
 
     /***** Events for Sidebar Resizer *****/
@@ -105,6 +127,12 @@ export class WufViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
 
     onMouseIntoWindow($event: any) {
         this.sidebarService.setMouseEnter($event);
+    }
+
+    onConfigChange(newConfig: any) {
+        this.navPosition = newConfig['navigation'].position;
+        this.iconPosition = newConfig['navigation'].iconPosition;
+        this.navAlignment = newConfig['navigation'].alignment;
     }
 
     // mouseup (also works on mouseup outside of window)

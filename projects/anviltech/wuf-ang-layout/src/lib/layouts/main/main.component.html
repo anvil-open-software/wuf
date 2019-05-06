@@ -12,7 +12,7 @@
             <wuf-toolbar class="main-header-toolbar">
                 <ng-container toolbarLeft>
                     <i class="sidebar-toggler material-icons" (click)="onSidebarTogglerClick($event)"
-                       *ngIf="configService.config.navigation.position!=='top'">menu</i>
+                       *ngIf="navPosition!=='top'">menu</i>
                     <a class="header-logo d-none d-sm-inline-block" [routerLink]="logoRoute" *ngIf="logoRoute"></a>
                     <span class="header-logo" *ngIf="!logoRoute"></span>
                 </ng-container>
@@ -25,8 +25,8 @@
             </wuf-toolbar>
         </div>
 
-        <div class="main-wrap" [class.flex-row]="configService.config.navigation.position === 'left'"
-             [class.flex-column]="configService.config.navigation.position === 'top'">
+        <div class="main-wrap" [class.flex-row]="navPosition === 'left'"
+             [class.flex-column]="navPosition === 'top'">
             <wuf-sidebar>
                 <ng-container sidebarNavigation>
                     <ng-content select="[sidebarNavigation]"></ng-content>
@@ -38,8 +38,8 @@
 
             <div class="main d-flex flex-row">
                 <div class="main-resizable-drag" #sidebarResizer
-                     [style.display]="configService.config.navigation.position === 'top' ? 'none' : 'block'"
-                     [class.d-md-flex]="configService.config.navigation.position === 'left'">
+                     [style.display]="navPosition === 'top' ? 'none' : 'block'"
+                     [class.d-md-flex]="navPosition === 'left'">
                     <div class="main-resizable-drag-handle"></div>
                 </div>
                 <div class="main-resizable-content d-flex flex-column">
