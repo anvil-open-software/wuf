@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot",
-    "build": "ng build --aot",
+    "build": "ng build --aot --base-href /wuf/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
