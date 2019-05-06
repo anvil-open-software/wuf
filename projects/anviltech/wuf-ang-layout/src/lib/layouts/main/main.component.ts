@@ -32,7 +32,7 @@ import { Subscription } from 'rxjs';
 })
 export class WufViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
 
-    navPosition: string = 'top';
+    navPosition: string = 'left';
     iconPosition: string = 'left';
     navAlignment: string = 'left';
 
