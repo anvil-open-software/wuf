@@ -83,7 +83,7 @@ export class WufConfigurationService implements OnInit {
 
     /**
      * Override the default storage key name with another key name.
-     * @param {string} keyName
+     * @param keyName
      */
     setStorageKey(keyName: string) {
         // Override the default storage key
