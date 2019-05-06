@@ -1,0 +1,106 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+/*
+Add brand overrides here.
+
+Note that this file and associated partials are used for DEMO PURPOSES ONLY.
+The CSS here should be returned using a service whereby the value provided
+below are fetched from a database and written to the page via some kind of
+templating mechanism or by other means.  We are using scss syntax for
+convenience.
+
+Refer to available variables in ./partials/_variables.scss for a full list
+of component variables that can be overridden.
+*/
+
+/*************************************/
+/* EXAMPLE USE OF BRANDING (BMW) */
+/*************************************/
+
+:root[wuf-theme="theme2"],
+:root[wuf-theme] *[wuf-theme="theme2"] {
+
+    /***** set color values to use in theme *****/
+    $wuf-brand-primary:     #0099d8;
+    $wuf-brand-secondary:   #313131;
+    $wuf-brand-accent:      #c89081;
+    $wuf-brand-success:     #5cb85c;
+    $wuf-brand-info:        #03A9F4;
+    $wuf-brand-warning:     #fdd835;
+    $wuf-brand-danger:      #dd2c00;
+
+    /***** create a theme *****/
+    @include wuf-theme-colors((
+        "primary":      $wuf-brand-primary,
+        "secondary":    $wuf-brand-secondary,
+        "accent":       $wuf-brand-accent,
+        "success":      $wuf-brand-success,
+        "info":         $wuf-brand-info,
+        "warning":      $wuf-brand-warning,
+        "danger":       $wuf-brand-danger
+    ));
+
+    /***** logo *****/
+    @include wuf-theme-logo('/assets/images/logo.svg', 200px, 35px);
+
+    /***** buttons *****/
+    @include wuf-theme-button-radius(20px);
+
+    /***** links *****/
+    --wuf-link-color: var(--wuf-color-primary);
+    --wuf-link-hover-color: #0084ba;
+
+    /***** header *****/
+    --wuf-header-bg-color: var(--wuf-color-primary);
+    --wuf-header-color: var(--wuf-color-white);
+
+    /***** sidebar *****/
+    --wuf-navigation-link-active-accent-color: var(--wuf-color-primary);
+
+    /***** tables *****/
+    --wuf-table-filter-bg-color: var(--wuf-color-secondary-lighter-20);
+    --wuf-table-filter-color: var(--wuf-body-color);
+
+    /***** dashboard *****/
+    --wuf-kpi-alert-bg-color: var(--wuf-color-primary);
+    --wuf-kpi-alert-stripe-color: var(--wuf-color-primary-darker-10);
+
+    /***** typography *****/
+    @import url('https://fonts.googleapis.com/css?family=Oswald|Roboto+Slab'); // Load font from Google CDN
+    $wuf-brand-body-color: var(--wuf-color-gray-700);
+    $wuf-brand-font-family-sans-serif: 'Oswald', Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    $wuf-brand-font-family-serif: 'Roboto Slab', Times, serif;
+    $wuf-brand-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    $wuf-brand-font-family-base: $wuf-brand-font-family-sans-serif;
+    $wuf-brand-font-size-base: 1rem;
+    $wuf-brand-headings-font-family: $wuf-brand-font-family-serif;
+    $wuf-brand-headings-font-weight: 700;
+    $wuf-brand-headings-color: var(--wuf-color-primary-darker-10);
+    $wuf-brand-h1-font-size: 2.5rem;
+    $wuf-brand-h2-font-size: 2rem;
+    $wuf-brand-h3-font-size: 1.75rem;
+    $wuf-brand-h4-font-size: 1.5rem;
+    $wuf-brand-h5-font-size: 1.25rem;
+    $wuf-brand-h6-font-size: 1rem;
+
+    @include wuf-theme-typography(
+            $wuf-brand-body-color,
+            $wuf-brand-font-family-sans-serif,
+            $wuf-brand-font-family-serif,
+            $wuf-brand-font-family-monospace,
+            $wuf-brand-font-family-base,
+            $wuf-brand-font-size-base,
+            $wuf-brand-headings-font-family,
+            $wuf-brand-headings-font-weight,
+            $wuf-brand-headings-color,
+            $wuf-brand-h1-font-size,
+            $wuf-brand-h2-font-size,
+            $wuf-brand-h3-font-size,
+            $wuf-brand-h4-font-size,
+            $wuf-brand-h5-font-size,
+            $wuf-brand-h6-font-size
+    );
+}

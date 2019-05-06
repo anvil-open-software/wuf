@@ -1,0 +1,76 @@
+version: 2.0
+
+jobs:
+  build:
+    # macos:
+    #   xcode: "9.0"
+    docker:
+      - image: wasvic/node_dev:1.0.0-FM-188-SNAPSHOT
+        entrypoint: /bin/sh
+    working_directory: ~/wuf
+    environment:
+      - SOURCE_BRANCH: WUF-41-CI
+      - TARGET_BRANCH: gh-pages
+      - GH_EMAIL: anvil.open.source.machine.user@gmail.com
+      - GH_NAME: anvil-open-source-machine-user
+
+    steps:
+      # - run:
+      #     name: Show the Unix environment
+      #     command: |
+      #       uname
+
+      #  chekout project
+      - checkout
+
+      # TODO Need to find out why this is not working
+      # - restore_cache:
+      #     keys:
+      #     - v1-dependencies-{{ checksum "package.json" }}
+      #     - v1-dependencies-
+
+      - run:
+          name: Install tools - WUF
+          command: |
+            apk update && apk add git && apk add openssh
+            apk add tar
+            apk add ca-certificates
+            yarn bootstrap
+
+      - run:
+          name: Build application - WUF
+          command: |
+            yarn build
+
+      - run:
+          name: Test application - WUF
+          command: |
+            echo 'Bypassing test for now'
+            # yarn test
+
+      - run:
+          name: Deploy application - WUF
+          command: |
+            if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+              mkdir ~/.ssh
+              echo 'github.com,192.30.253.112 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==' >> ~/.ssh/known_hosts
+              git config --global user.email $GH_EMAIL
+              git config --global user.name $GH_NAME
+
+              git clone $CIRCLE_REPOSITORY_URL out
+
+              cd out
+              git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+              git rm -rf .
+              cd ..
+
+              cp -a dist/. out/.
+
+              mkdir -p out/.circleci && cp -a .circleci/. out/.circleci/.
+              cd out
+
+              git add -A
+              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+
+              git push origin $TARGET_BRANCH
+            fi

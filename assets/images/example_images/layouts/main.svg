@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 487.6 545.6" style="enable-background:new 0 0 487.6 545.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;stroke:#231F20;stroke-miterlimit:10;}
+	.st1{fill:#FFFFFF;stroke:#E5E5E5;stroke-width:5;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#C2C1C0;stroke-miterlimit:10;}
+	.st3{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st4{fill:#FFFFFF;}
+	.st5{fill:#BFBFBF;}
+	.st6{font-family:'Roboto-Thin';}
+	.st7{font-size:12px;}
+	.st8{fill:#9E9E9E;}
+	.st9{font-family:'ArialMT';}
+	.st10{fill:#231F20;}
+	.st11{font-family:'Arial-BoldMT';}
+</style>
+<title>main</title>
+<g>
+	<g id="Layer_1-2">
+		<rect x="12.5" y="17.1" class="st0" width="462.6" height="516"/>
+		<rect x="2.5" y="7.1" class="st1" width="482.6" height="536"/>
+		<rect x="12.5" y="17.1" class="st2" width="462.6" height="516"/>
+		<rect x="22.5" y="62.2" class="st2" width="442.6" height="461"/>
+		<rect x="32.5" y="72.2" class="st3" width="107.8" height="441"/>
+		<rect x="42.5" y="475.8" class="st2" width="87.8" height="27.3"/>
+		<polygon class="st4" points="263.6,23.5 224,23.5 224.2,12.5 263.8,12.5 		"/>
+		<polygon class="st4" points="96.3,14.4 10.5,14.2 10.5,4.3 96.3,4.4 		"/>
+		<text transform="matrix(1 0 0 1 21.0444 10.27)" class="st5 st6 st7"> </text>
+		<text transform="matrix(1 0 0 1 68.2497 10.27)" class="st5 st6 st7"> </text>
+		<text transform="matrix(1 0 0 1 72.1844 10.27)" class="st5 st6 st7"> </text>
+		<rect x="210.8" y="53.6" class="st4" width="66" height="17.2"/>
+		<text transform="matrix(1 0 0 1 258.9344 66.32)" class="st5 st6 st7"> </text>
+		<rect x="22.5" y="27.1" class="st0" width="442.6" height="24.7"/>
+		<rect x="208" y="22.2" class="st4" width="71.7" height="12.5"/>
+		<rect x="60.2" y="63.4" class="st4" width="50.7" height="17.2"/>
+		<rect x="45.6" y="467.2" class="st4" width="79.9" height="17.1"/>
+		<text transform="matrix(1 0 0 1 47.91 478.85)" class="st5 st6 st7">side-bar footer</text>
+		<rect x="42.5" y="81.8" class="st2" width="87.8" height="384.4"/>
+		<rect x="54.7" y="73.2" class="st4" width="61.6" height="17.2"/>
+		<rect x="150.3" y="72.1" class="st0" width="304.9" height="441"/>
+		<rect x="160.3" y="82.2" class="st2" width="284.9" height="28"/>
+		<rect x="283.4" y="63.4" class="st4" width="38.6" height="17.2"/>
+		<rect x="260.2" y="76.6" class="st4" width="85" height="14.2"/>
+		<rect x="160.2" y="475.2" class="st2" width="284.9" height="28"/>
+		<rect x="260.2" y="469.6" class="st4" width="85" height="14.1"/>
+		<text transform="matrix(1 0 0 1 265.76 478.25)" class="st5 st6 st7">content-footer</text>
+		<rect x="160.3" y="119.8" class="st2" width="284.9" height="345.4"/>
+		<rect x="260.2" y="114.2" class="st4" width="85" height="14.2"/>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 9.811 10.27)" class="st8 st9 st7">browser chrome</text>
+<text transform="matrix(1 0 0 1 231.5525 18.9951)" class="st8 st9 st7">page</text>
+<text transform="matrix(1 0 0 1 216.8924 65.3201)" class="st8 st9 st7">main-wrap</text>
+<text transform="matrix(1 0 0 1 209.2225 30.3744)" class="st10 st11 st7">main-header</text>
+<text transform="matrix(1 0 0 1 288.6913 75.0001)" class="st10 st11 st7">main</text>
+<text transform="matrix(1 0 0 1 62.1941 75.0001)" class="st10 st11 st7">side-bar</text>
+<text transform="matrix(1 0 0 1 262.3328 84.8497)" class="st8 st9 st7">content-header</text>
+<text transform="matrix(1 0 0 1 58.1803 84.8497)" class="st8 st9 st7">navigation</text>
+<text transform="matrix(1 0 0 1 268.0105 122.3051)" class="st8 st9 st7">content-main</text>
+</svg>

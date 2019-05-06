@@ -1,0 +1,28 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+/*
+Add includes for brand overrides here.
+
+Note that this file and associated partials are used for DEMO PURPOSES ONLY.
+The CSS here should be returned using a service whereby the value provided
+below are fetched from a database and written to the page via some kind of
+templating mechanism or by other means.  We are using scss syntax for
+convenience.
+
+Refer to available variables in ./partials/_variables.scss for a full list
+of component variables that can be overridden.
+*/
+
+// Include mixins used below for convenience (required for all brand-specific imports below)
+@import "../../../../packages/wuf-web-assets/assets/styles/theme";
+
+// Individual
+@import 'brands/default';
+@import 'brands/theme1';
+@import 'brands/theme2';
+@import 'brands/theme3';
+@import 'brands/theme4';
+@import 'brands/theme5';

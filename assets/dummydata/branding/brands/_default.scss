@@ -1,0 +1,42 @@
+/*!
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+
+/*
+Add brand overrides here.
+
+Note that this file and associated partials are used for DEMO PURPOSES ONLY.
+The CSS here should be returned using a service whereby the value provided
+below are fetched from a database and written to the page via some kind of
+templating mechanism or by other means.  We are using scss syntax for
+convenience.
+
+Refer to available variables in ./partials/_variables.scss for a full list
+of component variables that can be overridden.
+*/
+
+:root[wuf-theme="default"],
+:root[wuf-theme] *[wuf-theme="default"] {
+    // These overrides ONLY apply to the default theme
+
+    /***** logo *****/
+    @include wuf-theme-logo('/assets/images/logo.svg', 200px, 35px);
+
+    /***** typography *****/
+    @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+    $wuf-brand-body-color: $body-color;
+    $wuf-brand-font-family-sans-serif: Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    $wuf-brand-font-family-serif: 'Roboto Slab', Times, serif;
+    $wuf-brand-font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    $wuf-brand-font-family-base: $wuf-brand-font-family-sans-serif;
+
+    @include wuf-theme-typography(
+            $wuf-brand-body-color,
+            $wuf-brand-font-family-sans-serif,
+            $wuf-brand-font-family-serif,
+            $wuf-brand-font-family-monospace,
+            $wuf-brand-font-family-base
+    );
+}
+
