@@ -352,6 +352,50 @@
                 </tbody>
             </table>
 
+
+            <h3>WufConfigurationService Methods</h3>
+
+            <table class="table prop-table">
+                <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="prop-name">WufConfigurationService.config(newConfig: WufConfiguration)</td>
+                    <td class="prop-description">
+                        A setter that merges any partial configuration object into the existing configuration object (if any).  New configs are stored in local storage.  Config updates are broadcast upon change.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">WufConfigurationService.config()</td>
+                    <td class="prop-description">
+                        A getter that returns the current config object.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">WufConfigurationService.setTempConfig(newConfig: WufConfiguration)</td>
+                    <td class="prop-description">
+                        Unlike the config setter, this method will not store a config to local storage.  This is helpful when a user may want to play around with a config without permanently storing it.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">WufConfigurationService.setStorageKey(keyName: string)</td>
+                    <td class="prop-description">
+                        Override the default storage key name with another key name.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">WufConfigurationService.getStorageKey(appId?: string, userId?: string)</td>
+                    <td class="prop-description">
+                        Get the default storage key.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
         </div>
     </app-component-tabs>
 
