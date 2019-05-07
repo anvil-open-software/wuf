@@ -33,7 +33,7 @@ jobs:
       - run:
           name: Build application - WUF
           command: |
-            yarn build-circleci_1
+            yarn $BUILD_SCRIPT
       - run:
           name: Test application - WUF
           command: |
