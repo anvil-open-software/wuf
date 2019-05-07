@@ -16,6 +16,12 @@ jobs:
         - master
         - WUF-41-CI
     steps:
+      - run:
+          name: Install OS tools
+          command: |
+            apk update && apk add git && apk add openssh
+            apk add tar
+            apk add ca-certificates
       #  chekout projectt
       - checkout
       # TODO Need to find out why this is not working
@@ -24,23 +30,20 @@ jobs:
       #     - v1-dependencies-{{ checksum "package.json" }}
       #     - v1-dependencies-
       - run:
-          name: Install tools - WUF
+          name: Install WUF
           command: |
-            apk update && apk add git && apk add openssh
-            apk add tar
-            apk add ca-certificates
             yarn bootstrap
       - run:
-          name: Build application - WUF
+          name: Build WUF
           command: |
             yarn $BUILD_SCRIPT
       - run:
-          name: Test application - WUF
+          name: Test WUF
           command: |
             echo 'Bypassing test for now'
             # yarn test
       - run:
-          name: Deploy application - WUF
+          name: Deploy WUF
           command: |
             if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
               mkdir ~/.ssh
