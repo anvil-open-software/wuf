@@ -2,8 +2,6 @@ version: 2.0
 
 jobs:
   build:
-    # macos:
-    #   xcode: "9.0"
     docker:
       - image: wasvic/node_dev:1.0.0-FM-188-SNAPSHOT
         entrypoint: /bin/sh
@@ -13,22 +11,18 @@ jobs:
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
-
+    branches:
+      only:
+        - master
+        - WUF-41-CI
     steps:
-      # - run:
-      #     name: Show the Unix environment
-      #     command: |
-      #       uname
-
       #  chekout project
       - checkout
-
       # TODO Need to find out why this is not working
       # - restore_cache:
       #     keys:
       #     - v1-dependencies-{{ checksum "package.json" }}
       #     - v1-dependencies-
-
       - run:
           name: Install tools - WUF
           command: |
@@ -36,18 +30,15 @@ jobs:
             apk add tar
             apk add ca-certificates
             yarn bootstrap
-
       - run:
           name: Build application - WUF
           command: |
             yarn build
-
       - run:
           name: Test application - WUF
           command: |
             echo 'Bypassing test for now'
             # yarn test
-
       - run:
           name: Deploy application - WUF
           command: |
