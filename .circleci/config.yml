@@ -16,7 +16,7 @@ jobs:
         - master
         - WUF-41-CI
     steps:
-      #  chekout project
+      #  chekout projectt
       - checkout
       # TODO Need to find out why this is not working
       # - restore_cache:
