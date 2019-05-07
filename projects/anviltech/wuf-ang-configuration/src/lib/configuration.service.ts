@@ -49,11 +49,15 @@ export class WufConfigurationService implements OnInit {
     ngOnInit() {
     }
 
+    /**
+     * A getter to return the current config object.
+     */
     get config(): WufConfiguration {
         return this._config;
     }
 
     /**
+     A setter to apply a new or partial config.
      Setting config only applies new or updated properties from the new config into the old config using a merge.
      This is safer than simply replacing the config with whatever is passed in since this will ensure some important
      default values (like app id) are always present.  This also allows us to pass in incomplete config objects.
@@ -63,16 +67,35 @@ export class WufConfigurationService implements OnInit {
 
         const key = this.getStorageKey();
         this._saveConfig(this._config, key);
-        this.broadCastConfigChange(this._config);
+        this._broadCastConfigChange(this._config);
     }
 
+    /**
+     * Unlike the config setter, this method will not store a config to local storage.  This is helpful when a user may
+     * want to play around with a config without permanently storing it.
+     * @param newConfig
+     */
+    setTempConfig(newConfig: WufConfiguration) {
+        this._config = deepMerge(this._config, newConfig);
+        const key = this.getStorageKey();
+        this._broadCastConfigChange(this._config);
+    }
+
+    /**
+     * Override the default storage key name with another key name.
+     * @param keyName
+     */
     setStorageKey(keyName: string) {
         // Override the default storage key
         this._storageKey = keyName;
     }
 
+    /**
+     * Get the default storage key name
+     * @param appId
+     * @param userId
+     */
     getStorageKey(appId?: string, userId?: string): string {
-
         if (this._storageKey) {
             return this._storageKey;
         }
@@ -85,11 +108,6 @@ export class WufConfigurationService implements OnInit {
         }
     }
 
-    broadCastConfigChange(newConfig: WufConfiguration) {
-        // Broadcast that a config property has been updated with a new value
-        this.configSubject.next(newConfig);
-    }
-
     onConfigChange(): Observable<WufConfiguration> {
         // Allow other components to subscribe to config change events
         return this.configSubject.asObservable();
@@ -100,6 +118,11 @@ export class WufConfigurationService implements OnInit {
         const key = storageKey ? storageKey : this.getStorageKey();
 
         return this._getStoredConfig(key);
+    }
+
+    private _broadCastConfigChange(newConfig: WufConfiguration) {
+        // Broadcast that a config property has been updated with a new value
+        this.configSubject.next(newConfig);
     }
 
     private _getStoredConfig(storageKey?: string) {

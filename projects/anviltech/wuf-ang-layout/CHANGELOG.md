@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.6] - 2019-05-14
+### Changed
+- Component now subscribes to configuration changes instead of checking configuration service properties directly from the template.
+
 ## [2.0.0-rc.5] - 2019-04-05
 ### Fixed
 - Removed animation effect on the sidebar when its orientation is top

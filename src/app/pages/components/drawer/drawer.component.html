@@ -25,7 +25,7 @@
 
         <!-- EXAMPLE Content -->
         <div class="component_tabs_1">
-            <button mat-raised-button (click)="openDrawer()">Show drawer</button>
+            <button mat-raised-button (click)="toggleDrawer()"><span [innerHTML]="drawerLabel"></span> drawer</button>
 
             <hr>
 
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <wuf-drawer header="Hey There" id="helloDrawer" [includeBackdrop]="includeBackdrop" [allowMinimize]="allowMinimize" [minimized]="minimized">
+            <wuf-drawer header="Hey There" [id]="drawerId" [includeBackdrop]="includeBackdrop" [allowMinimize]="allowMinimize" [minimized]="minimized">
                 Hi.  I'm a drawer.
 
                 <ng-container drawerFooter>
@@ -79,6 +79,11 @@
                 <tr>
                     <td class="prop-name">WufDrawerService.hide(id: string)</td>
                     <td class="prop-description">Hides the drawer.  Takes unique ID of drawer to hide.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">WufDrawerService.isActive(id: string)</td>
+                    <td class="prop-description">Checks if a drawer with the identified ID is currently active (i.e., shown).
                     </td>
                 </tr>
                 </tbody>
