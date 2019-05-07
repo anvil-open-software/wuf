@@ -5,10 +5,11 @@
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatAutocompleteModule, MatChipsModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsComponent } from './forms.component';
+import { CustomMaterialModule } from '../../../_internal/material.module';
 
 
 describe('FormsComponent', () => {
@@ -21,12 +22,9 @@ describe('FormsComponent', () => {
                 CUSTOM_ELEMENTS_SCHEMA
             ],
             imports: [
-                FormsModule,
+                BrowserAnimationsModule,
                 ReactiveFormsModule,
-                MatAutocompleteModule,
-                MatChipsModule,
-                MatDatepickerModule,
-                MatNativeDateModule
+                CustomMaterialModule.forRoot()
             ],
             declarations: [FormsComponent]
         })
