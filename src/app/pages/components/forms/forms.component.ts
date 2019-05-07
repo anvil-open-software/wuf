@@ -3,14 +3,14 @@
  * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
  */
 
-import {Component, OnInit, ViewEncapsulation, ViewChild, ElementRef} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
-import {coerceNumberProperty} from '@angular/cdk/coercion';
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { Component, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { coerceNumberProperty } from '@angular/cdk/coercion';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
-import { MatDialog, MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete} from '@angular/material';
+import { MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete } from '@angular/material';
 
 import { WufDrawerService } from '@anviltech/wuf-ang-drawer';
 
@@ -23,11 +23,49 @@ import { WufDrawerService } from '@anviltech/wuf-ang-drawer';
 })
 export class FormsComponent implements OnInit {
 
-    // Example form elements
-    selectValue = 'option2';
-    clearValue = '';
-    requiredInput = new FormControl('', [Validators.required]);
-    requiredInputValue = '';
+    // Form model
+    formGroup: FormGroup;
+    formModel: any = {
+        // Include all properties (including those not displayed) that must be submitted
+        textInput: [''],
+        hintTextInput: [''],
+        maxLengthInput: [''],
+        requiredInput: ['', [Validators.required, Validators.email]],
+        disabledInput: [{value: '', disabled: true}],
+        readOnlyInput: [{value: '', disabled: true}],
+        textAreaInput: [''],
+        selectInput: [],
+        multiselectInput: [['option1', 'option3']],
+        dateInput: [''],
+        textPrefixInput: [''],
+        iconPrefixInput: [''],
+        iconSuffixInput: [''],
+        clearableInput: [''],
+        placeholderInput: [''],
+        sliderInput: [40],
+        radioGroup: ['1'],
+        check1: [],
+        check2: [],
+        check3: [true],
+        check4: [],
+        check5: [],
+        check6: [],
+        slide1: [],
+        slide2: [],
+        slide3: [true],
+        slide4: [],
+        slide5: [],
+        slide6: [],
+        childForm: this.formBuilder.group({
+            firstName: [''],
+            lastName: [''],
+            address1: [''],
+            address2: [''],
+            city: [''],
+            state: [''],
+            postalCode: [''],
+        }),
+    };
 
     // Slider settings
     autoTicks = false;
@@ -39,7 +77,6 @@ export class FormsComponent implements OnInit {
     step = 10;
     thumbLabel = true;
     vertical = false;
-    sliderValue: number = 0;
 
     // Chip inputs
     visible = true;
@@ -53,7 +90,6 @@ export class FormsComponent implements OnInit {
     allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
     @ViewChild('fruitInput1') fruitInput1: ElementRef<HTMLInputElement>;
     @ViewChild('auto') matAutocomplete: MatAutocomplete;
-
     fruits2: any[] = [
         {name: 'Lemon'},
         {name: 'Lime'},
@@ -62,7 +98,7 @@ export class FormsComponent implements OnInit {
 
     constructor(
         private drawerService: WufDrawerService,
-        public materialDialog: MatDialog,
+        private formBuilder: FormBuilder
     ) {
         this.filteredFruits = this.fruitCtrl1.valueChanges.pipe(
             startWith(null),
@@ -79,12 +115,21 @@ export class FormsComponent implements OnInit {
 
 
     ngOnInit() {
+        // Set up the form using FormBuilder
+        this.formGroup = this.formBuilder.group(this.formModel);
+
+        // Init the form with the data model
+        this.formGroup.patchValue({});
     }
 
     getErrorMessage() {
-        return this.requiredInput.hasError('required') ? 'You must enter a value' :
-            this.requiredInput.hasError('email') ? 'Not a valid email' :
-                '';
+        return this.formGroup.controls.requiredInput.hasError('required') ? 'You must enter a value' :
+            this.formGroup.controls.requiredInput.hasError('email') ? 'Not a valid email' : '';
+    }
+
+    // convenience getter for easy access to form fields
+    get f() {
+        return this.formGroup.controls;
     }
 
     /***** chips *****/
