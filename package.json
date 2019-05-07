@@ -10,7 +10,7 @@
     "ng": "ng",
     "start": "ng serve --aot",
     "build": "ng build --aot",
-    "build-circleci": "ng build --aot --base-href /wuf --deploy-url /",
+    "build-circleci": "ng build --aot --base-href /wuf --deploy-url /wuf",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "extract-i18n": "ng xi18n --output-path src/locale && xliffmerge --profile xliffmerge.json",
