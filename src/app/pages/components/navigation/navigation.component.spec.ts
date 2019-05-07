@@ -14,6 +14,7 @@ import { WufNavigationModule, WufNavigationService } from '@anviltech/wuf-ang-na
 
 import { NavigationComponent } from './navigation.component';
 import { NgxMdModule } from 'ngx-md';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('NavigationComponent', () => {
@@ -31,7 +32,8 @@ describe('NavigationComponent', () => {
             imports: [
                 RouterTestingModule,
                 WufNavigationModule,
-                NgxMdModule
+                NgxMdModule,
+                HttpClientTestingModule
             ],
             providers: [WufNavigationService]
         })

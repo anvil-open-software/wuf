@@ -10,6 +10,7 @@ import { LoginComponent } from './login.component';
 import { WufLoginService } from '@anviltech/wuf-ang-login-animated';
 import { WufLayoutService } from '@anviltech/wuf-ang-layout';
 import { NgxMdModule } from 'ngx-md';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('LoginComponent', () => {
@@ -21,7 +22,10 @@ describe('LoginComponent', () => {
             schemas: [
                 CUSTOM_ELEMENTS_SCHEMA
             ],
-            imports: [NgxMdModule],
+            imports: [
+                NgxMdModule,
+                HttpClientTestingModule
+            ],
             declarations: [LoginComponent],
             providers: [
                 WufLoginService,

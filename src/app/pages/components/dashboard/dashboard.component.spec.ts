@@ -8,6 +8,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { DashboardComponent } from './dashboard.component';
 import { NgxMdModule } from 'ngx-md';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('DashboardComponent', () => {
@@ -19,7 +20,10 @@ describe('DashboardComponent', () => {
             schemas: [
                 CUSTOM_ELEMENTS_SCHEMA
             ],
-            imports: [NgxMdModule],
+            imports: [
+                NgxMdModule,
+                HttpClientTestingModule
+            ],
             declarations: [DashboardComponent]
         })
         .compileComponents();

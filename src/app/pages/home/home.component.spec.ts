@@ -13,6 +13,7 @@ import { WufContentFooterService } from '@anviltech/wuf-ang-layout';
 import { NgxMdModule } from 'ngx-md';
 
 import { HomeComponent } from './home.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('HomeComponent', () => {
@@ -29,7 +30,8 @@ describe('HomeComponent', () => {
             ],
             imports: [
                 RouterTestingModule,
-                NgxMdModule
+                NgxMdModule,
+                HttpClientTestingModule
             ],
             providers: [
                 WufContentFooterService

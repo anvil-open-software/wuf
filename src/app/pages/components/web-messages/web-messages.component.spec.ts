@@ -6,11 +6,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 import { NgxMdModule } from 'ngx-md';
 
 import { WebMessagesComponent } from './web-messages.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('WufWebMessagesComponent', () => {
@@ -27,9 +27,9 @@ describe('WufWebMessagesComponent', () => {
             ],
             providers: [],
             imports: [
-                RouterTestingModule,
                 FormsModule,
-                NgxMdModule
+                NgxMdModule,
+                HttpClientTestingModule
             ]
         })
         .compileComponents();
