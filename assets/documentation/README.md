@@ -1,5 +1,5 @@
 
-**WUF-41**: [![CircleCI](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI.svg?style=svg)](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI)
+**WUF-41**: [![CircleCI](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI.svg?style=svg)](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI) [Living Style Guide Online Application](https://anvil-open-software.github.io/wuf/)
 
 Installation & Development of the Web UI Framework (WUF)
 ====================================================
