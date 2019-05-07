@@ -49,13 +49,13 @@ export class FormsComponent implements OnInit {
         check3: [true],
         check4: [],
         check5: [],
-        check6: [],
+        check6: [{value: '', disabled: true}],
         slide1: [],
         slide2: [],
         slide3: [true],
         slide4: [],
         slide5: [],
-        slide6: [],
+        slide6: [{value: '', disabled: true}],
         childForm: this.formBuilder.group({
             firstName: [''],
             lastName: [''],
@@ -69,7 +69,6 @@ export class FormsComponent implements OnInit {
 
     // Slider settings
     autoTicks = false;
-    disabled = false;
     invert = false;
     max = 100;
     min = 0;
