@@ -95,7 +95,7 @@
                                 <mat-option value="option1">Option 1</mat-option>
                                 <mat-option value="option2">Option 2</mat-option>
                                 <mat-option value="option3">Option 3</mat-option>
-                                <mat-option value="option4" disabled>Option 4 (disabled)</mat-option>
+                                <mat-option value="option4">Option 4</mat-option>
                                 <mat-option value="option5">Option 5</mat-option>
                             </mat-select>
                         </mat-form-field>
@@ -191,7 +191,6 @@
 
                         <mat-slider
                             formControlName="sliderInput"
-                            [disabled]="disabled"
                             [invert]="invert"
                             [max]="max"
                             [min]="min"
@@ -214,7 +213,7 @@
                             <mat-radio-button value="3" color="primary">Option 3</mat-radio-button>
                             <mat-radio-button value="4" color="primary">Option 4</mat-radio-button>
                             <mat-radio-button value="5" color="primary">Option 5</mat-radio-button>
-                            <mat-radio-button value="6" color="primary" [disabled]="true">Option 6 (disabled)</mat-radio-button>
+                            <mat-radio-button value="6" color="primary">Option 6</mat-radio-button>
                         </mat-radio-group>
 
                         <hr>
@@ -228,7 +227,7 @@
                             <mat-checkbox formControlName="check3" color="primary">Option 3</mat-checkbox>
                             <mat-checkbox formControlName="check4" color="primary">Option 4</mat-checkbox>
                             <mat-checkbox formControlName="check5" color="primary">Option 5</mat-checkbox>
-                            <mat-checkbox formControlName="check6" color="primary" [disabled]="true">Option 6 (disabled)</mat-checkbox>
+                            <mat-checkbox formControlName="check6" color="primary">Option 6 (disabled)</mat-checkbox>
                         </div>
 
                         <hr>
@@ -242,7 +241,7 @@
                             <mat-slide-toggle formControlName="slide3" labelPosition="before" color="primary">Option 3</mat-slide-toggle>
                             <mat-slide-toggle formControlName="slide4" labelPosition="before" color="primary">Option 4</mat-slide-toggle>
                             <mat-slide-toggle formControlName="slide5" labelPosition="before" color="primary">Option 5</mat-slide-toggle>
-                            <mat-slide-toggle formControlName="slide6" labelPosition="before" color="primary" [disabled]="true">Option 6 (disabled)</mat-slide-toggle>
+                            <mat-slide-toggle formControlName="slide6" labelPosition="before" color="primary">Option 6 (disabled)</mat-slide-toggle>
                         </div>
 
                         <hr>
