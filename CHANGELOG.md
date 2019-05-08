@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-rc.11] - 2019-05-07
+### Added
+- Added continuous build and continuous deployment to [GitHub](https://anvil-open-software.github.io/wuf/); this is work in progress, with the outstanding issue being to understand and account for Angular's handling of asset and route URLs When deploying to a folder other than the root.
+
 ## [2.0.0-rc.10] - 2019-05-07
 ### Fixed
 - Adding HttpClientTestingModule to any tests that use ngxMdModule to prevent it from emitting confusing error message.  This fixes https://github.com/anvil-open-software/wuf/issues/33.
