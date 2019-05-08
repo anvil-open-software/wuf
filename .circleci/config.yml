@@ -1,5 +1,15 @@
 version: 2.0
 
+# Acceptance Criteria
+#
+# Given a feature branch of WUF
+# When it changes on GitHub
+# Then its code is built and tested but not published
+#
+# Given origin/master of WUF
+# When it changes on GitHub
+# Then its code is built, tested, tagged and the packages pushed to NPM, and the project’s Git pages
+
 jobs:
   build:
     docker:
@@ -7,14 +17,14 @@ jobs:
         entrypoint: /bin/sh
     working_directory: ~/wuf
     environment:
-      - SOURCE_BRANCH: WUF-41-CI
+      - DEPLOY_BRANCH: WUF-41-CI
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
-    branches:
-      only:
-        - master
-        - WUF-41-CI
+    # branches:
+    #   only:
+    #     - master
+    #     - WUF-41-CI
     steps:
       - run:
           name: Install OS tools
@@ -36,7 +46,7 @@ jobs:
       - run:
           name: Build WUF
           command: |
-            yarn $BUILD_SCRIPT
+            yarn build-github
       - run:
           name: Test WUF
           command: |
@@ -45,7 +55,7 @@ jobs:
       - run:
           name: Deploy WUF
           command: |
-            if [ $CIRCLE_BRANCH == $SOURCE_BRANCH ]; then
+            if [ $CIRCLE_BRANCH == $DEPLOY_BRANCH ]; then
               # mkdir ~/.ssh
               # # echo 'github.com,192.30.253.112 ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==' >> ~/.ssh/known_hosts
               # ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
