@@ -39,10 +39,20 @@ jobs:
       #     keys:
       #     - v1-dependencies-{{ checksum "package.json" }}
       #     - v1-dependencies-
+      - restore_cache:
+        keys:
+          # when lock file changes, use increasingly general patterns to restore cache
+          - yarn-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - yarn-v1-{{ .Branch }}-
+          - node-v1-
       - run:
           name: Install WUF
           command: |
             yarn bootstrap
+      - save_cache:
+          paths:
+            - ./node_modules  # location depends on npm version
+          key: yarn-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           name: Build WUF
           command: |
@@ -50,7 +60,7 @@ jobs:
       - run:
           name: Test WUF
           command: |
-            ng test
+            #ng test
       - run:
           name: Deploy WUF
           # TODO: replace with a deploy.sh script
