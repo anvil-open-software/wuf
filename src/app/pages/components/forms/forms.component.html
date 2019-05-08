@@ -41,271 +41,271 @@
 
             <div class="row">
                 <div class="col col-lg-6">
-                    <mat-form-field>
-                        <input matInput placeholder="Text input">
-                    </mat-form-field>
 
-                    <mat-form-field>
-                        <input matInput placeholder="Text input with hint">
-                        <mat-hint align="start">Normal text input with a hint</mat-hint>
-                    </mat-form-field>
+                    <form class="example-form" [formGroup]="formGroup">
 
-                    <mat-form-field hintLabel="Max 30 characters">
-                        <input matInput #input maxlength="30" placeholder="Max width input">
-                        <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-                    </mat-form-field>
+                        <mat-form-field>
+                            <input formControlName="textInput" matInput placeholder="Text input">
+                        </mat-form-field>
 
-                    <mat-form-field>
-                        <input matInput placeholder="Required input" [formControl]="requiredInput" required name="requiredInput">
-                        <mat-error *ngIf="requiredInput.invalid">{{getErrorMessage()}}</mat-error>
-                        <span class="errorIcon" *ngIf="requiredInput.invalid && requiredInput.touched" matSuffix mat-icon-button>
+                        <mat-form-field>
+                            <input formControlName="hintTextInput" matInput placeholder="Text input with hint">
+                            <mat-hint align="start">Normal text input with a hint</mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field hintLabel="Max 10 characters">
+                            <input formControlName="maxLengthInput" matInput #maxLengthInput maxlength="10" placeholder="Max width input">
+                            <mat-hint align="end">{{maxLengthInput.value?.length || 0}}/10</mat-hint>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input formControlName="requiredInput" matInput placeholder="Required email input" required type="email">
+                            <mat-error *ngIf="f.requiredInput.invalid">{{getErrorMessage()}}</mat-error>
+                            <span class="errorIcon" *ngIf="f.requiredInput.invalid && f.requiredInput.touched" matSuffix mat-icon-button>
                             <mat-icon>error</mat-icon>
                         </span>
-                        <mat-hint align="start">This input is required</mat-hint>
-                    </mat-form-field>
-
-                    <mat-form-field>
-                        <input matInput placeholder="Disabled input" disabled value="I'm a disabled input">
-                    </mat-form-field>
-
-                    <mat-form-field class="readonly">
-                        <input matInput placeholder="Read-only input" disabled value="I'm a read-only input">
-                    </mat-form-field>
-
-                    <div class="textarea-wrap">
-                        <mat-form-field>
-                            <textarea matInput placeholder="Textarea"></textarea>
+                            <mat-hint align="start">This input is required</mat-hint>
                         </mat-form-field>
-                    </div>
 
-                    <mat-form-field>
-                        <mat-select placeholder="Select" [(value)]="selectValue">
-                            <mat-option>--</mat-option>
-                            <mat-option value="option1">Option 1</mat-option>
-                            <mat-option value="option2">Option 2</mat-option>
-                            <mat-option value="option3">Option 3</mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                        <mat-form-field>
+                            <input formControlName="disabledInput" matInput placeholder="Disabled input" value="I'm a disabled input">
+                        </mat-form-field>
 
-                    <mat-form-field>
-                        <mat-select placeholder="Multi-select" multiple>
-                            <mat-option value="option1">Option 1</mat-option>
-                            <mat-option value="option2">Option 2</mat-option>
-                            <mat-option value="option3">Option 3</mat-option>
-                            <mat-option value="option4" disabled>Option 4 (disabled)</mat-option>
-                            <mat-option value="option5">Option 5</mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                        <mat-form-field class="readonly">
+                            <input formControlName="readOnlyInput" matInput placeholder="Read-only input" value="I'm a read-only input">
+                        </mat-form-field>
 
-                    <hr>
+                        <div class="textarea-wrap">
+                            <mat-form-field>
+                                <textarea formControlName="textAreaInput" matInput placeholder="Textarea"></textarea>
+                            </mat-form-field>
+                        </div>
 
-                    <h3>Chips Inputs</h3>
+                        <mat-form-field>
+                            <mat-select formControlName="selectInput" placeholder="Select">
+                                <mat-option>--</mat-option>
+                                <mat-option value="option1">Option 1</mat-option>
+                                <mat-option value="option2">Option 2</mat-option>
+                                <mat-option value="option3">Option 3</mat-option>
+                            </mat-select>
+                        </mat-form-field>
 
-                    <mat-form-field class="example-chip-list">
-                        <mat-chip-list #chipList1>
-                            <mat-chip
-                                *ngFor="let fruit of fruits1"
-                                [selectable]="selectable"
-                                [removable]="removable"
-                                (removed)="remove1(fruit)">
-                                {{fruit}}
-                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                            </mat-chip>
-                            <input
-                                placeholder="Chips with Autocomplete"
-                                #fruitInput1
-                                [formControl]="fruitCtrl1"
-                                [matAutocomplete]="auto"
-                                [matChipInputFor]="chipList1"
-                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                                [matChipInputAddOnBlur]="addOnBlur"
-                                (matChipInputTokenEnd)="add1($event)">
-                        </mat-chip-list>
-                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="chipSelected($event)">
-                            <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
-                                {{fruit}}
-                            </mat-option>
-                        </mat-autocomplete>
-                    </mat-form-field>
+                        <mat-form-field>
+                            <mat-select formControlName="multiselectInput" placeholder="Multi-select" multiple>
+                                <mat-option value="option1">Option 1</mat-option>
+                                <mat-option value="option2">Option 2</mat-option>
+                                <mat-option value="option3">Option 3</mat-option>
+                                <mat-option value="option4">Option 4</mat-option>
+                                <mat-option value="option5">Option 5</mat-option>
+                            </mat-select>
+                        </mat-form-field>
 
-                    <mat-form-field class="example-chip-list">
-                        <mat-chip-list #chipList2>
-                            <mat-chip *ngFor="let fruit of fruits2" [selectable]="selectable"
-                                      [removable]="removable" (removed)="remove2(fruit)">
-                                {{fruit.name}}
-                                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                            </mat-chip>
-                            <input placeholder="Chips with no Autocomplete"
-                                   [matChipInputFor]="chipList2"
-                                   [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                                   [matChipInputAddOnBlur]="addOnBlur"
-                                   (matChipInputTokenEnd)="add2($event)">
-                        </mat-chip-list>
-                    </mat-form-field>
+                        <hr>
 
-                    <hr>
+                        <h3>Chips Inputs</h3>
 
-                    <h3>Example Text Inputs with Prefix/Suffixes</h3>
+                        <mat-form-field class="example-chip-list">
+                            <mat-chip-list #chipList1>
+                                <mat-chip
+                                    *ngFor="let fruit of fruits1"
+                                    [selectable]="selectable"
+                                    [removable]="removable"
+                                    (removed)="remove1(fruit)">
+                                    {{fruit}}
+                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                </mat-chip>
+                                <input
+                                    placeholder="Chips with Autocomplete"
+                                    #fruitInput1
+                                    [formControl]="fruitCtrl1"
+                                    [matAutocomplete]="auto"
+                                    [matChipInputFor]="chipList1"
+                                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                    [matChipInputAddOnBlur]="addOnBlur"
+                                    (matChipInputTokenEnd)="add1($event)">
+                            </mat-chip-list>
+                            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="chipSelected($event)">
+                                <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                                    {{fruit}}
+                                </mat-option>
+                            </mat-autocomplete>
+                        </mat-form-field>
 
-                    <mat-form-field>
-                        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker startView="year"></mat-datepicker>
-                    </mat-form-field>
+                        <mat-form-field class="example-chip-list">
+                            <mat-chip-list #chipList2>
+                                <mat-chip *ngFor="let fruit of fruits2" [selectable]="selectable"
+                                          [removable]="removable" (removed)="remove2(fruit)">
+                                    {{fruit.name}}
+                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                </mat-chip>
+                                <input placeholder="Chips with no Autocomplete"
+                                       [matChipInputFor]="chipList2"
+                                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                       [matChipInputAddOnBlur]="addOnBlur"
+                                       (matChipInputTokenEnd)="add2($event)">
+                            </mat-chip-list>
+                        </mat-form-field>
 
-                    <mat-form-field class="example-full-width">
-                        <span matPrefix>+1</span>
-                        <input type="tel" matInput placeholder="Input with text prefix">
-                    </mat-form-field>
+                        <hr>
 
-                    <mat-form-field class="example-full-width">
-                        <mat-icon matPrefix>phone</mat-icon>
-                        <input type="tel" matInput placeholder="Input with icon prefix">
-                    </mat-form-field>
+                        <h3>Example Text Inputs with Prefix/Suffixes</h3>
 
-                    <mat-form-field class="example-full-width">
-                        <mat-icon matSuffix>phone</mat-icon>
-                        <input type="tel" matInput placeholder="Input with icon suffix">
-                    </mat-form-field>
+                        <mat-form-field>
+                            <input formControlName="dateInput" matInput [matDatepicker]="picker" placeholder="Choose a date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker startView="year"></mat-datepicker>
+                        </mat-form-field>
 
-                    <mat-form-field>
-                        <input matInput type="text" placeholder="Clearable input" [(ngModel)]="clearValue">
-                        <button mat-button *ngIf="clearValue" matSuffix mat-icon-button aria-label="Clear" (click)="clearValue=''">
-                            <mat-icon>close</mat-icon>
-                        </button>
-                    </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <span matPrefix>+1</span>
+                            <input formControlName="textPrefixInput" type="tel" matInput placeholder="Input with text prefix">
+                        </mat-form-field>
 
-                    <mat-form-field>
-                        <input type="tel" matInput>
-                        <mat-placeholder>
-                            <mat-icon>phone</mat-icon> Custom placeholder
-                        </mat-placeholder>
-                    </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                            <mat-icon matPrefix>phone</mat-icon>
+                            <input formControlName="iconPrefixInput" type="tel" matInput placeholder="Input with icon prefix">
+                        </mat-form-field>
 
-                    <hr>
+                        <mat-form-field class="example-full-width">
+                            <mat-icon matSuffix>phone</mat-icon>
+                            <input formControlName="iconSuffixInput" type="tel" matInput placeholder="Input with icon suffix">
+                        </mat-form-field>
 
-                    <h3>Slider</h3>
+                        <mat-form-field>
+                            <input formControlName="clearableInput" matInput type="text" placeholder="Clearable input">
+                            <button mat-button *ngIf="f.clearableInput.value" matSuffix mat-icon-button aria-label="Clear" (click)="f.clearableInput.setValue('')">
+                                <mat-icon>close</mat-icon>
+                            </button>
+                        </mat-form-field>
 
-                    <mat-slider
-                        [disabled]="disabled"
-                        [invert]="invert"
-                        [max]="max"
-                        [min]="min"
-                        [step]="step"
-                        [thumbLabel]="thumbLabel"
-                        [tickInterval]="tickInterval"
-                        [(ngModel)]="sliderValue"
-                        [vertical]="vertical"
-                        color="primary">
-                    </mat-slider>
+                        <mat-form-field>
+                            <input formControlName="placeholderInput" type="tel" matInput>
+                            <mat-placeholder>
+                                <mat-icon>phone</mat-icon> Custom placeholder
+                            </mat-placeholder>
+                        </mat-form-field>
 
-                    <hr>
+                        <hr>
 
-                    <h3>Example Radio Controls</h3>
+                        <h3>Slider</h3>
 
-                    <div class="label">Choose an option</div>
+                        <mat-slider
+                            formControlName="sliderInput"
+                            [invert]="invert"
+                            [max]="max"
+                            [min]="min"
+                            [step]="step"
+                            [thumbLabel]="thumbLabel"
+                            [tickInterval]="tickInterval"
+                            [vertical]="vertical"
+                            color="primary">
+                        </mat-slider>
 
-                    <mat-radio-group
-                        name="radioExample"
-                        id="radioExample"
-                        class="mat-radio-group"
-                    >
-                        <mat-radio-button value="1" color="primary">Option 1</mat-radio-button>
-                        <mat-radio-button value="2" color="primary">Option 2</mat-radio-button>
-                        <mat-radio-button value="3" color="primary">Option 3</mat-radio-button>
-                        <mat-radio-button value="4" color="primary">Option 4</mat-radio-button>
-                        <mat-radio-button value="5" color="primary">Option 5</mat-radio-button>
-                        <mat-radio-button value="6" color="primary" [disabled]="true">Option 6 (disabled)</mat-radio-button>
-                    </mat-radio-group>
+                        <hr>
 
-                    <hr>
+                        <h3>Example Radio Controls</h3>
 
-                    <h3>Example Checkbox Controls</h3>
+                        <div class="label">Choose an option</div>
 
-                    <div class="label">Choose several options</div>
-                    <div class="mat-checkbox-group">
-                        <mat-checkbox color="primary">Option 1</mat-checkbox>
-                        <mat-checkbox color="primary">Option 2</mat-checkbox>
-                        <mat-checkbox color="primary">Option 3</mat-checkbox>
-                        <mat-checkbox color="primary">Option 4</mat-checkbox>
-                        <mat-checkbox color="primary">Option 5</mat-checkbox>
-                        <mat-checkbox color="primary" [disabled]="true">Option 6 (disabled)</mat-checkbox>
-                    </div>
+                        <mat-radio-group formControlName="radioGroup" class="mat-radio-group">
+                            <mat-radio-button value="1" color="primary">Option 1</mat-radio-button>
+                            <mat-radio-button value="2" color="primary">Option 2</mat-radio-button>
+                            <mat-radio-button value="3" color="primary">Option 3</mat-radio-button>
+                            <mat-radio-button value="4" color="primary">Option 4</mat-radio-button>
+                            <mat-radio-button value="5" color="primary">Option 5</mat-radio-button>
+                            <mat-radio-button value="6" color="primary">Option 6</mat-radio-button>
+                        </mat-radio-group>
 
-                    <hr>
+                        <hr>
 
-                    <h3>Switch Controls (aka, Slide Toggles)</h3>
+                        <h3>Example Checkbox Controls</h3>
 
-                    <div class="label">Enable different options</div>
-                    <div class="mat-slide-toggle-group full-width">
-                        <mat-slide-toggle labelPosition="before" color="primary">Option 1</mat-slide-toggle>
-                        <mat-slide-toggle labelPosition="before" color="primary">Option 2</mat-slide-toggle>
-                        <mat-slide-toggle labelPosition="before" color="primary">Option 3</mat-slide-toggle>
-                        <mat-slide-toggle labelPosition="before" color="primary">Option 4</mat-slide-toggle>
-                        <mat-slide-toggle labelPosition="before" color="primary">Option 5</mat-slide-toggle>
-                        <mat-slide-toggle labelPosition="before" color="primary" [disabled]="true">Option 6 (disabled)</mat-slide-toggle>
-                    </div>
+                        <div class="label">Choose several options</div>
+                        <div class="mat-checkbox-group">
+                            <mat-checkbox formControlName="check1" color="primary">Option 1</mat-checkbox>
+                            <mat-checkbox formControlName="check2" color="primary">Option 2</mat-checkbox>
+                            <mat-checkbox formControlName="check3" color="primary">Option 3</mat-checkbox>
+                            <mat-checkbox formControlName="check4" color="primary">Option 4</mat-checkbox>
+                            <mat-checkbox formControlName="check5" color="primary">Option 5</mat-checkbox>
+                            <mat-checkbox formControlName="check6" color="primary">Option 6 (disabled)</mat-checkbox>
+                        </div>
 
-                    <hr>
+                        <hr>
 
-                    <h3>Example Form in Table</h3>
+                        <h3>Switch Controls (aka, Slide Toggles)</h3>
 
-                    <p>The following table demonstrates how to place related form inputs side-by-side.</p>
+                        <div class="label">Enable different options</div>
+                        <div class="mat-slide-toggle-group full-width">
+                            <mat-slide-toggle formControlName="slide1" labelPosition="before" color="primary">Option 1</mat-slide-toggle>
+                            <mat-slide-toggle formControlName="slide2" labelPosition="before" color="primary">Option 2</mat-slide-toggle>
+                            <mat-slide-toggle formControlName="slide3" labelPosition="before" color="primary">Option 3</mat-slide-toggle>
+                            <mat-slide-toggle formControlName="slide4" labelPosition="before" color="primary">Option 4</mat-slide-toggle>
+                            <mat-slide-toggle formControlName="slide5" labelPosition="before" color="primary">Option 5</mat-slide-toggle>
+                            <mat-slide-toggle formControlName="slide6" labelPosition="before" color="primary">Option 6 (disabled)</mat-slide-toggle>
+                        </div>
 
-                    <form class="example-form inlineInputs">
+                        <hr>
 
-                        <table class="full-width">
-                            <tr>
-                                <td>
-                                    <mat-form-field>
-                                        <input matInput placeholder="First name">
-                                    </mat-form-field></td>
-                                <td>
-                                    <mat-form-field>
-                                        <input matInput placeholder="Last name">
-                                    </mat-form-field>
-                                </td>
-                            </tr>
-                        </table>
+                        <h3>Example Form in Table</h3>
 
-                        <table class="full-width">
-                            <tr>
-                                <td>
-                                    <mat-form-field>
-                                        <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
-                                    </mat-form-field>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <mat-form-field>
-                                        <textarea matInput placeholder="Address 2"></textarea>
-                                    </mat-form-field>
-                                </td>
-                            </tr>
-                        </table>
+                        <p>The following table demonstrates how to place related form inputs side-by-side.</p>
 
-                        <table class="full-width">
-                            <tr>
-                                <td>
-                                    <mat-form-field>
-                                    <input matInput placeholder="City">
-                                    </mat-form-field>
-                                </td>
-                                <td style="max-width: 75px">
-                                    <mat-form-field>
-                                        <input matInput placeholder="State">
-                                    </mat-form-field>
-                                </td>
-                                <td style="max-width: 100px">
-                                    <mat-form-field>
-                                    <input matInput #postalCode maxlength="5" placeholder="Postal Code">
-                                        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
-                                    </mat-form-field>
-                                </td>
-                            </tr>
-                        </table>
+                        <div formGroupName="childForm">
+                            <table class="full-width">
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
+                                            <input formControlName="firstName" matInput placeholder="First name">
+                                        </mat-form-field></td>
+                                    <td>
+                                        <mat-form-field>
+                                            <input formControlName="lastName" matInput placeholder="Last name">
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table class="full-width">
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
+                                            <textarea formControlName="address1" matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
+                                            <textarea formControlName="address2" matInput placeholder="Address 2"></textarea>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table class="full-width">
+                                <tr>
+                                    <td>
+                                        <mat-form-field>
+                                            <input formControlName="city" matInput placeholder="City">
+                                        </mat-form-field>
+                                    </td>
+                                    <td style="max-width: 75px">
+                                        <mat-form-field>
+                                            <input formControlName="state" matInput placeholder="State">
+                                        </mat-form-field>
+                                    </td>
+                                    <td style="max-width: 100px">
+                                        <mat-form-field>
+                                            <input formControlName="postalCode" matInput #postalCode maxlength="5" placeholder="Postal Code">
+                                            <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+                                        </mat-form-field>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
                     </form>
+
                 </div>
             </div>
         </div>

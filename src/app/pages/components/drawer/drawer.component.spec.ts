@@ -5,6 +5,7 @@
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { DrawerComponent } from './drawer.component';
 import { NgxMdModule } from 'ngx-md';
@@ -19,7 +20,10 @@ describe('DrawerComponent', () => {
             schemas: [
                 CUSTOM_ELEMENTS_SCHEMA
             ],
-            imports: [NgxMdModule],
+            imports: [
+                NgxMdModule,
+                HttpClientTestingModule
+            ],
             declarations: [DrawerComponent]
         })
         .compileComponents();

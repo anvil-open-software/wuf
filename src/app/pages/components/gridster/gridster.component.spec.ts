@@ -8,6 +8,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { GridsterComponent } from './gridster.component';
 import { NgxMdModule } from 'ngx-md';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('GridsterComponent', () => {
@@ -19,7 +20,10 @@ describe('GridsterComponent', () => {
             schemas: [
                 CUSTOM_ELEMENTS_SCHEMA
             ],
-            imports: [NgxMdModule],
+            imports: [
+                NgxMdModule,
+                HttpClientTestingModule
+            ],
             declarations: [GridsterComponent]
         })
         .compileComponents();

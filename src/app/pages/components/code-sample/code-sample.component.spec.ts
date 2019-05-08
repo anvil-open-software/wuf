@@ -6,12 +6,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule } from '@angular/forms';
 
 import { NgxMdModule } from 'ngx-md';
 
 import { CodeSampleComponent } from './code-sample.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('CodeSampleComponent', () => {
@@ -30,9 +30,9 @@ describe('CodeSampleComponent', () => {
             ],
             providers: [],
             imports: [
-                RouterTestingModule,
                 FormsModule,
-                NgxMdModule
+                NgxMdModule,
+                HttpClientTestingModule
             ]
         })
         .compileComponents();

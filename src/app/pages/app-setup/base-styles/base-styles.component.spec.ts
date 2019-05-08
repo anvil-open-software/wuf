@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { NgxMdModule } from 'ngx-md';
 
 import { SetupBaseStylesComponent } from './base-styles.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('SetupBaseStylesComponent', () => {
@@ -33,7 +34,8 @@ describe('SetupBaseStylesComponent', () => {
             imports: [
                 RouterTestingModule,
                 FormsModule,
-                NgxMdModule
+                NgxMdModule,
+                HttpClientTestingModule
             ]
         })
         .compileComponents();

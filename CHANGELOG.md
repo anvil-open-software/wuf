@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-rc.10] - 2019-05-07
+### Fixed
+- Adding HttpClientTestingModule to any tests that use ngxMdModule to prevent it from emitting confusing error message.  This fixes https://github.com/anvil-open-software/wuf/issues/33.
+
 ## [2.0.0-rc.9] - 2019-05-01
 ### Added
 - Document the new isActive() method for the drawer.
