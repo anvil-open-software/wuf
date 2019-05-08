@@ -5,9 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [2.0.0-rc.11] - 2019-05-07
+## [2.0.0-rc.11] - 2019-05-08
 ### Added
-- Added continuous build and continuous deployment to [GitHub](https://anvil-open-software.github.io/wuf/); this is work in progress, with the outstanding issue being to understand and account for Angular's handling of asset and route URLs When deploying to a folder other than the root.
+- Added continuous build and continuous deployment to [GitHub](https://anvil-open-software.github.io/wuf/); this is work in progress, with the outstanding issue being:
+- to understand and account for Angular's handling of asset and route URLs when deploying to a folder other than the root;
+- to develop an automated mechanism to publish WUF components that are new or changed;
+- to develop a mechanism to publish feature branches to GitHub pages.
 
 ## [2.0.0-rc.10] - 2019-05-07
 ### Fixed

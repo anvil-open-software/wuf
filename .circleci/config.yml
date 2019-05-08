@@ -34,7 +34,7 @@ jobs:
             apk add ca-certificates
       #  chekout projectt
       - checkout
-      # TODO Need to find out why this is not working
+      # TODO implement caching later: https://circleci.com/docs/2.0/caching/
       # - restore_cache:
       #     keys:
       #     - v1-dependencies-{{ checksum "package.json" }}
@@ -50,10 +50,10 @@ jobs:
       - run:
           name: Test WUF
           command: |
-            echo 'Bypassing test for now'
-            # yarn test
+            ng test
       - run:
           name: Deploy WUF
+          # TODO: replace with a deploy.sh script
           command: |
             if [ $CIRCLE_BRANCH == $DEPLOY_BRANCH ]; then
               # mkdir ~/.ssh
