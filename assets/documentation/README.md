@@ -1,7 +1,10 @@
 
-**WUF-41**: [![CircleCI](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI.svg?style=svg)](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI) [Living Style Guide Online Application](https://anvil-open-software.github.io/wuf/)
+[![CircleCI](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI.svg?style=svg)](https://circleci.com/gh/anvil-open-software/wuf/tree/master) [Living Style Guide Online Application](https://anvil-open-software.github.io/wuf/)
 
-:construction: This is work in progress, with the outstanding issue being to understand and account for Angular's handling of asset and route URLs when deploying to a folder other than the root.
+:construction: This is work in progress, with the outstanding issues being
+- to understand and account for Angular's handling of asset and route URLs when deploying to a folder other than the root;
+- to develop an automated mechanism to publish WUF components that are new or changed;
+- to develop a mechanism to publish feature branches to GitHub pages
 
 Installation & Development of the Web UI Framework (WUF)
 ====================================================
