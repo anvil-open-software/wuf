@@ -60,7 +60,7 @@ jobs:
       - run:
           name: Test WUF
           command: |
-            yarn circleci-unit-test
+            yarn unit-test-circleci
       - run:
           name: Deploy WUF
           # TODO: replace with a deploy.sh script
