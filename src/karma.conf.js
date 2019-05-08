@@ -31,7 +31,13 @@ module.exports = function (config) {
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: true,
-        browsers: ['ChromeHeadless'],
-        singleRun: false
+        browsers: ['Chrome'],
+        customLaunchers: {
+            MyHeadlessChrome: {
+               base: 'ChromeHeadless',
+               flags: ['--disable-translate', '--disable-extensions', '--remote-debugging-port=9223'']
+            }
+       },
+       singleRun: false
     });
 };

@@ -17,7 +17,8 @@
     "bootstrap": "yarn install && lerna bootstrap && lerna run packagr",
     "packagr": "lerna run packagr",
     "lerna:bootstrap": "lerna bootstrap",
-    "lerna:build": "lerna run build"
+    "lerna:build": "lerna run build",
+    "circleci-unit-test": "ng test --browsers=MyHeadlessChrome --single-run"
   },
   "private": true,
   "dependencies": {

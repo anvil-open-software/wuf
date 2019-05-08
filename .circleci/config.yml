@@ -38,7 +38,7 @@ jobs:
       # - restore_cache:
       #     keys:
       #     - v1-dependencies-{{ checksum "package.json" }}
-      #     - v1-dependencies-
+      #     - v1-dependencies--
       - restore_cache:
           keys:
             # when lock file changes, use increasingly general patterns to restore cache
@@ -60,7 +60,7 @@ jobs:
       - run:
           name: Test WUF
           command: |
-            #ng test
+            yarn circleci-unit-test
       - run:
           name: Deploy WUF
           # TODO: replace with a deploy.sh script
