@@ -18,7 +18,8 @@
     "packagr": "lerna run packagr",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:build": "lerna run build",
-    "circleci-unit-test": "ng test --browsers=MyHeadlessChrome --watch=false"
+    "unit-test": "ng test --browsers=sChrome",
+    "unit-test-circleci": "ng test --browsers=HeadlessChrome --watch=false"
   },
   "private": true,
   "dependencies": {
