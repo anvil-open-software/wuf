@@ -792,6 +792,15 @@ $wuf-input-hint-vert-padding: .3em;
                 background-color: var(--wuf-color-danger);
             }
         }
+        .mat-tab-label-container {
+            z-index: 1;
+        }
+        .mat-tab-body-wrapper {
+            z-index: 0;
+            .mat-tab-body {
+                z-index: 0;
+            }
+        }
     }
 
     /***** expansion panels *****/

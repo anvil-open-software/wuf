@@ -42,12 +42,13 @@
 }
 
 .toolbar {
+    z-index: 1;
+    position: relative;
     border-radius: 0;
     padding: 0;
     background-color: var(--toolbar-bg-color);
     height: auto;
     color: var(--toolbar-color);
-    position: relative;
     display: flex;
     flex-wrap: wrap; // allow us to do the line break for collapsing content
     align-items: center;
