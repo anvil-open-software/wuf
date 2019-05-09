@@ -21,6 +21,7 @@ jobs:
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
+      - CHROME_BIN: /usr/lib/chromium/chrome
     # branches:
     #   only:
     #     - master
