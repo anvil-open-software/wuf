@@ -76,8 +76,8 @@ WUF is comprised of a main application (Angular refers to this as a "workspace" 
 
 Once the above steps are completed, the Style Guide app should now be ready to run (see below).
 
-Running WUF and viewing the Living Style Guide
-----------------------------------------------
+Running WUF and viewing the Living Style Guide Locally
+-----------------------------------------------------
 To start the Living Style Guide application issue the following:
 
 ```bash
@@ -140,9 +140,11 @@ Once your merge has been reviewed and accepted, the Jenkins pipeline will automa
 
 Continuous Deployment
 ======================
-The Living Style Guide was built to run inside a Docker image and served with nginx as part of a continuous deployment workflow.
+The Living Style Guide was built to run inside a Docker image and be served with nginx as part of a continuous deployment workflow.
 
-While deployment will typically happen via a Jenkins workflow, you can also build and test the Docker image locally using the following commands.
+Every merge to master causes the hosted version of the Living Style Guide to be automatically deployed to [https://anvil-open-software.github.io/wuf](https://anvil-open-software.github.io/wuf), which can be viewed at any time.
+
+You can also build and test the Docker image locally using the following commands...
 
 ### Dependencies
 * [Docker](https://www.docker.com/)
