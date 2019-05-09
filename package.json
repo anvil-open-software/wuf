@@ -19,7 +19,7 @@
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:build": "lerna run build",
     "unit-test": "ng test --browsers=Chrome",
-    "unit-test-circleci": "ng test --browsers=HeadlessChrome --watch=false"
+    "unit-test-circleci": "ng test --browsers=MyChromeHeadless --watch=false"
   },
   "private": true,
   "dependencies": {
