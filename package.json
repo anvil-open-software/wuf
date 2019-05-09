@@ -1,6 +1,6 @@
 {
   "name": "@anviltech/wuf-web-ui-framework",
-  "version": "2.0.0-rc.11",
+  "version": "2.0.0-rc.10",
   "author": "Darren Luvaas",
   "repository": {
     "type": "git",
@@ -10,16 +10,14 @@
     "ng": "ng",
     "start": "ng serve --aot",
     "build": "ng build --aot",
-    "build-github": "ng build --aot --base-href /wuf/ --deploy-url /wuf/",
+    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "extract-i18n": "ng xi18n --output-path src/locale && xliffmerge --profile xliffmerge.json",
     "bootstrap": "yarn install && lerna bootstrap && lerna run packagr",
     "packagr": "lerna run packagr",
     "lerna:bootstrap": "lerna bootstrap",
-    "lerna:build": "lerna run build",
-    "unit-test": "ng test --browsers=Chrome",
-    "unit-test-circleci": "ng test --browsers=MyChromeHeadless --watch=false"
+    "lerna:build": "lerna run build"
   },
   "private": true,
   "dependencies": {
@@ -68,7 +66,6 @@
     "ng-packagr": "^4.2.0",
     "ngx-i18nsupport": "^0.8.6",
     "protractor": "~5.4.0",
-    "puppeteer": "1.15.0",
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
