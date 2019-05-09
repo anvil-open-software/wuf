@@ -29,9 +29,20 @@ jobs:
       - run:
           name: Install OS tools
           command: |
-            apk update && apk add git && apk add openssh
+            apk update && apk add git
+            apk add openssh
             apk add tar
             apk add ca-certificates
+            apk update && apk upgrade && \
+            echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+            echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
+            apk add --no-cache \
+               chromium@edge \
+               nss@edge \
+               freetype@edge \
+               harfbuzz@edge \
+               ttf-freefont@edge
+
       #  chekout projectt
       - checkout
       # TODO implement caching later: https://circleci.com/docs/2.0/caching/
@@ -60,7 +71,7 @@ jobs:
       - run:
           name: Test WUF
           command: |
-            yarn unit-test-circleci
+            ng test --browsers=ChromeHeadless --watch=false
       - run:
           name: Deploy WUF
           # TODO: replace with a deploy.sh script
