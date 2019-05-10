@@ -73,7 +73,7 @@ jobs:
       - run:
           name: Test WUF
           command: |
-            ng test --browsers=ChromeHeadless --watch=false
+            ng test --browsers=ChromeHeadless --watch=false --no-sandbox
       - run:
           name: Deploy WUF
           # TODO: replace with a deploy.sh script
