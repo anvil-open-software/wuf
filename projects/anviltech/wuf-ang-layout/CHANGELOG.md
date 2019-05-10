@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.9] - 2019-05-10
+### Changed
+- Set a z-index for sidebar.  This ensures that the sidebar will overlap any content toolbar in a navigation position = top arrangement.
+
 ## [2.0.0-rc.8] - 2019-05-09
 ### Fixed
 - Fix issue where content toolbar's dropshadow doesn't overlap tab contents.
