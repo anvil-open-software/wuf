@@ -3,15 +3,6 @@
  * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
  */
 
-// NOTE: We're basically pulling any remaining SCSS vars that use lighten,
-// darken, or rgba from Bootstrap and overriding with compatible CSS custom
-// properties.  That's why we need to define a new SASS function to avoid
-// collision with SASS's rgba function.
-
-@function css-rgba($prop, $amount) {
-    @return #{'rgba(' + $prop + ', ' + $amount + ')'};
-}
-
 // Utility mixins and functions for evalutating source code across our variables, maps, and mixins.
 
 // Ascending
