@@ -10,7 +10,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 - css-rgba(var(--wuf-color-rgb-primary), .54) needs to be wrapped in #{}.  Otherwise, active sliders weren't showing the correct background color.
 
-
 ## [2.0.0-rc.14] - 2019-05-09
 ### Fixed
 - Fix issue where content toolbar's dropshadow doesn't overlap tab contents.
