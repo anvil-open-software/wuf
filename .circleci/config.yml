@@ -43,6 +43,7 @@ jobs:
                freetype@edge \
                harfbuzz@edge \
                ttf-freefont@edge
+            apk add --no-cache ttf-freefont
 
       #  chekout projectt
       - checkout
