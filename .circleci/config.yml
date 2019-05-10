@@ -21,6 +21,7 @@ jobs:
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
+      - CHROME_BIN: /usr/lib/chromium/chrome
     # branches:
     #   only:
     #     - master
@@ -29,16 +30,28 @@ jobs:
       - run:
           name: Install OS tools
           command: |
-            apk update && apk add git && apk add openssh
+            apk update && apk add git
+            apk add openssh
             apk add tar
             apk add ca-certificates
+            apk update && apk upgrade && \
+            echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
+            echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
+            apk add --no-cache \
+               chromium@edge \
+               nss@edge \
+               freetype@edge \
+               harfbuzz@edge \
+               ttf-freefont@edge
+            apk add --no-cache ttf-freefont
+
       #  chekout projectt
       - checkout
       # TODO implement caching later: https://circleci.com/docs/2.0/caching/
       # - restore_cache:
       #     keys:
       #     - v1-dependencies-{{ checksum "package.json" }}
-      #     - v1-dependencies-
+      #     - v1-dependencies--
       - restore_cache:
           keys:
             # when lock file changes, use increasingly general patterns to restore cache
@@ -56,11 +69,13 @@ jobs:
       - run:
           name: Build WUF
           command: |
-            yarn build-github
+            ng build --aot --base-href /wuf/ --deploy-url /wuf/
       - run:
           name: Test WUF
           command: |
-            #ng test
+            # ng test --browsers CircleCI_ChromeHeadless --watch=false
+            # ng test --browsers CircleCI_ChromeHeadless
+            # ng test
       - run:
           name: Deploy WUF
           # TODO: replace with a deploy.sh script
