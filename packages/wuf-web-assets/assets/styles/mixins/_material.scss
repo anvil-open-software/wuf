@@ -682,7 +682,7 @@ $wuf-input-hint-vert-padding: .3em;
                     background-color: var(--wuf-color-primary);
                 }
                 .mat-slide-toggle-bar {
-                    background-color: css-rgba(var(--wuf-color-rgb-primary), .54);
+                    background-color: #{css-rgba(var(--wuf-color-rgb-primary), .54)};
                 }
             }
         }
@@ -694,7 +694,7 @@ $wuf-input-hint-vert-padding: .3em;
                     background-color: var(--wuf-color-accent);
                 }
                 .mat-slide-toggle-bar {
-                    background-color: css-rgba(var(--wuf-color-rgb-accent), .54);
+                    background-color: #{css-rgba(var(--wuf-color-rgb-accent), .54)};
                 }
             }
         }
@@ -706,7 +706,7 @@ $wuf-input-hint-vert-padding: .3em;
                     background-color: var(--wuf-color-danger);
                 }
                 .mat-slide-toggle-bar {
-                    background-color: css-rgba(var(--wuf-color-rgb-danger), .54);
+                    background-color: #{css-rgba(var(--wuf-color-rgb-danger), .54)};
                 }
             }
         }
@@ -798,7 +798,7 @@ $wuf-input-hint-vert-padding: .3em;
         .mat-tab-body-wrapper {
             z-index: 0;
             .mat-tab-body {
-                z-index: 0;
+                //z-index: 0;
             }
         }
     }
