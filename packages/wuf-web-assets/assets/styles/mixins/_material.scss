@@ -337,27 +337,6 @@ $wuf-input-hint-vert-padding: .3em;
     }
     .mat-select-panel {
         background-color: var(--wuf-color-white);
-        // primary color
-        .mat-primary {
-            // multi-select checkbox
-            .mat-pseudo-checkbox-checked {
-                background-color: var(--wuf-color-primary);
-            }
-        }
-        // accent color
-        .mat-accent {
-            // multi-select checkbox
-            .mat-pseudo-checkbox-checked {
-                background-color: var(--wuf-color-accent);
-            }
-        }
-        //danger color
-        .mat-danger {
-            // multi-select checkbox
-            .mat-pseudo-checkbox-checked {
-                background-color: var(--wuf-color-danger);
-            }
-        }
     }
     .mat-option {
         color: var(--wuf-body-color);
@@ -389,6 +368,10 @@ $wuf-input-hint-vert-padding: .3em;
             &.mat-selected:not(.mat-option-disabled) {
                 color: var(--wuf-color-primary);
             }
+            // multi-select checkbox
+            .mat-pseudo-checkbox-checked {
+                background: var(--wuf-color-primary);
+            }
         }
     }
     // accent color
@@ -398,6 +381,10 @@ $wuf-input-hint-vert-padding: .3em;
             &.mat-selected:not(.mat-option-disabled) {
                 color: var(--wuf-color-accent);
             }
+            // multi-select checkbox
+            .mat-pseudo-checkbox-checked {
+                background: var(--wuf-color-accent);
+            }
         }
     }
     //danger color
@@ -405,6 +392,10 @@ $wuf-input-hint-vert-padding: .3em;
         .mat-option {
             &.mat-selected:not(.mat-option-disabled) {
                 color: var(--wuf-color-danger);
+            }
+            // multi-select checkbox
+            .mat-pseudo-checkbox-checked {
+                background: var(--wuf-color-danger);
             }
         }
     }
