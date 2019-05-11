@@ -26,7 +26,7 @@ module.exports = function (config) {
             fixWebpackSourcePaths: true
         },
         files: [
-          { pattern: './src/**/*.spec.ts', watched: false }
+          { pattern: './wuf/src/**/*.spec.ts', watched: false }
         ],
         reporters: ['progress', 'kjhtml'],
         port: 9876,
