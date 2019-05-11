@@ -17,7 +17,7 @@ jobs:
         entrypoint: /bin/sh
     working_directory: ~/wuf
     environment:
-      - DEPLOY_BRANCH: WUF-41-CI
+      - DEPLOY_BRANCH: WUF-41-CI-tag
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
@@ -32,6 +32,7 @@ jobs:
           # TODO: replace with install_os_pkgs.sh script
           command: |
             apk update && apk add git
+            apk add bash
             apk add openssh
             apk add tar
             apk add ca-certificates
@@ -70,8 +71,23 @@ jobs:
           name: Test WUF
           command: |
             # ng test --browsers CircleCI_ChromeHeadless --watch=false
-            ng test --browsers CircleCI_ChromeHeadless
+            # ng test --browsers CircleCI_ChromeHeadless
             # ng test
+      - run:
+          name: Tag WUF
+          command: |
+            if [ $CIRCLE_BRANCH == $DEPLOY_BRANCH ]; then
+              git config --global user.email $GH_EMAIL
+              git config --global user.name $GH_NAME
+
+              GITTAG=v$(npx -c 'echo "$npm_package_version"')
+              echo Taging master: $GITTAG
+
+              # Using annotated tags; required to include tag to prevent build from running
+              # when checking in the tag [https://circleci.com/docs/2.0/skip-build/]
+              git tag -a $GITTAG -m "Pull Request Tag [skip build]"
+              git push origin $GITTAG
+            fi
       - run:
           name: Deploy WUF
           # TODO: replace with a deploy.sh script
