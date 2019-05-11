@@ -17,7 +17,7 @@ jobs:
         entrypoint: /bin/sh
     working_directory: ~/wuf
     environment:
-      - DEPLOY_BRANCH: WUF-41-CI
+      - DEPLOY_BRANCH: WUF-41-CI-KARMA
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
@@ -71,7 +71,7 @@ jobs:
           name: Test WUF
           command: |
             # ng test --browsers CircleCI_ChromeHeadless --watch=false
-            ng test --browsers CircleCI_ChromeHeadless
+            ng test --karmaConfig=src/karma.config.circleci.js
             # ng test
       - run:
           # TODO: Tagging is working, but disabled. Enable it when ready for production

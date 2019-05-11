@@ -29,8 +29,21 @@ module.exports = function (config) {
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
-        autoWatch: true,
-        browsers: ['Chrome'],
-        singleRun: false
+        autoWatch: false,
+        browsers: ['CircleCI_ChromeHeadless'],
+        customLaunchers: {
+          CircleCI_ChromeHeadless: {
+            base: 'Chrome',
+            flags: [
+              '--headless',
+              '--disable-gpu',
+              '--disable-translate',
+              '--disable-extensions',
+              '--no-sandbox',  // Added to fix an issue where of Failed to connect to chrome browser
+             '--remote-debugging-port=9222',
+            ],
+          }
+        },
+        singleRun: true
     });
 };
