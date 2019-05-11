@@ -71,7 +71,7 @@ jobs:
           name: Test WUF
           command: |
             # ng test --browsers CircleCI_ChromeHeadless --watch=false
-            ng test --karmaConfig=src/karma.config.circleci.js
+            ng test --karmaConfig=src/karma.conf.circleci.js
             # ng test
       - run:
           # TODO: Tagging is working, but disabled. Enable it when ready for production
