@@ -25,9 +25,6 @@ module.exports = function (config) {
             reports: ['html', 'lcovonly'],
             fixWebpackSourcePaths: true
         },
-        files: [
-          { pattern: '../wuf/src/app/**/*.spec.ts' }
-        ],
         reporters: ['progress', 'kjhtml'],
         port: 9876,
         colors: true,
