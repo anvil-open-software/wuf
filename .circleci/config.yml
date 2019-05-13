@@ -17,7 +17,7 @@ jobs:
         entrypoint: /bin/sh
     working_directory: ~/wuf
     environment:
-      - DEPLOY_BRANCH: WUF-41-CI-KARMA
+      - DEPLOY_BRANCH: WUF-41-CI
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
