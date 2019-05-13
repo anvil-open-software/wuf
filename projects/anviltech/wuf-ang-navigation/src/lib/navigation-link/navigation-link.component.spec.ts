@@ -51,9 +51,9 @@ describe('WufNavigationLinkComponent', () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(WufNavigationLinkComponent);
-        component.link = '/navlink';
-        component.label = '"nav link text"';
-        component.icon = '&#xE88A;';
+        // component.link = '/navlink';
+        // component.label = '"nav link text"';
+        // component.icon = '&#xE88A;';
         fixture.detectChanges();
     });
 
