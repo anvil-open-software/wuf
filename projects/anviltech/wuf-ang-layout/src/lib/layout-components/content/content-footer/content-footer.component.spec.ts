@@ -26,7 +26,8 @@ describe('WufContentFooterComponent', () => {
 
         TestBed.configureTestingModule({
             declarations: [
-                WufContentFooterComponent
+                WufContentFooterComponent,
+                WufCustomMatchers
             ],
             providers: [
                 WufContentFooterService
