@@ -28,6 +28,7 @@ describe('WufDrawerComponent', () => {
   });
 
   it('should create', () => {
+    component = fixture.componentInstance;
     expect(component).toBeTruthy();
   });
 });
