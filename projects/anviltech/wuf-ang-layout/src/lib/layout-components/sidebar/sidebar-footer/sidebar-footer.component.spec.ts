@@ -37,7 +37,7 @@ describe('WufSidebarFooterComponent', () => {
             ],
             declarations: [WufSidebarFooterComponent],
             providers: [WufSidebarService]
-        });
+        })
         .compileComponents();
 
         service = TestBed.get(WufSidebarService);

@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.16] - 2019-05-10
+### Fixed
+- Removing css-rgba() function due to some apparent inconsistency.
+- Ensure mat pseudo checkboxes are using CSS custom props for background color.
+- Fix tab body not clickable (bug introduced in 2.0.0-rc.14)
+
 ## [2.0.0-rc.15] - 2019-05-10
 ### Fixed
 - css-rgba(var(--wuf-color-rgb-primary), .54) needs to be wrapped in #{}.  Otherwise, active sliders weren't showing the correct background color.
