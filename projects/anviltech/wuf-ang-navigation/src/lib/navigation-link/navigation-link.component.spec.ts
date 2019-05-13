@@ -34,7 +34,7 @@ describe('WufNavigationLinkComponent', () => {
             ],
             providers: [
                 WufSidebarService,
-                TranslationService
+                TranslateService
             ]
         });
     }));
