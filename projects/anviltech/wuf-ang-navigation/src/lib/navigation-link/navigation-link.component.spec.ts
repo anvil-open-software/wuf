@@ -13,8 +13,8 @@ import { MatMenuModule, MatTooltipModule } from '@angular/material';
 import { WufSidebarService } from '@anviltech/wuf-ang-layout';
 
 import { WufNavigationLinkComponent } from './navigation-link.component';
-import { TranslateService } from '@ngx-translate/core';
-
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 describe('WufNavigationLinkComponent', () => {
     let component: WufNavigationLinkComponent;
@@ -27,7 +27,17 @@ describe('WufNavigationLinkComponent', () => {
                 RouterTestingModule,
                 HttpClientTestingModule,
                 MatTooltipModule,
-                MatMenuModule
+                MatMenuModule,
+                TranslateModule.forRoot({
+                    loader: {
+                        provide: TranslateLoader,
+                        useFactory: function () {
+                            return {};
+                        },
+                        deps: [HttpClient]
+                    },
+                    isolate: false
+                }),
             ],
             declarations: [
                 WufNavigationLinkComponent
