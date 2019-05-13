@@ -13,6 +13,7 @@ import { MatMenuModule, MatTooltipModule } from '@angular/material';
 import { WufSidebarService } from '@anviltech/wuf-ang-layout';
 
 import { WufNavigationLinkComponent } from './navigation-link.component';
+import { TranslateService } from '@ngx-translate/core';
 
 
 describe('WufNavigationLinkComponent', () => {
@@ -32,7 +33,8 @@ describe('WufNavigationLinkComponent', () => {
                 WufNavigationLinkComponent
             ],
             providers: [
-                WufSidebarService
+                WufSidebarService,
+                TranslationService
             ]
         });
     }));

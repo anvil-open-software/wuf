@@ -6,6 +6,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WufGridsterComponent } from './gridster.component';
+import { WufGridsterItem } from './gridster.interface';
+import { WufGridsterService } from './gridster.service';
 
 
 describe('WufGridsterComponent', () => {
@@ -14,7 +16,8 @@ describe('WufGridsterComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [WufGridsterComponent]
+            declarations: [WufGridsterComponent, WufGridsterItem],
+            providers: [WufGridsterService]
         })
         .compileComponents();
     }));

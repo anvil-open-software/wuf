@@ -6,6 +6,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { WufDrawerComponent } from './drawer.component';
+import { MatIconModule} from '@angular/material';
 
 describe('WufDrawerComponent', () => {
   let component: WufDrawerComponent;
@@ -13,7 +14,10 @@ describe('WufDrawerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WufDrawerComponent ]
+      declarations: [ WufDrawerComponent ],
+      imports: [
+        MatIconModule
+      ]
     })
     .compileComponents();
   }));
