@@ -90,7 +90,7 @@ jobs:
               	SECONDS_SINCE_EPOCH=$(date +%s)
               	GITTAG=$(echo $GITTAG-$SECONDS_SINCE_EPOCH)
               fi
-              echo Taging master: $GITTAG
+              echo Taging $CIRCLE_BRANCH: $GITTAG
 
               # Using annotated tags; required to include tag to prevent build from running
               # when checking in the tag [https://circleci.com/docs/2.0/skip-build/]
