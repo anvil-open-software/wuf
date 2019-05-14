@@ -34229,13 +34229,15 @@ var WufSmartTableServerDataSource = /** @class */ (function (_super) {
 /*!********************************************************************************!*\
   !*** ./projects/anviltech/wuf-ang-utils/dist/fesm5/anviltech-wuf-ang-utils.js ***!
   \********************************************************************************/
-/*! exports provided: WufSentenceCasePipe, WufUtilsModule, toInteger, toString, getValueInRange, isString, isNumber, isInteger, isObject, isDefined, padNumber, regExpEscape, deepFind, deepMerge */
+/*! exports provided: WufSentenceCasePipe, WufUtilsModule, expect, WufCustomMatchers, toInteger, toString, getValueInRange, isString, isNumber, isInteger, isObject, isDefined, padNumber, regExpEscape, deepFind, deepMerge */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WufSentenceCasePipe", function() { return WufSentenceCasePipe; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WufUtilsModule", function() { return WufUtilsModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "expect", function() { return expect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WufCustomMatchers", function() { return WufCustomMatchers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toInteger", function() { return toInteger; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toString", function() { return toString; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getValueInRange", function() { return getValueInRange; });
@@ -34298,6 +34300,516 @@ var WufSentenceCasePipe = /** @class */ (function () {
     ];
     return WufSentenceCasePipe;
 }());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+/**
+ * Exported DOM accessor utility functions
+ * @type {?}
+ */
+var _dom = {
+    hasStyle: hasStyle,
+    getDistributedNodes: getDistributedNodes,
+    getShadowRoot: getShadowRoot,
+    getText: getText,
+    getStyle: getStyle,
+    childNodes: childNodes,
+    childNodesAsList: childNodesAsList,
+    hasClass: hasClass,
+    hasShadowRoot: hasShadowRoot,
+    isCommentNode: isCommentNode,
+    isElementNode: isElementNode,
+    isPresent: isPresent,
+    isShadowRoot: isShadowRoot,
+    tagName: tagName
+};
+// ******************************************************************************************
+// These functions are cloned from
+//  *  @angular/platform-browser/src/browser/GenericBrowserDomAdapter
+// and are to be used ONLY internally in custom-matchers.ts and Unit Tests
+// ******************************************************************************************
+/**
+ * @param {?} element
+ * @param {?} stylename
+ * @return {?}
+ */
+function getStyle(element, stylename) {
+    return element.style[stylename];
+}
+/**
+ * @param {?} element
+ * @param {?} styleName
+ * @param {?=} styleValue
+ * @return {?}
+ */
+function hasStyle(element, styleName, styleValue) {
+    if (styleValue === void 0) { styleValue = null; }
+    /** @type {?} */
+    var value = this.getStyle(element, styleName) || '';
+    return styleValue ? value == styleValue : value.length > 0;
+}
+/**
+ * @param {?} el
+ * @return {?}
+ */
+function getDistributedNodes(el) {
+    return ((/** @type {?} */ (el))).getDistributedNodes();
+}
+/**
+ * @param {?} el
+ * @return {?}
+ */
+function getShadowRoot(el) {
+    return ((/** @type {?} */ (el))).shadowRoot;
+}
+/**
+ * @param {?} el
+ * @return {?}
+ */
+function getText(el) {
+    return el.textContent;
+}
+/**
+ * @param {?} el
+ * @return {?}
+ */
+function childNodesAsList(el) {
+    /** @type {?} */
+    var childNodes = el.childNodes;
+    /** @type {?} */
+    var res = new Array(childNodes.length);
+    for (var i = 0; i < childNodes.length; i++) {
+        res[i] = childNodes[i];
+    }
+    return res;
+}
+/**
+ * @param {?} element
+ * @param {?} className
+ * @return {?}
+ */
+function hasClass(element, className) {
+    return element.classList.contains(className);
+}
+/**
+ * @param {?} el
+ * @return {?}
+ */
+function childNodes(el) {
+    return el.childNodes;
+}
+/**
+ * @param {?} node
+ * @return {?}
+ */
+function hasShadowRoot(node) {
+    return isPresent(node.shadowRoot) && node instanceof HTMLElement;
+}
+/**
+ * @param {?} node
+ * @return {?}
+ */
+function isCommentNode(node) {
+    return node.nodeType === Node.COMMENT_NODE;
+}
+/**
+ * @param {?} node
+ * @return {?}
+ */
+function isElementNode(node) {
+    return node.nodeType === Node.ELEMENT_NODE;
+}
+/**
+ * @param {?} node
+ * @return {?}
+ */
+function isShadowRoot(node) {
+    return node instanceof DocumentFragment;
+}
+/**
+ * @param {?} obj
+ * @return {?}
+ */
+function isPresent(obj) {
+    return obj != null;
+}
+/**
+ * @param {?} element
+ * @return {?}
+ */
+function tagName(element) {
+    return element.tagName;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+/**
+ * Applies CSS prefixes to appropriate style keys.
+ * @param {?} target
+ * @return {?}
+ */
+function applyCssPrefixes(target) {
+    for (var key in target) {
+        /** @type {?} */
+        var value = target[key];
+        switch (key) {
+            case 'display':
+                target['display'] = value;
+                // also need 'display : -webkit-box' and 'display : -ms-flexbox;'
+                break;
+            case 'flex':
+                target['-ms-flex'] = value;
+                target['-webkit-box-flex'] = value.split(' ')[0];
+                break;
+            case 'flex-direction':
+                value = value || 'row';
+                target['flex-direction'] = value;
+                target['-ms-flex-direction'] = value;
+                target['-webkit-box-orient'] = toBoxOrient(value);
+                target['-webkit-box-direction'] = toBoxDirection(value);
+                break;
+            case 'flex-wrap':
+                target['-ms-flex-wrap'] = value;
+                break;
+            case 'order':
+                if (isNaN(value)) {
+                    value = '0';
+                }
+                target['order'] = value;
+                target['-ms-flex-order'] = value;
+                target['-webkit-box-ordinal-group'] = toBoxOrdinal(value);
+                break;
+            case 'justify-content':
+                target['-ms-flex-pack'] = toBoxValue(value);
+                target['-webkit-box-pack'] = toBoxValue(value);
+                break;
+            case 'align-items':
+                target['-ms-flex-align'] = toBoxValue(value);
+                target['-webkit-box-align'] = toBoxValue(value);
+                break;
+            case 'align-self':
+                target['-ms-flex-item-align'] = toBoxValue(value);
+                break;
+            case 'align-content':
+                target['-ms-align-content'] = toAlignContentValue(value);
+                target['-ms-flex-line-pack'] = toAlignContentValue(value);
+                break;
+        }
+    }
+    return target;
+}
+/**
+ * @param {?} value
+ * @return {?}
+ */
+function toAlignContentValue(value) {
+    switch (value) {
+        case 'space-between':
+            return 'justify';
+        case 'space-around':
+            return 'distribute';
+        default:
+            return toBoxValue(value);
+    }
+}
+/**
+ * Convert flex values flex-start, flex-end to start, end.
+ * @param {?=} value
+ * @return {?}
+ */
+function toBoxValue(value) {
+    if (value === void 0) { value = ''; }
+    return (value == 'flex-start') ? 'start' : ((value == 'flex-end') ? 'end' : value);
+}
+/**
+ * Convert flex Direction to Box orientation
+ * @param {?=} flexDirection
+ * @return {?}
+ */
+function toBoxOrient(flexDirection) {
+    if (flexDirection === void 0) { flexDirection = 'row'; }
+    return flexDirection.indexOf('column') === -1 ? 'horizontal' : 'vertical';
+}
+/**
+ * Convert flex Direction to Box direction type
+ * @param {?=} flexDirection
+ * @return {?}
+ */
+function toBoxDirection(flexDirection) {
+    if (flexDirection === void 0) { flexDirection = 'row'; }
+    return flexDirection.indexOf('reverse') !== -1 ? 'reverse' : 'normal';
+}
+/**
+ * Convert flex order to Box ordinal group
+ * @param {?=} order
+ * @return {?}
+ */
+function toBoxOrdinal(order) {
+    if (order === void 0) { order = '0'; }
+    /** @type {?} */
+    var value = order ? parseInt(order) + 1 : 1;
+    return isNaN(value) ? '0' : value.toString();
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*
+ * Copyright (c) 2018 Dematic, Corp.
+ * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+ */
+/** @type {?} */
+var _global = (/** @type {?} */ ((typeof window === 'undefined' ? global : window)));
+/** @type {?} */
+var expect = (/** @type {?} */ (_global.expect));
+/**
+ * NOTE: These custom JASMINE Matchers are used only
+ *       in the Karma/Jasmine testing for the Layout Directives
+ *       in `src/lib/flex/api`
+ * @type {?}
+ */
+var WufCustomMatchers = {
+    toEqual: (/**
+     * @param {?} util
+     * @return {?}
+     */
+    function (util) {
+        return {
+            compare: (/**
+             * @param {?} actual
+             * @param {?} expected
+             * @return {?}
+             */
+            function (actual, expected) {
+                return { pass: util.equals(actual, expected, [compareMap]) };
+            })
+        };
+        /**
+         * @param {?} actual
+         * @param {?} expected
+         * @return {?}
+         */
+        function compareMap(actual, expected) {
+            if (actual instanceof Map) {
+                /** @type {?} */
+                var pass_1 = actual.size === expected.size;
+                if (pass_1) {
+                    actual.forEach((/**
+                     * @param {?} v
+                     * @param {?} k
+                     * @return {?}
+                     */
+                    function (v, k) {
+                        pass_1 = pass_1 && util.equals(v, expected.get(k));
+                    }));
+                }
+                return pass_1;
+            }
+            else {
+                return undefined;
+            }
+        }
+    }),
+    toHaveText: (/**
+     * @return {?}
+     */
+    function () {
+        return {
+            compare: (/**
+             * @param {?} actual
+             * @param {?} expectedText
+             * @return {?}
+             */
+            function (actual, expectedText) {
+                /** @type {?} */
+                var actualText = elementText(actual);
+                return {
+                    pass: actualText == expectedText,
+                    /**
+                     * @return {?}
+                     */
+                    get message() {
+                        return 'Expected ' + actualText + ' to be equal to ' + expectedText;
+                    }
+                };
+            })
+        };
+    }),
+    toHaveCssClass: (/**
+     * @return {?}
+     */
+    function () {
+        return { compare: buildError(false), negativeCompare: buildError(true) };
+        /**
+         * @param {?} isNot
+         * @return {?}
+         */
+        function buildError(isNot) {
+            return (/**
+             * @param {?} actual
+             * @param {?} className
+             * @return {?}
+             */
+            function (actual, className) {
+                return {
+                    pass: _dom.hasClass(actual, className) == !isNot,
+                    /**
+                     * @return {?}
+                     */
+                    get message() {
+                        return "\n                          Expected " + actual.outerHTML + " " + (isNot ? 'not ' : '') + "\n                          to contain the CSS class \"" + className + "\"\n                        ";
+                    }
+                };
+            });
+        }
+    }),
+    toHaveMap: (/**
+     * @return {?}
+     */
+    function () {
+        return {
+            compare: (/**
+             * @param {?} actual
+             * @param {?} map
+             * @return {?}
+             */
+            function (actual, map) {
+                /** @type {?} */
+                var allPassed;
+                allPassed = Object.keys(map).length !== 0;
+                Object.keys(map).forEach((/**
+                 * @param {?} key
+                 * @return {?}
+                 */
+                function (key) {
+                    allPassed = allPassed && (actual[key] === map[key]);
+                }));
+                return {
+                    pass: allPassed,
+                    /**
+                     * @return {?}
+                     */
+                    get message() {
+                        return "\n                          Expected " + JSON.stringify(actual) + " " + (!allPassed ? ' ' : 'not ') + " to contain the\n                          \"" + JSON.stringify(map) + "\"\n                        ";
+                    }
+                };
+            })
+        };
+    }),
+    toHaveCssStyle: (/**
+     * @return {?}
+     */
+    function () {
+        return {
+            compare: (/**
+             * @param {?} actual
+             * @param {?} styles
+             * @return {?}
+             */
+            function (actual, styles) {
+                /** @type {?} */
+                var allPassed;
+                if (typeof styles === 'string') {
+                    allPassed = _dom.hasStyle(actual, styles);
+                }
+                else {
+                    allPassed = Object.keys(styles).length !== 0;
+                    Object.keys(styles).forEach((/**
+                     * @param {?} prop
+                     * @return {?}
+                     */
+                    function (prop) {
+                        allPassed = allPassed && hasPrefixedStyles(actual, prop, styles[prop]);
+                    }));
+                }
+                return {
+                    pass: allPassed,
+                    /**
+                     * @return {?}
+                     */
+                    get message() {
+                        /** @type {?} */
+                        var expectedValueStr = typeof styles === 'string' ? styles : JSON.stringify(styles);
+                        return "\n              Expected " + actual.outerHTML + " " + (!allPassed ? ' ' : 'not ') + " to contain the\n              CSS " + (typeof styles === 'string' ? 'property' : 'styles') + " \"" + expectedValueStr + "\"\n            ";
+                    }
+                };
+            })
+        };
+    })
+};
+/**
+ * Validate presence of requested style or use fallback
+ * to possible `prefixed` styles. Useful when some browsers
+ * (Safari, IE, etc) will use prefixed style instead of defaults.
+ * @param {?} actual
+ * @param {?} key
+ * @param {?} value
+ * @return {?}
+ */
+function hasPrefixedStyles(actual, key, value) {
+    var _a;
+    value = value !== '*' ? value.trim() : undefined;
+    /** @type {?} */
+    var elHasStyle = _dom.hasStyle(actual, key, value);
+    if (!elHasStyle) {
+        /** @type {?} */
+        var prefixedStyles_1 = applyCssPrefixes((_a = {}, _a[key] = value, _a));
+        Object.keys(prefixedStyles_1).forEach((/**
+         * @param {?} prop
+         * @return {?}
+         */
+        function (prop) {
+            // Search for optional prefixed values
+            elHasStyle = elHasStyle || _dom.hasStyle(actual, prop, prefixedStyles_1[prop]);
+        }));
+    }
+    return elHasStyle;
+}
+/**
+ * @param {?} n
+ * @return {?}
+ */
+function elementText(n) {
+    /** @type {?} */
+    var hasNodes = (/**
+     * @param {?} m
+     * @return {?}
+     */
+    function (m) {
+        /** @type {?} */
+        var children = _dom.childNodes(m);
+        return children && children['length'];
+    });
+    if (n instanceof Array) {
+        return n.map(elementText).join('');
+    }
+    if (_dom.isCommentNode(n)) {
+        return '';
+    }
+    if (_dom.isElementNode(n) && _dom.tagName(n) == 'CONTENT') {
+        return elementText(Array.prototype.slice.apply(_dom.getDistributedNodes(n)));
+    }
+    if (_dom.hasShadowRoot(n)) {
+        return elementText(_dom.childNodesAsList(_dom.getShadowRoot(n)));
+    }
+    if (hasNodes(n)) {
+        return elementText(_dom.childNodesAsList(n));
+    }
+    return _dom.getText(n);
+}
 
 /**
  * @fileoverview added by tsickle
