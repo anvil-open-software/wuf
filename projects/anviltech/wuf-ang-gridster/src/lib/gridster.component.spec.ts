@@ -16,7 +16,7 @@ describe('WufGridsterComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [WufGridsterComponent, WufGridsterItem],
+            declarations: [WufGridsterComponent,WufGridsterItem],
             providers: [WufGridsterService]
         })
         .compileComponents();
