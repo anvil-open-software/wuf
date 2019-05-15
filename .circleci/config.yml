@@ -17,16 +17,11 @@ jobs:
         entrypoint: /bin/sh
     working_directory: ~/wuf
     environment:
-      - MASTER_BRANCH: master
-      - DEPLOY_BRANCH: WUF-41-CI
+      - DEPLOY_BRANCH: master
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
       - CHROME_BIN: /usr/lib/chromium/chrome
-    # branches:
-    #   only:
-    #     - master
-    #     - WUF-41-CI
     steps:
       - run:
           name: Install OS tools
@@ -84,10 +79,10 @@ jobs:
               # For branches other than master, append an unique value to
               # provent build failures.
               GITTAG=v$(npx -c 'echo "$npm_package_version"')
-              if [ $CIRCLE_BRANCH != $MASTER_BRANCH ]; then
-              	SECONDS_SINCE_EPOCH=$(date +%s)
-              	GITTAG=$(echo $GITTAG-$SECONDS_SINCE_EPOCH)
-              fi
+              # if [ $DEPLOY_BRANCH != $MASTER_BRANCH ]; then
+              # 	SECONDS_SINCE_EPOCH=$(date +%s)
+              # 	GITTAG=$(echo $GITTAG-$SECONDS_SINCE_EPOCH)
+              # fi
               echo Taging $CIRCLE_BRANCH: $GITTAG
 
               # Using annotated tags; required to include tag to prevent build from running
