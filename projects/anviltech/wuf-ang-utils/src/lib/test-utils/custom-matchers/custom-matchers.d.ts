@@ -6,7 +6,7 @@
 /**
  * Created by silveir on 4/12/17.
  */
-declare module jasmine {
+export module jasmine {
     interface Matchers<T> {
         toHaveText(expected: string): boolean;
 
