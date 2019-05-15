@@ -23,10 +23,6 @@ jobs:
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
       - CHROME_BIN: /usr/lib/chromium/chrome
-    branches:
-      only:
-        - master
-        # - WUF-41-CI
     steps:
       - run:
           name: Install OS tools
