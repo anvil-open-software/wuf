@@ -95,7 +95,7 @@ jobs:
           name: Deploy WUF
           # TODO: replace with a deploy.sh script
           command: |
-            if [ $CIRCLE_BRANCH == $DEPLOY_BRANCH ]; then
+            if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
               git config --global user.email $GH_EMAIL
               git config --global user.name $GH_NAME
 
