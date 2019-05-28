@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [2.0.0-rc.8] - 2019-05-21
 ### Fixed
 - Unsubscribe from language changes
-- Add provider for WufSidebarService
+- Add provider for WufSidebarService to WufNavigationLinkComponent
 
 ## [2.0.0-rc.7] - 2019-04-05
 ### Fixed
