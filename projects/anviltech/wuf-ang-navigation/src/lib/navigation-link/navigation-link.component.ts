@@ -3,8 +3,9 @@
  * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
  */
 
-import { Component, OnInit, Input, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ViewChild, OnDestroy } from '@angular/core';
 import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
 import { WufSidebarService } from '@anviltech/wuf-ang-layout';
 
@@ -13,9 +14,10 @@ import { WufSidebarService } from '@anviltech/wuf-ang-layout';
     selector: 'wuf-navigation-link',
     styleUrls: ['navigation-link.component.scss'],
     templateUrl: 'navigation-link.component.html',
+    providers: [WufSidebarService],
     encapsulation: ViewEncapsulation.Emulated
 })
-export class WufNavigationLinkComponent implements OnInit {
+export class WufNavigationLinkComponent implements OnInit, OnDestroy {
     @Input() link: string;
     @Input() label: string;
     @Input() icon: string;
@@ -28,19 +30,28 @@ export class WufNavigationLinkComponent implements OnInit {
 
     @ViewChild('parentNavItem') parentNavItem: any;
 
+    translateSubscription: Subscription;
     isExpanded: boolean;
 
     constructor(
         public wufSidebarService: WufSidebarService,
         public translate: TranslateService
     ) {
-        translate.onLangChange.subscribe(($event: LangChangeEvent) => {
+        // Subscribe to language changes
+        this.translateSubscription = translate.onLangChange.subscribe(($event: LangChangeEvent) => {
             this.onLanguageChange($event);
         });
     }
 
     ngOnInit() {
         this.translateLabels();
+    }
+
+    ngOnDestroy() {
+        // unsubscribe from language changes
+        if (this.translateSubscription && !this.translateSubscription.closed) {
+            this.translateSubscription.unsubscribe();
+        }
     }
 
     private onLanguageChange($event: any) {

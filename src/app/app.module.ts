@@ -32,8 +32,8 @@ import '@anviltech/wuf-web-message';
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
 import { CustomMaterialModule } from './_internal/material.module';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 /***** fake backend *****/
 // Delete this for a production app
