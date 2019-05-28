@@ -1,3 +1,11 @@
+
+[![CircleCI](https://circleci.com/gh/anvil-open-software/wuf/tree/WUF-41-CI.svg?style=svg)](https://circleci.com/gh/anvil-open-software/wuf/tree/master) [Living Style Guide Online Application](https://anvil-open-software.github.io/wuf/)
+
+:construction: This is work in progress, with the outstanding issues being
+- to understand and account for Angular's handling of asset and route URLs when deploying to a folder other than the root;
+- to develop an automated mechanism to publish WUF components that are new or changed;
+- to develop a mechanism to publish feature branches to GitHub pages
+
 Installation & Development of the Web UI Framework (WUF)
 ====================================================
 The Web UI Framework (WUF) is an open source web application framework based on the following technologies:
@@ -7,7 +15,7 @@ The Web UI Framework (WUF) is an open source web application framework based on 
 * Material Design
 * SCSS
 * HTML/CSS for Front-end layouts that are fully responsive
-* It also includes support for: 
+* It also includes support for:
     * Web components
     * Polymer components
 
@@ -42,7 +50,7 @@ Follow the steps below to set up your development environment and install depend
 
 #### Dependencies
 The following are dependencies for WUF development:
-* [Node.js](https://nodejs.org/en/) version 8.0.0 or greater, installed globally - A JavaScript runtime built on Chrome's V8 JavaScript engine. 
+* [Node.js](https://nodejs.org/en/) version 8.0.0 or greater, installed globally - A JavaScript runtime built on Chrome's V8 JavaScript engine.
 * [Yarn](https://yarnpkg.com/en/) version 1.10.0 or greater, installed globally - A dependency management system that replaces NPM.  Yarn is required over NPM for WUF development because of WUF's dependency on Yarn Workspaces for inter-linking package dependencies.  Do not use NPM with WUF because it has the potential to conflict with Yarn and cause problems.
 * [Angular](https://angular.io/guide/quickstart) version 6.1.0 or greater, installed globally - This is installation includes Angular-CLI.
 * [Typescript](https://www.typescriptlang.org/) version 2.9.2 or greater, installed globally - Typescript is a typed superset of JavaScript that compiles to plain JavaScript and it is the language in which all of our Angular application development is done.
@@ -76,7 +84,7 @@ To start the Living Style Guide application issue the following:
 yarn start
 ```
 
-The above command will run the Living Style Guide application in AOT mode.  In Angular v5 and greater, AOT mode (production mode) is nearly as fast as JIT mode (dev mode) and will eventually become the new default run mode for Angular. Because AOT mode is so highly opinionated it will often fail where JIT mode will not so it's important to make sure our app is always compatible with AOT mode.  Therefore, we have set our `yarn start` script to run in AOT mode. 
+The above command will run the Living Style Guide application in AOT mode.  In Angular v5 and greater, AOT mode (production mode) is nearly as fast as JIT mode (dev mode) and will eventually become the new default run mode for Angular. Because AOT mode is so highly opinionated it will often fail where JIT mode will not so it's important to make sure our app is always compatible with AOT mode.  Therefore, we have set our `yarn start` script to run in AOT mode.
 
 If you really, really want to run in JIT mode for whatever reason, you can use the following command in lieu of the above (this is **NOT** recommended):
 

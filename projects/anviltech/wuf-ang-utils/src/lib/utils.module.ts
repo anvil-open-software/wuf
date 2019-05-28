@@ -20,7 +20,7 @@ import { WufSentenceCasePipe } from './capitalize.pipe/capitalize.pipe';
  * Export components and services used by the module here
  */
 export * from './capitalize.pipe/capitalize.pipe';
-// export * from './test-utils/custom-matchers/custom-matchers';
+export * from './test-utils/custom-matchers/custom-matchers';
 // export * from './test-utils/auto-prefixer';
 // export * from './test-utils/dom-tools';
 // export * from './test-utils/helpers';

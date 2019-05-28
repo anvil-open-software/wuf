@@ -11,8 +11,6 @@ import { DebugElement } from '@angular/core';
 import { WufContentFooterComponent } from './content-footer.component';
 import { WufContentFooterService } from './content-footer.service';
 
-import { WufCustomMatchers } from '@anviltech/wuf-ang-utils';
-
 
 describe('WufContentFooterComponent', () => {
     let component: WufContentFooterComponent;
@@ -22,8 +20,6 @@ describe('WufContentFooterComponent', () => {
     let el: HTMLElement;
 
     beforeEach(async(() => {
-        jasmine.addMatchers(WufCustomMatchers);
-
         TestBed.configureTestingModule({
             declarations: [
                 WufContentFooterComponent
