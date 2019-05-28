@@ -644,7 +644,8 @@ $wuf-input-hint-vert-padding: .3em;
 
     /***** switches *****/
     .mat-slide-toggle-group {
-        margin-bottom: calc(var(--wuf-spacer)/2);
+        margin-bottom: 0;
+        padding-bottom: 20px;
         display: block;
         &.full-width {
             .mat-slide-toggle-content {
