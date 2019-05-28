@@ -62,8 +62,8 @@
                             <input formControlName="requiredInput" matInput placeholder="Required email input" required type="email">
                             <mat-error *ngIf="f.requiredInput.invalid">{{getErrorMessage()}}</mat-error>
                             <span class="errorIcon" *ngIf="f.requiredInput.invalid && f.requiredInput.touched" matSuffix mat-icon-button>
-                            <mat-icon>error</mat-icon>
-                        </span>
+                                <mat-icon>error</mat-icon>
+                            </span>
                             <mat-hint align="start">This input is required</mat-hint>
                         </mat-form-field>
 
