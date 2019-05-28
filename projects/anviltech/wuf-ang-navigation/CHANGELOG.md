@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.8] - 2019-05-21
+### Fixed
+- Unsubscribe from language changes
+- Add provider for WufSidebarService
+
 ## [2.0.0-rc.7] - 2019-04-05
 ### Fixed
 - Fixed horizontal scrollbars on subnav items when sidebar is minimized
