@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.17] - 2019-05-28
+### Changed
+- add padding-bottom: 20px to .mat-slide-toggle-group
+
 ## [2.0.0-rc.16] - 2019-05-10
 ### Fixed
 - Removing css-rgba() function due to some apparent inconsistency.
