@@ -31,9 +31,7 @@ import '@anviltech/wuf-web-message';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
-import { CustomMaterialModule } from './_internal/material.module';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 /***** fake backend *****/
 // Delete this for a production app
@@ -54,16 +52,14 @@ import { ThemeListService } from './_internal/theme-list.service';
 import { UserService } from './_internal/services/user.service';
 import { NavigationService } from './_internal/services/navigation.service';
 import { FooterService } from './_internal/services/footer.service';
+import { createTranslateLoader } from './_internal/translateLoader.module';
+import { SharedModule } from './_internal/shared.module';
 
 /***** Example component pages *****/
 import { HomeComponent } from './pages/home/home.component';
 import { UtilsModule } from './_internal/utils/utils.module';
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
 
-// Create a factory for the translate loader
-export function createTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
 
 @NgModule({
     schemas: [
@@ -79,6 +75,7 @@ export function createTranslateLoader(http: HttpClient) {
 
         // Util
         UtilsModule.forRoot(),
+        SharedModule.forRoot(),
 
         // Layouts Modules
         LayoutsModule.forRoot(),
@@ -96,13 +93,13 @@ export function createTranslateLoader(http: HttpClient) {
 
         // 3rd Party Imports
         NgxMdModule.forRoot(), // Markdown
-        CustomMaterialModule.forRoot(), // Load all Angular Material modules
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
-                useFactory: createTranslateLoader,
+                useFactory: (createTranslateLoader),
                 deps: [HttpClient]
-            }
+            },
+            isolate: false
         }),
 
         // Routes (Keep as last module loaded)

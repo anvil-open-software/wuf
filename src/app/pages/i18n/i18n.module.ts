@@ -13,15 +13,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RoutesModule } from './routes';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { UtilsModule } from '../../_internal/utils/utils.module';
+import { SharedModule } from '../../_internal/shared.module';
 
 /***** Import WUF *****/
 import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
-import { CustomMaterialModule } from '../../_internal/material.module';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { TranslateSharedLazyModule } from '../../_internal/translate.module';
 
 /***** Import page modules *****/
 import { I18nIntroComponent } from './i18n-intro/i18n-intro.component';
@@ -48,9 +47,8 @@ import { I18nNgxTranslateComponent } from './i18n-ngx-translate/i18n-ngx-transla
 
         // 3rd Party Imports
         NgxMdModule, // Markdown
-        CustomMaterialModule,
+        SharedModule,
         TranslateModule,
-        TranslateSharedLazyModule,
 
         // Routes (Keep as last module loaded)
         RoutesModule

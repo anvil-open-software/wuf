@@ -18,7 +18,6 @@ import { WufLayoutModule } from '@anviltech/wuf-ang-layout';
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
-import { TranslateSharedLazyModule } from '../../_internal/translate.module';
 
 /***** Import page modules *****/
 import { DevAngularAngularComponentsIntroComponent } from './dev-angular-components/dev-angular-components.component';
@@ -42,7 +41,6 @@ import { DevelopmentComponent } from './development/development.component';
 
         // 3rd Party Imports
         NgxMdModule, // Markdown
-        TranslateSharedLazyModule,
 
         // Routes (Keep as last module loaded)
         RoutesModule

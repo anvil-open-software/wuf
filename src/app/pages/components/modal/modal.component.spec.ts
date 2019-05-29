@@ -4,7 +4,6 @@
  */
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
@@ -12,8 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ModalComponent } from './modal.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { CustomMaterialModule } from '../../../_internal/material.module';
-import { keyframes } from '@angular/animations';
+import { SharedModule } from '../../../_internal/shared.module';
 
 
 describe('ModalComponent', () => {
@@ -35,7 +33,7 @@ describe('ModalComponent', () => {
                 BrowserDynamicTestingModule,
                 FormsModule,
                 ReactiveFormsModule,
-                CustomMaterialModule
+                SharedModule.forRoot()
             ],
             providers: []
         });
