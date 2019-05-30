@@ -80,8 +80,7 @@ jobs:
               # provent build failures.
               GITTAG=v$(npx -c 'echo "$npm_package_version"')
               if [ $DEPLOY_BRANCH != $MASTER_BRANCH ]; then
-              	SECONDS_SINCE_EPOCH=$(date +%s)
-              	GITTAG=$(echo $GITTAG-$SECONDS_SINCE_EPOCH)
+              	GITTAG=$(echo $GITTAG-Build.$CIRCLE_BUILD_NUM)
               fi
               echo Taging $CIRCLE_BRANCH: $GITTAG
 
