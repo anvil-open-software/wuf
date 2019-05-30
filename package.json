@@ -10,6 +10,7 @@
     "ng": "ng",
     "start": "ng serve --aot",
     "build": "ng build --aot",
+    "build:reset": "rm -rf node_modules && yarn bootstrap && yarn build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
