@@ -17,7 +17,7 @@ jobs:
         entrypoint: /bin/sh
     working_directory: ~/wuf
     environment:
-      - DEPLOY_BRANCH: master
+      - DEPLOY_BRANCH: WUF-77-deply-nonroot
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
@@ -79,10 +79,10 @@ jobs:
               # For branches other than master, append an unique value to
               # provent build failures.
               GITTAG=v$(npx -c 'echo "$npm_package_version"')
-              # if [ $DEPLOY_BRANCH != $MASTER_BRANCH ]; then
-              # 	SECONDS_SINCE_EPOCH=$(date +%s)
-              # 	GITTAG=$(echo $GITTAG-$SECONDS_SINCE_EPOCH)
-              # fi
+              if [ $DEPLOY_BRANCH != $MASTER_BRANCH ]; then
+              	SECONDS_SINCE_EPOCH=$(date +%s)
+              	GITTAG=$(echo $GITTAG-$SECONDS_SINCE_EPOCH)
+              fi
               echo Taging $CIRCLE_BRANCH: $GITTAG
 
               # Using annotated tags; required to include tag to prevent build from running
