@@ -9,6 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot",
+    "start:reset": "yearn build:reset && ng serve --aot",
     "build": "ng build --aot",
     "build:reset": "rm -rf node_modules && yarn bootstrap && yarn build",
     "test": "ng test",
