@@ -63,7 +63,7 @@ jobs:
       - run:
           name: Build WUF
           command: |
-            ng build --prod --base-href https://anvil-open-software.github.io/wuf/
+            ng build --prod --base-href https://anvil-open-software.github.io/wuf/ --deploy-url https://anvil-open-software.github.io/wuf/
       - run:
           name: Test WUF
           command: |
