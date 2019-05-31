@@ -18,7 +18,7 @@ jobs:
     working_directory: ~/wuf
     environment:
       - MASTER_BRANCH: master
-      - DEPLOY_BRANCH: WUF-77-deply-nonroot
+      - DEPLOY_BRANCH: WUF-77-deply-nonroot-favicon
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
