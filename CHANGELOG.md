@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-rc.12] - 2019-05-31
+### Fixed
+- Certain assets are not handled correctly when deploying to GitHub Pages.
+
 ## [2.0.0-rc.11] - 2019-05-08
 ### Added
 - Added continuous build and continuous deployment to [GitHub](https://anvil-open-software.github.io/wuf/); this is work in progress, with the outstanding issue being:
