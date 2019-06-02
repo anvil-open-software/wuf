@@ -1,6 +1,6 @@
 {
   "name": "@anviltech/wuf-web-ui-framework",
-  "version": "2.0.0-rc.12",
+  "version": "2.0.0-rc.13",
   "author": "Darren Luvaas",
   "repository": {
     "type": "git",
@@ -9,7 +9,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot",
+    "start:reset": "yearn build:reset && ng serve --aot",
     "build": "ng build --aot",
+    "build:reset": "rm -rf node_modules && yarn bootstrap && yarn build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
