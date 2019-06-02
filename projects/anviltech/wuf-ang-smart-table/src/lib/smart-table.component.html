@@ -20,7 +20,8 @@
            (selectAllRows)="onSelectAllRows($event)"
            (sort)="sort($event)"
            (filter)="filter($event)"
-           [class.hasFilters]="!isHideSubHeader">
+           [class.hasFilters]="!isHideSubHeader"
+           [class.hasHeader]="isShowHeader">
     </thead>
 
     <tbody wuf-st-tbody [grid]="grid"

@@ -4,9 +4,9 @@
  */
 
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { Row } from '../../../lib/data-set/row';
+import { Row } from '../../../data-set/row';
 
-import { Grid } from '../../../lib/grid';
+import { Grid } from '../../../services/grid';
 
 
 @Component({

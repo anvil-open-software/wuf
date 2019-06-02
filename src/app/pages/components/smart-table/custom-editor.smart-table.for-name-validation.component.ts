@@ -28,7 +28,7 @@ import { WufSmartTableCell, WufSmartTableDefaultEditor, WufSmartTableEditor } fr
         }
     `],
     template: `
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <input matInput
                    type="text"
                    class="form-control"

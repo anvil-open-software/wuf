@@ -3,6 +3,13 @@
   ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
   -->
 
+<tr wuf-st-thead-header-row *ngIf="!isHideHeader && (isShowTitle || isShowAddButton)"
+    class="wuf-smart-header"
+    [grid]="grid"
+    [source]="source"
+    (selectAllRows)="selectAllRows.emit($event)">
+</tr>
+
 <tr wuf-st-thead-titles-row *ngIf="!isHideHeader"
     class="wuf-smart-titles"
     [grid]="grid"

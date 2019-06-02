@@ -5,8 +5,8 @@
 
 import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
-import { Column } from '../../../lib/data-set/column';
-import { DataSource } from '../../../lib/data-source/data-source';
+import { Column } from '../../../data-set/column';
+import { DataSource } from '../../../data-source/data-source';
 
 
 @Component({

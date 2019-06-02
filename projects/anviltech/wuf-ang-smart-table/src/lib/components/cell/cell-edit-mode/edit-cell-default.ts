@@ -5,14 +5,12 @@
 
 import { Output, EventEmitter, Input } from '@angular/core';
 
-import { WufSmartTableCell } from '../../../lib/data-set/cell';
+import { WufSmartTableCell } from '../../../data-set/cell';
 
 
 export class EditCellDefault {
 
     @Input() cell: WufSmartTableCell;
-    @Input() inputClass: string = '';
-
     @Output() edited = new EventEmitter<any>();
 
     onEdited(event: any): boolean {

@@ -126,7 +126,7 @@ export class LayoutMainBasicComponent implements OnInit {
     
     /***** 3rd Party *****/
     import { MatTooltipModule } from '@angular/material';
-    import { CustomMaterialModule } from '../../internal/material.module';
+    import { SharedModule } from '../../_internal/shared.module';
     
     /***** Local layout components *****/
     import { LayoutMainComponent } from './main/main.component';
@@ -143,7 +143,7 @@ export class LayoutMainBasicComponent implements OnInit {
         imports: [
             CommonModule,
             RouterModule,
-            CustomMaterialModule,
+            SharedModule,
     
             // WUF
             WufLayoutModule,

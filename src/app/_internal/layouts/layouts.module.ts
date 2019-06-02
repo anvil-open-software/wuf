@@ -15,8 +15,7 @@ import { WufNavigationModule } from '@anviltech/wuf-ang-navigation';
 import { WufLoginModule } from '@anviltech/wuf-ang-login-animated';
 
 /***** 3rd Party *****/
-import { MatTooltipModule } from '@angular/material';
-import { CustomMaterialModule } from '../material.module';
+import { SharedModule } from '../shared.module';
 
 /***** Local layout components *****/
 import { LayoutMainComponent } from './main/main.component';
@@ -33,8 +32,7 @@ export { LayoutBasicComponent } from './basic/basic.component';
     imports: [
         CommonModule,
         RouterModule,
-        CustomMaterialModule,
-        MatTooltipModule,
+        SharedModule,
 
         // WUF
         WufLayoutModule,

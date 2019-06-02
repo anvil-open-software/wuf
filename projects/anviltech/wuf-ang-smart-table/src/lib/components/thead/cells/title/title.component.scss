@@ -4,6 +4,12 @@
  */
 
 a.wuf-smart-sort-link {
+   &,
+   &:active,
+   &:hover,
+   &:visited {
+       color: var(--table-head-color);
+   }
 }
 
 .sort-icon {

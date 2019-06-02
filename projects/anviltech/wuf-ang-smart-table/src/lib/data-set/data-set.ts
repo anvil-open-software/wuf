@@ -7,7 +7,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 
 import { Row } from './row';
 import { Column } from './column';
-import { WufSmartTableValidatorService } from '../validator.service';
+import { WufSmartTableValidatorService } from '../services/validator.service';
 
 
 export class DataSet {

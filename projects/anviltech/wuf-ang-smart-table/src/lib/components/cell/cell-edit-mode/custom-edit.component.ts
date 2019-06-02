@@ -40,7 +40,6 @@ export class CustomEditComponent extends EditCellDefault implements OnChanges, O
 
             // set @Inputs and @Outputs of custom component
             this.customComponent.instance.cell = this.cell;
-            this.customComponent.instance.inputClass = this.inputClass;
             this.customComponent.instance.onStopEditing.subscribe(() => this.onStopEditing());
             this.customComponent.instance.onEdited.subscribe((event: any) => this.onEdited(event));
             this.customComponent.instance.onClick.subscribe((event: any) => this.onClick(event));

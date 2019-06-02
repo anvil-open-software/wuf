@@ -28,10 +28,9 @@ import { WufSmartTableCell, WufSmartTableDefaultEditor, WufSmartTableEditor } fr
         }
     `],
     template: `
-        <mat-form-field class="example-full-width">
+        <mat-form-field>
             <input matInput
                    type="text"
-                   matInput
                    class="form-control"
                    [ngClass]="{'error': cell.getValidator().errors &&  !cell.getValidator().pristine}"
                    [(ngModel)]="cell.newValue"
@@ -46,9 +45,6 @@ import { WufSmartTableCell, WufSmartTableDefaultEditor, WufSmartTableEditor } fr
         </mat-form-field>
     `
 })
-export class CustomEditorForIDValidationSmartTable extends WufSmartTableDefaultEditor implements AfterViewInit {
+export class CustomEditorForIDValidationSmartTable extends WufSmartTableDefaultEditor {
     // editor definition
-
-    ngAfterViewInit() {
-    }
 }

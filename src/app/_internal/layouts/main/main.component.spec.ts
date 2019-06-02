@@ -19,8 +19,8 @@ import { WufDrawerModule } from '@anviltech/wuf-ang-drawer';
 import { WufSidebarService } from '@anviltech/wuf-ang-layout';
 
 import { LayoutMainComponent } from './main.component';
-import { CustomMaterialModule } from '../../material.module';
 import { ThemeListService } from '../../theme-list.service';
+import { SharedModule } from '../../shared.module';
 
 
 describe('LayoutMainComponent', () => {
@@ -34,7 +34,7 @@ describe('LayoutMainComponent', () => {
             declarations: [LayoutMainComponent],
             imports: [
                 RouterTestingModule,
-                CustomMaterialModule,
+                SharedModule.forRoot(),
                 HttpClientModule,
                 BrowserAnimationsModule,
                 WufLayoutModule,

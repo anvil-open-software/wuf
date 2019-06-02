@@ -5,8 +5,8 @@
 
 import { CUSTOM_ELEMENTS_SCHEMA, ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomMaterialModule } from '../material.module';
 import { ComponentTabsComponent } from './component-tabs/component-tabs.component';
+import { SharedModule } from '../shared.module';
 
 
 @NgModule({
@@ -15,9 +15,7 @@ import { ComponentTabsComponent } from './component-tabs/component-tabs.componen
     ],
     imports: [
         CommonModule,
-
-        // 3rd Party Imports
-        CustomMaterialModule
+        SharedModule
     ],
     exports: [
         ComponentTabsComponent

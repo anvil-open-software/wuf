@@ -6,7 +6,7 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { DataSource } from '../../lib/data-source/data-source';
+import { DataSource } from '../../data-source/data-source';
 
 
 @Component({

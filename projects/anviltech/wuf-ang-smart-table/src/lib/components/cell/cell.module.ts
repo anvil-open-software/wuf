@@ -22,6 +22,7 @@ import { SelectEditorComponent } from './cell-editors/select-editor.component';
 import { TextareaEditorComponent } from './cell-editors/textarea-editor.component';
 import { CustomViewComponent } from './cell-view-mode/custom-view.component';
 import { ViewCellComponent } from './cell-view-mode/view-cell.component';
+import { SharedModule } from '../../shared.module';
 
 
 const CELL_COMPONENTS = [
@@ -44,7 +45,8 @@ const CELL_COMPONENTS = [
         FormsModule,
         ReactiveFormsModule,
         // Ng2CompleterModule,
-        MatInputModule
+        MatInputModule,
+        SharedModule
     ],
     declarations: [
         ...CELL_COMPONENTS

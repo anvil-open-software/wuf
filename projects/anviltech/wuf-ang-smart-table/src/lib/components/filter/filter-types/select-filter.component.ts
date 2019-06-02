@@ -13,7 +13,7 @@ import { DefaultFilter } from './default-filter';
 @Component({
     selector: 'select-filter',
     template: `
-        <select [ngClass]="inputClass"
+        <select
                 class="form-control"
                 [(ngModel)]="query"
                 [formControl]="inputControl">

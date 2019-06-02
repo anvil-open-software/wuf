@@ -6,6 +6,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
 import { WufSmartTableDefaultEditor } from './default-editor';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -15,13 +16,13 @@ import { WufSmartTableDefaultEditor } from './default-editor';
 
 
         <mat-form-field>
-            <input [ngClass]="inputClass"
+            <input
                    matInput
                    class="form-control"
                    [formControl]="cell.getValidator()"
                    [(ngModel)]="cell.newValue"
                    [name]="cell.getId()"
-                   [placeholder]="cell.getTitle()"
+                   [placeholder]="cell.getTitle() | translate"
                    [disabled]="!cell.isEditable()"
                    (click)="onClick.emit($event)"
                    (keydown.enter)="onEdited.emit($event)"
@@ -32,7 +33,7 @@ import { WufSmartTableDefaultEditor } from './default-editor';
 })
 export class InputEditorComponent extends WufSmartTableDefaultEditor {
 
-    constructor() {
+    constructor(public translate: TranslateService) {
         super();
     }
 }

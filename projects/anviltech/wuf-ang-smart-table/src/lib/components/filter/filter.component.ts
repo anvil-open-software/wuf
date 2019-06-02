@@ -6,8 +6,8 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { DataSource } from '../../lib/data-source/data-source';
-import { Column } from '../../lib/data-set/column';
+import { DataSource } from '../../data-source/data-source';
+import { Column } from '../../data-set/column';
 
 
 @Component({
@@ -17,25 +17,21 @@ import { Column } from '../../lib/data-set/column';
         <div class="wuf-smart-filter" *ngIf="column.isFilterable" [ngSwitch]="column.getFilterType()">
             <select-filter *ngSwitchCase="'list'"
                            [query]="query"
-                           [ngClass]="inputClass"
                            [column]="column"
                            (filter)="onFilter($event)">
             </select-filter>
             <checkbox-filter *ngSwitchCase="'checkbox'"
                              [query]="query"
-                             [ngClass]="inputClass"
                              [column]="column"
                              (filter)="onFilter($event)">
             </checkbox-filter>
             <completer-filter *ngSwitchCase="'completer'"
                               [query]="query"
-                              [ngClass]="inputClass"
                               [column]="column"
                               (filter)="onFilter($event)">
             </completer-filter>
             <input-filter *ngSwitchDefault
                           [query]="query"
-                          [ngClass]="inputClass"
                           [filterPlaceholder]="filterPlaceholder"
                           [column]="column"
                           (filter)="onFilter($event)">
@@ -48,7 +44,6 @@ export class FilterComponent implements OnChanges {
 
     @Input() column: Column;
     @Input() source: DataSource;
-    @Input() inputClass: string = '';
     @Input() filterPlaceholder: string;
 
     @Output() filter = new EventEmitter<any>();

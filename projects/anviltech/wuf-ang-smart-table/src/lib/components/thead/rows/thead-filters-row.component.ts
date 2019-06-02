@@ -5,30 +5,40 @@
 
 import { Component, Input, Output, EventEmitter, OnChanges, ViewEncapsulation, OnInit } from '@angular/core';
 
-import { Grid } from '../../../lib/grid';
-import { DataSource } from '../../../lib/data-source/data-source';
+import { Grid } from '../../../services/grid';
+import { DataSource } from '../../../data-source/data-source';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
     selector: '[wuf-st-thead-filters-row]',
     template: `
         <th *ngIf="isMultiSelectVisible"></th>
-        <th wuf-st-add-button *ngIf="showActionColumnLeft"
-            [grid]="grid"
-            (create)="create.emit($event)">
+        <th *ngIf="showActionColumnLeft">
+            <div
+                *ngIf="showAddButton"
+                wuf-st-add-button
+                position="left"
+                [grid]="grid"
+                [source]="source"
+                (create)="create.emit($event)"></div>
         </th>
         <th *ngFor="let column of grid.getColumns()" class="wuf-smart-th {{ column.id }}">
-            <wuf-smart-table-filter [source]="source"
-                                   [filterPlaceholder]="filterPlaceholder"
-                                   [column]="column"
-                                   [inputClass]="filterInputClass"
-                                   (filter)="filter.emit($event)">
+            <wuf-smart-table-filter
+                [source]="source"
+                [filterPlaceholder]="filterPlaceholder | translate"
+                [column]="column"
+                (filter)="filter.emit($event)">
             </wuf-smart-table-filter>
         </th>
-        <th wuf-st-add-button *ngIf="showActionColumnRight"
-            [grid]="grid"
-            [source]="source"
-            (create)="create.emit($event)">
+        <th *ngIf="showActionColumnRight">
+            <div
+                *ngIf="showAddButton"
+                wuf-st-add-button
+                position="right"
+                [grid]="grid"
+                [source]="source"
+                (create)="create.emit($event)"></div>
         </th>
     `,
     encapsulation: ViewEncapsulation.None
@@ -44,8 +54,10 @@ export class TheadFitlersRowComponent implements OnChanges, OnInit {
     isMultiSelectVisible: boolean;
     showActionColumnLeft: boolean;
     showActionColumnRight: boolean;
-    filterInputClass: string;
+    showAddButton: boolean;
     filterPlaceholder: string;
+
+    constructor(public translate: TranslateService) {}
 
     ngOnInit() {
         this.filterPlaceholder = this.grid.getSetting('filter.placeholder');
@@ -53,8 +65,8 @@ export class TheadFitlersRowComponent implements OnChanges, OnInit {
 
     ngOnChanges() {
         this.isMultiSelectVisible = this.grid.isMultiSelectVisible();
-        this.showActionColumnLeft = this.grid.showActionColumn('left');
-        this.showActionColumnRight = this.grid.showActionColumn('right');
-        this.filterInputClass = this.grid.getSetting('filter.inputClass');
+        this.showActionColumnLeft = this.grid.isActionsVisible('left');
+        this.showActionColumnRight = this.grid.isActionsVisible('right');
+        this.showAddButton = this.grid.getSetting('actions.add.include') && !this.grid.showButton('add', 'header');
     }
 }

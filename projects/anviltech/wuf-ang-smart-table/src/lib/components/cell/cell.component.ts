@@ -5,9 +5,9 @@
 
 import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
-import { Grid } from '../../lib/grid';
-import { WufSmartTableCell } from '../../lib/data-set/cell';
-import { Row } from '../../lib/data-set/row';
+import { Grid } from '../../services/grid';
+import { WufSmartTableCell } from '../../data-set/cell';
+import { Row } from '../../data-set/row';
 
 
 @Component({
@@ -15,7 +15,6 @@ import { Row } from '../../lib/data-set/row';
     template: `
         <table-cell-view-mode *ngIf="!isInEditing" [cell]="cell"></table-cell-view-mode>
         <table-cell-edit-mode *ngIf="isInEditing" [cell]="cell"
-                              [inputClass]="inputClass"
                               (edited)="onEdited($event)">
         </table-cell-edit-mode>
     `,
@@ -29,7 +28,6 @@ export class CellComponent {
     @Input() createConfirm: EventEmitter<any>;
     @Input() isNew: boolean;
     @Input() cell: WufSmartTableCell;
-    @Input() inputClass: string = '';
     @Input() mode: string = 'inline';
     @Input() isInEditing: boolean = false;
 

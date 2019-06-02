@@ -5,39 +5,56 @@
 
 import { Component, Input, EventEmitter, OnChanges, ViewEncapsulation } from '@angular/core';
 
-import { Grid } from '../../../lib/grid';
-import { Row } from '../../../lib/data-set/row';
+import { Grid } from '../../../services/grid';
+import { Row } from '../../../data-set/row';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
     selector: 'wuf-st-tbody-create-cancel',
     template: `
-        <button mat-raised-button
-                class="wuf-smart-action wuf-smart-action-edit-save"
-                [innerHTML]="saveButtonContent"
-                (click)="onSave($event)"
-                *ngIf="saveButtonContent"></button>
-        <button mat-icon-button
-                *ngIf="!saveButtonContent"
-                class="wuf-smart-action wuf-smart-action-edit-save"
-                (click)="onSave($event)"
-                [matTooltip]="saveTip"
-                matTooltipPosition="left">
+        
+        <!-- save buttons -->
+        <!-- icon button -->
+        <button 
+            *ngIf="!saveLabel"
+            mat-icon-button
+            class="wuf-smart-action wuf-smart-action-icon wuf-smart-action-edit-save"
+            (click)="onSave($event)"
+            [matTooltip]="saveTip | translate"
+            matTooltipPosition="left">
             <mat-icon>done</mat-icon>
         </button>
+        <!-- button with label -->
+        <button
+            *ngIf="saveLabel"
+            mat-raised-button
+            class="wuf-smart-action wuf-smart-action-button wuf-smart-action-edit-save"
+            (click)="onSave($event)"
+            matTooltipPosition="left">
+            {{saveLabel | translate}}
+        </button>
 
-        <button mat-raised-button
-                class="wuf-smart-action wuf-smart-action-edit-cancel"
-                [innerHTML]="cancelButtonContent"
-                (click)="onCancelEdit($event)"
-                *ngIf="cancelButtonContent"></button>
-        <button mat-icon-button
-                *ngIf="!cancelButtonContent"
-                class="wuf-smart-action wuf-smart-action-edit-cancel"
-                (click)="onCancelEdit($event)"
-                [matTooltip]="cancelTip"
-                matTooltipPosition="left">
+        <!-- cancel buttons -->
+        <!-- icon button -->
+        <button
+            *ngIf="!cancelLabel"
+            mat-icon-button
+            class="wuf-smart-action wuf-smart-action-icon wuf-smart-action-edit-cancel"
+            (click)="onCancelEdit($event)"
+            [matTooltip]="cancelTip | translate"
+            matTooltipPosition="left"
+        >
             <mat-icon>close</mat-icon>
+        </button>
+        <!-- button with label -->
+        <button
+            *ngIf="cancelLabel"
+            mat-raised-button
+            class="wuf-smart-action wuf-smart-action-button wuf-smart-action-edit-cancel"
+            (click)="onCancelEdit($event)"
+            matTooltipPosition="left">
+            {{cancelLabel | translate}}
         </button>
     `,
     encapsulation: ViewEncapsulation.None
@@ -48,10 +65,12 @@ export class TbodyCreateCancelComponent implements OnChanges {
     @Input() row: Row;
     @Input() editConfirm: EventEmitter<any>;
 
-    cancelButtonContent: string;
+    cancelLabel: string;
+    saveLabel: string;
     cancelTip: string;
-    saveButtonContent: string;
     saveTip: string;
+
+    constructor(public translate: TranslateService) {}
 
     onSave(event: any) {
         event.preventDefault();
@@ -69,9 +88,14 @@ export class TbodyCreateCancelComponent implements OnChanges {
     }
 
     ngOnChanges() {
-        this.saveButtonContent = this.grid.getSetting('edit.saveButtonContent');
-        this.saveTip = this.grid.getSetting('edit.saveTip');
-        this.cancelButtonContent = this.grid.getSetting('edit.cancelButtonContent');
-        this.cancelTip = this.grid.getSetting('edit.cancelTip');
+        this.saveLabel = this.grid.getSetting('actions.save').hasOwnProperty('label')
+            ? this.grid.getSetting('actions.save.label') : undefined;
+        this.cancelLabel = this.grid.getSetting('actions.cancel').hasOwnProperty('label')
+            ? this.grid.getSetting('actions.cancel.label') : undefined;
+
+        this.saveTip = this.grid.getSetting('actions.save').hasOwnProperty('tip')
+            ? this.grid.getSetting('actions.save.tip') : undefined;
+        this.cancelTip = this.grid.getSetting('actions.cancel').hasOwnProperty('tip')
+            ? this.grid.getSetting('actions.cancel.tip') : undefined;
     }
 }

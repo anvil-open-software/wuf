@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsComponent } from './forms.component';
-import { CustomMaterialModule } from '../../../_internal/material.module';
+import { SharedModule } from '../../../_internal/shared.module';
 
 
 describe('FormsComponent', () => {
@@ -24,7 +24,7 @@ describe('FormsComponent', () => {
             imports: [
                 BrowserAnimationsModule,
                 ReactiveFormsModule,
-                CustomMaterialModule.forRoot()
+                SharedModule.forRoot()
             ],
             declarations: [FormsComponent]
         })

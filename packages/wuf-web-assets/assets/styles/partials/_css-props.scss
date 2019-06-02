@@ -46,14 +46,14 @@ The general rules of SCSS vs CSS custom properties are:
     --wuf-link-hover-color: var(--wuf-color-primary-darker-5);
     --wuf-link-hover-decoration: underline;
 
-    /***** tables (table props are here because they are shared across standard HTML tables, Vaadin grids, and the Smart Table component) *****/
+    /***** tables (table props are here because they are shared across standard HTML tables and the Smart Table component) *****/
     --wuf-table-bg-color: var(--wuf-color-white);
     --wuf-table-border-width: var(--wuf-border-width);
     --wuf-table-border-color: var(--wuf-border-color);
     --wuf-table-head-bg-color: var(--wuf-color-white);
     --wuf-table-head-color: var(--wuf-body-color);
-    --wuf-table-filter-bg-color: var(--wuf-color-secondary-lighter-30);
-    --wuf-table-filter-color: var(--wuf-color-gray-400);
+    --wuf-table-filter-bg-color: var(--wuf-table-head-bg-color);
+    --wuf-table-filter-color: var(--wuf-table-head-color);
     --wuf-table-cell-padding-vert: 5px;
     --wuf-table-cell-padding-horiz: 20px;
     --wuf-table-action-padding: 4px;

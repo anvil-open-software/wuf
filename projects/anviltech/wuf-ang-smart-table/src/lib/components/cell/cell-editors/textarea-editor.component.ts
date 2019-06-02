@@ -12,7 +12,7 @@ import { WufSmartTableDefaultEditor } from './default-editor';
     selector: 'textarea-editor',
     styleUrls: ['./editor.component.scss'],
     template: `
-        <textarea [ngClass]="inputClass"
+        <textarea
                   class="form-control"
                   [formControl]="cell.getValidator()"
                   [(ngModel)]="cell.newValue"
