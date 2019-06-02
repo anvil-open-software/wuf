@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{"++aE":function(n,t,u){"use strict";u.d(t,"a",function(){return r}),u.d(t,"b",function(){return i});var o=u("0bV8"),i=function(n){return new o.a(n,"../assets/i18n/",".json")},r=function(){return function(){}}()}}]);
