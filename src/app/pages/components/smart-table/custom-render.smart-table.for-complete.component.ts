@@ -6,6 +6,7 @@
 import {Component, Input, OnInit, ViewChild} from '@angular/core';
 
 import {WufSmartTableViewCell} from '@anviltech/wuf-ang-smart-table';
+import { TranslateService } from '@ngx-translate/core';
 
 
 // import {NgbPopover} from '@ng-bootstrap/ng-bootstrap';
@@ -24,6 +25,8 @@ export class CustomRenderForGradeSmartTable implements WufSmartTableViewCell, On
     public progressBarWidth: string;
     @Input() value: string | number;
     @Input() rowData: any;
+
+    constructor(public translate: TranslateService) {}
 
     ngOnInit() {
         this.progressBarWidth = this.value.toString();

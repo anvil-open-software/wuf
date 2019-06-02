@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.18] - 2019-06-02
+### Changed
+- Changing padding around table header actions for a slighly cleaner look.
+### Fixed
+- --wuf-table-filter-bg-color now uses var(--wuf-table-head-bg-color) for better dark theme compatibility with Smart Table
+- --wuf-table-filter-color now uses var(--wuf-table-head-color) for better dark theme compatibility with Smart Table
+
 ## [2.0.0-rc.17] - 2019-05-28
 ### Changed
 - add padding-bottom: 20px to .mat-slide-toggle-group
