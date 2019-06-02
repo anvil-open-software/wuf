@@ -14,7 +14,6 @@ import { DefaultFilter } from './default-filter';
     selector: 'input-filter',
     template: `
         <input [(ngModel)]="query"
-               [ngClass]="inputClass"
                [formControl]="inputControl"
                class="form-control"
                type="text"

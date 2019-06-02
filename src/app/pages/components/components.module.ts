@@ -35,7 +35,7 @@ import { WufSplitPanelComponent } from './dashboard/wuf-split-panel/wuf-split-pa
 
 /***** Smart Table extras *****/
 import { CustomEditorForFoodsSmartTable } from './smart-table/custom-editor.smart-table.for-foods.component';
-import { CustomRenderForGradeSmartTable } from './smart-table/custom-render.smart-table.for-grade.component';
+import { CustomRenderForCompleteSmartTable } from './smart-table/custom-render.smart-table.for-complete.component';
 import { CustomEditorForNameValidationSmartTable } from './smart-table/custom-editor.smart-table.for-name-validation.component';
 import { CustomEditorForIDValidationSmartTable } from './smart-table/custom-editor.smart-table.for-id-validation.component';
 
@@ -121,7 +121,7 @@ import { SmartTableComponent } from './smart-table/smart-table.component';
 
         // Smart Table component examples
         CustomEditorForFoodsSmartTable,
-        CustomRenderForGradeSmartTable,
+        CustomRenderForCompleteSmartTable,
         CustomEditorForNameValidationSmartTable,
         CustomEditorForIDValidationSmartTable,
 
@@ -133,7 +133,7 @@ import { SmartTableComponent } from './smart-table/smart-table.component';
 
         // Smart table examples
         CustomEditorForFoodsSmartTable,
-        CustomRenderForGradeSmartTable,
+        CustomRenderForCompleteSmartTable,
         CustomEditorForNameValidationSmartTable,
         CustomEditorForIDValidationSmartTable
     ]

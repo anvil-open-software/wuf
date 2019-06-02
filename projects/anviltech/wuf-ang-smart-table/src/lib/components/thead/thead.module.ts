@@ -7,12 +7,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { MatButtonModule, MatIconModule, MatTooltipModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatInputModule, MatTooltipModule } from '@angular/material';
 
 import { FilterModule } from '../filter/filter.module';
 import { CellModule } from '../cell/cell.module';
 
-import { Ng2SmartTableTheadComponent } from './thead.component';
+import { SmartTableTheadComponent } from './thead.component';
 import { ActionsComponent } from './cells/actions.component';
 import { ActionsTitleComponent } from './cells/actions-title.component';
 import { AddButtonComponent } from './cells/add-button.component';
@@ -22,6 +22,8 @@ import { TitleComponent } from './cells/title/title.component';
 import { TheadFitlersRowComponent } from './rows/thead-filters-row.component';
 import { TheadFormRowComponent } from './rows/thead-form-row.component';
 import { TheadTitlesRowComponent } from './rows/thead-titles-row.component';
+import { TheadHeaderRowComponent } from './rows/thead-header-row.component';
+import { SharedModule } from '../../shared.module';
 
 
 
@@ -35,7 +37,8 @@ const THEAD_COMPONENTS = [
     TheadFitlersRowComponent,
     TheadFormRowComponent,
     TheadTitlesRowComponent,
-    Ng2SmartTableTheadComponent
+    SmartTableTheadComponent,
+    TheadHeaderRowComponent
 ];
 
 @NgModule({
@@ -46,7 +49,8 @@ const THEAD_COMPONENTS = [
         CellModule,
         MatButtonModule,
         MatIconModule,
-        MatTooltipModule
+        MatTooltipModule,
+        SharedModule
     ],
     declarations: [
         ...THEAD_COMPONENTS

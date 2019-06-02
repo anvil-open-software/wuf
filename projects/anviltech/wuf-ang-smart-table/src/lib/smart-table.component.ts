@@ -13,12 +13,12 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 
-import { Grid } from './lib/grid';
-import { DataSource } from './lib/data-source/data-source';
-import { Row } from './lib/data-set/row';
-import { deepExtend } from './lib/helpers';
-import { WufSmartTableLocalDataSource } from './lib/data-source/local/local.data-source';
-import { WufSmartTableValidatorService } from './lib/validator.service';
+import { Grid } from './services/grid';
+import { DataSource } from './data-source/data-source';
+import { Row } from './data-set/row';
+import { deepExtend } from './services/helpers';
+import { WufSmartTableLocalDataSource } from './data-source/local/local.data-source';
+import { WufSmartTableValidatorService } from './services/validator.service';
 
 
 @Component({
@@ -48,6 +48,7 @@ export class WufSmartTableComponent implements OnChanges {
     tableId: string;
     isHideHeader: boolean;
     isHideSubHeader: boolean;
+    isShowHeader: boolean;
     isPagerDisplay: boolean;
     rowClassFunction: Function;
     width: string;
@@ -60,8 +61,9 @@ export class WufSmartTableComponent implements OnChanges {
 
     grid: Grid;
     defaultSettings: Object = {
-        mode: 'inline', // inline|external|click-to-edit
-        selectMode: 'single', // single|multi
+        mode: 'inline', // inline | external | click-to-edit
+        title: '',
+        selectMode: 'none', // single | multi | none
         hideHeader: false,
         hideSubHeader: false,
         width: '100%',
@@ -70,44 +72,44 @@ export class WufSmartTableComponent implements OnChanges {
         alternatingRowColors: true,
         noDataMessage: 'No data found',
         actions: {
-            columnTitle: 'Actions',
-            add: true,
-            edit: true,
-            delete: true,
-            custom: [],
-            position: 'left' // left|right
+            title: 'Actions',
+            add: {
+                include: true,
+                position: 'header',
+                tip: 'Add new',
+                confirm: false,
+                insertMethod: 'prepend',
+                createFormShownInitial: false,
+                createFormShownAlways: false
+            },
+            edit: {
+                include: true,
+                position: 'right',
+                tip: 'Edit',
+                confirm: false
+            },
+            delete: {
+                include: true,
+                position: 'right',
+                tip: 'Delete',
+                confirm: false
+            },
+            save: {
+                include: true,
+                tip: 'Save'
+            },
+            cancel: {
+                include: true,
+                tip: 'Cancel'
+            },
+            create: {
+                include: true,
+                tip: 'Save'
+            },
+            custom: []
         },
         filter: {
-            inputClass: '',
             placeholder: 'Filter...'
-        },
-        edit: {
-            inputClass: '',
-            editButtonContent: null,
-            editTip: 'Edit',
-            saveButtonContent: null,
-            saveTip: 'Save Changes',
-            cancelButtonContent: null,
-            cancelTip: 'Cancel',
-            confirmSave: false
-        },
-        add: {
-            inputClass: '',
-            addButtonContent: null,
-            addTip: 'Add New',
-            createButtonContent: null,
-            createTip: 'Create',
-            cancelButtonContent: null,
-            cancelTip: 'Cancel',
-            confirmCreate: false,
-            insertMethod: 'prepend',
-            createFormShownInitial: false,
-            createFormShownAlways: false
-        },
-        delete: {
-            deleteButtonContent: null,
-            deleteTip: 'Delete',
-            confirmDelete: false
         },
         attr: {
             id: '',
@@ -138,6 +140,7 @@ export class WufSmartTableComponent implements OnChanges {
         this.tableId = this.grid.getSetting('attr.id');
         this.tableClass = this.grid.getSetting('attr.class');
         this.isHideHeader = this.grid.getSetting('hideHeader');
+        this.isShowHeader = this.grid.getSetting('title');
         this.isHideSubHeader = this.grid.getSetting('hideSubHeader');
         this.isPagerDisplay = this.grid.getSetting('pager.display');
         this.rowClassFunction = this.grid.getSetting('rowClassFunction');
@@ -151,12 +154,16 @@ export class WufSmartTableComponent implements OnChanges {
     editRowSelect(row: Row) {
         if (this.grid.getSetting('selectMode') === 'multi') {
             this.onMultipleSelectRow(row);
-        } else {
+        }
+        else {
             this.onSelectRow(row);
         }
     }
 
     onUserSelectRow(row: Row) {
+        if (this.grid.getSetting('selectMode') === 'none') {
+            return;
+        }
         if (this.grid.getSetting('selectMode') !== 'multi') {
             this.grid.selectRow(row);
             this.emitUserSelectRow(row);
@@ -169,6 +176,10 @@ export class WufSmartTableComponent implements OnChanges {
     }
 
     multipleSelectRow(row: Row) {
+        if (this.grid.getSetting('selectMode') === 'none') {
+            return;
+        }
+
         this.grid.multipleSelectRow(row);
         this.emitUserSelectRow(row);
         this.emitSelectRow(row);
@@ -183,6 +194,10 @@ export class WufSmartTableComponent implements OnChanges {
     }
 
     onSelectRow(row: Row) {
+        if (this.grid.getSetting('selectMode') === 'none') {
+            return;
+        }
+
         this.grid.selectRow(row);
         this.emitSelectRow(row);
     }
@@ -239,6 +254,10 @@ export class WufSmartTableComponent implements OnChanges {
     }
 
     private emitSelectRow(row: Row | any) {
+        if (this.grid.getSetting('selectMode') === 'none') {
+            return;
+        }
+
         this.rowSelect.emit({
             data: row ? row.getData() : null,
             isSelected: row ? row.getIsSelected() : null,

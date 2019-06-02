@@ -16,8 +16,9 @@ import { PagerModule } from './components/pager/pager.module';
 import { TBodyModule } from './components/tbody/tbody.module';
 import { THeadModule } from './components/thead/thead.module';
 import { WufSmartTableComponent } from './smart-table.component';
-import { WufSmartTableValidatorService } from './lib/validator.service';
-import { DefaultWufSmartTableValidatorService } from './lib/default-validator.service';
+import { WufSmartTableValidatorService } from './services/validator.service';
+import { DefaultWufSmartTableValidatorService } from './services/default-validator.service';
+import { SharedModule } from './shared.module';
 
 export { WufSmartTableComponent } from './smart-table.component';
 
@@ -32,7 +33,8 @@ export { WufSmartTableComponent } from './smart-table.component';
         PagerModule,
         TBodyModule,
         THeadModule,
-        MatTooltipModule
+        MatTooltipModule,
+        SharedModule
     ],
     declarations: [
         WufSmartTableComponent

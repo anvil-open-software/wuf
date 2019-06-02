@@ -7,10 +7,10 @@ import {Subject, Observable} from 'rxjs';
 import {EventEmitter} from '@angular/core';
 
 import {Deferred, getDeepFromObject} from './helpers';
-import {Column} from './data-set/column';
-import {Row} from './data-set/row';
-import {DataSet} from './data-set/data-set';
-import {DataSource} from './data-source/data-source';
+import {Column} from '../data-set/column';
+import {Row} from '../data-set/row';
+import {DataSet} from '../data-set/data-set';
+import {DataSource} from '../data-source/data-source';
 import {WufSmartTableValidatorService} from './validator.service';
 
 export class Grid {
@@ -32,15 +32,34 @@ export class Grid {
     }
 
     showActionColumn(position: string): boolean {
-        return this.isCurrentActionsPosition(position) && this.isActionsVisible();
+        return this.isActionsVisible(position);
     }
 
-    isCurrentActionsPosition(position: string): boolean {
-        return position === this.getSetting('actions.position');
+    // TODO: use these
+    showButton(name: string, position: string): boolean {
+        return this.getSetting('actions.' + name)
+            && this.getSetting('actions.' + name).include
+            && typeof this.getSetting('actions.' + name) === 'object'
+            && this.getSetting('actions.' + name).position === position;
     }
 
-    isActionsVisible(): boolean {
-        return this.getSetting('actions.add') || this.getSetting('actions.edit') || this.getSetting('actions.delete') || this.getSetting('actions.custom').length;
+    // TODO: change this
+    isActionsVisible(position: string): boolean {
+
+        let hasCustomActions: boolean = false;
+        if (this.getSetting('actions.custom').length) {
+            for (let i = 0; i < this.getSetting('actions.custom'); i++) {
+                if (this.getSetting('actions.custom')[i].position === position) {
+                    hasCustomActions = true;
+                    break;
+                }
+            }
+        }
+
+        return hasCustomActions
+            || this.showButton('add', position)
+            || this.showButton('edit', position)
+            || this.showButton('delete', position);
     }
 
     isMultiSelectVisible(): boolean {
@@ -53,7 +72,7 @@ export class Grid {
 
     setSettings(settings: Object, validator: WufSmartTableValidatorService) {
         this.settings = settings;
-        this.createFormShown = this.getSetting('add.createFormShownAlways') || this.getSetting('add.createFormShownInitial');
+        this.createFormShown = this.getSetting('actions.add.createFormShownAlways') || this.getSetting('actions.add.createFormShownInitial');
         this.dataSet = new DataSet([], this.getSetting('columns'), validator);
 
         if (this.source) {
@@ -90,10 +109,20 @@ export class Grid {
     }
 
     selectRow(row: Row) {
+
+        if (this.getSetting('selectMode') === 'none') {
+            return;
+        }
+
         this.dataSet.selectRow(row);
     }
 
     multipleSelectRow(row: Row) {
+
+        if (this.getSetting('selectMode') === 'none') {
+            return;
+        }
+
         this.dataSet.multipleSelectRow(row);
     }
 
@@ -111,34 +140,40 @@ export class Grid {
         deferred.promise.then((newData) => {
             newData = newData ? newData : row.getNewData();
             if (deferred.resolve.skipAdd) {
-        if(!this.getSetting('add.createFormShownAlways'))
+                if (!this.getSetting('actions.add.createFormShownAlways')) {
                     this.createFormShown = false;
-            } else {
+                }
+            }
+            else {
                 this.insert(newData);
             }
         }).catch((err) => {
             // doing nothing
         });
 
-        if (this.getSetting('add.confirmCreate')) {
+        if (this.getSetting('actions.add.confirm')) {
             confirmEmitter.emit({
                 newData: row.getNewData(),
                 source: this.source,
                 confirm: deferred,
                 validator: this.dataSet.newRowValidator,
             });
-        } else {
-            if (this.dataSet.newRowValidator.invalid)
+        }
+        else {
+            if (this.dataSet.newRowValidator.invalid) {
                 deferred.reject();
-            else
+            }
+            else {
                 deferred.resolve();
+            }
         }
     }
 
     insert(newData: any) {
-        (<any>this.source)[this.getSetting('add.insertMethod')](newData).then(() => {
-            if (!this.getSetting('add.createFormShownAlways'))
+        (<any>this.source)[this.getSetting('actions.add.insertMethod')](newData).then(() => {
+            if (!this.getSetting('actions.add.createFormShownAlways')) {
                 this.createFormShown = false;
+            }
             this.dataSet.addInsertedRowValidator();
             this.dataSet.createNewRow();
         });
@@ -152,7 +187,8 @@ export class Grid {
             newData = newData ? newData : row.getNewData();
             if (deferred.resolve.skipEdit) {
                 row.isInEditing = false;
-            } else {
+            }
+            else {
                 this.source.update(row.getData(), newData).then(() => {
                     row.isInEditing = false;
                     this.dataSet.newRowValidator.reset();
@@ -162,7 +198,7 @@ export class Grid {
             // doing nothing
         });
 
-        if (this.getSetting('edit.confirmSave')) {
+        if (this.getSetting('actions.edit.config')) {
             confirmEmitter.emit({
                 data: row.getData(),
                 newData: row.getNewData(),
@@ -170,11 +206,14 @@ export class Grid {
                 confirm: deferred,
                 validator: this.dataSet.getRowValidator(row.index),
             });
-        } else {
-            if (this.dataSet.getRowValidator(row.index).invalid)
+        }
+        else {
+            if (this.dataSet.getRowValidator(row.index).invalid) {
                 deferred.reject();
-            else
+            }
+            else {
                 deferred.resolve();
+            }
         }
     }
 
@@ -188,13 +227,14 @@ export class Grid {
             // doing nothing
         });
 
-        if (this.getSetting('delete.confirmDelete')) {
+        if (this.getSetting('actions.delete.confirm')) {
             confirmEmitter.emit({
                 data: row.getData(),
                 source: this.source,
                 confirm: deferred
             });
-        } else {
+        }
+        else {
             deferred.resolve();
         }
     }

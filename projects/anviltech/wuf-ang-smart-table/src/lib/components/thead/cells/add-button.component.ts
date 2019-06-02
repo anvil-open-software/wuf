@@ -14,26 +14,31 @@ import {
     ViewEncapsulation
 } from '@angular/core';
 
-import { Grid } from '../../../lib/grid';
-import { DataSource } from '../../../lib/data-source/data-source';
+import { Grid } from '../../../services/grid';
+import { DataSource } from '../../../data-source/data-source';
 
 
 @Component({
     selector: '[wuf-st-add-button]',
-    template: `
-
-        <button mat-raised-button
-                *ngIf="isActionAdd && !isCreateFormShownAlways && addNewButtonContent"
-                class="wuf-smart-action wuf-smart-action-add-add"
-                [innerHTML]="addNewButtonContent"
-                (click)="onAdd($event)"></button>
-        <button mat-raised-button
-                *ngIf="isActionAdd && !isCreateFormShownAlways && !addNewButtonContent"
-                class="wuf-smart-action wuf-smart-action-add-add"
-                (click)="onAdd($event)"
-                [matTooltip]="addTip"
-                matTooltipPosition="above">
+    template: `        
+        <!-- icon button -->
+        <button
+            *ngIf="!label"
+            mat-raised-button
+            class="wuf-smart-action wuf-smart-action-icon wuf-smart-action-add"
+            (click)="onAdd($event)"
+            [matTooltip]="tip | translate"
+            matTooltipPosition="left">
             <mat-icon>add</mat-icon>
+        </button>
+        <!-- button with label -->
+        <button
+            *ngIf="label"
+            mat-raised-button
+            class="wuf-smart-action wuf-smart-action-button wuf-smart-action-add"
+            (click)="onAdd($event)"
+            matTooltipPosition="left">
+            {{label | translate}}
         </button>
     `,
     encapsulation: ViewEncapsulation.None
@@ -41,13 +46,14 @@ import { DataSource } from '../../../lib/data-source/data-source';
 export class AddButtonComponent implements AfterViewInit, OnChanges {
 
     @Input() grid: Grid;
+    @Input() position: string;
     @Input() source: DataSource;
     @Output() create = new EventEmitter<any>();
 
-    isActionAdd: boolean;
+    isAddButton: boolean;
     isCreateFormShownAlways: boolean;
-    addNewButtonContent: string;
-    addTip: string;
+    label: string;
+    tip: string;
 
     constructor(private ref: ElementRef) {
     }
@@ -57,10 +63,13 @@ export class AddButtonComponent implements AfterViewInit, OnChanges {
     }
 
     ngOnChanges() {
-        this.isActionAdd = this.grid.getSetting('actions.add');
-        this.isCreateFormShownAlways = this.grid.getSetting('add.createFormShownAlways');
-        this.addNewButtonContent = this.grid.getSetting('add.addButtonContent');
-        this.addTip = this.grid.getSetting('add.addTip');
+        this.isAddButton = this.grid.showButton('add', this.position);
+        this.isCreateFormShownAlways = this.grid.getSetting('actions.add.createFormShownAlways');
+
+        this.label = this.grid.getSetting('actions.add').hasOwnProperty('label')
+            ? this.grid.getSetting('actions.add.label') : undefined;
+        this.tip = this.grid.getSetting('actions.add').hasOwnProperty('tip')
+            ? this.grid.getSetting('actions.add.tip') : undefined;
     }
 
     onAdd(event: any) {

@@ -5,8 +5,8 @@
 
 import { Component, Input, Output, EventEmitter, OnChanges, ViewEncapsulation } from '@angular/core';
 
-import { Grid } from '../../lib/grid';
-import { DataSource } from '../../lib/data-source/data-source';
+import { Grid } from '../../services/grid';
+import { DataSource } from '../../data-source/data-source';
 
 
 @Component({
@@ -14,7 +14,7 @@ import { DataSource } from '../../lib/data-source/data-source';
     templateUrl: './thead.component.html',
     encapsulation: ViewEncapsulation.None
 })
-export class Ng2SmartTableTheadComponent implements OnChanges {
+export class SmartTableTheadComponent implements OnChanges {
 
     @Input() grid: Grid;
     @Input() source: DataSource;
@@ -28,9 +28,18 @@ export class Ng2SmartTableTheadComponent implements OnChanges {
 
     isHideHeader: boolean;
     isHideSubHeader: boolean;
+    isShowTitle: boolean;
+    isShowAddButton: boolean;
 
     ngOnChanges() {
         this.isHideHeader = this.grid.getSetting('hideHeader');
         this.isHideSubHeader = this.grid.getSetting('hideSubHeader');
+
+        const title = this.grid.getSetting('title');
+
+        if (title) {
+            this.isShowTitle = title && typeof title === 'string';
+            this.isShowAddButton = this.grid.showButton('add', 'header');
+        }
     }
 }

@@ -5,7 +5,7 @@
 
 import { Component, Input, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 
-import { WufSmartTableCell } from '../../../lib/data-set/cell';
+import { WufSmartTableCell } from '../../../data-set/cell';
 
 
 @Component({

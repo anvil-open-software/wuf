@@ -15,5 +15,44 @@
             "ANGULAR": "I18N - Angular",
             "NGX": "I18N - ngx-translate"
         }
+    },
+    "SMARTTABLE": {
+        "HEADER": "Smart Table",
+        "COLUMNS": {
+            "ACTIONS": "Actions",
+            "ID": "ID",
+            "NAME": "Full Name",
+            "FOODS": "Favorite Foods",
+            "COMPLETE": "% Complete"
+        },
+        "ACTIONS": {
+            "ADD": {
+                "LABEL": "Add",
+                "TIP": "Add new"
+            },
+            "EDIT": {
+                "LABEL": "Edit",
+                "TIP": "Edit"
+            },
+            "DELETE": {
+                "LABEL": "Delete",
+                "TIP": "Delete"
+            },
+            "SAVE": {
+                "LABEL": "Save",
+                "TIP": "Save"
+            },
+            "CANCEL": {
+                "LABEL": "Cancel",
+                "TIP": "Cancel"
+            },
+            "CREATE": {
+                "LABEL": "Save",
+                "TIP": "Save"
+            }
+        },
+        "FILTER": {
+            "PLACEHOLDER": "Filter..."
+        }
     }
 }

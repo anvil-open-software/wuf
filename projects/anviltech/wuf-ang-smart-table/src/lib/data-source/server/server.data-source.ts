@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 
 import { WufSmartTableLocalDataSource } from '../local/local.data-source';
 import { ServerSourceConf } from './server-source.conf';
-import { getDeepFromObject } from '../../helpers';
+import { getDeepFromObject } from '../../services/helpers';
 import { map } from 'rxjs/operators';
 
 

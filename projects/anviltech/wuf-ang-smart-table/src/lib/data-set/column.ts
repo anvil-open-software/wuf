@@ -8,7 +8,7 @@ import { DataSet } from './data-set';
 
 export class Column {
 
-    title: string = '';
+    title: any;
     type: string = '';
     class: string = '';
     width: string = '';

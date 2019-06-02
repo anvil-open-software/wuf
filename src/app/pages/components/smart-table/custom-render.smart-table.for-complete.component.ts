@@ -3,13 +3,10 @@
  * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
  */
 
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
-import {WufSmartTableViewCell} from '@anviltech/wuf-ang-smart-table';
-import { TranslateService } from '@ngx-translate/core';
+import { WufSmartTableViewCell } from '@anviltech/wuf-ang-smart-table';
 
-
-// import {NgbPopover} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     template: `
@@ -20,13 +17,13 @@ import { TranslateService } from '@ngx-translate/core';
 </div>
   `,
 })
-export class CustomRenderForGradeSmartTable implements WufSmartTableViewCell, OnInit {
+export class CustomRenderForCompleteSmartTable implements WufSmartTableViewCell, OnInit {
 
     public progressBarWidth: string;
     @Input() value: string | number;
     @Input() rowData: any;
 
-    constructor(public translate: TranslateService) {}
+    constructor() {}
 
     ngOnInit() {
         this.progressBarWidth = this.value.toString();

@@ -5,30 +5,30 @@
 
 import { Component, Input, Output, EventEmitter, OnChanges, ViewEncapsulation } from '@angular/core';
 
-import { Grid } from '../../../lib/grid';
-import { Row } from '../../../lib/data-set/row';
+import { Grid } from '../../../services/grid';
+import { Row } from '../../../data-set/row';
 
 
 @Component({
     selector: '[wuf-st-thead-form-row]',
     template: `
-        <td *ngIf="isMultiSelectVisible"></td>
-        <td *ngIf="showActionColumnLeft" class="wuf-smart-actions">
+        <th *ngIf="isMultiSelectVisible"></th>
+        <th *ngIf="showActionColumnLeft" class="wuf-smart-actions">
             <wuf-st-actions [grid]="grid" (create)="onCreate($event)"></wuf-st-actions>
-        </td>
-        <td *ngFor="let cell of grid.getNewRow().getCells()">
-            <wuf-smart-table-cell [cell]="cell"
-                                 [grid]="grid"
-                                 [isNew]="true"
-                                 [createConfirm]="createConfirm"
-                                 [inputClass]="addInputClass"
-                                 [isInEditing]="grid.getNewRow().isInEditing"
-                                 (edited)="onCreate($event)">
+        </th>
+        <th *ngFor="let cell of grid.getNewRow().getCells()">
+            <wuf-smart-table-cell
+                [cell]="cell"
+                [grid]="grid"
+                [isNew]="true"
+                [createConfirm]="createConfirm"
+                [isInEditing]="grid.getNewRow().isInEditing"
+                (edited)="onCreate($event)">
             </wuf-smart-table-cell>
-        </td>
-        <td *ngIf="showActionColumnRight" class="wuf-smart-actions">
+        </th>
+        <th *ngIf="showActionColumnRight" class="wuf-smart-actions">
             <wuf-st-actions [grid]="grid" (create)="onCreate($event)"></wuf-st-actions>
-        </td>
+        </th>
     `,
     encapsulation: ViewEncapsulation.None
 })
@@ -43,7 +43,6 @@ export class TheadFormRowComponent implements OnChanges {
     isMultiSelectVisible: boolean;
     showActionColumnLeft: boolean;
     showActionColumnRight: boolean;
-    addInputClass: string;
 
     onCreate(event: any) {
         event.stopPropagation();
@@ -54,7 +53,6 @@ export class TheadFormRowComponent implements OnChanges {
     ngOnChanges() {
         this.isMultiSelectVisible = this.grid.isMultiSelectVisible();
         this.showActionColumnLeft = this.grid.showActionColumn('left');
-        this.showActionColumnRight = this.grid.showActionColumn('right');
-        this.addInputClass = this.grid.getSetting('add.inputClass');
+        this.showActionColumnRight = this.grid.showActionColumn('right') || this.grid.showActionColumn('header');
     }
 }

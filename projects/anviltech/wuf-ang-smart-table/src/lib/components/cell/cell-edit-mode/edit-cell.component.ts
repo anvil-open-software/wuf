@@ -5,7 +5,7 @@
 
 import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 
-import { WufSmartTableCell } from '../../../lib/data-set/cell';
+import { WufSmartTableCell } from '../../../data-set/cell';
 
 
 @Component({
@@ -14,12 +14,10 @@ import { WufSmartTableCell } from '../../../lib/data-set/cell';
         <div [ngSwitch]="getEditorType()">
             <table-cell-custom-editor *ngSwitchCase="'custom'"
                                       [cell]="cell"
-                                      [inputClass]="inputClass"
                                       (edited)="onEdited($event)">
             </table-cell-custom-editor>
             <table-cell-default-editor *ngSwitchDefault
                                        [cell]="cell"
-                                       [inputClass]="inputClass"
                                        (edited)="onEdited($event)">
             </table-cell-default-editor>
         </div>
@@ -29,8 +27,6 @@ import { WufSmartTableCell } from '../../../lib/data-set/cell';
 export class EditCellComponent {
 
     @Input() cell: WufSmartTableCell;
-    @Input() inputClass: string = '';
-
     @Output() edited = new EventEmitter<any>();
 
     onEdited(event: any): boolean {

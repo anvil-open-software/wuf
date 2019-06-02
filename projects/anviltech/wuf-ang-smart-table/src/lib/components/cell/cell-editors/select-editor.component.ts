@@ -11,7 +11,7 @@ import { WufSmartTableDefaultEditor } from './default-editor';
 @Component({
     selector: 'select-editor',
     template: `
-        <select [ngClass]="inputClass"
+        <select
                 class="form-control"
                 [formControl]="cell.getValidator()"
                 [(ngModel)]="cell.newValue"

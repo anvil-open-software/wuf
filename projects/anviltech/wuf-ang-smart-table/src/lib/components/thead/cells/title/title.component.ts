@@ -6,8 +6,9 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { DataSource } from '../../../../lib/data-source/data-source';
-import { Column } from '../../../../lib/data-set/column';
+import { DataSource } from '../../../../data-source/data-source';
+import { Column } from '../../../../data-set/column';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -17,8 +18,9 @@ import { Column } from '../../../../lib/data-set/column';
         <a href="#" *ngIf="column.isSortable"
            (click)="_sort($event)"
            class="wuf-smart-sort-link"
-           [ngClass]="currentDirection">
-            {{ column.title }}
+           [ngClass]="currentDirection"
+           translate>
+            {{column.title}}
         </a>
         <i class="material-icons sort-icon" *ngIf="column.isSortable && currentDirection==='desc'"
            (click)="_sort($event)"
@@ -42,6 +44,8 @@ export class TitleComponent implements OnChanges {
     @Output() sort = new EventEmitter<any>();
 
     protected dataChangedSub: Subscription;
+
+    constructor(public translate: TranslateService) {}
 
     ngOnChanges(changes: SimpleChanges) {
         if (changes.source) {

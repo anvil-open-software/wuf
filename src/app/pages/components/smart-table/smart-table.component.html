@@ -42,7 +42,7 @@
                         <th colspan="4">
                             <h3>Standard Table</h3>
                             <div class="actions">
-                                [actions]
+                                <button mat-raised-button>button</button>
                             </div>
                         </th>
                     </tr>
@@ -126,149 +126,236 @@
                     <td class="prop-description">When set to true every other row shows a background color.</td>
                 </tr>
                 <tr>
-                    <td class="prop-name">add.addButtonContent</td>
+                    <td class="prop-name">actions.title</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">none</i></td>
+                    <td>The column header string to display above the actions column. If this string corresponds with a
+                        translation key, ngx-translate will translate it.</td>
+                </tr>
+
+
+                <tr>
+                    <td class="prop-name">actions.add.include</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">true</td>
+                    <td>Whether or not to display the add button.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.add.label</td>
                     <td class="prop-type"><code>string</code></td>
                     <td class="prop-default"><i class="material-icons">add</i></td>
                     <td>By default, the add button will display the <i class="material-icons">add</i> icon. If a string
                         is passed, a button with this string as its label will be displayed instead of the icon.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
                     </td>
                 </tr>
                 <tr>
-                    <td class="prop-name">add.addTip</td>
+                    <td class="prop-name">actions.add.position</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">header</td>
+                    <td>The position at which to display the button. If set to "header", the button will appear in
+                        the table header, to the right of the table's title (if it exists).  Otherwise, the button
+                        will appear in the actions column of the filter row (if visible).
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.add.tip</td>
                     <td class="prop-type"><code>string</code></td>
                     <td class="prop-default">'Add New'</td>
-                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Add
-                        icon. Note that if <span
-                            class="code">add.addButtonContent</span> is overridden to include a string to display, an
-                        icon is not displayed and this property will do nothing.
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the
+                        button/icon. Note that if <span class="code">add.label</span> is overridden to include a
+                        string to display as a button label, an icon is not displayed and this property will do nothing.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
                     </td>
                 </tr>
                 <tr>
-                    <td class="prop-name">add.createButtonContent</td>
-                    <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default"><i class="material-icons">add</i></td>
-                    <td>By default, the create button will display the <i class="material-icons">add</i> icon. If a
-                        string is passed, a button with this string as its label will be displayed instead of the icon.
-                    </td>
+                    <td class="prop-name">actions.add.confirm</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">false</td>
+                    <td>Whether or not to confirm new item creation before the item is added.</td>
+                </tr>
+
+                <tr>
+                    <td class="prop-name">actions.edit.include</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">true</td>
+                    <td>Whether or not to display the edit button.</td>
                 </tr>
                 <tr>
-                    <td class="prop-name">add.createTip</td>
-                    <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default">'Create'</td>
-                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Create
-                        icon. Note that if <span
-                            class="code">add.createButtonContent</span> is overridden to include a string to display, an
-                        icon is not displayed and this property will do nothing.
-                    </td>
-                </tr>
-                <tr>
-                    <td class="prop-name">add.cancelButtonContent</td>
-                    <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default"><i class="material-icons">clear</i></td>
-                    <td>By default, the add cancel button will display the <i class="material-icons">clear</i> icon. If
-                        a string is passed, a button with this string as its label will be displayed instead of the
-                        icon.
-                    </td>
-                </tr>
-                <tr>
-                    <td class="prop-name">add.createTip</td>
-                    <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default">'Cancel'</td>
-                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Cancel
-                        icon. Note that if <span
-                            class="code">add.cancelButtonContent</span> is overridden to include a string to display, an
-                        icon is not displayed and this property will do nothing.
-                    </td>
-                </tr>
-                <tr>
-                    <td class="prop-name">delete.deleteButtonContent</td>
-                    <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default"><i class="material-icons">delete</i></td>
-                    <td>By default, the delete button will display the <i class="material-icons">delete</i> icon. If a
-                        string is passed, a button with this string as its label will be displayed instead of the icon.
-                    </td>
-                </tr>
-                <tr>
-                    <td class="prop-name">delete.deleteTip</td>
-                    <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default">'Delete'</td>
-                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Delete
-                        icon. Note that if <span class="code">delete.deleteButtonContent</span> is overridden to include
-                        a string to display, an icon is not displayed and this property will do nothing.
-                    </td>
-                </tr>
-                <tr>
-                    <td class="prop-name">edit.editButtonContent</td>
+                    <td class="prop-name">actions.edit.label</td>
                     <td class="prop-type"><code>string</code></td>
                     <td class="prop-default"><i class="material-icons">edit</i></td>
-                    <td>By default, the edit button will display the <i class="material-icons">edit</i> icon. If a
-                        string is passed, a button with this string as its label will be displayed instead of the icon.
+                    <td>By default, the edit button will display the <i class="material-icons">edit</i> icon. If a string
+                        is passed, a button with this string as its label will be displayed instead of the icon.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
                     </td>
                 </tr>
                 <tr>
-                    <td class="prop-name">edit.editTip</td>
+                    <td class="prop-name">actions.edit.position</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">right</td>
+                    <td>The position at which to display the button.  Can be one of "left", "right", or "header".</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.edit.tip</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'Add New'</td>
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the
+                        button/icon. Note that if <span class="code">edit.label</span> is overridden to include a
+                        string to display as a button label, an icon is not displayed and this property will do nothing.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.edit.confirm</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">false</td>
+                    <td>Whether or not to display a confirmation dialog before allowing a user save changes to an item.</td>
+                </tr>
+
+                <tr>
+                    <td class="prop-name">actions.delete.include</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">true</td>
+                    <td>Whether or not to display the delete button.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.delete.label</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">delete</i></td>
+                    <td>By default, the delete button will display the <i class="material-icons">delete</i> icon. If a string
+                        is passed, a button with this string as its label will be displayed instead of the icon.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.delete.position</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">right</td>
+                    <td>The position at which to display the button.  Can be one of "left", "right", or "header".</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.delete.tip</td>
                     <td class="prop-type"><code>string</code></td>
                     <td class="prop-default">'Edit'</td>
-                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Edit
-                        icon. Note that if <span class="code">edit.editButtonContent</span> is overridden to include a
-                        string to display, an icon is not displayed and this property will do nothing.
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the
+                        button/icon. Note that if <span class="code">delete.label</span> is overridden to include a
+                        string to display as a button label, an icon is not displayed and this property will do nothing.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
                     </td>
                 </tr>
                 <tr>
-                    <td class="prop-name">edit.saveButtonContent</td>
+                    <td class="prop-name">actions.delete.confirm</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">false</td>
+                    <td>Whether or not to display a confirmation dialog before deleting an item.</td>
+                </tr>
+
+                <tr>
+                    <td class="prop-name">actions.save.include</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">true</td>
+                    <td>Whether or not to display the save button shown when editing an exiting item.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.save.label</td>
                     <td class="prop-type"><code>string</code></td>
                     <td class="prop-default"><i class="material-icons">done</i></td>
-                    <td>By default, the save button will display the <i class="material-icons">done</i> icon. If a
-                        string is passed, a button with this string as its label will be displayed instead of the icon.
+                    <td>By default, the save button will display the <i class="material-icons">save</i> icon. If a string
+                        is passed, a button with this string as its label will be displayed instead of the icon.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
                     </td>
                 </tr>
                 <tr>
-                    <td class="prop-name">edit.saveTip</td>
+                    <td class="prop-name">actions.save.position</td>
                     <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default">'Save Changes'</td>
-                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Save
-                        icon. Note that if <span class="code">edit.saveButtonContent</span> is overridden to include a
-                        string to display, an icon is not displayed and this property will do nothing.
-                    </td>
+                    <td class="prop-default">right</td>
+                    <td>The position at which to display the button.  Can be one of "left", "right", or "header".</td>
                 </tr>
                 <tr>
-                    <td class="prop-name">edit.cancelButtonContent</td>
+                    <td class="prop-name">actions.save.tip</td>
                     <td class="prop-type"><code>string</code></td>
-                    <td class="prop-default"><i class="material-icons">clear</i></td>
-                    <td>By default, the edit cancel button will display the <i class="material-icons">clear</i> icon. If
-                        a string is passed, a button with this string as its label will be displayed instead of the
-                        icon.
+                    <td class="prop-default">'Save'</td>
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the
+                        button/icon. Note that if <span class="code">save.label</span> is overridden to include a
+                        string to display as a button label, an icon is not displayed and this property will do nothing.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="prop-name">actions.cancel.include</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">true</td>
+                    <td>Whether or not to display the cancel button.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.cancel.label</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">close</i></td>
+                    <td>By default, the cancel button will display the <i class="material-icons">close</i> icon. If a string
+                        is passed, a button with this string as its label will be displayed instead of the icon.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
                     </td>
                 </tr>
                 <tr>
-                    <td class="prop-name">edit.cancelTip</td>
+                    <td class="prop-name">actions.cancel.position</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">right</td>
+                    <td>The position at which to display the button.  Can be one of "left", "right", or "header".</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.cancel.tip</td>
                     <td class="prop-type"><code>string</code></td>
                     <td class="prop-default">'Cancel'</td>
-                    <td class="prop-description">The text to display in the tooltip when the user mouses over the Cancel
-                        icon. Note that if <span class="code">edit.cancelButtonContent</span> is overridden to include a
-                        string to display, an icon is not displayed and this property will do nothing.
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the
+                        button/icon. Note that if <span class="code">cancel.label</span> is overridden to include a
+                        string to display as a button label, an icon is not displayed and this property will do nothing.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
                     </td>
                 </tr>
+
+                <tr>
+                    <td class="prop-name">actions.create.include</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">true</td>
+                    <td>Whether or not to display the create button.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.create.label</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">done</i></td>
+                    <td>By default, the create button will display the <i class="material-icons">done</i> icon. If a
+                        string is passed, a button with this string as its label will be displayed instead of the icon.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.create.position</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">right</td>
+                    <td>The position at which to display the button.  Can be one of "left", "right", or "header".</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">actions.create.tip</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'Create'</td>
+                    <td class="prop-description">The text to display in the tooltip when the user mouses over the
+                        button/icon. Note that if <span class="code">create.label</span> is overridden to include a
+                        string to display as a button label, an icon is not displayed and this property will do nothing.
+                        If this string corresponds with a translation key, ngx-translate will translate it.
+                    </td>
+                </tr>
+
                 <tr>
                     <td class="prop-name">filterByLabel</td>
                     <td class="prop-type"><code>string</code></td>
                     <td class="prop-default">'filter by'</td>
                     <td class="prop-description">The text prefixed to the input name appearing in the filter input as
-                        placeholder text.
+                        placeholder text. If this string corresponds with a translation key, ngx-translate will
+                        translate it.
                     </td>
                 </tr>
-                <!--<tr>-->
-                <!--<td>fixedHeader</td>-->
-                <!--<td>>boolean</span></code><td>-->
-                <!--<td>true</td>-->
-                <!--<td>Setting this value to true (the default) will cause the table to display a fixed-position header with scrolling content for the table's body.</td>-->
-                <!--</tr>-->
-                <!--<tr>-->
-                <!--<td>height</td>-->
-                <!--<td>>string</span></code><td>-->
-                <!--<td>'800px'</td>-->
-                <!--<td>Takes any valid CSS values for the <a href="https://www.w3schools.com/cssref/pr_dim_height.asp" target="_blank">height</a> property.  This value is ignored when <span class="code">isFixedHeader</span> is set to false.  When <span class="code">isFixedHeader</span> is set to true (the default), this value is used to set table's max height.  Note that if the number of rows displayed results in a table that is <em>less</em> than this height, this value will have no effect.</td>-->
-                <!--</tr>-->
                 <tr>
                     <td class="prop-name">hover</td>
                     <td class="prop-type"><code>boolean</code></td>
@@ -282,6 +369,13 @@
                     <td class="prop-type"><code>string</code></td>
                     <td class="prop-default">'No data found'</td>
                     <td class="prop-description">The text to display when no data is loaded into the table.</td>
+                </tr>
+                <tr>
+                    <td class="prop-name">title</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default"><i class="material-icons">none</i></td>
+                    <td>If a title is included, a title bar will appear in the header to show this string.
+                        If this string corresponds with a translation key, ngx-translate will translate it.</td>
                 </tr>
                 <tr>
                     <td class="prop-name">valign</td>
@@ -359,7 +453,12 @@
                 <tr>
                     <td class="propName">--wuf-table-filter-color</td>
                     <td class="description">Text color for the filter placeholder.</td>
-                    <td class="value">var(--wuf-color-gray-400)</td>
+                    <td class="value">var(--wuf-table-head-color) &#151; shown at .75 opacity</td>
+                </tr>
+                <tr>
+                    <td class="propName">--wuf-table-filter-color-active</td>
+                    <td class="description">Text color when a filter is active.  Color also used for the focus bar.</td>
+                    <td class="value">var(--wuf-color-primary)</td>
                 </tr>
                 <tr>
                     <td class="propName">--wuf-table-cell-padding-vert</td>

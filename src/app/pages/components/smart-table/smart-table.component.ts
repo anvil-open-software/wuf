@@ -15,7 +15,7 @@ import { WufSmartTableLocalDataSource, WufSmartTableValidatorService } from '@an
 
 // Load custom editors and renderers
 import { CustomEditorForFoodsSmartTable } from './custom-editor.smart-table.for-foods.component';
-import { CustomRenderForGradeSmartTable } from './custom-render.smart-table.for-grade.component';
+import { CustomRenderForCompleteSmartTable } from './custom-render.smart-table.for-complete.component';
 import { CustomEditorForNameValidationSmartTable } from './custom-editor.smart-table.for-name-validation.component';
 import { CustomEditorForIDValidationSmartTable } from './custom-editor.smart-table.for-id-validation.component';
 
@@ -43,15 +43,17 @@ export class SmartTableComponent implements OnInit {
     public smartTableSelectedRows: string = '';
 
     public smartTableSettings = {
-        selectMode: 'single', //single/multi,
+        selectMode: 'none', // single/multi/none,
         width: '100%',
         valign: 'middle',
-        hover: true,
+        hover: false,
         alternatingRowColors: true,
         noDataMessage: 'No data found',
+        // hideSubHeader: true,
+        title: 'SMARTTABLE.HEADER',
         columns: {
             id: {
-                title: 'ID',
+                title: 'SMARTTABLE.COLUMNS.ID',
                 width: '15%',
                 type: 'html',
                 editor: {
@@ -60,7 +62,7 @@ export class SmartTableComponent implements OnInit {
                 }
             },
             name: {
-                title: 'Full Name',
+                title: 'SMARTTABLE.COLUMNS.NAME',
                 width: '15%',
                 type: 'html',
                 editor: {
@@ -69,7 +71,7 @@ export class SmartTableComponent implements OnInit {
                 }
             },
             foods: {
-                title: 'Favorite Foods',
+                title: 'SMARTTABLE.COLUMNS.FOODS',
                 type: 'html',
                 editor: {
                     type: 'custom',
@@ -77,58 +79,67 @@ export class SmartTableComponent implements OnInit {
                     component: CustomEditorForFoodsSmartTable
                 }
             },
-            grade: {
-                title: 'Grade',
-                type: 'custom',
+            complete: {
+                title: 'SMARTTABLE.COLUMNS.COMPLETE',
+                type: 'html',
                 // example of custom-render component
-                renderComponent: CustomRenderForGradeSmartTable
+                renderComponent: CustomRenderForCompleteSmartTable
             }
         },
         actions: {
-            //position of actions column
-            position: 'right',
+            title: 'SMARTTABLE.COLUMNS.ACTIONS',
 
-            //whether to show the add/delete/edit button
-            add: true,
-            delete: true,
-            edit: true
-
-        },
-        add: {
-            // whether to trigger createConfirm output event
-            confirmCreate: true
-        },
-        delete: {
-            // whether to trigger deleteConfirm output event
-            confirmDelete: true
-            // Example of using a button instead of the default icon:
-            // deleteButtonContent: "world"
-            // deleteTip: 'I am a tooltip!'
-        },
-        edit: {
-            // whether to trigger editConfirm output event
-            confirmSave: true
-            // Example of using a button instead of the default icon:
-            // editButtonContent: "hello"
+            // Buttons
+            add: {
+                label: 'SMARTTABLE.ACTIONS.ADD.LABEL', // example use of ngx-translate key
+                position: 'header',
+                tip: 'SMARTTABLE.ACTIONS.ADD.TIP',
+            },
+            edit: {
+                // label: 'SMARTTABLE.ACTIONS.EDIT.LABEL', // example use of ngx-translate key
+                position: 'right',
+                tip: 'SMARTTABLE.ACTIONS.EDIT.TIP',
+            },
+            delete: {
+                // label: 'SMARTTABLE.ACTIONS.DELETE.LABEL', // example use of ngx-translate key
+                position: 'right',
+                tip: 'SMARTTABLE.ACTIONS.DELETE.TIP'
+            },
+            save: {
+                // label: 'SMARTTABLE.ACTIONS.SAVE.LABEL', // example use of ngx-translate key
+                tip: 'SMARTTABLE.ACTIONS.SAVE.TIP'
+            },
+            cancel: {
+                // label: 'SMARTTABLE.ACTIONS.CANCEL.LABEL', // example use of ngx-translate key
+                tip: 'SMARTTABLE.ACTIONS.CANCEL.TIP'
+            },
+            create: {
+                // label: 'SMARTTABLE.ACTIONS.CREATE.LABEL', // example use of ngx-translate key
+                tip: 'SMARTTABLE.ACTIONS.CREATE.TIP'
+            }
         },
         pager: {
             display: true,
             perPage: 3
         },
         filter: {
-            placeholder: 'Filter...'
+            placeholder: 'SMARTTABLE.FILTER.PLACEHOLDER'
         }
     };
 
     // Example dummy data.  This should be loaded via a service
     private smartTableDummyData = [
-        {id: 1, name: 'John', foods: 'pizza', grade: '25%'},
-        {id: 2, name: 'Kate', foods: 'dumplings, hamburger', grade: '50%'},
-        {id: 3, name: 'Bob', foods: 'lobster', grade: '75%'},
-        {id: 4, name: 'Harry', foods: 'steak, pizza', grade: '100%'}
+        {id: 1, name: 'John', foods: 'pizza', complete: '25%'},
+        {id: 2, name: 'Kate', foods: 'dumplings, hamburger', complete: '50%'},
+        {id: 3, name: 'Bob', foods: 'lobster', complete: '75%'},
+        {id: 4, name: 'Harry', foods: 'steak, pizza', complete: '100%'}
     ];
 
     constructor() {
+    }
+
+    ngOnInit() {
+        this.getData();
     }
 
     getData() {
@@ -188,10 +199,5 @@ export class SmartTableComponent implements OnInit {
             + '; isSelected : ' + JSON.stringify(element.isSelected);
 
         this.smartTableSelectedRows = 'The selected rows are : ' + JSON.stringify(element.selected);
-    }
-
-    ngOnInit() {
-
-        this.getData();
     }
 }

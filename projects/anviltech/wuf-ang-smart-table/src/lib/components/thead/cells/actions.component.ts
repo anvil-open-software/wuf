@@ -5,38 +5,49 @@
 
 import { Component, Input, Output, EventEmitter, OnChanges, ViewEncapsulation } from '@angular/core';
 
-import { Grid } from '../../../lib/grid';
+import { Grid } from '../../../services/grid';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
     selector: 'wuf-st-actions',
     template: `
-        <button mat-button
-                *ngIf="createButtonContent"
-                class="wuf-smart-action wuf-smart-action-add-create"
-                [innerHTML]="createButtonContent"
-                (click)="$event.preventDefault();create.emit($event)"></button>
+        
+        <!-- save button -->
+        <!-- icon button -->
         <button mat-icon-button
-                *ngIf="!createButtonContent"
-                class="wuf-smart-action wuf-smart-action-add-create"
-                (click)="$event.preventDefault();create.emit($event)"
-                [matTooltip]="createTip"
-                matTooltipPosition="left">
-            <mat-icon>add</mat-icon>
+            *ngIf="!createLabel"
+            class="wuf-smart-action wuf-smart-action-icon wuf-smart-action-add-create"
+            (click)="$event.preventDefault();create.emit($event)"
+            [matTooltip]="createTip | translate"
+            matTooltipPosition="left">
+            <mat-icon>done</mat-icon>
+        </button>
+        <!-- button with text label -->
+        <button mat-raised-button
+            *ngIf="createLabel"
+            color="primary"
+            class="wuf-smart-action wuf-smart-action-button wuf-smart-action-add-create"
+            (click)="$event.preventDefault();create.emit($event)">
+            {{createLabel | translate}}
         </button>
 
-        <button mat-button
-                *ngIf="cancelButtonContent"
-                class="wuf-smart-action wuf-smart-action-add-cancel"
-                [innerHTML]="cancelButtonContent"
-                (click)="cancelButton($event)"></button>
+        <!-- cancel button -->
+        <!-- icon button -->
         <button mat-icon-button
-                *ngIf="!cancelButtonContent"
-                class="wuf-smart-action wuf-smart-action-add-cancel"
-                (click)="cancelButton($event)"
-                [matTooltip]="cancelTip"
-                matTooltipPosition="left">
+            *ngIf="!cancelLabel"
+            class="wuf-smart-action wuf-smart-action-icon wuf-smart-action-add-cancel"
+            (click)="cancelButton($event)"
+            [matTooltip]="cancelTip | translate"
+            matTooltipPosition="left">
             <mat-icon>clear</mat-icon>
+        </button>
+        <!-- button with text label -->
+        <button mat-raised-button
+            *ngIf="cancelLabel"
+            class="wuf-smart-action wuf-smart-action-button wuf-smart-action-add-cancel"
+            (click)="cancelButton($event)">
+            {{cancelLabel | translate}}
         </button>
     `,
     encapsulation: ViewEncapsulation.None
@@ -46,24 +57,32 @@ export class ActionsComponent implements OnChanges {
     @Input() grid: Grid;
     @Output() create = new EventEmitter<any>();
 
-    createButtonContent: string;
-    createTip: string;
-    cancelButtonContent: string;
-    cancelTip: string;
     createFormShownAlways: boolean;
+    cancelLabel: string;
+    createLabel: string;
+    createTip: string;
+    cancelTip: string;
+
+    constructor(public translate: TranslateService) {}
 
     ngOnChanges() {
-        this.createButtonContent = this.grid.getSetting('add.createButtonContent');
-        this.createTip = this.grid.getSetting('add.createTip');
-        this.cancelButtonContent = this.grid.getSetting('add.cancelButtonContent');
-        this.cancelTip = this.grid.getSetting('add.cancelTip');
-        this.createFormShownAlways = this.grid.getSetting('add.createFormShownAlways');
+
+        this.createLabel = this.grid.getSetting('actions.create').hasOwnProperty('label')
+            ? this.grid.getSetting('actions.create.label') : undefined;
+        this.cancelLabel = this.grid.getSetting('actions.cancel').hasOwnProperty('label')
+            ? this.grid.getSetting('actions.cancel.label') : undefined;
+
+        this.createTip = this.grid.getSetting('actions.create').hasOwnProperty('tip')
+            ? this.grid.getSetting('actions.create.tip') : undefined;
+        this.cancelTip = this.grid.getSetting('actions.cancel').hasOwnProperty('tip')
+            ? this.grid.getSetting('actions.cancel.tip') : undefined;
     }
 
     cancelButton(event: any) {
         event.preventDefault();
-        if (!this.createFormShownAlways)
+        if (!this.createFormShownAlways) {
             this.grid.createFormShown = false;
+        }
         this.grid.dataSet.newRowValidator.reset();
     }
 }

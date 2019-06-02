@@ -5,8 +5,8 @@
 
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
-import { Grid } from '../../../lib/grid';
-import { DataSource } from '../../../lib/data-source/data-source';
+import { Grid } from '../../../services/grid';
+import { DataSource } from '../../../data-source/data-source';
 
 
 @Component({

@@ -7,12 +7,13 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { MatButtonModule, MatIconModule, MatProgressBarModule, MatTooltipModule } from '@angular/material';
+import { MatButtonModule, MatIconModule, MatInputModule, MatProgressBarModule, MatTooltipModule } from '@angular/material';
 
 import { CellModule } from '../cell/cell.module';
 import { WufSmartTableTbodyComponent } from './tbody.component';
 import { TbodyCreateCancelComponent } from './cells/create-cancel.component';
 import { TbodyEditDeleteComponent } from './cells/edit-delete.component';
+import { SharedModule } from '../../shared.module';
 
 
 const TBODY_COMPONENTS = [
@@ -29,7 +30,8 @@ const TBODY_COMPONENTS = [
         MatButtonModule,
         MatIconModule,
         MatProgressBarModule,
-        MatTooltipModule
+        MatTooltipModule,
+        SharedModule
     ],
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA

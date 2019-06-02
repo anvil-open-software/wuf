@@ -12,7 +12,7 @@ import { WufSmartTableDefaultEditor } from './default-editor';
     selector: 'checkbox-editor',
     styleUrls: ['./editor.component.scss'],
     template: `
-        <input [ngClass]="inputClass"
+        <input
                type="checkbox"
                class="form-control"
                [formControl]="cell.getValidator()"

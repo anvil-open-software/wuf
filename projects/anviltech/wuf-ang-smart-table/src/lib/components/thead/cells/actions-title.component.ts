@@ -5,13 +5,14 @@
 
 import { Component, Input, ElementRef, OnChanges, ViewEncapsulation } from '@angular/core';
 
-import { Grid } from '../../../lib/grid';
+import { Grid } from '../../../services/grid';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
     selector: '[wuf-st-actions-title]',
     template: `
-        <div class="wuf-smart-title">{{ actionsColumnTitle }}</div>
+        <div class="wuf-smart-title" translate>{{ actionsColumnTitle }}</div>
     `,
     encapsulation: ViewEncapsulation.None
 })
@@ -21,10 +22,10 @@ export class ActionsTitleComponent implements OnChanges {
 
     actionsColumnTitle: string;
 
-    constructor(private ref: ElementRef) {
+    constructor(private ref: ElementRef, public translate: TranslateService) {
     }
 
     ngOnChanges() {
-        this.actionsColumnTitle = this.grid.getSetting('actions.columnTitle');
+        this.actionsColumnTitle = this.grid.getSetting('actions.title');
     }
 }

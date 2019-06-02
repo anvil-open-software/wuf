@@ -5,43 +5,67 @@
 
 import { Component, Input, Output, EventEmitter, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 
-import { Grid } from '../../../lib/grid';
-import { Row } from '../../../lib/data-set/row';
-import { DataSource } from '../../../lib/data-source/data-source';
+import { Grid } from '../../../services/grid';
+import { Row } from '../../../data-set/row';
+import { DataSource } from '../../../data-source/data-source';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
     selector: 'wuf-st-tbody-edit-delete',
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
-        <button mat-raised-button
-                *ngIf="isActionEdit && editRowButtonContent"
-                class="wuf-smart-action wuf-smart-action-edit-edit"
-                [innerHTML]="editRowButtonContent"
-                (click)="onEdit($event)"></button>
-        <button mat-icon-button
-                *ngIf="isActionEdit && !editRowButtonContent"
-                class="wuf-smart-action wuf-smart-action-edit-edit"
+
+        <!-- edit buttons -->
+        <ng-container *ngIf="isActionEdit">
+            <!-- icon button -->
+            <button
+                mat-icon-button
+                *ngIf="!editLabel"
+                class="wuf-smart-action wuf-smart-action-icon wuf-smart-action-edit"
                 (click)="onEdit($event)"
-                [matTooltip]="editTip"
-                matTooltipPosition="left">
-            <mat-icon>edit</mat-icon>
-        </button>
+                [matTooltip]="editTip | translate"
+                matTooltipPosition="left"
+            >
+                <mat-icon>edit</mat-icon>
+            </button>
+            <!-- button with label -->
+            <button
+                mat-raised-button
+                *ngIf="editLabel"
+                class="wuf-smart-action wuf-smart-action-button wuf-smart-action-edit"
+                (click)="onEdit($event)"
+                matTooltipPosition="left"
+            >
+                {{editLabel | translate}}
+            </button>
+        </ng-container>
 
-        <button mat-raised-button
-                *ngIf="isActionDelete && deleteRowButtonContent"
-                class="wuf-smart-action wuf-smart-action-delete-delete"
-                [innerHTML]="deleteRowButtonContent"
-                (click)="onDelete($event)"></button>
-
-        <button mat-icon-button
-                *ngIf="isActionDelete && !deleteRowButtonContent"
-                class="wuf-smart-action wuf-smart-action-edit-edit"
+        <!-- delete buttons -->
+        <ng-container *ngIf="isActionDelete">
+            <!-- icon button -->
+            <button
+                mat-icon-button
+                *ngIf="!deleteLabel"
+                class="wuf-smart-action wuf-smart-action-icon wuf-smart-action-edit"
                 (click)="onDelete($event)"
-                [matTooltip]="deleteTip"
-                matTooltipPosition="left">
-            <mat-icon>delete</mat-icon>
-        </button>
+                [matTooltip]="deleteTip | translate"
+                matTooltipPosition="left"
+            >
+                <mat-icon>delete</mat-icon>
+                <span *ngIf="deleteLabel" translate>{{deleteLabel}}</span>
+            </button>
+            <!-- button with label -->
+            <button
+                mat-raised-button
+                *ngIf="deleteLabel"
+                class="wuf-smart-action wuf-smart-action-button wuf-smart-action-edit"
+                (click)="onDelete($event)"
+                matTooltipPosition="left"
+            >
+                {{deleteLabel | translate}}
+            </button>
+        </ng-container>
     `
 })
 export class TbodyEditDeleteComponent implements OnChanges {
@@ -51,6 +75,7 @@ export class TbodyEditDeleteComponent implements OnChanges {
     @Input() source: DataSource;
     @Input() deleteConfirm: EventEmitter<any>;
     @Input() editConfirm: EventEmitter<any>;
+    @Input() position: string;
 
     @Output() edit = new EventEmitter<any>();
     @Output() delete = new EventEmitter<any>();
@@ -58,10 +83,12 @@ export class TbodyEditDeleteComponent implements OnChanges {
 
     isActionEdit: boolean;
     isActionDelete: boolean;
-    editRowButtonContent: string;
+    editLabel: string;
+    deleteLabel: string;
     editTip: string;
-    deleteRowButtonContent: string;
     deleteTip: string;
+
+    constructor(public translate: TranslateService) {}
 
     onEdit(event: any) {
         event.preventDefault();
@@ -88,17 +115,24 @@ export class TbodyEditDeleteComponent implements OnChanges {
                 data: this.row.getData(),
                 source: this.source
             });
-        } else {
+        }
+        else {
             this.grid.delete(this.row, this.deleteConfirm);
         }
     }
 
     ngOnChanges() {
-        this.isActionEdit = this.grid.getSetting('actions.edit');
-        this.isActionDelete = this.grid.getSetting('actions.delete');
-        this.editRowButtonContent = this.grid.getSetting('edit.editButtonContent');
-        this.editTip = this.grid.getSetting('edit.editTip');
-        this.deleteRowButtonContent = this.grid.getSetting('delete.deleteButtonContent');
-        this.deleteTip = this.grid.getSetting('delete.deleteTip');
+        this.isActionEdit = this.grid.showButton('edit', this.position);
+        this.isActionDelete = this.grid.showButton('delete', this.position);
+
+        this.editLabel = this.grid.getSetting('actions.edit').hasOwnProperty('label')
+            ? this.grid.getSetting('actions.edit.label') : undefined;
+        this.deleteLabel = this.grid.getSetting('actions.delete').hasOwnProperty('label')
+            ? this.grid.getSetting('actions.delete.label') : undefined;
+
+        this.editTip = this.grid.getSetting('actions.edit').hasOwnProperty('tip')
+            ? this.grid.getSetting('actions.edit.tip') : undefined;
+        this.deleteTip = this.grid.getSetting('actions.delete').hasOwnProperty('tip')
+            ? this.grid.getSetting('actions.delete.tip') : undefined;
     }
 }

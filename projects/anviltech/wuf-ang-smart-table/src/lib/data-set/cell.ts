@@ -48,6 +48,7 @@ export class WufSmartTableCell {
     }
 
     getTitle(): string {
+        console.log('this.getColumn().title:', this.getColumn().title);
         return this.getColumn().title;
     }
 

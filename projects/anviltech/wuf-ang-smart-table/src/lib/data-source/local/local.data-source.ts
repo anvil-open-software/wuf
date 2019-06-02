@@ -7,7 +7,7 @@ import { LocalSorter } from './local.sorter';
 import { LocalFilter } from './local.filter';
 import { LocalPager } from './local.pager';
 import { DataSource } from '../data-source';
-import { deepExtend } from '../../helpers';
+import { deepExtend } from '../../services/helpers';
 
 
 export class WufSmartTableLocalDataSource extends DataSource {
