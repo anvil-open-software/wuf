@@ -18,6 +18,7 @@
     },
     "SMARTTABLE": {
         "HEADER": "Smart Table",
+        "NODATA": "(No data found)",
         "COLUMNS": {
             "ACTIONS": "Actions",
             "ID": "ID",
