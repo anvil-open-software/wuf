@@ -87,7 +87,7 @@ jobs:
 
               # Using annotated tags; required to include tag to prevent build from running
               # when checking in the tag [https://circleci.com/docs/2.0/skip-build/]
-              git tag -a $GITTAG -m "Pull Request Tag [skip build]"
+              git tag -a $GITTAG -m "Pull Request Tag [skip ci]"
               git push origin $GITTAG
             fi
       - run:
@@ -111,7 +111,7 @@ jobs:
               cd out
 
               git add -A
-              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1} [skip build]" --allow-empty
+              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1} [skip ci]" --allow-empty
 
               git push origin $TARGET_BRANCH
             fi
