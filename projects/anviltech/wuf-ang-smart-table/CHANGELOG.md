@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 
+## [2.0.0-rc.3] - 2019-06-02
+### Fixed
+- noDataMessage now ngx-translate compatible
+- fix column count for no data message
+
 ## [2.0.0-rc.2] - 2019-05-30
 ### Added
 - Added compatibility with ngx-translate.

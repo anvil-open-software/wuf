@@ -70,7 +70,7 @@ export class WufSmartTableComponent implements OnChanges {
         valign: 'middle',
         hover: false,
         alternatingRowColors: true,
-        noDataMessage: 'No data found',
+        noDataMessage: '(No data found)',
         actions: {
             title: 'Actions',
             add: {

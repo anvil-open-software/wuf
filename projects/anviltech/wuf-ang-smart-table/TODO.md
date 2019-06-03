@@ -23,9 +23,8 @@ SMART TABLE TODO ITEMS:
     [x] Filter... placeholder text 
     [x] form row placeholder text
     [x] tooltip labels for all actions
+    [x] noDataMessage
 [x] make sure language switching works
-
-LATER:
 [ ] multiselect not showing for edit
 [ ] support actions.custom
 [ ] grade column not rendering as progress bar in living style guide example
@@ -34,6 +33,7 @@ LATER:
 [ ] error messages should push next row down instead of overlapping that row.  Add padding-bottom when in error state
 [ ] ngx-translate compatibility strings:
     [ ] error messages in edit mode
+[ ] update WufSmartTableServerDataSource
 
 BUGS:
 [ ] add/edit/delete confirmation not working
