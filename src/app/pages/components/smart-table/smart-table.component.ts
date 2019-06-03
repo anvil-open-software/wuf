@@ -81,7 +81,7 @@ export class SmartTableComponent implements OnInit {
             },
             complete: {
                 title: 'SMARTTABLE.COLUMNS.COMPLETE',
-                type: 'html',
+                type: 'custom',
                 // example of custom-render component
                 renderComponent: CustomRenderForCompleteSmartTable
             }
