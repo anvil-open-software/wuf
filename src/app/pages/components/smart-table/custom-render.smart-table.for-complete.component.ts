@@ -22,6 +22,7 @@ import { WufSmartTableViewCell } from '@anviltech/wuf-ang-smart-table';
                 color: var(--wuf-color-white);
                 font-size: 12px;
                 padding: 2px;
+                overflow: hidden;
             }
         </style>
         <div class="progress">
