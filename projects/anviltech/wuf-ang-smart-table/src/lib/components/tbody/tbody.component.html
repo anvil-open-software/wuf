@@ -86,15 +86,15 @@
     </td>
 </tr>
 
-<tr *ngIf="grid.getRows().length == 0 && !grid.isLoading">
-    <td [attr.colspan]="grid.getColumns().length + ((isActionAdd || isActionEdit || isActionDelete) ? 1 : 0)"
+<tr *ngIf="grid.getRows().length === 0 && !grid.isLoading">
+    <td [attr.colspan]="columnCount"
         [style.vertical-align]="valign" class="noData">
-        ({{ noDataMessage }})
+        {{ noDataMessage | translate }}
     </td>
 </tr>
 
 <tr *ngIf="grid.isLoading">
-    <td [attr.colspan]="grid.getColumns().length + ((isActionAdd || isActionEdit || isActionDelete) ? 1 : 0)"
+    <td [attr.colspan]="columnCount"
         [style.vertical-align]="valign" class="noData">
         <div class="mat-progress-bar-wrap">
             <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>

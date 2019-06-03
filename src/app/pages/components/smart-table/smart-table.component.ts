@@ -48,7 +48,7 @@ export class SmartTableComponent implements OnInit {
         valign: 'middle',
         hover: false,
         alternatingRowColors: true,
-        noDataMessage: 'No data found',
+        noDataMessage: 'SMARTTABLE.NODATA',
         // hideSubHeader: true,
         title: 'SMARTTABLE.HEADER',
         columns: {
@@ -81,7 +81,7 @@ export class SmartTableComponent implements OnInit {
             },
             complete: {
                 title: 'SMARTTABLE.COLUMNS.COMPLETE',
-                type: 'html',
+                type: 'custom',
                 // example of custom-render component
                 renderComponent: CustomRenderForCompleteSmartTable
             }
@@ -152,8 +152,9 @@ export class SmartTableComponent implements OnInit {
 
         this.smartTableData.setLoading(); // Display the loading indicator
         setTimeout(() => {
-            this.smartTableData.load(this.smartTableDummyData);
-            this.smartTableData.setLoaded(); // Turn off the loading indicator
+            this.smartTableData.load(this.smartTableDummyData).then( () => {
+                this.smartTableData.setLoaded(); // Turn off the loading indicator
+            });
         }, this.fakeWaitForServer);
     }
 

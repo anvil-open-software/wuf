@@ -10,11 +10,26 @@ import { WufSmartTableViewCell } from '@anviltech/wuf-ang-smart-table';
 
 @Component({
     template: `
-   <div class="progress">
-    <div class="progress-bar bg-success" [style.width]="progressBarWidth">
-        <span>{{progressBarWidth}}</span>
-    </div>
-</div>
+        <style>
+            .progress {
+                display: block;
+                width: 100%;
+                background-color: var(--wuf-color-gray-300);
+                border-radius: 4px;
+            }
+            .progress .progress-bar {
+                background-color: var(--wuf-color-primary);
+                color: var(--wuf-color-white);
+                font-size: 12px;
+                padding: 2px;
+                overflow: hidden;
+            }
+        </style>
+        <div class="progress">
+            <div class="progress-bar" [style.width]="progressBarWidth">
+                <span>{{progressBarWidth}}</span>
+            </div>
+        </div>
   `,
 })
 export class CustomRenderForCompleteSmartTable implements WufSmartTableViewCell, OnInit {

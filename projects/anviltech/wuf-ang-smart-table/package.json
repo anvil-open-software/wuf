@@ -1,6 +1,6 @@
 {
     "name": "@anviltech/wuf-ang-smart-table",
-    "version": "2.0.0-rc.2",
+    "version": "2.0.0-rc.3",
     "description": "A series of table components (grid) for displaying tabular data",
     "author": "Darren Luvaas",
     "scripts": {
