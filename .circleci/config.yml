@@ -18,7 +18,7 @@ jobs:
     working_directory: ~/wuf
     environment:
       - MASTER_BRANCH: master
-      - DEPLOY_BRANCH: master
+      - DEPLOY_BRANCH: WUF-85-gh-pages-build
       - TARGET_BRANCH: gh-pages
       - GH_EMAIL: anvil.open.source.machine.user@gmail.com
       - GH_NAME: anvil-open-source-machine-user
@@ -111,7 +111,7 @@ jobs:
               cd out
 
               git add -A
-              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1} [skip build]" --allow-empty
 
               git push origin $TARGET_BRANCH
             fi
