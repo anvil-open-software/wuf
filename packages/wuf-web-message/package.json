@@ -18,7 +18,7 @@
         "prepare": "yarn build",
         "packagr": "yarn build",
         "pub": "yarn packagr && yarn publish --access public",
-        "prepublish": "yarn packagr && cp package.json ./distr && cp *.md ./dist",
+        "prepublish": "yarn packagr && cp package.json ./dist && cp *.md ./dist",
         "serve": "yarn watch & http-server",
         "test": "yarn build && karma start --single-run --browsers ChromeHeadless karma.conf.js",
         "watch": "webpack --watch"
