@@ -6,7 +6,8 @@
     "scripts": {
         "build": "ng build @anviltech/wuf-ang-layout",
         "packagr": "yarn build",
-        "pub": "yarn packagr && yarn publish dist --access public"
+        "pub": "yarn packagr && yarn publish dist --access public",
+        "prepublish": "yarn packagr"
     },
     "publishConfig": {
         "access": "public"
