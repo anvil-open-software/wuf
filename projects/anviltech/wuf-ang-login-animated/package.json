@@ -1,6 +1,6 @@
 {
     "name": "@anviltech/wuf-ang-login-animated",
-    "version": "2.0.0-rc.3",
+    "version": "2.0.0-rc.3.1",
     "description": "A fancy, animated login screen.",
     "author": "Darren Luvaas",
     "scripts": {

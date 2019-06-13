@@ -1,6 +1,6 @@
 {
     "name": "@anviltech/wuf-ang-utils",
-    "version": "2.0.0-rc.1",
+    "version": "2.0.0-rc.1.1",
     "description": "This package contains a number of helper functions for positioning, event triggers, merging, etc that can be used in an app, component, or tests.",
     "author": "Darren Luvaas",
     "scripts": {

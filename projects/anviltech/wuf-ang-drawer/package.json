@@ -1,6 +1,6 @@
 {
     "name": "@anviltech/wuf-ang-drawer",
-    "version": "2.0.0-rc.3",
+    "version": "2.0.0-rc.3.1",
     "description": "An Angular Material-style side drawer.",
     "author": "Darren Luvaas",
     "scripts": {
