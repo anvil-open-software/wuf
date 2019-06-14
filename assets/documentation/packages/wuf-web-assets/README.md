@@ -28,7 +28,7 @@ $ npm install @anviltech/wuf-web-assets
 ... then add the following to your application's `style.scss` file:
 
 ```typescript
-@import "~@anviltech/wuf-web-assets/src/assets/styles/library”;
+@import "~@anviltech/wuf-web-assets/assets/styles/library”;
 ```
 
 This @import will bring all of the base styles from the Common Components Library into your app and provide the following benefits:
