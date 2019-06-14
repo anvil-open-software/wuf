@@ -99,6 +99,8 @@ jobs:
               name: Deploy WUF
               # TODO: replace with a deploy.sh script
               command: |
+                 var=$(pwd)
+                 echo "Start of Deploy WUF: CWD $var."
                  if [ $CIRCLE_BRANCH == $DEPLOY_BRANCH ]; then
                    git config --global user.email $GH_EMAIL
                    git config --global user.name $GH_NAME
@@ -120,15 +122,22 @@ jobs:
 
                    git push origin $TARGET_BRANCH
 
+                   var=$(pwd)
+                   echo "Done deploying WUF: CWD $var."
                    cd ..
-                   cwd
+                   var=$(pwd)
+                   echo "Done going bach to orginal dir: CWD $var."
                  fi
          - run:
               name: Publish changed packages
               command: |
+                 var=$(pwd)
+                 echo "Start of publish WUF : CWD $var."
                  if [ $CIRCLE_BRANCH == $DEPLOY_BRANCH ]; then
                     echo "deploying changed packages"
                     cd $MY_WORK_DIR
+                    var=$(pwd)
+                    echo "The current working directory is now $var."
                     npm set registry https://www.npmjs.com
                     echo "//https://www.npmjs.com/:_authToken=$NPM_TOKEN" > ./.npmrc
                     git reset --hard # removes staged and working directory changes
