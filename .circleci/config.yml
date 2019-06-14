@@ -125,6 +125,6 @@ jobs:
                  if [ $CIRCLE_BRANCH == $DEPLOY_BRANCH ]; then
                     echo "deploying changed packages"
                     npm set registry https://www.npmjs.com
-                    echo "//https://www.npmjs.com/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+                    echo "//https://www.npmjs.com/:_authToken=$NPM_TOKEN" > ./.npmrc
                     lerna publish from-package —yes
                  fi
