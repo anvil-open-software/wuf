@@ -55,7 +55,7 @@ jobs:
          - run:
               name: Install lerna
               command: |
-                 npm install --global lerna
+                 yarn global add lerna
          - run:
               name: Install WUF
               command: |
