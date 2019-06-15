@@ -1,6 +1,6 @@
 {
     "name": "@anviltech/wuf-ang-login-animated",
-    "version": "2.0.0-rc.3.2",
+    "version": "2.0.0-rc.3.3",
     "description": "A fancy, animated login screen.",
     "author": "Darren Luvaas",
     "scripts": {
@@ -15,7 +15,7 @@
     "main": "dist/bundles/anviltech-wuf-ang-login-animated.umd.js",
     "typings": "dist/anviltech-wuf-ang-login-animated.d.ts",
     "dependencies": {
-        "@anviltech/wuf-ang-layout": "^2.0.0-rc.9.2"
+        "@anviltech/wuf-ang-layout": "^2.0.0-rc.9.3"
     },
     "peerDependencies": {
         "@angular/cdk": "7.3.2",
