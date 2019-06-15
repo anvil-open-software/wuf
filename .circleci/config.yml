@@ -137,5 +137,5 @@ jobs:
                     npm set registry https://www.npmjs.com
                     echo "//https://www.npmjs.com/:_authToken=$NPM_TOKEN" > ./.npmrc
                     git reset --hard # removes staged and working directory changes
-                    lerna publish from-package —yes
+                    lerna publish from-package --yes
                  fi

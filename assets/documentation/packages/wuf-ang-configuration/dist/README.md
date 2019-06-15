@@ -50,4 +50,12 @@ imports: [
 Usage
 -----
 
-Refer to the Living Style Guide for documentation on usage of this package. 
+Refer to the Living Style Guide for documentation on usage of this package.
+
+One more thing````html
+ _   _                   _____            
+| | | | __ ___   _____  |  ___|   _ _ __  
+| |_| |/ _` \ \ / / _ \ | |_ | | | | '_ \
+|  _  | (_| |\ V /  __/ |  _|| |_| | | | |
+|_| |_|\__,_| \_/ \___| |_|   \__,_|_| |_|                                      
+````
