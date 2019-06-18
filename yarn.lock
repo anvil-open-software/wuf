@@ -230,15 +230,6 @@
   dependencies:
     tslib "^1.9.0"
 
-"@anviltech/wuf-ang-layout@2.0.0-rc.4":
-  version "2.0.0-rc.4"
-  resolved "https://registry.yarnpkg.com/@anviltech/wuf-ang-layout/-/wuf-ang-layout-2.0.0-rc.4.tgz#2253c227d43c8b33116ce37511d24deaf27a8ba8"
-  integrity sha512-6dORxo2CEUU7mdH7TGpHfYDPQzudebSw1wvD6Zpod9vaelfrPweRERDDxiXTT4gbZFh33ROVzRDalw2scZjY3A==
-  dependencies:
-    "@anviltech/wuf-ang-configuration" "^2.0.0-rc.6"
-    "@anviltech/wuf-web-assets" "^2.0.0-rc.1"
-    tslib "^1.9.0"
-
 "@babel/code-frame@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0.tgz#06e2ab19bdb535385559aabb5ba59729482800f8"

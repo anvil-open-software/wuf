@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-rc.15] - 2019-06-13
+### Fixed
+## [2.0.0-rc.15] - 2019-06-13
+### Fixed
+- Added support for publishing changed packages semi-automatically, the the following workflow, `O` means an optional step:
+  # Work on your packages;
+  1. `O` Find out the `WUF` packages that `lerna` knows about;
+     - `$ lerna ls -l`
+  1. `O` Find out the dependencies between the @anviltech packages;
+     - `$ yarn list | grep @anviltech`
+  1. Find out the latest version of all @anviltech packages in the registry;
+     - `$ npm search @anviltech --json | json -a name version`
+  1. Find out what packages changed locally;
+     - `$ lerna changed`
+  1. Update the packages package.version using one of the two methods below;
+     - Manually
+       - Change the versions of the packages that changed; see above to ensure you select the next viable version
+       - Commit the changes
+     - Automatically - We will use the `manual` mode for now, and learn the ins and outs of using a combination of `lerna verion` and `lerna publish`;
+  1. Issue a pull request ... the changed packages will be published when your branch is merged into `master`;
+  
 ## [2.0.0-rc.14] - 2019-06-03
 ### Fixed
 - Stopped CircleCI from attempting to build of the `gh-pages`  branch

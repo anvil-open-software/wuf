@@ -1,12 +1,13 @@
 {
     "name": "@anviltech/wuf-ang-dashboard",
-    "version": "2.0.0-rc.2",
+    "version": "2.0.0-rc.2.2",
     "description": "A dashboard component that includes layout and left-side KPI indicators.",
     "author": "Darren Luvaas",
     "scripts": {
         "build": "ng build --prod @anviltech/wuf-ang-dashboard",
         "packagr": "yarn build",
-        "pub": "yarn packagr && yarn publish dist --access public"
+        "pub": "yarn packagr && yarn publish dist --access public",
+        "prepublish": "yarn packagr"
     },
     "publishConfig": {
         "access": "public"
