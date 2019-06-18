@@ -1,16 +1,37 @@
 #!/usr/bin/env bash
 
-var=$(pwd)
+set -ev
 
-echo "Start of Deploy WUF: CWD $var."
-if [ $CIRCLE_BRANCH == $DEPLOY_BRANCH ]; then
+is_cicrcleci_branch_master() {
+  if [[ ${CIRCLE_BRANCH} = master ]]; then
+    echo "✅ CircleCI branch is master"
+    return 0
+  else
+    echo "🚫 CircleCI branch ${CIRCLE_BRANCH} is not master"
+    return 1
+  fi
+}
+
+is_feature_branch_version() {
+  version=$(npx -c 'echo "$npm_package_version"')
+  regex='^[[:digit:]]+(\.[[:digit:]]+)+(-[[:alnum:]]+)+'
+  if [[ ${version} =~ $regex ]]; then
+    echo "✅ Version ${version} is a feature branch version"
+    return 0
+  else
+    echo "🚫 Version ${version} is not a feature branch version"
+    return 1
+  fi
+}
+
+if is_cicrcleci_branch_master || is_feature_branch_version; then
    git config --global user.email $GH_EMAIL
    git config --global user.name $GH_NAME
 
    git clone $CIRCLE_REPOSITORY_URL out
 
    cd out
-   git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
+   git checkout $GH_PAGES_BRANCH || git checkout --orphan $GH_PAGES_BRANCH
    git rm -rf .
    cd ..
 
@@ -22,7 +43,7 @@ if [ $CIRCLE_BRANCH == $DEPLOY_BRANCH ]; then
    git add -A
    git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1} [skip ci]" --allow-empty
 
-   git push origin $TARGET_BRANCH
+   git push origin $GH_PAGES_BRANCH
 
    var=$(pwd)
    echo "Done deploying WUF: CWD $var."

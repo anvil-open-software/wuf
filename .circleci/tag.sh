@@ -1,20 +1,13 @@
 #!/usr/bin/env bash
 
-# Usage
-# TBD
-#
-set -ev
-echo Taging: $TRAVIS_BRANCH
-
-#!/bin/bash
 set -ev
 
-is_travis_branch_master() {
-  if [[ ${TRAVIS_BRANCH} = master ]]; then
-    echo "✅ Travis branch is master"
+is_cicrcleci_branch_master() {
+  if [[ ${CIRCLE_BRANCH} = master ]]; then
+    echo "✅ CircleCI branch is master"
     return 0
   else
-    echo "🚫 Travis branch ${TRAVIS_BRANCH} is not master"
+    echo "🚫 CircleCI branch ${CIRCLE_BRANCH} is not master"
     return 1
   fi
 }
@@ -29,10 +22,9 @@ is_feature_branch_version() {
     echo "🚫 Version ${version} is not a feature branch version"
     return 1
   fi
-
 }
 
-if is_travis_branch_master || is_feature_branch_version; then
+if is_cicrcleci_branch_master || is_feature_branch_version; then
    # Set the tag to be the package.json version
    # For branches other than master, append an unique value to ...
    # provent build failures.
