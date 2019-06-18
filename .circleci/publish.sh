@@ -28,7 +28,6 @@ if is_cicrcleci_branch_master || is_feature_branch_version; then
    var=$(pwd)
    echo "Start of publish WUF packages: CWD = $var."
    npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-   cat ./.npmrc
    npm whoami
    git reset --hard # removes staged and working directory changes
    lerna publish from-package --yes
