@@ -62,5 +62,6 @@ TODO
 [ ] provide User Experience Standards for Keyboard Usage
 [ ] ensure apps can be installed as PWAs
 [ ] add inline values for CSS props in every component
+[x] increase drawer z-index so it shows over page header content
 
 

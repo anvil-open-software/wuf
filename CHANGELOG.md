@@ -5,8 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-## [2.0.0-rc.15] - 2019-06-13
+## [2.0.0-rc.16] - 2019-06-28
 ### Fixed
+- Fixed example drawer z-index issue.  It now appears over the tab headers.
+### Added
+- Now detect changes to dark/light theme mode in the OS and apply dark/light theme mode in the app accordingly.  Requires supported browsers.
+
 ## [2.0.0-rc.15] - 2019-06-13
 ### Fixed
 - Added support for publishing changed packages semi-automatically, the the following workflow, `O` means an optional step:
