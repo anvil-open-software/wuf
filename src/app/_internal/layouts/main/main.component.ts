@@ -37,7 +37,6 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
     ) {
         this.theme = this.themeList[0];
         this.themes = themeList.themes;
-
     }
 
     ngOnInit() {

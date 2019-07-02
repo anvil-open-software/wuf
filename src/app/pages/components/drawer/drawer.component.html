@@ -39,14 +39,6 @@
                 </div>
             </div>
 
-            <wuf-drawer header="Hey There" [id]="drawerId" [includeBackdrop]="includeBackdrop" [allowMinimize]="allowMinimize" [minimized]="minimized">
-                Hi.  I'm a drawer.
-
-                <ng-container drawerFooter>
-                    I have a footer
-                </ng-container>
-            </wuf-drawer>
-
         </div>
 
         <!-- WHEN/WHERE Content -->
@@ -188,3 +180,11 @@
     <!-- insert footer content here -->
     [page footer content here]
 </wuf-content-footer>
+
+<wuf-drawer header="Hey There" [id]="drawerId" [includeBackdrop]="includeBackdrop" [allowMinimize]="allowMinimize" [minimized]="minimized">
+    Hi.  I'm a drawer.
+
+    <ng-container drawerFooter>
+        I have a footer
+    </ng-container>
+</wuf-drawer>

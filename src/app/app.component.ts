@@ -17,6 +17,7 @@ import { configuration } from './_internal/configuration/configuration';
 // The following imports are only used for demo purposes
 import { FakeUser } from './_internal/fake-backend/data/user';
 import { WufLoginService } from '@anviltech/wuf-ang-login-animated';
+import { MediaMatcher } from '@angular/cdk/layout';
 
 
 @Component({
@@ -33,13 +34,15 @@ export class AppComponent implements OnInit, OnDestroy {
     loginSubscription: any;
     currentThemeId: string;
     defaultLang: string = 'en';
+    mediaQueryList: any;
 
     constructor(
         private wufConfigService: WufConfigurationService,
         private renderer: Renderer2,
         private userService: UserService,
         private loginService: WufLoginService,
-        public translate: TranslateService
+        public translate: TranslateService,
+        private mediaMatcher: MediaMatcher
     ) {}
 
     ngOnInit() {
@@ -88,6 +91,30 @@ export class AppComponent implements OnInit, OnDestroy {
 
                 // Send merged configuration data to the config service (which updates the UI accordingly)
                 this.wufConfigService.config = mergedConfiguration;
+
+                // Set up default value for dark theme mode.
+                this.mediaQueryList = this.mediaMatcher.matchMedia('(prefers-color-scheme: dark)');
+                if (this.mediaQueryList.matches && !this.wufConfigService.config.hasOwnProperty('themeDark')) {
+                    // If user has turned on dark theme mode in the OS, apply it to the app,
+                    // but only if they haven't already specified a default value.
+                    this.wufConfigService.config = {
+                        themeDark: true
+                    };
+                }
+
+                // Detect changes to media for dark theme mode in the OS
+                this.mediaQueryList.addListener( () => {
+                    if (this.mediaQueryList.matches) {
+                        this.wufConfigService.config = {
+                            themeDark: true
+                        };
+                    }
+                    else {
+                        this.wufConfigService.config = {
+                            themeDark: false
+                        };
+                    }
+                });
             },
             error => {
                 // error
@@ -118,7 +145,6 @@ export class AppComponent implements OnInit, OnDestroy {
                 console.warn('error on login form:', err);
             }
         );
-
     }
 
     ngOnDestroy() {
