@@ -51,6 +51,10 @@ jobs:
                  - yarn-v1-{{ .Branch }}-
                  - node-v1-
          - run:
+              name: Validate project version
+              command: |
+                 ./.circleci/validate_version.sh
+         - run:
               name: Install lerna
               command: |
                  yarn global add lerna
