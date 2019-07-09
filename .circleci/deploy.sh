@@ -25,6 +25,8 @@ is_feature_branch_version() {
 }
 
 if is_cicrcleci_branch_master || is_feature_branch_version; then
+   # Deloying the applycation only for master. This might change once we
+   # figure out how to do it without overiding the current deployment
    git config --global user.email $GH_EMAIL
    git config --global user.name $GH_NAME
 
