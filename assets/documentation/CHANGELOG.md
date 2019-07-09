@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-rc.17] - 2019-07-09
+### Added
+- Support for configuring dark theme based on the user set up
+### Fixed
+- A bug whereby merges causes the build to break due to an attempt to tag using and existing tag.
+
 ## [2.0.0-rc.16] - 2019-06-28
 ### Fixed
 - Fixed example drawer z-index issue.  It now appears over the tab headers.
@@ -29,7 +35,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
        - Commit the changes
      - Automatically - We will use the `manual` mode for now, and learn the ins and outs of using a combination of `lerna verion` and `lerna publish`;
   1. Issue a pull request ... the changed packages will be published when your branch is merged into `master`;
-  
+
 ## [2.0.0-rc.14] - 2019-06-03
 ### Fixed
 - Stopped CircleCI from attempting to build of the `gh-pages`  branch
