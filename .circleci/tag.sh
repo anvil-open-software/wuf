@@ -29,7 +29,7 @@ if is_cicrcleci_branch_master || is_feature_branch_version; then
    # For branches other than master, append an unique value to ...
    # provent build failures.
    GITTAG=v$(npx -c 'echo "$npm_package_version"')
-   echo Taging $CIRCLE_BRANCH: $GITTAG
+   echo Taging $CIRCLE_BRANCH: $GITTAG.$CIRCLE_BUILD_NUM
 
    # Using annotated tags; required to include tag to prevent build from running
    # when checking in the tag [https://circleci.com/docs/2.0/skip-build/]
