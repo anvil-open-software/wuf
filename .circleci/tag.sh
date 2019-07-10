@@ -12,23 +12,10 @@ is_cicrcleci_branch_master() {
   fi
 }
 
-is_feature_branch_version() {
-  version=$(npx -c 'echo "$npm_package_version"')
-  regex='^[[:digit:]]+(\.[[:digit:]]+)+(-[[:alnum:]]+)+'
-  if [[ ${version} =~ $regex ]]; then
-    echo "✅ Version ${version} is a feature branch version"
-    return 0
-  else
-    echo "🚫 Version ${version} is not a feature branch version"
-    return 1
-  fi
-}
-
-if is_cicrcleci_branch_master || is_feature_branch_version; then
+if is_cicrcleci_branch_master; then
    # Set the tag to be the package.json version
-   # For branches other than master, append an unique value to ...
-   # provent build failures.
-   GITTAG=v$(npx -c 'echo "$npm_package_version"')
+   # Deploy only for master.
+   GITTAG=v$(npx -c 'echo "$npm_package_version"').$CIRCLE_BUILD_NUM
    echo Taging $CIRCLE_BRANCH: $GITTAG
 
    # Using annotated tags; required to include tag to prevent build from running
