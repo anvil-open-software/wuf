@@ -59,6 +59,7 @@ import { SharedModule } from './_internal/shared.module';
 import { HomeComponent } from './pages/home/home.component';
 import { UtilsModule } from './_internal/utils/utils.module';
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
+import { WufAngDynamicFormComponent } from './projects/anviltech/wuf-ang-dynamic-form/wuf-ang-dynamic-form.component';
 
 
 @NgModule({
@@ -114,7 +115,8 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
         ForbiddenComponent,
         SettingsComponent,
         HomeComponent,
-        GettingStartedComponent
+        GettingStartedComponent,
+        WufAngDynamicFormComponent
     ],
     providers: [
         WufConfigurationService,

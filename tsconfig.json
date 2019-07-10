@@ -71,6 +71,12 @@
       ],
       "@anviltech/wuf-ang-smart-table/*": [
         "./projects/anviltech/wuf-ang-smart-table/dist/*"
+      ],
+      "@anviltech/wuf-ang-dynamic-form": [
+        "./projects/anviltech/wuf-ang-dynamic-form/dist"
+      ],
+      "@anviltech/wuf-ang-dynamic-form/*": [
+        "./projects/anviltech/wuf-ang-dynamic-form/dist/*"
       ]
     }
   }
