@@ -6,7 +6,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
     styleUrls: ['dynamic-form.component.scss'],
     encapsulation: ViewEncapsulation.Emulated
 })
-export class DynamicFormComponent implements OnInit {
+export class WufDynamicFormComponent implements OnInit {
 
   constructor() { }
 

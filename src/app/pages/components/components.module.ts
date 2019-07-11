@@ -23,6 +23,7 @@ import { WufLoginModule } from '@anviltech/wuf-ang-login-animated';
 import { WufNavigationModule } from '@anviltech/wuf-ang-navigation';
 import { WufGridsterModule } from '@anviltech/wuf-ang-gridster';
 import { WufSmartTableModule } from '@anviltech/wuf-ang-smart-table';
+import { WufDynamicFormModule } from "@anviltech/wuf-ang-dynamic-form";
 
 /***** 3rd party imports *****/
 import { NgxMdModule } from 'ngx-md';
@@ -61,6 +62,7 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { FormsComponent } from './forms/forms.component';
 import { GridsterComponent } from './gridster/gridster.component';
 import { SmartTableComponent } from './smart-table/smart-table.component';
+import { DynamicFormComponent} from "./dynamic-form/dynamic-form.component";
 
 
 @NgModule({
@@ -84,6 +86,7 @@ import { SmartTableComponent } from './smart-table/smart-table.component';
         WufNavigationModule,
         WufGridsterModule,
         WufSmartTableModule,
+        WufDynamicFormModule,
 
         // Utils
         UtilsModule,
@@ -118,6 +121,7 @@ import { SmartTableComponent } from './smart-table/smart-table.component';
         FormsComponent,
         GridsterComponent,
         SmartTableComponent,
+        DynamicFormComponent,
 
         // Smart Table component examples
         CustomEditorForFoodsSmartTable,

@@ -175,6 +175,12 @@ export const NavigationItems =
                     label: 'Utilities',
                     icon: '&#xE1BD;',
                     id: 'nav-utilities'
+                },
+                {
+                    link: '/components/dynamicform',
+                    label: 'Dynamic Form',
+                    icon: 'view_list',
+                    id: 'nav-dynamic-form'
                 }
             ]
         },

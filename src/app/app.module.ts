@@ -26,6 +26,8 @@ import { WufLoginModule } from '@anviltech/wuf-ang-login-animated';
 import { WufNavigationModule } from '@anviltech/wuf-ang-navigation';
 import { WufGridsterModule } from '@anviltech/wuf-ang-gridster';
 import { WufSmartTableModule } from '@anviltech/wuf-ang-smart-table';
+import { WufDynamicFormModule} from "@anviltech/wuf-ang-dynamic-form";
+
 import '@anviltech/wuf-web-code-sample';
 import '@anviltech/wuf-web-message';
 
@@ -59,7 +61,7 @@ import { SharedModule } from './_internal/shared.module';
 import { HomeComponent } from './pages/home/home.component';
 import { UtilsModule } from './_internal/utils/utils.module';
 import { GettingStartedComponent } from './pages/getting-started/getting-started.component';
-import { WufAngDynamicFormComponent } from './projects/anviltech/wuf-ang-dynamic-form/wuf-ang-dynamic-form.component';
+
 
 
 @NgModule({
@@ -91,6 +93,7 @@ import { WufAngDynamicFormComponent } from './projects/anviltech/wuf-ang-dynamic
         WufNavigationModule.forRoot(),
         WufGridsterModule.forRoot(),
         WufSmartTableModule.forRoot(),
+        WufDynamicFormModule.forRoot(),
 
         // 3rd Party Imports
         NgxMdModule.forRoot(), // Markdown
@@ -116,7 +119,6 @@ import { WufAngDynamicFormComponent } from './projects/anviltech/wuf-ang-dynamic
         SettingsComponent,
         HomeComponent,
         GettingStartedComponent,
-        WufAngDynamicFormComponent
     ],
     providers: [
         WufConfigurationService,
