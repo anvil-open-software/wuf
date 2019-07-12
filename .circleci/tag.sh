@@ -4,10 +4,10 @@ set -ev
 
 is_cicrcleci_branch_master() {
   if [[ ${CIRCLE_BRANCH} = master ]]; then
-    echo "✅ CircleCI branch is master"
+    echo "✅ Tagging, CircleCI branch is master"
     return 0
   else
-    echo "🚫 CircleCI branch ${CIRCLE_BRANCH} is not master"
+    echo "🚫 Not tagging, CircleCI branch ${CIRCLE_BRANCH} is not master"
     return 1
   fi
 }
