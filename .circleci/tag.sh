@@ -15,7 +15,7 @@ is_cicrcleci_branch_master() {
 if is_cicrcleci_branch_master; then
    # Set the tag to be the package.json version
    # Deploy only for master.
-   GITTAG=v$(npx -c 'echo "$npm_package_version"').$CIRCLE_BUILD_NUM
+   GITTAG=v$(npx -c 'echo "$npm_package_version"')
    echo Taging $CIRCLE_BRANCH: $GITTAG
 
    # Using annotated tags; required to include tag to prevent build from running
