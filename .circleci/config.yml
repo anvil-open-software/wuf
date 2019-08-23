@@ -71,10 +71,6 @@ jobs:
               command: |
                  ng test --karmaConfig=src/karma.conf.circleci.js
          - run:
-              name: Tag WUF
-              command: |
-                 ./.circleci/tag.sh
-         - run:
               name: Deploy WUF
               command: |
                  ./.circleci/deploy.sh
@@ -82,3 +78,7 @@ jobs:
               name: Publish changed packages
               command: |
                  ./.circleci/publish.sh
+         - run:
+              name: Tag WUF
+              command: |
+                 ./.circleci/tag.sh
