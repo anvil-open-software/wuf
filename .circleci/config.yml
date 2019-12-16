@@ -13,8 +13,7 @@ version: 2.0
 jobs:
    build:
       docker:
-         - image: wasvic/node_dev:1.0.0-FM-188-SNAPSHOT
-           entrypoint: /bin/sh
+         - image: node:10.15.1-alpine
       working_directory: ~/wuf
       environment:
          - GH_PAGES_BRANCH: gh-pages
@@ -30,12 +29,13 @@ jobs:
                  apk add bash
                  apk add openssh
                  apk add tar
+                 apk add chromium
+                 apk add chromium-chromedriver
                  apk add ca-certificates
                  apk update && apk upgrade && \
                  echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories
                  echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories
                  apk add --no-cache \
-                    chromium@edge \
                     nss@edge \
                     freetype@edge \
                     harfbuzz@edge \
@@ -50,6 +50,10 @@ jobs:
                  - yarn-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
                  - yarn-v1-{{ .Branch }}-
                  - node-v1-
+         - run:
+              name: Install ng
+              command: |
+                 yarn global add @angular/cli@7.3.1
          - run:
               name: Install lerna
               command: |

@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-rc.18] - 2019-12-09
+### Removed
+- removed dependency on wasvic/node_dev, use node:10.15.1-alpine directly
+
 ## [2.0.0-rc.17] - 2019-07-09
 ### Added
 - Support for configuring dark theme based on the user set up
