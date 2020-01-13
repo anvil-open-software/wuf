@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ev
+set -euv
 
 is_cicrcleci_branch_master() {
   if [[ ${CIRCLE_BRANCH} = master ]]; then
@@ -18,10 +18,8 @@ if is_cicrcleci_branch_master; then
    GITTAG=v$(npx -c 'echo "$npm_package_version"')
    echo Taging $CIRCLE_BRANCH: $GITTAG
 
-   # Using annotated tags; required to include tag to prevent build from running
-   # when checking in the tag [https://circleci.com/docs/2.0/skip-build/]
-   git config --global user.email $GH_EMAIL
-   git config --global user.name $GH_NAME
+   git config --global user.email "circle-ci.svic@weichaiamerica.com"
+   git config --global user.name "cricle-ci"
 
    # Using annotated tags; required to include tag to prevent build from running
    # when checking in the tag [https://circleci.com/docs/2.0/skip-build/]
