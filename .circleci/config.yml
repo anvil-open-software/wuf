@@ -21,6 +21,9 @@ jobs:
          - GH_NAME: anvil-open-source-machine-user
          - CHROME_BIN: /usr/lib/chromium/chrome
       steps:
+         - add_ssh_keys:
+              fingerprints:
+                 - "4b:e2:52:47:cd:0a:f4:95:30:c0:29:4e:41:e8:e9:5a"
          - run:
               name: Install OS tools
               # TODO: replace with install_os_pkgs.sh script

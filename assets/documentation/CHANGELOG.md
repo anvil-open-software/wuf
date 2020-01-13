@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0-rc.19] - 2019-12-18
+### Fixed
+- without a deploy key with r/w access, pushing the tag will fail the build
+
 ## [2.0.0-rc.18] - 2019-12-09
 ### Removed
 - removed dependency on wasvic/node_dev, use node:10.15.1-alpine directly
