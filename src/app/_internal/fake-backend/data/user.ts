@@ -9,5 +9,5 @@ export const FakeUser = {
     firstName: 'Tony',
     lastName: 'Stark',
     password: 'password',
-    token: 'fake-jwt-token'
+    token: 'fake-jwt-token',
 };

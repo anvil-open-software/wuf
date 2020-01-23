@@ -165,6 +165,12 @@ export const NavigationItems =
                     id: 'nav-smart-table-grid'
                 },
                 {
+                    link: '/components/dynamicform',
+                    label: 'Dynamic Form',
+                    icon: '&#xE002;',
+                    id: 'nav-dynamic-form'
+                },
+                {
                     link: '/components/toolbars',
                     label: 'Toolbars',
                     icon: 'build',

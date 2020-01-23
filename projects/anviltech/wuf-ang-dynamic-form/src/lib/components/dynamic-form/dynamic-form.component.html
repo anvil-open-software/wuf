@@ -1,0 +1,14 @@
+<div class="form-wrapper" [style.max-width]="maxWidth">
+
+    <wuf-web-message #wm></wuf-web-message>
+
+    <form *ngIf="form" [formGroup]="form" (ngSubmit)="onFormSubmit()" #dynamicForm>
+        <ng-container *ngFor="let field of fields" wuf-dynamic-field [field]="field" [rootGroup]="form"
+                      [parentGroup]="form"></ng-container>
+
+        <div class="button-wrapper">
+            <ng-content></ng-content>
+        </div>
+    </form>
+
+</div>

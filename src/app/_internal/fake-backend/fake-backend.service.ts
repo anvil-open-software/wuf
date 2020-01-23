@@ -25,6 +25,7 @@ import { configuration } from '../configuration/configuration';
 import { FakeUser } from './data/user';
 import { FooterItems } from './data/footeritems';
 import { NavigationItems } from './data/navigation';
+import { DynamicFormItems } from "./data/dynamicForm";
 
 
 @Injectable()
@@ -210,6 +211,13 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 if (request.url.endsWith('/api/footer') && request.method === 'GET') {
                     // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
                     return of(new HttpResponse({status: 200, body: {data: FooterItems}}));
+                }
+
+                /***** DYNAMICFORM *****/
+                // get dynamicForm items
+                if (request.url.endsWith('/api/dynamicform') && request.method === 'GET') {
+                    // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
+                    return of(new HttpResponse({status: 200, body: {data: DynamicFormItems}}));
                 }
 
                 /***** PASS THROUGH *****/

@@ -1,0 +1,16 @@
+<div [formGroup]="parentGroup">
+    <mat-checkbox
+        [formControlName]="field.name"
+        color="primary"
+        [required]="formService.isRequired(field)"
+        [ngClass]="field.classNames"
+        [class.readonly]="field.readonly"
+    >
+        {{label}}
+        <span *ngIf="formService.isRequired(field)" class="required">*</span>
+    </mat-checkbox>
+    <mat-hint *ngIf="!parentGroup.get(field.name).errors">{{hint}}</mat-hint>
+    <ng-container *ngFor="let validation of field.validators;" ngProjectAs="mat-error">
+        <mat-error *ngIf="parentGroup.get(field.name).hasError(validation.name)">{{getValidationMessage(validation)}}</mat-error>
+    </ng-container>
+</div>

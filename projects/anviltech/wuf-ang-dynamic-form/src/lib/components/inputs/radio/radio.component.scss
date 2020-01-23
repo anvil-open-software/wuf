@@ -1,0 +1,32 @@
+.required {
+    opacity: .7;
+}
+
+.mat-hint {
+    padding: 0 .95em 0 .95em;
+    color: var(--wuf-input-hint-color);
+    opacity: .38;
+    display: block;
+    margin: -10px 0 5px 0;
+    font-size: 75%;
+}
+
+.mat-error {
+    padding: 0 .95em 0 .95em;
+    color: var(--wuf-color-danger);
+    font-size: 75%;
+    margin: -10px 0 5px 0;
+}
+
+.error {
+    color: var(--wuf-color-danger);
+}
+
+.mat-radio-group {
+    .mat-hint {
+        padding: 0 .95em 0 2.15em;
+        color: var(--wuf-input-hint-color);
+        margin: -15px 0 5px 0;
+    }
+}
+

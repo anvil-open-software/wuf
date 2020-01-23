@@ -55,5 +55,44 @@
         "FILTER": {
             "PLACEHOLDER": "Filter..."
         }
+    },
+    "PAGES": {
+        "TESTDOCUMENT": {
+            "TITLE": "Document",
+            "FORM": {
+                "VALIDATORS": {
+                    "REQUIRED": "This field is required",
+                    "EMAIL": "Enter a valid email address"
+                },
+                "FIRSTNAME": {
+                    "LABEL": "First name"
+                },
+                "LASTNAME": {
+                    "LABEL": "Last name"
+                },
+                "EMAIL": {
+                    "LABEL": "Email address"
+                },
+                "ADDRESS": {
+                    "LABEL": "Address",
+                    "HINT": "Enter your complete address."
+                },
+                "STREET": {
+                    "LABEL": "Street"
+                },
+                "CITY": {
+                    "LABEL": "City"
+                },
+                "STATE": {
+                    "LABEL": "State"
+                },
+                "POSTALCODE": {
+                    "LABEL": "Postal Code"
+                },
+                "COUTRY": {
+                    "LABEL": "Country"
+                }
+            }
+        }
     }
 }

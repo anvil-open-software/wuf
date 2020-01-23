@@ -26,6 +26,7 @@ import { WufLoginModule } from '@anviltech/wuf-ang-login-animated';
 import { WufNavigationModule } from '@anviltech/wuf-ang-navigation';
 import { WufGridsterModule } from '@anviltech/wuf-ang-gridster';
 import { WufSmartTableModule } from '@anviltech/wuf-ang-smart-table';
+import { WufDynamicFormModule} from "@anviltech/wuf-ang-dynamic-form";
 import '@anviltech/wuf-web-code-sample';
 import '@anviltech/wuf-web-message';
 
@@ -90,6 +91,7 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
         WufNavigationModule.forRoot(),
         WufGridsterModule.forRoot(),
         WufSmartTableModule.forRoot(),
+        WufDynamicFormModule.forRoot(),
 
         // 3rd Party Imports
         NgxMdModule.forRoot(), // Markdown

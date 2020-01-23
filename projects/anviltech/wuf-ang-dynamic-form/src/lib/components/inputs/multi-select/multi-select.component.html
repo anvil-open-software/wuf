@@ -1,0 +1,15 @@
+<mat-form-field [formGroup]="parentGroup" [ngClass]="field.classNames">
+    <mat-select
+        [placeholder]="label"
+        [formControlName]="field.name"
+        [required]="formService.isRequired(field)"
+        [class.readonly]="field.readonly"
+        multiple
+    >
+        <mat-option *ngFor="let item of field.options" [value]="item.value">{{item.label}}</mat-option>
+    </mat-select>
+    <mat-hint>{{hint}}</mat-hint>
+    <ng-container *ngFor="let validation of field.validators;" ngProjectAs="mat-error">
+        <mat-error *ngIf="parentGroup.get(field.name).hasError(validation.name)">{{getValidationMessage(validation)}}</mat-error>
+    </ng-container>
+</mat-form-field>

@@ -1,0 +1,19 @@
+{   "name": "@anviltech/wuf-ang-dynamic-form",
+    "version": "2.0.0-rc.1.0",
+    "description": "An Angular Dynamic Form",
+    "author": "Chenchao Wei",
+    "scripts": {
+        "build": "ng build --prod @anviltech/wuf-ang-dynamic-form",
+        "packagr": "yarn build",
+        "pub": "yarn packagr && yarn publish dist --access public"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "main": "dist/bundles/anviltech-wuf-ang-dynamic-form.umd.js",
+    "typings": "dist/anviltech-wuf-ang-dynamic-form.d.ts",
+    "peerDependencies": {
+        "@angular/common": "^7.2.0",
+        "@angular/core": "^7.2.0"
+    }
+}

@@ -1,0 +1,22 @@
+<div [formGroup]="parentGroup" class="mat-form-field-appearance-legacy">
+    <label [class.error]="hasError">
+        {{label}}
+        <span *ngIf="formService.isRequired(field)" class="required">*</span>:
+    </label>
+    <mat-hint *ngIf="!hasError">{{hint}}</mat-hint>
+    <ng-container *ngFor="let validation of field.validators;" ngProjectAs="mat-error">
+        <mat-error
+            *ngIf="hasError">{{getValidationMessage(validation)}}</mat-error>
+    </ng-container>
+
+    <mat-radio-group [formControlName]="field.name" [ngClass]="field.classNames">
+        <ng-container *ngFor="let item of field.options">
+            <mat-radio-button
+                color="primary"
+                [value]="item.value"
+                [class.readonly]="field.readonly"
+            >{{item.label}}</mat-radio-button>
+            <mat-hint *ngIf="item.hint">{{item.hint}}</mat-hint>
+        </ng-container>
+    </mat-radio-group>
+</div>

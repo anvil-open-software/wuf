@@ -1,0 +1,23 @@
+<mat-form-field
+    [formGroup]="parentGroup"
+    [ngClass]="field.classNames"
+    [class.readonly]="field.readonly"
+>
+    <input
+        matInput
+        [formControlName]="field.name"
+        [placeholder]="label"
+        [type]="field.inputType"
+        [required]="formService.isRequired(field)"
+    >
+    <mat-hint *ngIf="hint">{{hint}}</mat-hint>
+
+    <span *ngIf="parentGroup.get(field.name).touched && parentGroup.get(field.name).invalid" class="errorIcon" matSuffix
+            matTooltip="Validation error">
+        <mat-icon>error</mat-icon>
+    </span>
+    <ng-container *ngFor="let validation of field.validators;" ngProjectAs="mat-error">
+        <mat-error
+            *ngIf="parentGroup.get(field.name).hasError(validation.name)">{{getValidationMessage(validation)}}</mat-error>
+    </ng-container>
+</mat-form-field>

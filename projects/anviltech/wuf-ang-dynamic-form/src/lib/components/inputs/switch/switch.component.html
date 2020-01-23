@@ -1,0 +1,13 @@
+<ng-container [formGroup]="parentGroup">
+    <mat-slide-toggle
+        [formControlName]="field.name"
+        [placeholder]="field.label"
+        [required]="formService.isRequired(field)"
+        labelPosition="before"
+        color="primary"
+        [value]="field.value"
+        [ngClass]="field.classNames"
+        [class.readonly]="field.readonly"
+    >{{label}}</mat-slide-toggle>
+    <mat-hint>{{hint}}</mat-hint>
+</ng-container>

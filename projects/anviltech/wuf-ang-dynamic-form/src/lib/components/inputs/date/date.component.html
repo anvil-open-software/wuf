@@ -1,0 +1,16 @@
+<mat-form-field [formGroup]="parentGroup" [ngClass]="field.classNames">
+    <input
+        matInput
+        [matDatepicker]="picker"
+        [formControlName]="field.name"
+        [placeholder]="label"
+        [required]="formService.isRequired(field)"
+        [class.readonly]="field.readonly"
+    >
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker startView="month"></mat-datepicker>
+    <mat-hint>{{hint}}</mat-hint>
+    <ng-container *ngFor="let validation of field.validators;" ngProjectAs="mat-error">
+        <mat-error *ngIf="parentGroup.get(field.name).hasError(validation.name)">{{getValidationMessage(validation)}}</mat-error>
+    </ng-container>
+</mat-form-field>
