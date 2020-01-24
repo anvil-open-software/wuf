@@ -36,8 +36,8 @@ export class WufSidebarMainComponent implements OnInit, OnDestroy {
     _storedTransition: string;
     _currentSize: number;
 
-    @ViewChild('sidebarWrap') sidebarWrap: ElementRef;
-    @ViewChild('sidebar') sidebar: ElementRef;
+    @ViewChild('sidebarWrap', {static: false}) sidebarWrap: ElementRef;
+    @ViewChild('sidebar', {static: false}) sidebar: ElementRef;
 
     constructor(public kgSidebarService: WufSidebarService, public configService: WufConfigurationService) {
     }

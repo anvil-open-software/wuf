@@ -29,7 +29,7 @@ export class CustomViewComponent implements OnInit, OnDestroy {
 
     customComponent: any;
     @Input() cell: WufSmartTableCell;
-    @ViewChild('dynamicTarget', {read: ViewContainerRef}) dynamicTarget: any;
+    @ViewChild('dynamicTarget', {static: false}) dynamicTarget: any;
 
     constructor(private resolver: ComponentFactoryResolver) {
     }

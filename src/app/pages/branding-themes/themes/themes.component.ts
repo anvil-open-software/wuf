@@ -15,9 +15,9 @@ import { ThemeListService } from '../../../_internal/theme-list.service';
 })
 export class ThemesComponent implements OnInit {
 
-    @ViewChild('swatches') swatches: ElementRef;
-    @ViewChild('exampleButtonWrap') exampleButtonWrap: ElementRef;
-    @ViewChild('exampleButton') exampleButton: ElementRef;
+    @ViewChild('swatches', {static: false}) swatches: ElementRef;
+    @ViewChild('exampleButtonWrap', {static: false}) exampleButtonWrap: ElementRef;
+    @ViewChild('exampleButton', {static: false}) exampleButton: ElementRef;
 
     constructor(public themeList: ThemeListService) {
     }
@@ -66,7 +66,7 @@ export class ThemesComponent implements OnInit {
 		$wuf-brand-info:         #03A9F4;
 		$wuf-brand-warning:      #fdd835;
 		$wuf-brand-danger:       #dd2c00;
-	
+
 		/***** create a theme *****/
 		@include wuf-theme-colors((
 			"primary":      $wuf-brand-primary,
@@ -95,11 +95,11 @@ export class ThemesComponent implements OnInit {
 	`;
 
     exampleFontCode = `
-    
+
 	body {
 	    /***** import font *****/
         @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-        
+
 		/***** typography *****/
 		$wuf-brand-body-color:                  var(--wuf-color-gray-700);
 		$wuf-brand-font-family-sans-serif:      Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -116,7 +116,7 @@ export class ThemesComponent implements OnInit {
 		$wuf-brand-h4-font-size:                1.5rem;
 		$wuf-brand-h5-font-size:                1.25rem;
 		$wuf-brand-h6-font-size:                1rem;
-	
+
 		@include wuf-theme-typography(
 			$wuf-brand-body-color,
 			$wuf-brand-font-family-sans-serif,
@@ -147,7 +147,7 @@ export class ThemesComponent implements OnInit {
 		$wuf-brand-info:         #03A9F4;
 		$wuf-brand-warning:      #fdd835;
 		$wuf-brand-danger:       #dd2c00;
-	
+
 		/***** create a theme *****/
 		@include wuf-theme-colors((
 			"primary":      $wuf-brand-primary,
@@ -158,13 +158,13 @@ export class ThemesComponent implements OnInit {
 			"warning":      $wuf-brand-warning,
 			"danger":       $wuf-brand-danger
 		));
-			
+
 		/***** logo *****/
 		@include wuf-theme-logo("/assets/images/example_images/logos/walmart.svg", 140px, 45px);
-		
+
 		/***** buttons *****/
 		@include wuf-theme-button-radius(20px);
-		
+
 		/***** typography *****/
 		$wuf-brand-body-color:                  var(--wuf-color-gray-700);
 		$wuf-brand-font-family-sans-serif:      Roboto, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -181,7 +181,7 @@ export class ThemesComponent implements OnInit {
 		$wuf-brand-h4-font-size:                1.5rem;
 		$wuf-brand-h5-font-size:                1.25rem;
 		$wuf-brand-h6-font-size:                1rem;
-	
+
 		@include wuf-theme-typography(
 			$wuf-brand-body-color,
 			$wuf-brand-font-family-sans-serif,

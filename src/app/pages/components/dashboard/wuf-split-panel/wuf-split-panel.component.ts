@@ -13,7 +13,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 })
 export class WufSplitPanelComponent implements OnInit {
 
-    @ViewChild('panelResizer') sidebarResizer: ElementRef;
+    @ViewChild('panelResizer', {static: false}) sidebarResizer: ElementRef;
 
     constructor() {
     }

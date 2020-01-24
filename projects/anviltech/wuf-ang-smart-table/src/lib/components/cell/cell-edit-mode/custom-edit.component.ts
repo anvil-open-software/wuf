@@ -27,7 +27,7 @@ import { EditCellDefault } from './edit-cell-default';
 export class CustomEditComponent extends EditCellDefault implements OnChanges, OnDestroy {
 
     customComponent: any;
-    @ViewChild('dynamicTarget', {read: ViewContainerRef}) dynamicTarget: any;
+    @ViewChild('dynamicTarget', {static: false}) dynamicTarget: any;
 
     constructor(private resolver: ComponentFactoryResolver) {
         super();

@@ -28,7 +28,7 @@ export class WufNavigationLinkComponent implements OnInit, OnDestroy {
     @Input() iconPosition?: string = 'left';
     @Input() i18nKey?: string;
 
-    @ViewChild('parentNavItem') parentNavItem: any;
+    @ViewChild('parentNavItem', {static: false}) parentNavItem: any;
 
     translateSubscription: Subscription;
     isExpanded: boolean;
