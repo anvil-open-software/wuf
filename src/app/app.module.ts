@@ -53,6 +53,7 @@ import { ThemeListService } from './_internal/theme-list.service';
 import { UserService } from './_internal/services/user.service';
 import { NavigationService } from './_internal/services/navigation.service';
 import { FooterService } from './_internal/services/footer.service';
+import { DynamicFormMetadataService } from "./pages/components/dynamic-form/dynamic-form-metadata.service";
 import { createTranslateLoader } from './_internal/translateLoader.module';
 import { SharedModule } from './_internal/shared.module';
 
@@ -125,6 +126,7 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
         UserService,
         NavigationService,
         FooterService,
+        DynamicFormMetadataService,
 
         // Provider used to create fake backend.  Delete this for a production app.
         fakeBackendProvider

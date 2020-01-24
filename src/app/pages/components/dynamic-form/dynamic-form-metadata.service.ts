@@ -37,7 +37,7 @@ export class DynamicFormMetadataService {
      * files at /data/dynamicForms/metadata/[objectType].json
      * @return {Observable<any>}
      */
-    getMetadataFromApi(objectType: string) {
+    getMetadataFromApi(objectType?: string) {
         return this.http.get<any>('/api/dynamicform');
     }
 

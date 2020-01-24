@@ -167,7 +167,7 @@ export const NavigationItems =
                 {
                     link: '/components/dynamicform',
                     label: 'Dynamic Form',
-                    icon: '&#xE002;',
+                    icon: 'check_box',
                     id: 'nav-dynamic-form'
                 },
                 {

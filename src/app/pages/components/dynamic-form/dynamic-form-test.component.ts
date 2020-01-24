@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { DynamicFormMetadataService } from './dynamic-form-metadata.service';
 
 import { FieldConfig, WufDynamicFormComponent } from '@anviltech/wuf-ang-dynamic-form';
+import { HttpClient } from '@angular/common/http';
 
 declare var require: any;
 const Color = require('color');
@@ -15,7 +16,8 @@ const Color = require('color');
     selector: 'app-theme',
     templateUrl: './dynamic-form-test.component.html',
     styleUrls: ['./dynamic-form-test.component.scss'],
-    providers: [DynamicFormMetadataService]
+    providers: [DynamicFormMetadataService],
+    encapsulation: ViewEncapsulation.Emulated
 })
 export class DynamicFormTestComponent implements OnInit {
 
@@ -332,7 +334,8 @@ export class DynamicFormTestComponent implements OnInit {
     constructor(
         public translate: TranslateService,
         private formBuilder: FormBuilder,
-        private metadataService: DynamicFormMetadataService
+        private metadataService: DynamicFormMetadataService,
+        private http: HttpClient
     ) {
         // Subscribe to language changes
         this.translateSubscription = translate.onLangChange.subscribe(($event: LangChangeEvent) => {
@@ -349,13 +352,15 @@ export class DynamicFormTestComponent implements OnInit {
         // Set up the example dynamic form input fields
         this.dynamicSourceForm = this.formBuilder.group(this.dynamicSourceFormModel);
 
-        this.getObjMetadata(this.objType);
+        //
+        this.getObjMetadata();
+
     }
 
-    getObjMetadata(objType: string) {
+    getObjMetadata() {
         // Get metadata from BFF
-        //this.metadataService.getMetadataFromApi(objType).subscribe(
-           // results => {
+        //return this.http.get<any>('/api/dynamicform').subscribe(
+            //results => {
                 // Success.  We now have metadata for forms.
                 const metadata = {
                     blacklist: ['id', 'uri'],
@@ -421,18 +426,20 @@ export class DynamicFormTestComponent implements OnInit {
                     }
                 }
 
+                //const metadata = results.data;
+
                 // Set up the data source for the dynamic form
                 this.dynamicSourceForm.patchValue({
                     sourceDataObject: [JSON.stringify(this.sourceObject, null, 4)],
                     metadata: [JSON.stringify(metadata, null, 4)],
                     finalFormData: [JSON.stringify(this.finalFormData, null, 4)],
                 });
-           // },
-            //error => {
-                // Catch observable errors
-                //console.error('Error on metadata subscription:', error);
             //}
-        //);
+            /*error => {
+                // Catch observable errors
+                console.error('Error on metadata subscription:', error);
+            }
+        );*/
     }
 
     translateStrings() {
