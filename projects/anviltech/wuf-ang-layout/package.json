@@ -1,8 +1,9 @@
 {
     "name": "@anviltech/wuf-ang-layout",
-    "version": "2.0.0-rc.9.3",
+    "version": "2.0.1",
     "description": "A set of components and services related to application layout.",
     "author": "Darren Luvaas",
+    "license": "MIT",
     "scripts": {
         "build": "ng build @anviltech/wuf-ang-layout",
         "packagr": "yarn build",
@@ -15,19 +16,19 @@
     "main": "dist/bundles/anviltech-wuf-ang-layout.umd.js",
     "typings": "dist/anviltech-wuf-ang-layout.d.ts",
     "dependencies": {
-        "@anviltech/wuf-ang-configuration": "^2.0.0-rc.7.3",
-        "@anviltech/wuf-web-assets": "^2.0.0-rc.18.2"
+        "@anviltech/wuf-ang-configuration": "^2.0.1",
+        "@anviltech/wuf-web-assets": "^2.0.1"
     },
     "peerDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0",
-        "material-design-icons": "3.0.1",
-        "rxjs": "~6.3.3"
+      "@angular/common": "~8.2.14",
+    	"@angular/core": "~8.2.14",
+      "material-design-icons": "3.0.1",
+      "rxjs": "~6.5.4"
     },
     "devDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0",
-        "material-design-icons": "3.0.1",
-        "rxjs": "~6.3.3"
+      "@angular/common": "~8.2.14",
+    	"@angular/core": "~8.2.14",
+      "material-design-icons": "3.0.1",
+      "rxjs": "~6.5.4"
     }
 }

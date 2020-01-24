@@ -1,8 +1,9 @@
 {
     "name": "@anviltech/wuf-ang-drawer",
-    "version": "2.0.0-rc.3.2",
+    "version": "2.0.1",
     "description": "An Angular Material-style side drawer.",
     "author": "Darren Luvaas",
+    "license": "MIT",
     "scripts": {
         "build": "ng build --prod @anviltech/wuf-ang-drawer",
         "packagr": "yarn build",
@@ -15,13 +16,15 @@
     "main": "dist/bundles/anviltech-wuf-ang-drawer.umd.js",
     "typings": "dist/anviltech-wuf-ang-drawer.d.ts",
     "peerDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0",
-        "@angular/material": "7.3.2",
-        "material-design-icons": "3.0.1"
+      "@angular/cdk": "~8.2.3",
+    	"@angular/common": "~8.2.14",
+      "@angular/material": "~8.2.3",
+      "material-design-icons": "3.0.1"
     },
     "devDependencies": {
-        "@angular/material": "7.3.2",
-        "material-design-icons": "3.0.1"
+      "@angular/cdk": "~8.2.3",
+    	"@angular/common": "~8.2.14",
+      "@angular/material": "~8.2.3",
+      "material-design-icons": "3.0.1"
     }
 }

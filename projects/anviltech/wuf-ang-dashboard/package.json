@@ -1,8 +1,9 @@
 {
     "name": "@anviltech/wuf-ang-dashboard",
-    "version": "2.0.0-rc.2.2",
+    "version": "2.0.1",
     "description": "A dashboard component that includes layout and left-side KPI indicators.",
     "author": "Darren Luvaas",
+    "license": "MIT",
     "scripts": {
         "build": "ng build --prod @anviltech/wuf-ang-dashboard",
         "packagr": "yarn build",
@@ -15,11 +16,11 @@
     "main": "dist/bundles/anviltech-wuf-ang-dashboard.umd.js",
     "typings": "dist/anviltech-wuf-ang-dashboard.d.ts",
     "peerDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0"
+      "@angular/common": "~8.2.14",
+    	"@angular/core": "~8.2.14"
     },
     "devDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0"
+      "@angular/common": "~8.2.14",
+    	"@angular/core": "~8.2.14"
     }
 }

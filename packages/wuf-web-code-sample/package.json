@@ -1,10 +1,11 @@
 {
     "name": "@anviltech/wuf-web-code-sample",
-    "version": "2.0.0-rc.1.2",
+    "version": "2.0.1",
     "description": "A web component for display code samples, based on code-sample at https://github.com/kcmr/code-sample",
     "main": "dist/wuf-code-sample.js",
     "types": "dist/wuf-code-sample.d.ts",
     "author": "Darren Luvaas",
+    "license": "MIT",
     "directories": {
         "test": "test"
     },

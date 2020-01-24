@@ -1,6 +1,7 @@
 {
     "name": "@anviltech/wuf-ang-utils",
-    "version": "2.0.0-rc.1.2",
+    "version": "2.0.1",
+    "license": "MIT",
     "description": "This package contains a number of helper functions for positioning, event triggers, merging, etc that can be used in an app, component, or tests.",
     "author": "Darren Luvaas",
     "scripts": {
@@ -15,11 +16,11 @@
     "main": "dist/bundles/anviltech-wuf-ang-utils.umd.js",
     "typings": "dist/anviltech-wuf-ang-utils.d.ts",
     "peerDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0"
+      "@angular/common": "~8.2.14",
+    	"@angular/core": "~8.2.14"
     },
     "devDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0"
+      "@angular/common": "~8.2.14",
+    	"@angular/core": "~8.2.14"
     }
 }

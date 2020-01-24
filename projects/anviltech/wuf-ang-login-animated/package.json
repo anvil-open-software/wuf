@@ -1,8 +1,9 @@
 {
     "name": "@anviltech/wuf-ang-login-animated",
-    "version": "2.0.0-rc.3.3",
+    "version": "2.0.1",
     "description": "A fancy, animated login screen.",
     "author": "Darren Luvaas",
+    "license": "MIT",
     "scripts": {
         "build": "ng build --prod @anviltech/wuf-ang-login-animated",
         "packagr": "yarn build",
@@ -15,12 +16,12 @@
     "main": "dist/bundles/anviltech-wuf-ang-login-animated.umd.js",
     "typings": "dist/anviltech-wuf-ang-login-animated.d.ts",
     "dependencies": {
-        "@anviltech/wuf-ang-layout": "^2.0.0-rc.9.3"
+        "@anviltech/wuf-ang-layout": "^2.0.1"
     },
     "peerDependencies": {
-        "@angular/cdk": "7.3.2",
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0",
-        "@angular/material": "7.3.2"
+      "@angular/cdk": "~8.2.3",
+    	"@angular/common": "~8.2.14",
+    	"@angular/core": "~8.2.14",
+      "@angular/material": "8.2.3"
     }
 }
