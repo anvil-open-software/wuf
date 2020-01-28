@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2020-01-28
+### Fixed
+- Migrated to Angular 8.1.4, the same version used by angular cli.
+
 ## [2.0.0-rc.19] - 2019-12-18
 ### Fixed
 - without a deploy key with r/w access, pushing the tag will fail the build
