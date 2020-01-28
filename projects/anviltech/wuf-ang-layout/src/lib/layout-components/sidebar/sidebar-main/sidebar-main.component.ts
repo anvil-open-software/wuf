@@ -36,8 +36,8 @@ export class WufSidebarMainComponent implements OnInit, OnDestroy {
     _storedTransition: string;
     _currentSize: number;
 
-    @ViewChild('sidebarWrap', {static: false}) sidebarWrap: ElementRef;
-    @ViewChild('sidebar', {static: false}) sidebar: ElementRef;
+    @ViewChild('sidebarWrap', {static: true}) sidebarWrap: ElementRef;
+    @ViewChild('sidebar', {static: true}) sidebar: ElementRef;
 
     constructor(public kgSidebarService: WufSidebarService, public configService: WufConfigurationService) {
     }
@@ -83,6 +83,7 @@ export class WufSidebarMainComponent implements OnInit, OnDestroy {
                 this.onConfigChange(newConfig);
             },
             err => {
+
                 console.warn('error on subscription:', err);
             }
         );
