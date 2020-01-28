@@ -226,7 +226,7 @@ export class WufSidebarMainComponent implements OnInit, OnDestroy {
      * (i.e., if this.kgSidebarService.sidebarIsExpanded is NOT undefined)
      */
     private getIsExpanded() {
-        let isExpanded;
+        let isExpanded: any;
 
         if (this.kgSidebarService.sidebarIsExpanded !== undefined && this.kgSidebarService.sidebarIsExpanded === false) {
             isExpanded = false;

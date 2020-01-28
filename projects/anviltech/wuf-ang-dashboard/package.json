@@ -16,11 +16,11 @@
     "main": "dist/bundles/anviltech-wuf-ang-dashboard.umd.js",
     "typings": "dist/anviltech-wuf-ang-dashboard.d.ts",
     "peerDependencies": {
-      "@angular/common": "~8.2.14",
-    	"@angular/core": "~8.2.14"
+      "@angular/common": "~8.2.4",
+    	"@angular/core": "~8.2.4"
     },
     "devDependencies": {
-      "@angular/common": "~8.2.14",
-    	"@angular/core": "~8.2.14"
+      "@angular/common": "~8.2.4",
+    	"@angular/core": "~8.2.4"
     }
 }

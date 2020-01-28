@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## ["2.0.1] - 2020-01-23
 ### Migrated
-- Migrated to angular@8.2.14.
+- Migrated to angular@8.2.4.
 
 
 ## [2.0.0-rc.9] - 2019-05-10

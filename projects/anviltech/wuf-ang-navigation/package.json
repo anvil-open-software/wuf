@@ -22,20 +22,20 @@
     },
     "peerDependencies": {
       "@angular/cdk": "~8.2.3",
-    	"@angular/common": "~8.2.14",
-    	"@angular/core": "~8.2.14",
+    	"@angular/common": "~8.2.4",
+    	"@angular/core": "~8.2.4",
       "@angular/material": "~8.2.3",
       "@anviltech/wuf-web-assets": "^2.0.1",
       "material-design-icons": "3.0.1",
-      "rxjs": "~6.5.4"
+      "rxjs": "~6.4.0"
     },
     "devDependencies": {
       "@angular/cdk": "~8.2.3",
-    	"@angular/common": "~8.2.14",
-    	"@angular/core": "~8.2.14",
+    	"@angular/common": "~8.2.4",
+    	"@angular/core": "~8.2.4",
       "@angular/material": "~8.2.3",
       "@anviltech/wuf-web-assets": "^2.0.1",
       "material-design-icons": "3.0.1",
-      "rxjs": "~6.5.4"
+      "rxjs": "~6.4.0"
     }
 }
