@@ -87,8 +87,8 @@ export class FormsComponent implements OnInit {
     filteredFruits: Observable<string[]>;
     fruits1: string[] = ['Lemon'];
     allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
-    @ViewChild('fruitInput1') fruitInput1: ElementRef<HTMLInputElement>;
-    @ViewChild('auto') matAutocomplete: MatAutocomplete;
+    @ViewChild('fruitInput1', {static: false}) fruitInput1: ElementRef<HTMLInputElement>;
+    @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
     fruits2: any[] = [
         {name: 'Lemon'},
         {name: 'Lime'},

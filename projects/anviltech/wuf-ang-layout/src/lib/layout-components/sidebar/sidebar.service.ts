@@ -78,7 +78,7 @@ export class WufSidebarService {
     }
 
     /***** footer links *****/
-    public getSidebarFooterData(url: string): Observable<any> {
+    public getSidebarFooterData(url: string): Observable<FooterResponseData> {
         return this.http.get<FooterResponseData>(url);
     }
 

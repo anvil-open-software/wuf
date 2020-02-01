@@ -12,7 +12,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
     styleUrls: ['./web-messages.component.scss']
 })
 export class WebMessagesComponent implements OnInit {
-    @ViewChild('wm') wm: ElementRef;
+    @ViewChild('wm', {static: false}) wm: ElementRef;
 
     constructor() {
     }

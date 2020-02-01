@@ -24,11 +24,11 @@ export class UserService {
         return this.http.post<any>('/api/authenticate', user);
     }
 
-    getAll() {
+    getAll(): any {
         return this.http.get<any>('/api/users');
     }
 
-    getById(id: string) {
+    getById(id: string): any {
         return this.http.get<any>('/api/users/' + id);
     }
 

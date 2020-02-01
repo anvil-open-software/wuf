@@ -20,7 +20,7 @@ export class KpiDisplayComponent implements OnInit {
     @Input() color?: string;
     @Input() id: string;
     @Input() disabled?: boolean;
-    @ViewChild('kpi') el: ElementRef;
+    @ViewChild('kpi', {static: false}) el: ElementRef;
 
     constructor(public dashboardService: WufDashboardService) {
     }

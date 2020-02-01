@@ -1,8 +1,9 @@
 {
     "name": "@anviltech/wuf-ang-gridster",
-    "version": "2.0.0-rc.1.2",
+    "version": "2.0.1",
     "description": "A UI widget for a gridster layout.  Based on [Angular Gridster 2](https://github.com/tiberiuzuld/angular-gridster2).",
     "author": "Darren Luvaas",
+    "license": "MIT",
     "scripts": {
         "build": "ng build --prod @anviltech/wuf-ang-gridster",
         "packagr": "yarn build",
@@ -15,12 +16,12 @@
     "main": "dist/bundles/anviltech-wuf-ang-gridster.umd.js",
     "typings": "dist/anviltech-wuf-ang-gridster.d.ts",
     "dependencies": {
-        "angular-gridster2": "^7.0.0"
+      "angular-gridster2": "~8.2.0"
     },
     "peerDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0",
-        "@angular/material": "7.3.2",
-        "material-design-icons": "^3.0.1"
+      "@angular/common": "~8.2.4",
+    	"@angular/core": "~8.2.4",
+      "@angular/material": "~8.2.3",
+      "material-design-icons": "^3.0.1"
     }
 }

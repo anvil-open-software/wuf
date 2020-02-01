@@ -66,26 +66,26 @@ describe('WufViewMainComponent', () => {
             expect(de).toBeTruthy();
         });
 
-        it('should have a app-level header', () => {
-            de = fixture.debugElement.query(By.css('.page .page-row .main-header wuf-toolbar'));
-            el = de.nativeElement;
+        it('should have a app-level header', async () => {
+            de = await fixture.debugElement.query(By.css('.page .page-row .main-header wuf-toolbar'));
+            el = await de.nativeElement;
             expect(de).toBeTruthy();
         });
 
-        it('should have a main content area', () => {
-            de = fixture.debugElement.query(By.css('.page .page-row .main-wrap .main'));
+        it('should have a main content area', async () => {
+            de = await fixture.debugElement.query(By.css('.page .page-row .main-wrap .main'));
             expect(de).toBeTruthy();
         });
 
         describe('Sidebar', () => {
-            it('should have a sidebar', () => {
-                de = fixture.debugElement.query(By.css('.page .page-row wuf-sidebar'));
+            it('should have a sidebar', async () => {
+                de = await fixture.debugElement.query(By.css('.page .page-row wuf-sidebar'));
                 expect(de).toBeTruthy();
             });
 
-            it('should have a sidebar toggler', () => {
-                de = fixture.debugElement.query(By.css('.page .page-row .main-header wuf-toolbar .sidebar-toggler'));
-                el = de.nativeElement;
+            it('should have a sidebar toggler', async () => {
+                de = await fixture.debugElement.query(By.css('.page .page-row .main-header wuf-toolbar .sidebar-toggler'));
+                el = await de.nativeElement;
                 expect(de).toBeTruthy();
             });
         });

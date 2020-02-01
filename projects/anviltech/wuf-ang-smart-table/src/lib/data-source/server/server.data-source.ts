@@ -3,12 +3,7 @@
  * Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
  */
 
-import { HttpClient } from "@angular/common/http";
-import { HttpHeaders } from '@angular/common/http';
-
-import { Http } from '@angular/http';
-import { RequestOptionsArgs } from '@angular/http/src/interfaces';
-import { URLSearchParams } from '@angular/http';
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
 import { WufSmartTableLocalDataSource } from '../local/local.data-source';
@@ -23,7 +18,7 @@ export class WufSmartTableServerDataSource extends WufSmartTableLocalDataSource 
 
     protected lastRequestCount: number = 0;
 
-    constructor(protected httpClient: HttpClient, protected http: Http, conf: ServerSourceConf | {} = {}) {
+    constructor(protected httpClient: HttpClient, conf: ServerSourceConf | {} = {}) {
         super();
 
         this.conf = new ServerSourceConf(conf);
@@ -83,53 +78,58 @@ export class WufSmartTableServerDataSource extends WufSmartTableLocalDataSource 
     }
 
     protected requestElements(): Observable<any> {
-        return this.http.get(this.conf.endPoint, this.createRequestOptions());
+      let params: HttpParams;
+
+      params = this.createRequestOptions()
+      const options = { params };
+      return this.httpClient.get(this.conf.endPoint, options /* this.createRequestOptions()*/);
     }
 
-    protected createRequestOptions(): RequestOptionsArgs {
-        let requestOptions: RequestOptionsArgs = {};
-        requestOptions.params = new URLSearchParams();
+    protected createRequestOptions(): HttpParams {
+        let params: HttpParams = new HttpParams();
 
-        requestOptions = this.addSortRequestOptions(requestOptions);
-        requestOptions = this.addFilterRequestOptions(requestOptions);
-        return this.addPagerRequestOptions(requestOptions);
+        params = this.addSortRequestOptions(params);
+        params = this.addFilterRequestOptions(params);
+        params = this.addPagerRequestOptions(params);
+
+        return params;
     }
 
-    protected addSortRequestOptions(requestOptions: RequestOptionsArgs): RequestOptionsArgs {
-        const searchParams: URLSearchParams = <URLSearchParams>requestOptions.params;
+    protected addSortRequestOptions(requestOptions: HttpParams): HttpParams {
+      let params: HttpParams = requestOptions;
 
-        if (this.sortConf) {
-            this.sortConf.forEach((fieldConf) => {
-                searchParams.set(this.conf.sortFieldKey, fieldConf.field);
-                searchParams.set(this.conf.sortDirKey, fieldConf.direction.toUpperCase());
-            });
-        }
+      if (this.sortConf) {
+        this.sortConf.forEach((fieldConf) => {
+          params.set(this.conf.sortFieldKey, fieldConf.field);
+          params.set(this.conf.sortDirKey, fieldConf.direction.toUpperCase());
+        });
+      }
 
-        return requestOptions;
+      return params;
     }
 
-    protected addFilterRequestOptions(requestOptions: RequestOptionsArgs): RequestOptionsArgs {
-        const searchParams: URLSearchParams = <URLSearchParams>requestOptions.params;
+    protected addFilterRequestOptions(requestOptions: HttpParams): HttpParams {
+      let params: HttpParams = requestOptions;
 
-        if (this.filterConf.filters) {
-            this.filterConf.filters.forEach((fieldConf: any) => {
-                if (fieldConf['search']) {
-                    searchParams.set(this.conf.filterFieldKey.replace('#field#', fieldConf['field']), fieldConf['search']);
-                }
-            });
-        }
+      if (this.filterConf.filters) {
+        this.filterConf.filters.forEach((fieldConf: any) => {
+          if (fieldConf['search']) {
+              params.set(this.conf.filterFieldKey.replace('#field#', fieldConf['field']), fieldConf['search']);
+          }
+        });
+      }
 
-        return requestOptions;
+      return params;
     }
 
-    protected addPagerRequestOptions(requestOptions: RequestOptionsArgs): RequestOptionsArgs {
-        const searchParams: URLSearchParams = <URLSearchParams>requestOptions.params;
+    protected addPagerRequestOptions(requestOptions: HttpParams): HttpParams {
+      let params: HttpParams = requestOptions;
 
-        if (this.pagingConf && this.pagingConf['page'] && this.pagingConf['perPage']) {
-            searchParams.set(this.conf.pagerPageKey, this.pagingConf['page']);
-            searchParams.set(this.conf.pagerLimitKey, this.pagingConf['perPage']);
-        }
+      if (this.pagingConf && this.pagingConf['page'] && this.pagingConf['perPage']) {
+        params.set(this.conf.pagerPageKey, this.pagingConf['page']);
+        params.set(this.conf.pagerLimitKey, this.pagingConf['perPage']);
+      }
 
-        return requestOptions;
+      return params;
     }
 }

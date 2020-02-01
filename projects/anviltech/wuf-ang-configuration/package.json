@@ -1,8 +1,9 @@
 {
     "name": "@anviltech/wuf-ang-configuration",
-    "version": "2.0.0-rc.7.3",
+    "version": "2.0.1",
     "description": "A configuration service for storing, maintaining, and broadcasting application configurations.",
     "author": "Darren Luvaas",
+    "license": "MIT",
     "scripts": {
         "build": "ng build --prod @anviltech/wuf-ang-configuration",
         "packagr": "yarn build",
@@ -15,16 +16,16 @@
     "main": "dist/bundles/anviltech-wuf-ang-configuration.umd.js",
     "typings": "dist/anviltech-wuf-ang-configuration.d.ts",
     "dependencies": {
-        "@anviltech/wuf-ang-utils": "^2.0.0-rc.1.2"
+        "@anviltech/wuf-ang-utils": "^2.0.1"
     },
     "peerDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0",
-        "rxjs": "~6.3.3"
+      "@angular/common": "~8.2.4",
+    	"@angular/core": "~8.2.4",
+    	"rxjs": "~6.4.0"
     },
     "devDependencies": {
-        "@angular/common": "^7.0.0",
-        "@angular/core": "^7.0.0",
-        "rxjs": "~6.3.3"
+      "@angular/common": "~8.2.4",
+    	"@angular/core": "~8.2.4",
+    	"rxjs": "~6.4.0"
     }
 }
