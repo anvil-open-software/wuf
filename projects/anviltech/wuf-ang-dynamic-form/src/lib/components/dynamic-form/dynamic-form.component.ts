@@ -14,8 +14,8 @@ export class WufDynamicFormComponent implements OnInit {
     @Output() onCancel?: EventEmitter<any> = new EventEmitter();
     @Output() onValidationError?: EventEmitter<any> = new EventEmitter();
     @Input() maxWidth?: string = '700px';
-    @ViewChild('dynamicForm') ngForm: NgForm;
-    @ViewChild('wm') wm: ElementRef;
+    @ViewChild('dynamicForm', { static: false }) ngForm: NgForm;
+    @ViewChild('wm', { static: false }) wm: ElementRef;
     form: FormGroup;
 
     constructor(private fb: FormBuilder) {

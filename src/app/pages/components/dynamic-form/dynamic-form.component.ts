@@ -28,7 +28,7 @@ export class DynamicFormComponent implements OnInit {
 
     /***** prebuilt form stuff *****/
     prebuiltFormInputs: FormGroup;
-    @ViewChild(WufDynamicFormComponent) prebuiltForm: any;
+    @ViewChild(WufDynamicFormComponent, { static: false }) prebuiltForm: any;
     prebuiltFormConfig: any = [];
     prebuiltFormConfigData = [
         {
@@ -274,7 +274,7 @@ export class DynamicFormComponent implements OnInit {
     ];
 
     /***** merged form stuff *****/
-    @ViewChild(WufDynamicFormComponent) mergedForm: any;
+    @ViewChild(WufDynamicFormComponent, { static: false }) mergedForm: any;
     mergedFormConfig: FieldConfig[] = [];
     formSubmitting: boolean = false;
     finalFormConfig: FieldConfig[];
