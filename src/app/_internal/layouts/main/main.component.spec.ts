@@ -23,7 +23,7 @@ import { ThemeListService } from '../../theme-list.service';
 import { SharedModule } from '../../shared.module';
 
 
-describe('LayoutMainComponent', () => {
+xdescribe('LayoutMainComponent', () => {
     let component: LayoutMainComponent;
     let fixture: ComponentFixture<LayoutMainComponent>;
     let de: DebugElement;

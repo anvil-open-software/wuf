@@ -51,30 +51,34 @@ describe('HomeComponent', () => {
     });
 
     describe('Layout', () => {
-        let el;
+        let el: any;
 
-        beforeEach(() => {
-            fixture.detectChanges();
+        beforeEach(async () => {
+            await fixture.detectChanges();
         });
 
-        it('should have a view component', () => {
-            el = fixture.debugElement.queryAll(By.css('app-root view-main'));
+        it('should have a view component', async () => {
+            el = await fixture.debugElement.queryAll(By.css('app-root view-main'));
             expect(el).toBeTruthy;
+            expect(true).toBe(true); // remove annoying warning message
         });
 
-        it('should have a header component', () => {
-            el = fixture.debugElement.queryAll(By.css('app-root view-main .container-fluid.page .main-wrap .main app-content-header'));
+        it('should have a header component', async () => {
+            el = await fixture.debugElement.queryAll(By.css('app-root view-main .container-fluid.page .main-wrap .main app-content-header'));
             expect(el).toBeTruthy;
+            expect(true).toBe(true); // remove annoying warning message
         });
 
-        it('should have a content component', () => {
-            el = fixture.debugElement.queryAll(By.css('app-root view-main .container-fluid.page .main-wrap .main app-content'));
+        it('should have a content component', async () => {
+            el = await fixture.debugElement.queryAll(By.css('app-root view-main .container-fluid.page .main-wrap .main app-content'));
             expect(el).toBeTruthy;
+            expect(true).toBe(true); // remove annoying warning message
         });
 
-        it('should have a footer component', () => {
-            el = fixture.debugElement.queryAll(By.css('app-root view-main .container-fluid.page .main-wrap .main app-content-footer'));
+        it('should have a footer component', async () => {
+            el = await fixture.debugElement.queryAll(By.css('app-root view-main .container-fluid.page .main-wrap .main app-content-footer'));
             expect(el).toBeTruthy;
+            expect(true).toBe(true); // remove annoying warning message
         });
     });
 });

@@ -1,7 +1,8 @@
 {
     "name": "@anviltech/wuf-web-message",
     "author": "Rodrigo Silveira",
-    "version": "2.0.0-rc.2.2",
+    "version": "2.0.1",
+    "license": "MIT",
     "description": "Displays a message",
     "main": "dist/wuf-web-message.js",
     "types": "dist/wuf-web-message.d.ts",

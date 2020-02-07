@@ -13,7 +13,7 @@ export class NavigationService {
     constructor(private http: HttpClient) {
     }
 
-    get() {
+    get(): any {
         return this.http.get<any>('/api/navigation');
     }
 }

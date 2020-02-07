@@ -13,7 +13,7 @@ export class FooterService {
     constructor(private http: HttpClient) {
     }
 
-    get() {
+    get(): any {
         return this.http.get<any>('/api/footer');
     }
 }

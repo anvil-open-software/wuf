@@ -61,8 +61,8 @@ import { WufSmartTableCell, WufSmartTableDefaultEditor, WufSmartTableEditor } fr
 })
 export class CustomEditorForFoodsSmartTable extends WufSmartTableDefaultEditor implements AfterViewInit {
 
-    // @ViewChild('clickP') public clickPopover: NgbPopover;
-    // @ViewChild('hoverP') public hoverPopover: NgbPopover;
+    // @ViewChild('clickP', {static: false}) public clickPopover: NgbPopover;
+    // @ViewChild('hoverP', {static: false}) public hoverPopover: NgbPopover;
     //
     // public multipleItems = [];
     // public multipleItemsForPopover = [];

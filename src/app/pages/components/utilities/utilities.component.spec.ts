@@ -22,7 +22,7 @@ describe('UtilitiesComponent', () => {
     let de: DebugElement;
     let el: HTMLElement;
 
-    beforeEach(async(() => {
+    beforeEach(async () => {
         TestBed.configureTestingModule({
             schemas: [
                 CUSTOM_ELEMENTS_SCHEMA
@@ -39,15 +39,15 @@ describe('UtilitiesComponent', () => {
             ]
         })
         .compileComponents();
-    }));
+    });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(UtilitiesComponent);
-        fixture.detectChanges();
+    beforeEach(async () => {
+        fixture = await TestBed.createComponent(UtilitiesComponent);
+        await fixture.detectChanges();
+        component = await fixture.componentInstance;
     });
 
     it('should create', () => {
-        component = fixture.componentInstance;
         expect(component).toBeTruthy();
     });
 

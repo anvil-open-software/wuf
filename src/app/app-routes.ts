@@ -43,11 +43,11 @@ const routes = [
     {path: '', component: LayoutBasicComponent, children: routes_layout_basic},
 
     // Lazy load feature modules
-    {path: 'components', loadChildren: './pages/components/components.module#ComponentsModule'},
-    {path: 'development', loadChildren: './pages/development/development.module#DevelopmentModule'},
-    {path: 'i18n', loadChildren: './pages/i18n/i18n.module#I18nModule'},
-    {path: 'setup', loadChildren: './pages/app-setup/setup.module#SetupModule'},
-    {path: 'themes', loadChildren: './pages/branding-themes/branding-themes.module#BrandingThemesModule'},
+    {path: 'components', loadChildren: () => import('./pages/components/components.module').then(m => m.ComponentsModule)},
+    {path: 'development', loadChildren: () => import('./pages/development/development.module').then(m => m.DevelopmentModule)},
+    {path: 'i18n', loadChildren: () => import('./pages/i18n/i18n.module').then(m => m.I18nModule)},
+    {path: 'setup', loadChildren: () => import('./pages/app-setup/setup.module').then(m => m.SetupModule)},
+    {path: 'themes', loadChildren: () => import('./pages/branding-themes/branding-themes.module').then(m => m.BrandingThemesModule)},
 
     // 404.  If all else fails, go here.  (Keep this as last route)
     {

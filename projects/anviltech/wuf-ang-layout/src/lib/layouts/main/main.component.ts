@@ -58,7 +58,7 @@ export class WufViewMainComponent implements OnInit, AfterViewInit, OnDestroy {
     @Input() logoRoute: string;
 
     /***** Sidebar Resizer *****/
-    @ViewChild('sidebarResizer') sidebarResizer: ElementRef;
+    @ViewChild('sidebarResizer', {static: false}) sidebarResizer: ElementRef;
 
     onSidebarTogglerClick($event: any) {
         this.sidebarService.toggleSidebar($event);

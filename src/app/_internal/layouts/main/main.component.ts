@@ -73,15 +73,15 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
         this.configService.config = theme.config;
     }
 
-    onNavPositionChange($event) {
+    onNavPositionChange($event: any) {
         this.configService.config = {navigation: {position: this.configService.config.navigation.position}};
     }
 
-    onNavIconPositionChange($event) {
+    onNavIconPositionChange($event: any) {
         this.configService.config = {navigation: {iconPosition: this.configService.config.navigation.iconPosition}};
     }
 
-    onNavAlignmentChange($event) {
+    onNavAlignmentChange($event: any) {
         this.configService.config = {navigation: {alignment: this.configService.config.navigation.alignment}};
     }
 
@@ -119,7 +119,7 @@ export class LayoutMainComponent implements OnInit, OnDestroy {
         };
     }
 
-    onDarkThemeChange(val) {
+    onDarkThemeChange(val: any) {
         this.setDarkTheme(val);
     }
 
