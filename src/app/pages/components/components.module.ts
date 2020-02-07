@@ -62,7 +62,7 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { FormsComponent } from './forms/forms.component';
 import { GridsterComponent } from './gridster/gridster.component';
 import { SmartTableComponent } from './smart-table/smart-table.component';
-import { DynamicFormTestComponent } from "./dynamic-form/dynamic-form-test.component";
+import { DynamicFormComponent } from "./dynamic-form/dynamic-form.component";
 
 
 @NgModule({
@@ -121,7 +121,7 @@ import { DynamicFormTestComponent } from "./dynamic-form/dynamic-form-test.compo
         FormsComponent,
         GridsterComponent,
         SmartTableComponent,
-        DynamicFormTestComponent,
+        DynamicFormComponent,
 
         // Smart Table component examples
         CustomEditorForFoodsSmartTable,

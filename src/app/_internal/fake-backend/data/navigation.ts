@@ -111,6 +111,12 @@ export const NavigationItems =
                     id: 'nav-drawer'
                 },
                 {
+                    link: '/components/dynamicform',
+                    label: 'Dynamic Forms',
+                    icon: 'check_box',
+                    id: 'nav-dynamic-form'
+                },
+                {
                     link: '/components/forms',
                     label: 'Form Controls',
                     icon: 'check_box',
@@ -163,12 +169,6 @@ export const NavigationItems =
                     label: 'Tables - Smart Table',
                     icon: '&#xE228;',
                     id: 'nav-smart-table-grid'
-                },
-                {
-                    link: '/components/dynamicform',
-                    label: 'Dynamic Form',
-                    icon: 'check_box',
-                    id: 'nav-dynamic-form'
                 },
                 {
                     link: '/components/toolbars',

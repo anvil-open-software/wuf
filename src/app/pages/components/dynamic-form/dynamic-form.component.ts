@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Subscription } from 'rxjs';
@@ -14,33 +14,23 @@ const Color = require('color');
 
 @Component({
     selector: 'app-theme',
-    templateUrl: './dynamic-form-test.component.html',
-    styleUrls: ['./dynamic-form-test.component.scss'],
+    templateUrl: './dynamic-form.component.html',
+    styleUrls: ['./dynamic-form.component.scss'],
     providers: [DynamicFormMetadataService],
     encapsulation: ViewEncapsulation.Emulated
 })
-export class DynamicFormTestComponent implements OnInit {
-
-    @ViewChild('wm') wm: ElementRef;
+export class DynamicFormComponent implements OnInit {
 
     translateSubscription: Subscription;
     baseBreadcrumb: string;
-    currentBreadcrumb: string = 'Dynamic Form Test';
-    objType: string = 'user';
-
     formData: string;
-    formGroup: FormGroup;
-
-    useSampleMetadata: boolean = false;
-
-    /***** dynamic form stuff *****/
-    @ViewChild(WufDynamicFormComponent) dynamicForm: any;
     maxWidth: string = '700px';
-    formConfig: FieldConfig[] = [];
-    formSubmitting: boolean = false;
-    finalFormConfig: FieldConfig[];
 
-    sampleMetadata: any[] = [
+    /***** prebuilt form stuff *****/
+    prebuiltFormInputs: FormGroup;
+    @ViewChild(WufDynamicFormComponent) prebuiltForm: any;
+    prebuiltFormConfig: any = [];
+    prebuiltFormConfigData = [
         {
             type: 'input',
             label: 'Username',
@@ -280,22 +270,18 @@ export class DynamicFormTestComponent implements OnInit {
                 message: 'You must accept the terms of agreement'
             }
             ]
-        },
-        // {
-        //     type: 'button',
-        //     label: 'Submit'
-        // }
+        }
     ];
 
-    /***** Dynamic form data *****/
-    dynamicSourceForm: FormGroup;
-    dynamicSourceFormModel: any = {
-        sourceDataObject: [''],
-        metadata: [''],
-        finalFormData: ['']
-    };
+    /***** merged form stuff *****/
+    @ViewChild(WufDynamicFormComponent) mergedForm: any;
+    mergedFormConfig: FieldConfig[] = [];
+    formSubmitting: boolean = false;
+    finalFormConfig: FieldConfig[];
+    mergedFormInputs: FormGroup;
 
-    sourceObject: any = {
+    mergedFormSourceObject: any = {
+        id: 'DontShow',
         firstName: 'Darren',
         lastName: '',
         email: '',
@@ -307,35 +293,74 @@ export class DynamicFormTestComponent implements OnInit {
         }
     };
 
-    finalFormData: any[] = [];
-
-    /***** Example static form *****/
-    staticForm: FormGroup;
-    staticFormModel: any = {
-        // Include all properties (including those not displayed) that must be submitted
-        firstName: [''],
-        lastName: [''],
-        address: [''],
-        selectInput: [],
-        multiselectInput: [['option1', 'option3']],
-        dateInput: [''],
-        clearableInput: [''],
-        placeholderInput: [''],
-        sliderInput: [40],
-        radioGroup: ['1'],
-        check1: [],
-        check2: [],
-        check3: [true],
-        slide1: [],
-        slide2: [],
-        slide3: []
+    mergedFormMetadata: any = {
+        blacklist: ['id'],
+        email: {
+            type: 'input',
+            inputType: 'email',
+            hint: 'Enter a valid email address',
+            validators: ['required', 'email']
+        },
+        password: {
+            type: 'input',
+            inputType: 'password',
+            validators: ['required']
+        },
+        postalCode: {
+            type: 'input',
+            inputType: 'text',
+            validators: ['required'],
+            classNames: 'postalCode'
+        },
+        state: {
+            type: 'select',
+            value: '',
+            options: [
+                {
+                    value: 'ca',
+                    label: 'CA'
+                },
+                {
+                    value: 'dc',
+                    label: 'DC'
+                },
+                {
+                    value: 'wa',
+                    label: 'WA'
+                }
+            ],
+            validators: ['required']
+        },
+        country: {
+            type: 'select',
+            value: 'us',
+            options: [
+                {
+                    value: 'china',
+                    label: 'China'
+                },
+                {
+                    value: 'uk',
+                    label: 'UK'
+                },
+                {
+                    value: 'us',
+                    label: 'US'
+                }
+            ],
+            validators: ['required']
+        },
+        default: {
+            type: 'input',
+            inputType: 'text',
+            validators: ['required']
+        }
     };
 
     constructor(
         public translate: TranslateService,
         private formBuilder: FormBuilder,
-        private metadataService: DynamicFormMetadataService,
-        private http: HttpClient
+        private metadataService: DynamicFormMetadataService
     ) {
         // Subscribe to language changes
         this.translateSubscription = translate.onLangChange.subscribe(($event: LangChangeEvent) => {
@@ -345,101 +370,27 @@ export class DynamicFormTestComponent implements OnInit {
 
     ngOnInit() {
         this.translateStrings();
-
-        // Set up the example static form using FormBuilder
-        this.staticForm = this.formBuilder.group(this.staticFormModel);
-
-        // Set up the example dynamic form input fields
-        this.dynamicSourceForm = this.formBuilder.group(this.dynamicSourceFormModel);
-
-        //
-        this.getObjMetadata();
-
+        this.initFormInputFields();
     }
 
-    getObjMetadata() {
-        // Get metadata from BFF
-        //return this.http.get<any>('/api/dynamicform').subscribe(
-            //results => {
-                // Success.  We now have metadata for forms.
-                const metadata = {
-                    blacklist: ['id', 'uri'],
-                    email: {
-                        type: 'input',
-                        inputType: 'email',
-                        hint: 'Enter a valid email address',
-                        validators: ['required', 'email']
-                    },
-                    password: {
-                        type: 'input',
-                        inputType: 'password',
-                        validators: ['required']
-                    },
-                    postalCode: {
-                        type: 'input',
-                        inputType: 'text',
-                        validators: ['required'],
-                        classNames: 'postalCode'
-                    },
-                    state: {
-                        type: 'select',
-                        value: '',
-                        options: [
-                            {
-                                value: 'ca',
-                                label: 'CA'
-                            },
-                            {
-                                value: 'dc',
-                                label: 'DC'
-                            },
-                            {
-                                value: 'wa',
-                                label: 'WA'
-                            }
-                        ],
-                        validators: ['required']
-                    },
-                    country: {
-                        type: 'select',
-                        value: 'us',
-                        options: [
-                            {
-                                value: 'china',
-                                label: 'China'
-                            },
-                            {
-                                value: 'uk',
-                                label: 'UK'
-                            },
-                            {
-                                value: 'us',
-                                label: 'US'
-                            }
-                        ],
-                        validators: ['required']
-                    },
-                    default: {
-                        type: 'input',
-                        inputType: 'text',
-                        validators: ['required']
-                    }
-                }
+    initFormInputFields() {
+        // Set up the example forms' input fields
+        this.mergedFormInputs = this.formBuilder.group({
+            sourceDataObject: [''],
+            metadata: [''],
+            finalFormData: ['']
+        });
 
-                //const metadata = results.data;
+        // Set up the data source for the merged form's input fields
+        this.mergedFormInputs.patchValue({
+            sourceDataObject: [this.getJSONforDisplay(this.mergedFormSourceObject)],
+            metadata: [this.getJSONforDisplay(this.mergedFormMetadata)],
+            finalFormData: [this.getJSONforDisplay([])],
+        });
+    }
 
-                // Set up the data source for the dynamic form
-                this.dynamicSourceForm.patchValue({
-                    sourceDataObject: [JSON.stringify(this.sourceObject, null, 4)],
-                    metadata: [JSON.stringify(metadata, null, 4)],
-                    finalFormData: [JSON.stringify(this.finalFormData, null, 4)],
-                });
-            //}
-            /*error => {
-                // Catch observable errors
-                console.error('Error on metadata subscription:', error);
-            }
-        );*/
+    getJSONforDisplay(obj) {
+        return JSON.stringify(obj, null,  4);
     }
 
     translateStrings() {
@@ -450,23 +401,43 @@ export class DynamicFormTestComponent implements OnInit {
         });
     }
 
+
+    /***** prebuilt form events *****/
+    onGenerateMergedFormFromDataClick() {
+        this.prebuiltFormConfig = this.prebuiltFormConfigData;
+        this.prebuiltForm = WufDynamicFormComponent;
+
+        setTimeout(() => {
+            // Scroll form into view
+            const target = document.querySelector('#prebuiltFormTitle');
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }, 250);
+    }
+
+
+    /***** merged form events *****/
     onLanguageChange($event) {
         // Language has changed.  Now update the display.
         this.translateStrings();
     }
 
     onMetaDataChange() {
-        this.dynamicSourceForm.controls.finalFormData.setValue('{}');
+        this.mergedFormInputs.controls.finalFormData.setValue('{}');
     }
 
     onGenerateFormFromDataClick() {
         this.createFinalData();
-        this.formConfig = this.useSampleMetadata ? this.sampleMetadata : this.finalFormConfig;
-        this.dynamicForm = WufDynamicFormComponent;
+        this.mergedFormConfig = this.finalFormConfig;
+        this.mergedForm = WufDynamicFormComponent;
 
         setTimeout(() => {
             // Scroll form into view
-            const target = document.querySelector('#dynamicFormTitle');
+            const target = document.querySelector('#mergedFormTitle');
             if (target) {
                 target.scrollIntoView({
                     behavior: 'smooth',
@@ -477,11 +448,11 @@ export class DynamicFormTestComponent implements OnInit {
     }
 
     onCreateFinalDataClick() {
-        this.formConfig = [];
+        this.mergedFormConfig = [];
         this.createFinalData();
 
         // Display final metadata in form
-        this.dynamicSourceForm.controls.finalFormData.setValue(JSON.stringify(this.finalFormConfig, null,  4));
+        this.mergedFormInputs.controls.finalFormData.setValue(JSON.stringify(this.finalFormConfig, null,  4));
     }
 
     createFinalData() {
@@ -490,18 +461,18 @@ export class DynamicFormTestComponent implements OnInit {
         let metadata: any;
 
         try {
-            sourceDataObj = JSON.parse(this.dynamicSourceForm.controls.sourceDataObject.value);
+            sourceDataObj = JSON.parse(this.mergedFormInputs.controls.sourceDataObject.value);
         }
         catch (e) {
-            this.dynamicForm.showErrorMessage('Invalid JSON found in Source Data Object field');
+            this.mergedForm.showErrorMessage('Invalid JSON found in Source Data Object field');
             return;
         }
 
         try {
-            metadata = JSON.parse(this.dynamicSourceForm.controls.metadata.value);
+            metadata = JSON.parse(this.mergedFormInputs.controls.metadata.value);
         }
         catch (e) {
-            this.dynamicForm.showErrorMessage('Invalid JSON found in Metadata field');
+            this.mergedForm.showErrorMessage('Invalid JSON found in Metadata field');
             return;
         }
 
@@ -509,18 +480,20 @@ export class DynamicFormTestComponent implements OnInit {
     }
 
     onCancelClickInsideForm() {
-        this.dynamicForm.cancel();
+        // Call the cancel method on the DynamicFormComponent
+        this.mergedForm.cancel();
     }
 
     onSubmitOutsideForm() {
-        this.dynamicForm.submit();
+        // Call the submit method on the DynamicFormComponent
+        this.mergedForm.submit();
     }
 
-    onDynamicFormSubmit(results?: any) {
+    onMergedFormSubmit(results?: any) {
         this.formSubmitting = true;
         this.formData = JSON.stringify(results);
         // TODO: send data to server. On success, show success message
-        this.dynamicForm.showSuccessMessage('Form submitted successfully!');
+        this.mergedForm.showSuccessMessage('Form submitted successfully!');
 
         // TODO: this is just for demo purposes
         setTimeout( () => {
@@ -528,67 +501,12 @@ export class DynamicFormTestComponent implements OnInit {
         }, 1000);
     }
 
-    onDynamicFormCancel() {
+    onMergedFormCancel() {
     }
 
-    onDynamicFormValidationErrors(errors?: any) {
+    onMergedFormValidationErrors(errors?: any) {
         this.formSubmitting = false;
-        this.dynamicForm.showErrorMessage('Form errors found.  Please check your entries and try again.');
-    }
-
-    sendData(next: any) {
-        // Show loading animation
-        this.formSubmitting = true;
-
-        // // Send post
-        // this.tenantService.updateTenant(this.appearanceForm.value).subscribe(
-        //     results => {
-        //         // Server response received
-        //
-        //         if (results.success) {
-        //             // Success!
-        //
-        //             const item = results.data;
-        //             this.formSubmitting = false;
-        //
-        //             if (this.isNew) {
-        //                 // This was a new item, so we have to let the page that called this modal know
-        //                 this.data.isNew = this.isNew;
-        //             }
-        //
-        //             this.data.item = item;
-        //             this.formSubmitting = false;
-        //             this.dialogRef.close(this.data); // Close this modal
-        //             next();
-        //         }
-        //         else {
-        //             // Handle server errors
-        //
-        //             // Get the error code from the server results (if any)
-        //             const errorCode = results.data && results.data.hasOwnProperty('errorCode') ? results.data['errorCode'] : undefined;
-        //
-        //             this.translate.get([
-        //                 'PAGES.ADMIN_SAAS.TENANTS.DIALOG.ERRORS.UPDATE',
-        //                 'GLOBAL.ERRORS.' + errorCode
-        //             ]).subscribe((res: string) => {
-        //                 const errorMessage: string = res['PAGES.ADMIN_SAAS.TENANTS.DIALOG.ERRORS.UPDATE'];
-        //                 const errorCodeMessage: string = errorCode ? res['GLOBAL.ERRORS.' + errorCode] : '';
-        //
-        //                 this.showErrorMessage(errorMessage + ' ' + errorCodeMessage);
-        //                 this.formSubmitting = false;
-        //
-        //                 // Reset form state
-        //                 this.appearanceForm.markAsPristine();
-        //                 this.appearanceForm.markAsUntouched();
-        //             });
-        //         }
-        //
-        //     },
-        //     error => {
-        //         // Catch observable errors
-        //         console.error('Error on item update subscription. Error:', error);
-        //     }
-        // );
+        this.mergedForm.showErrorMessage('Form errors found.  Please check your entries and try again.');
     }
 
 }

@@ -5,9 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 
-import { DynamicFormTestComponent } from './dynamic-form-test.component';
+import { DynamicFormComponent } from './dynamic-form.component';
 import { WufContentFooterService, WufLayoutModule } from '@anviltech/wuf-ang-layout';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -20,9 +20,9 @@ export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
-describe('DynamicFormTestComponent', () => {
-    let component: DynamicFormTestComponent;
-    let fixture: ComponentFixture<DynamicFormTestComponent>;
+describe('DynamicFormComponent', () => {
+    let component: DynamicFormComponent;
+    let fixture: ComponentFixture<DynamicFormComponent>;
     const formBuilder: FormBuilder = new FormBuilder();
 
     beforeEach(async(() => {
@@ -30,7 +30,7 @@ describe('DynamicFormTestComponent', () => {
             schemas: [
                 CUSTOM_ELEMENTS_SCHEMA
             ],
-            declarations: [DynamicFormTestComponent],
+            declarations: [DynamicFormComponent],
             providers: [
                 WufContentFooterService,
                 TranslateService
@@ -58,9 +58,9 @@ describe('DynamicFormTestComponent', () => {
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(DynamicFormTestComponent);
+        fixture = TestBed.createComponent(DynamicFormComponent);
         component = fixture.componentInstance;
-        component.dynamicSourceForm = formBuilder.group({
+        component.mergedFormInputs = formBuilder.group({
             chain: ['chain', Validators.required],
             ip: [
                 '',

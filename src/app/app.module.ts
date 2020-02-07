@@ -26,7 +26,7 @@ import { WufLoginModule } from '@anviltech/wuf-ang-login-animated';
 import { WufNavigationModule } from '@anviltech/wuf-ang-navigation';
 import { WufGridsterModule } from '@anviltech/wuf-ang-gridster';
 import { WufSmartTableModule } from '@anviltech/wuf-ang-smart-table';
-import { WufDynamicFormModule} from "@anviltech/wuf-ang-dynamic-form";
+import { WufDynamicFormModule} from '@anviltech/wuf-ang-dynamic-form';
 import '@anviltech/wuf-web-code-sample';
 import '@anviltech/wuf-web-message';
 
@@ -53,7 +53,6 @@ import { ThemeListService } from './_internal/theme-list.service';
 import { UserService } from './_internal/services/user.service';
 import { NavigationService } from './_internal/services/navigation.service';
 import { FooterService } from './_internal/services/footer.service';
-import { DynamicFormMetadataService } from "./pages/components/dynamic-form/dynamic-form-metadata.service";
 import { createTranslateLoader } from './_internal/translateLoader.module';
 import { SharedModule } from './_internal/shared.module';
 
@@ -126,7 +125,6 @@ import { GettingStartedComponent } from './pages/getting-started/getting-started
         UserService,
         NavigationService,
         FooterService,
-        DynamicFormMetadataService,
 
         // Provider used to create fake backend.  Delete this for a production app.
         fakeBackendProvider

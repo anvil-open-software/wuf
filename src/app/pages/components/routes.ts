@@ -31,7 +31,7 @@ import { DrawerComponent } from './drawer/drawer.component';
 import { FormsComponent } from './forms/forms.component';
 import { GridsterComponent } from './gridster/gridster.component';
 import { SmartTableComponent } from './smart-table/smart-table.component';
-import { DynamicFormTestComponent } from "./dynamic-form/dynamic-form-test.component";
+import { DynamicFormComponent } from "./dynamic-form/dynamic-form.component";
 
 
 // Pages with main layout (header, footer, nav, content area)
@@ -55,7 +55,7 @@ const routes_layout_main = [
     {path: 'forms', component: FormsComponent, pathMatch: 'full'},
     {path: 'gridster', component: GridsterComponent, pathMatch: 'full'},
     {path: 'smarttable', component: SmartTableComponent, pathMatch: 'full'},
-    {path: 'dynamicform', component: DynamicFormTestComponent, pathMatch: 'full'},
+    {path: 'dynamicform', component: DynamicFormComponent, pathMatch: 'full'},
 
     {path: '', component: ComponentsIntroComponent, pathMatch: 'full'}
 ];

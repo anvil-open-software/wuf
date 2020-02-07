@@ -214,7 +214,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 }
 
                 /***** DYNAMICFORM *****/
-                // get dynamicForm items
+                // get mergedForm items
                 if (request.url.endsWith('/api/dynamicform') && request.method === 'GET') {
                     // check for fake auth token in header and return users if valid, this security is implemented server side in a real application
                     return of(new HttpResponse({status: 200, body: {data: DynamicFormItems}}));
