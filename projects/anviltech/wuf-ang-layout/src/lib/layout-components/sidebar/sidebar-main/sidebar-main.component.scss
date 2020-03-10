@@ -94,11 +94,32 @@
 @import "~@anviltech/wuf-web-assets/assets/styles/breakpoints";
 
 @include media-breakpoint-up(md) {
-    .sidebar-wrap {
-        // Sidebar is hidden initially for small.  Show it on medium-up.
-        width: var(--sidebar-width);
+     .sidebar-wrap {
+         // Sidebar is hidden initially for small.  Show it on medium-up.
+         width: var(--sidebar-width);
+         &.collapsed {
+             width: 0;
+         }
+     }
+ }
+
+@include media-breakpoint-down(sm) {
+    &.position-top {
+        &,
         &.collapsed {
-            width: 0;
+            display: none;
+        }
+
+        &.expanded {
+            display:block;
+            width: 100%;
+            max-width: none;
+            transition: none;
+        }
+    }
+    &.position-left {
+        &.expanded {
+            position: fixed;
         }
     }
 }

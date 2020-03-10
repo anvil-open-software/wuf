@@ -29,3 +29,16 @@
         }
     }
 }
+/***** breakpoints *****/
+@import "~@anviltech/wuf-web-assets/assets/styles/breakpoints";
+
+@include media-breakpoint-down(sm) {
+    .nav-wrap {
+        &.position-top {
+            ul {
+                display: block !important;
+            }
+        }
+    }
+}
+

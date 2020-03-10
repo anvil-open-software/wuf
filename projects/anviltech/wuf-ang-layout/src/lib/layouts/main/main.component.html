@@ -12,7 +12,8 @@
             <wuf-toolbar class="main-header-toolbar">
                 <ng-container toolbarLeft>
                     <i class="sidebar-toggler material-icons" (click)="onSidebarTogglerClick($event)"
-                       *ngIf="navPosition!=='top'">menu</i>
+                       [class.icon-left]="navPosition === 'left'"
+                       [class.icon-top]="navPosition === 'top'">menu</i>
                     <a class="header-logo d-none d-sm-inline-block" [routerLink]="logoRoute" *ngIf="logoRoute"></a>
                     <span class="header-logo" *ngIf="!logoRoute"></span>
                 </ng-container>

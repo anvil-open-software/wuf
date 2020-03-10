@@ -156,3 +156,17 @@ $dragHandle-size: 4px;
     }
 }
 
+@include media-breakpoint-down(sm) {
+    .page {
+        &.sidebarIsExpanded {
+            .flex-row{
+                overflow-x: hidden;
+                .main {
+                    transform: translateX(var(--wuf-sidebar-width))
+                }
+            }
+        }
+
+    }
+}
+
