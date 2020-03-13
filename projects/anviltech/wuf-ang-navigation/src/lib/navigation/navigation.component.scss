@@ -36,7 +36,7 @@
     .nav-wrap {
         &.position-top {
             ul {
-                display: block !important;
+                flex-direction: column !important
             }
         }
     }
