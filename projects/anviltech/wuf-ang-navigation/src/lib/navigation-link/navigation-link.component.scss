@@ -414,3 +414,18 @@ li {
         }
     }
 }
+/***** breakpoints *****/
+@import "~@anviltech/wuf-web-assets/assets/styles/breakpoints";
+
+@include media-breakpoint-down(sm) {
+    li {
+        &.position-top {
+            .nav-link-wrap {
+                &.active,
+                &.active:hover {
+                    background-image: linear-gradient(to right, var(--navigation-link-nested-active-accent-color) 6px, var(--navigation-link-nested-active-bg-color) 6px);
+                }
+            }
+        }
+    }
+}
