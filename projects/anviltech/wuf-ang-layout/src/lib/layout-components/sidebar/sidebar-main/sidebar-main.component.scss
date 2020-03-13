@@ -107,14 +107,13 @@
     &.position-top {
         &,
         &.collapsed {
-            display: none;
+            width: 0 !important;
+            height: 0;
         }
 
         &.expanded {
-            display:block;
-            width: 100%;
-            max-width: none;
-            transition: none;
+            width: 100% !important;
+            height: 100%;
         }
     }
     &.position-left {
