@@ -156,3 +156,25 @@ $dragHandle-size: 4px;
     }
 }
 
+@include media-breakpoint-down(sm) {
+    .page {
+        &.sidebarIsExpanded {
+            .flex-row{
+                overflow-x: hidden;
+            }
+        }
+
+    }
+
+    :host {
+        .main-resizable-content {
+            // ng-deep allows us to access the contents passed via <ng-content>.  The alternative would be to add the following to a global CSS at application level (which would make this component less portable).
+            ::ng-deep {
+                > *:not(router-outlet) {
+                    width:100vw;
+                }
+            }
+        }
+    }
+}
+

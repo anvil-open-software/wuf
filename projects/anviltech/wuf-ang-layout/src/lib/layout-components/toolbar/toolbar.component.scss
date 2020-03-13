@@ -136,6 +136,9 @@
             padding: 10px 5px;
             font-size: 36px;
         }
+        .icon-top{
+            display: none
+        }
         a {
             color: var(--header-color);
             &:hover {
@@ -189,6 +192,17 @@
                     max-width: none;
                     text-align: right;
                 }
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    :host(.main-header-toolbar) {
+        ::ng-deep {
+            // ng-deep allows us to access contents passed via <ng-content>
+            .icon-top {
+                display: inline-block !important;
             }
         }
     }
