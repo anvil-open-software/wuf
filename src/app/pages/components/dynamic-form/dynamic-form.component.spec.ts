@@ -6,6 +6,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormBuilder, Validators } from '@angular/forms';
+import { NgxMdModule } from 'ngx-md';
 
 import { DynamicFormComponent } from './dynamic-form.component';
 import { WufContentFooterService, WufLayoutModule } from '@anviltech/wuf-ang-layout';
@@ -14,6 +15,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { CustomMaterialModule } from '../../../_internal/material.module';
 import { WufDrawerModule } from '@anviltech/wuf-ang-drawer';
 import { WufDynamicFormModule } from '@anviltech/wuf-ang-dynamic-form';
+
 
 // Create a factory for the translate loader
 export function createTranslateLoader(http: HttpClient) {
@@ -36,6 +38,7 @@ describe('DynamicFormComponent', () => {
                 TranslateService
             ],
             imports: [
+                NgxMdModule,
                 HttpClientTestingModule,
                 RouterTestingModule,
                 CustomMaterialModule.forRoot(),
