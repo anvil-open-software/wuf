@@ -1,0 +1,39 @@
+<ng-container *ngIf="field.showAsGroup">
+    <h5 *ngIf="label && showSubheader" class="sectionHeader">{{label}}</h5>
+    <p *ngIf="hint" class="hint">{{hint}}</p>
+</ng-container>
+
+<div [formGroup]="parentGroup" [ngSwitch]="field.inputType">
+
+    <!-- group of switches -->
+    <ng-container *ngSwitchCase="'switchGroup'">
+        <label>{{label}}
+            <span *ngIf="formService.isRequired(field)" class="required">*</span>:
+        </label>
+        <div class="mat-slide-toggle-group full-width">
+            <ng-container
+                *ngFor="let field of childFields"
+                wuf-dynamic-field
+                [field]="field"
+                [rootGroup]="rootGroup"
+                [parentGroup]="currentGroup"
+            ></ng-container>
+        </div>
+    </ng-container>
+
+    <!-- group of checkboxes (Not currently supported) -->
+    <ng-container *ngSwitchCase="'checkboxGroup'">
+    </ng-container>
+
+    <!-- default (just an input) -->
+    <ng-container *ngSwitchDefault>
+        <ng-container
+            *ngFor="let field of childFields"
+            wuf-dynamic-field
+            [field]="field"
+            [rootGroup]="rootGroup"
+            [parentGroup]="currentGroup"
+        ></ng-container>
+    </ng-container>
+
+</div>

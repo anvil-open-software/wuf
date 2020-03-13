@@ -15,5 +15,44 @@
             "ANGULAR": "国际化 - 角度",
             "NGX": "国际化 - ngx-translate"
         }
+    },
+    "PAGES": {
+        "TESTDOCUMENT": {
+            "TITLE": "文件",
+            "FORM": {
+                "VALIDATORS": {
+                    "REQUIRED": "这是必填项",
+                    "EMAIL": "请填写有效的邮箱地址"
+                },
+                "FIRSTNAME": {
+                    "LABEL": "姓氏"
+                },
+                "LASTNAME": {
+                    "LABEL": "名称"
+                },
+                "EMAIL": {
+                    "LABEL": "邮箱地址"
+                },
+                "ADDRESS": {
+                    "LABEL": "地址",
+                    "HINT": "请填写完整的地址"
+                },
+                "STREET": {
+                    "LABEL": "街道"
+                },
+                "CITY": {
+                    "LABEL": "城市"
+                },
+                "STATE": {
+                    "LABEL": "州"
+                },
+                "POSTALCODE": {
+                    "LABEL": "邮政编码"
+                },
+                "COUTRY": {
+                    "LABEL": "国家"
+                }
+            }
+        }
     }
 }

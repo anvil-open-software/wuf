@@ -1,0 +1,496 @@
+<!--
+  ~ Copyright (c) 2018 Dematic, Corp.
+  ~ Licensed under the MIT Open Source: https://opensource.org/licenses/MIT
+  -->
+<wuf-content-header>
+    <!-- insert page header content here -->
+    <ng-container toolbarLeft>
+        <wuf-breadcrumb
+            [items]="[{ link: '/', label: 'Introduction' }, { link: '/components', label: 'Components' }, { link: null, label: 'DynamicForm', active: true }]"></wuf-breadcrumb>
+    </ng-container>
+
+    <ng-container toolbarRight>
+        <!--page-level utilities here-->
+    </ng-container>
+</wuf-content-header>
+
+<wuf-content-main>
+    <!-- insert page content here -->
+    <app-component-tabs [tabLabel_1]="'Example'" [tabLabel_2]="'Where / When to Use'" [tabLabel_3]="'API'"
+                        [tabLabel_4]="'Change Log'">
+        <!-- Component name -->
+        <div class="component_tabs_name">Dynamic Forms</div>
+
+        <!-- EXAMPLE Content -->
+        <div class="component_tabs_1">
+
+            <!-- insert content here -->
+
+            <p>The purpose of WUF Dynamic forms (<strong>WufDynamicFormComponent</strong>) is to take a JSON object describing a form and then dynamically generate a form along with all of its form inputs and error handling in an opinionated way.</p>
+            <p>The form description JSON is the combination of:</p>
+            <ul>
+                <li>A data object with some attributes (e.g., user)</li>
+                <li>Some values for the attributes of that object (e.g., first_name), if any</li>
+                <li>A description of the attribute type for that object (e.g., string vs select)</li>
+                <li>Translation strings to use, if any.</li>
+                <li>Label values for each input.</li>
+                <li>Error messages for each input.</li>
+            </ul>
+
+            <hr>
+
+            <h3>Example Dynamic Form from Metadata</h3>
+            <p>Click the <strong>Generate form from data</strong> to generate a dynamic form using the following JSON object:</p>
+
+            <wuf-code-sample type="json" [code]="getJSONforDisplay(prebuiltFormConfigData)"></wuf-code-sample>
+
+            <button
+                mat-raised-button
+                color="primary"
+                type="button"
+                (click)="onGenerateMergedFormFromDataClick()"
+            >Generate form from data</button>
+
+            <div *ngIf="prebuiltFormConfig.length > 0">
+                <hr>
+                <h4 id="prebuiltFormTitle">This Form was Generated Dynamically!</h4>
+            </div>
+
+            <!-- begin dynamic form-->
+            <wuf-dynamic-form
+                #prebuiltForm
+                [fields]="prebuiltFormConfig"
+                *ngIf="prebuiltFormConfig.length > 0"
+                (onSubmit)="onMergedFormSubmit($event)"
+                (onCancel)="onMergedFormCancel()"
+                (onValidationError)="onMergedFormValidationErrors($event)"
+            >
+                <button mat-button color="primary" type="button" (click)="onCancelClickInsideForm()">Cancel</button>
+                <button mat-raised-button color="primary" type="submit" [class.disabled]="!prebuiltForm.isSubmittable">
+                    <loading-spinner [label]="'Submit'" [loading]="formSubmitting"></loading-spinner> Submit
+                </button>
+            </wuf-dynamic-form>
+            <!-- end dynamic form-->
+
+            <hr>
+
+            <h3>Example Dynamic Metadata Generation</h3>
+
+            <p>A common design pattern for use with dynamic forms is to:</p>
+
+            <ol>
+                <li>Retrieve a simple object from a database in JSON format (e.g., a user object).</li>
+                <li>Retrieve some metadata describing what information we need to display in the UI and how we want to display it.  This metadata may come from the backend, or it may exist only in the frontend.</li>
+                <li>Merge all of the above into the final form data JSON object that the <strong>WufDynamicFormComponent</strong> needs.</li>
+                <li>Send the final form data JSON object into <strong>WufDynamicFormComponent</strong> in order to generate the form.</li>
+            </ol>
+
+            <p>To demonstrate this workflow, the textareas below displays an example <strong>Source Data Object</strong> in JSON format (e.g., a user object that might be retrieved from the backend), some <strong>Metadata</strong> describing the layout of the associated form, and then combines them into the <strong>Final Form Data</strong> JSON object.</p>
+            <p>The <strong>Source Data Object</strong> and <strong>Metadata</strong> are combined together to create the <strong>Final Form Data</strong> using the <strong>DynamicFormMetadataService</strong>, which is provided as a convenience service in the <code>dynamic-form-metadata.service.ts</code> file of this repo.</p>
+            <p>For demonstration purposes you can modify any of the fields below, then click the <strong>=</strong> symbol to combine them into the <strong>Final Form Data</strong>.  This will generate the <strong>Final Form Data</strong>.  You can further modify the <strong>Final Form Data</strong> and click the <strong>Generate form from data</strong> button to generate the dynamic form.</p>
+
+            <form class="dynamic-form" [formGroup]="mergedFormInputs">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th colspan="2"><h5>Source Data Object:</h5></th>
+                        <th colspan="2"><h5>Meta Data:</h5></th>
+                        <th colspan="2"><h5>Final Form Data:</h5></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td style="width: 33%;">
+                            <mat-form-field>
+                            <textarea matInput
+                                      placeholder="Source data object"
+                                      formControlName="sourceDataObject"
+                                      rows="5"
+                            ></textarea>
+                            </mat-form-field>
+                        </td>
+                        <td class="operatorCol">
+                            +
+                        </td>
+                        <td style="width: 33%;">
+                            <mat-form-field>
+                            <textarea matInput
+                                      placeholder="Metadata for form"
+                                      formControlName="metadata"
+                                      rows="5"
+                                      (input)="onMetaDataChange()"
+                            ></textarea>
+                            </mat-form-field>
+                        </td>
+                        <td class="operatorCol">
+                            <button mat-button (click)="onCreateFinalDataClick()">=</button>
+                        </td>
+                        <td style="width: 33%;">
+                            <mat-form-field>
+                            <textarea matInput
+                                      placeholder="Final form data"
+                                      formControlName="finalFormData"
+                                      rows="5"
+                            ></textarea>
+                            </mat-form-field>
+
+                            <button
+                                mat-raised-button
+                                color="primary"
+                                type="button"
+                                (click)="onGenerateFormFromDataClick()"
+                                *ngIf="mergedFormInputs.controls.finalFormData.value.length > 2"
+                                style="position: relative; top: -20px;"
+                            >Generate form from data</button>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+
+            <div *ngIf="mergedFormConfig.length > 0">
+                <hr>
+                <h4 id="mergedFormTitle">This Form was Generated Dynamically!</h4>
+            </div>
+
+            <!-- begin dynamic form -->
+            <wuf-dynamic-form
+                #mergedForm
+                [fields]="mergedFormConfig"
+                *ngIf="mergedFormConfig.length > 0"
+                (onSubmit)="onMergedFormSubmit($event)"
+                (onCancel)="onMergedFormCancel()"
+                (onValidationError)="onMergedFormValidationErrors($event)"
+            >
+                <button mat-button color="primary" type="button" (click)="onCancelClickInsideForm()">Cancel</button>
+                <button mat-raised-button color="primary" type="submit" [class.disabled]="!mergedForm.isSubmittable">
+                    <loading-spinner [label]="'Submit'" [loading]="formSubmitting"></loading-spinner> Submit
+                </button>
+            </wuf-dynamic-form>
+            <!-- end dynamic form -->
+
+            <div *ngIf="mergedFormConfig.length > 0" [style.max-width]="maxWidth" style="text-align: right">
+                <hr>
+
+                <button mat-raised-button type="button"
+                        *ngIf="mergedFormConfig.length > 0"
+                        (click)="onSubmitOutsideForm()"
+                        [class.disabled]="!mergedForm.isSubmittable"
+                >Submit (outside form)</button>
+            </div>
+
+            <div *ngIf="formData">
+                <hr>
+
+                <h3>Form Results:</h3>
+
+                <div>
+                    {{ mergedForm.value | json }}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- WHEN/WHERE Content -->
+        <div class="component_tabs_2">
+            <p>The purpose of WUF Dynamic Forms (WufDynamicFormComponent) is to take a JSON object describing a form and then dynamically generate a form along with all of its form inputs and error handling in an opinionated way.</p>
+            <p>WUF Dynamic Forms are a convenient way to build forms quickly and consistently where all form error handling and layout behaves in a consistent manner.</p>
+        </div>
+
+        <!-- API Content -->
+        <div class="component_tabs_3">
+
+            <markdown path="assets/documentation/packages/wuf-ang-dynamic-form/README.md"></markdown>
+
+            <hr>
+
+            <h3>WufDynamicFormComponent Inputs</h3>
+
+            <table class="table prop-table">
+                <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="prop-name">fields</td>
+                    <td class="prop-type"><code>JSON object</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        A JSON object describing the form to generate.  See the <strong>Fields section below for more information</strong>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">maxWidth</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">'700px'</td>
+                    <td class="prop-description">
+                        The maximum width of the form. Forms that are too wide are hard to use.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3>WufDynamicFormComponent Outputs</h3>
+            <table class="table prop-table">
+                <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="prop-name">onSubmit</td>
+                    <td class="prop-type"><code>function</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        The function to call when the submit button is clicked and the "submit" event is emitted.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">onCacnel</td>
+                    <td class="prop-type"><code>function</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        The function to call when the cancel button is clicked and the "cancel" event is emitted.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">onValidationError</td>
+                    <td class="prop-type"><code>function</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        The function to call the user attempts a form submit but form errors are detected.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3>WufDynamicFormComponent Fields</h3>
+
+            <p>The <strong>fields</strong> property takes an array of fields, each describing a field to display.</p>
+
+            <p>Each field object takes the following properties:</p>
+
+            <table class="table prop-table">
+                <thead>
+                <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="prop-name">type</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        <p>The type of input to display.  Can be any of:</p>
+                        <ul>
+                            <li>button</li>
+                            <li>checkbox</li>
+                            <li>date</li>
+                            <li>group</li>
+                            <li>input</li>
+                            <li>multi</li>
+                            <li>radio</li>
+                            <li>select</li>
+                            <li>switch</li>
+                            <li>textarea</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">label</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        The input label to display for each field.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">inputType</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">text</td>
+                    <td class="prop-description">
+                        <p>When field type = 'input', the following values are accepted:</p>
+                        <ul>
+                            <li></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">name</td>
+                    <td class="prop-type"><code>any</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        The source object attribute name with which to associate this field.  When the object is returned from the form, user input values will be associated with this attribute.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">value</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        The value to display, if any.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">hint</td>
+                    <td class="prop-type"><code>string</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        The hint text to display near the input field, if any.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">validators</td>
+                    <td class="prop-type"><code>array of validators</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        An array of Angular validators to apply to the field.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">options</td>
+                    <td class="prop-type"><code>array</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        When type = 'select' or 'multi', include a list of options to display.  Each option gets a 'value' and a 'label' attribute where 'label' can be a string or an ngx-translate path.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">classNames</td>
+                    <td class="prop-type"><code>array</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        An array of optional css classnames to apply to the input.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">row</td>
+                    <td class="prop-type"><code>number</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        The number of rows to use for type='textarea'.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">fields</td>
+                    <td class="prop-type"><code>array of fields</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        Fields can be nested N deep.  You can include additional field items here.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">translationKey</td>
+                    <td class="prop-type"><code>TranslationKey</code></td>
+                    <td class="prop-default">None</td>
+                    <td class="prop-description">
+                        If the label, hint, and validator.message attributes are included, the field will use these values.  Alternatively, if you want to use ngx-translate to include translations for any of these properties, they can be added here as a TranslationKey object.  TranslationKey objects have the following structure:
+                        <code>
+                            {{ '{' }}
+                                label: 'Label to display',
+                                hint: 'Hint to display',
+                                message: 'Error message to display'
+                            {{ '}' }}
+                        </code>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">readonly</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">false</td>
+                    <td class="prop-description">
+                        Whether or not to display the field as readonly
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">disabled</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">false</td>
+                    <td class="prop-description">
+                        Whether or not to display the field as disabled
+                    </td>
+                </tr>
+                <tr>
+                    <td class="prop-name">showAsGroup</td>
+                    <td class="prop-type"><code>boolean</code></td>
+                    <td class="prop-default">false</td>
+                    <td class="prop-description">
+                        When set to true in the case of, for example, radio or switch groups, all fields in the group will display grouped and aligned together.
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <hr>
+
+            <h3>CSS Custom Properties</h3>
+
+            For usage documentation, refer to <a href="https://material.angular.io/components/categories/forms" target="_blank">Angular Material forms</a>.
+
+            <table class="table table-striped css-props-table">
+                <thead>
+                <tr>
+                    <th width="30%">CSS Custom property</th>
+                    <th>Description</th>
+                    <th style="min-width: 150px;">Value</th>
+                </tr>
+                </thead>
+                <tr>
+                    <td class="propName">--wuf-input-bg-color</td>
+                    <td class="description">The background color used for all text inputs and select controls.</td>
+                    <td class="value">var(--wuf-color-gray-200, #EEEEEE)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--wuf-input-readonly-bg-color</td>
+                    <td class="description">The background color used for all text inputs and select controls in a readonly state.</td>
+                    <td class="value">transparent</td>
+                </tr>
+                <tr>
+                    <td class="propName">--wuf-input-hover-bg-color</td>
+                    <td class="description">The background color used for all text inputs and select controls when hovering over the control.</td>
+                    <td class="value">var(--wuf-input-bg-color)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--wuf-input-disabled-opacity</td>
+                    <td class="description">The opacity used for various elements when the form control is in a disabled state.</td>
+                    <td class="value">.5</td>
+                </tr>
+                <tr>
+                    <td class="propName">--wuf-input-hint-color</td>
+                    <td class="description">The text color used for hint text.  Note that this value will also have a non-overridable opacity level applied to it.</td>
+                    <td class="value">var(--wuf-body-color, #616161)</td>
+                </tr>
+                <tr>
+                    <td class="propName">--wuf-input-underline-color</td>
+                    <td class="description">The color used for the underline element applied to form inputs.</td>
+                    <td class="value">var(--wuf-body-color, #616161)</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- CAHNGELOG Content -->
+        <div class="component_tabs_4">
+            <markdown path="assets/documentation/packages/wuf-ang-dynamic-form/CHANGELOG.md"></markdown>
+        </div>
+    </app-component-tabs>
+</wuf-content-main>
+
+<wuf-content-footer>
+    <!-- insert footer content here -->
+</wuf-content-footer>
+

@@ -1,0 +1,17 @@
+.form-wrapper {
+    form {
+        margin-top: var(--wuf-spacer);
+    }
+    .button-wrapper {
+        margin: 40px auto;
+        text-align: right;
+    }
+}
+
+::ng-deep {
+    .button-wrapper {
+        button:not(:last-child) {
+            margin-right: var(--wuf-spacer);
+        }
+    }
+}

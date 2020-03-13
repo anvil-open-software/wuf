@@ -506,6 +506,46 @@
           }
         }
       }
+    },
+    "@anviltech/wuf-ang-dynamic-form": {
+      "root": "projects/anviltech/wuf-ang-dynamic-form",
+      "sourceRoot": "projects/anviltech/wuf-ang-dynamic-form/src",
+      "projectType": "library",
+      "prefix": "wuf",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/anviltech/wuf-ang-dynamic-form/tsconfig.lib.json",
+            "project": "projects/anviltech/wuf-ang-dynamic-form/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/anviltech/wuf-ang-dynamic-form/ng-package.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/anviltech/wuf-ang-dynamic-form/src/test.ts",
+            "tsConfig": "projects/anviltech/wuf-ang-dynamic-form/tsconfig.spec.json",
+            "karmaConfig": "projects/anviltech/wuf-ang-dynamic-form/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/anviltech/wuf-ang-dynamic-form/tsconfig.lib.json",
+              "projects/anviltech/wuf-ang-dynamic-form/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "wuf"
